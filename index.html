@@ -93,7 +93,17 @@
 
     <script>
         let baseDatos = [];
-        const tramosMora = ['ADELANTADO', 'ANTICIPADO DE -10 A 0', 'ATRASO DE 0 A 30', 'ATRASO DE 31 A 60', 'ATRASO DE 61 A 90', 'ATRASO MAYOR A 90'];
+        // NUEVA LISTA DE TRAMOS ACTUALIZADA CON TUS NUEVOS GRUPOS
+        const tramosMora = [
+            'ADELANTADO', 
+            'ANTICIPADO DE -10 A 0', 
+            'ATRASO DE 1 A 10', 
+            'ATRASO DE 11 A 25', 
+            'ATRASO DE 26 A 50', 
+            'ATRASO DE 51 A 60', 
+            'ATRASO DE 61 A 90', 
+            'ATRASO MAYOR A 90'
+        ];
         let filtrosActivos = { estatus: [], tipo: [], regional: [], atraso: [], gestion: [] };
 
         function inicializarDashboard() {
@@ -179,8 +189,10 @@
             
             let totalCuotas = 0, totalMontoDinero = 0, acumuladoAtrasoTotal = 0;
             
-            let morasCuenta = { 'ADELANTADO': 0, 'ANTICIPADO DE -10 A 0': 0, 'ATRASO DE 0 A 30': 0, 'ATRASO DE 31 A 60': 0, 'ATRASO DE 61 A 90': 0, 'ATRASO MAYOR A 90': 0 };
-            let morasSuma = { 'ADELANTADO': 0, 'ANTICIPADO DE -10 A 0': 0, 'ATRASO DE 0 A 30': 0, 'ATRASO DE 31 A 60': 0, 'ATRASO DE 61 A 90': 0, 'ATRASO MAYOR A 90': 0 };
+            // Inicialización dinámica basada en tus nuevos tramos configurados
+            let morasCuenta = {};
+            let morasSuma = {};
+            tramosMora.forEach(t => { morasCuenta[t] = 0; morasSuma[t] = 0; });
             
             let regionalesCuenta = {}; let regionalesSuma = {};
 
@@ -320,26 +332,18 @@
                     cabecera.onclick = () => {
                         const filasContainer = tabla.querySelector('tbody');
                         const filas = Array.from(filasContainer.querySelectorAll('tr:not(.total-row)'));
-                        
-                        // Por defecto, ordenamos de Mayor a Menor (desc) en el primer clic para métricas de negocio
                         const yaOrdenadoDesc = cabecera.dataset.orden === 'desc';
                         
                         filas.sort((filaA, filaB) => {
                             let celdaA = filaA.children[indice].innerText.replace(/[\$,%]/g, '').trim();
                             let celdaB = filaB.children[indice].innerText.replace(/[\$,%]/g, '').trim();
-                            
-                            let numA = parseFloat(celdaA);
-                            let numB = parseFloat(celdaB);
-                            
-                            if (!isNaN(numA) && !isNaN(numB)) {
-                                return yaOrdenadoDesc ? numA - numB : numB - numA;
-                            }
+                            let numA = parseFloat(celdaA); let numB = parseFloat(celdaB);
+                            if (!isNaN(numA) && !isNaN(numB)) { return yaOrdenadoDesc ? numA - numB : numB - numA; }
                             return yaOrdenadoDesc ? celdaA.localeCompare(celdaB) : celdaB.localeCompare(celdaA);
                         });
                         
                         cabecera.dataset.orden = yaOrdenadoDesc ? 'asc' : 'desc';
                         filas.forEach(f => filasContainer.appendChild(f));
-                        
                         const totalRow = filasContainer.querySelector('.total-row');
                         if (totalRow) filasContainer.appendChild(totalRow);
                     };
