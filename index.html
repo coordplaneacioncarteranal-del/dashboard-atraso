@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Corporativo - Análisis de Mora y Gestión</title>
+    <script src="datos.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; margin: 0; padding: 24px; color: #1e293b; }
+        .header { background-color: #1B365D; color: white; padding: 24px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        
+        /* SE MODIFICA A 5 COLUMNAS PARA INTEGRAR EL FILTRO DE GESTIÓN */
+        .slicer-panel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+        
+        .slicer-card { background: white; padding: 16px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-top: 4px solid #1B365D; display: flex; flex-direction: column; }
+        .slicer-title { font-weight: 700; color: #1B365D; margin-bottom: 12px; font-size: 13px; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; }
+        .slicer-actions { display: flex; gap: 4px; }
+        .slicer-list { max-height: 240px; overflow-y: auto; padding-right: 4px; }
+        .slicer-item { display: flex; align-items: center; padding: 6px 12px; margin-bottom: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 500; transition: all 0.15s ease-in-out; }
+        .slicer-item:hover { background-color: #f1f5f9; }
+        .slicer-item.active-excel-green { background-color: #A7F3D0; color: #064e3b; border-color: #34d399; font-weight: 600; }
+        .slicer-item.active-excel-blue { background-color: #BAE6FD; color: #0c4a6e; border-color: #38bdf8; font-weight: 600; }
+        .btn-clear { font-size: 11px; background: #e2e2e2; color: #475569; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: 600; }
+        .btn-none { font-size: 11px; background: #fecdd3; color: #9f1239; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: 600; }
+        
+        .kpi-container { display: flex; gap: 16px; margin-bottom: 24px; }
+        .kpi-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); flex: 1; border-left: 5px solid #1B365D; }
+        .kpi-card h3 { margin: 0; color: #64748b; font-size: 12px; text-transform: uppercase; font-weight: 600; }
+        .kpi-card p { margin: 8px 0 0 0; font-size: 28px; font-weight: 700; color: #1B365D; }
+        
+        .tables-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+        .chart-card { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        h2 { margin-top: 0; color: #1B365D; font-size: 15px; font-weight: 700; margin-bottom: 16px; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; }
+
+        .table-container { overflow-x: auto; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .excel-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+        .excel-table th { background-color: #1B365D; color: white; padding: 12px 16px; font-weight: 600; }
+        .excel-table td { padding: 12px 16px; border-bottom: 1px solid #e2e8f0; }
+        .excel-table tr:nth-child(even) { background-color: #f8fafc; }
+        .excel-table tr:hover { background-color: #f1f5f9; }
+        
+        .th-cuenta { background-color: #1e3a8a !important; }
+        .th-suma { background-color: #0f766e !important; }
+        
+        .text-right { text-align: right; }
+        .text-bold { font-weight: 600; color: #1B365D; }
+        .total-row { background-color: #e2e8f0 !important; font-weight: 700; color: #1B365D; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 style="margin:0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">SISTEMA DE CONTROL DE VIGENCIAS Y ATRASOS</h1>
+        <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px;">Consolidado Matricial de Cuentas y Montos Totales</p>
+    </div>
+
+    <div class="slicer-panel">
+        <div class="slicer-card"><div class="slicer-title"><span>ESTATUS</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('estatus')">Todos</button><button class="btn-none" onclick="limpiarFiltro('estatus')">Ninguno</button></div></div><div class="slicer-list" id="slicer-estatus"></div></div>
+        <div class="slicer-card"><div class="slicer-title"><span>TIPO</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('tipo')">Todos</button><button class="btn-none" onclick="limpiarFiltro('tipo')">Ninguno</button></div></div><div class="slicer-list" id="slicer-tipo"></div></div>
+        <div class="slicer-card"><div class="slicer-title"><span>REGIONAL</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('regional')">Todos</button><button class="btn-none" onclick="limpiarFiltro('regional')">Ninguno</button></div></div><div class="slicer-list" id="slicer-regional"></div></div>
+        <div class="slicer-card"><div class="slicer-title"><span>GRUPO ATRASO</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('atraso')">Todos</button><button class="btn-none" onclick="limpiarFiltro('atraso')">Ninguno</button></div></div><div class="slicer-list" id="slicer-atraso"></div></div>
+        <div class="slicer-card"><div class="slicer-title"><span>GESTIÓN</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('gestion')">Todos</button><button class="btn-none" onclick="limpiarFiltro('gestion')">Ninguno</button></div></div><div class="slicer-list" id="slicer-gestion"></div></div>
+    </div>
+
+    <div class="kpi-container">
+        <div class="kpi-card"><h3>Total Cuotas Procesadas</h3><p id="kpi-total">0</p></div>
+        <div class="kpi-card" style="border-left-color: #F59E0B;"><h3>Total Cuotas en Atraso (Cartera)</h3><p id="kpi-atraso-total">0</p></div>
+        <div class="kpi-card" style="border-left-color: #EF4444;"><h3>Monto Total de Cuotas</h3><p id="kpi-monto">$0</p></div>
+    </div>
+
+    <div class="tables-wrapper">
+        <div class="chart-card">
+            <h2>Volumen: CUENTA DE CUOTA por Grupo Atraso</h2>
+            <div class="table-container" id="contenedor-tabla-cuenta"></div>
+        </div>
+        <div class="chart-card">
+            <h2>Financiero: SUMA DE CUOTA ($) por Grupo Atraso</h2>
+            <div class="table-container" id="contenedor-tabla-suma"></div>
+        </div>
+    </div>
+
+    <div class="tables-wrapper">
+        <div class="chart-card">
+            <h2>Volumen: CUENTA DE CUOTA por Regional</h2>
+            <div class="table-container" id="contenedor-regional-cuenta"></div>
+        </div>
+        <div class="chart-card">
+            <h2>Financiero: SUMA DE CUOTA ($) por Regional</h2>
+            <div class="table-container" id="contenedor-regional-suma"></div>
+        </div>
+    </div>
+
+    <script>
+        let baseDatos = [];
+        const tramosMora = ['ADELANTADO', 'ANTICIPADO DE -10 A 0', 'ATRASO DE 0 A 30', 'ATRASO DE 31 A 60', 'ATRASO DE 61 A 90', 'ATRASO MAYOR A 90'];
+        
+        // AGREGAMOS 'gestion' AL OBJETO DE FILTROS ACTIVOS
+        let filtrosActivos = { estatus: [], tipo: [], regional: [], atraso: [], gestion: [] };
+
+        function inicializarDashboard() {
+            if (typeof SERVER_DATA !== 'undefined') {
+                baseDatos = SERVER_DATA;
+                generarListasFiltros();
+                recalcularYRenderizar();
+            } else {
+                alert("❌ Error: No se encontraron los datos consolidados.");
+            }
+        }
+
+        function generarListasFiltros() {
+            const listEstatus = [...new Set(baseDatos.map(d => d.estatus))].sort();
+            const listTipos = [...new Set(baseDatos.map(d => d.tipo))].sort();
+            const listRegionales = [...new Set(baseDatos.map(d => d.regional))].sort(); 
+            // LEER VALORES ÚNICOS DE LA COLUMNA GESTIÓN
+            const listGestion = [...new Set(baseDatos.map(d => d.gestion))].sort();
+
+            filtrosActivos.estatus = [...listEstatus]; 
+            filtrosActivos.tipo = [...listTipos]; 
+            filtrosActivos.regional = [...listRegionales]; 
+            filtrosActivos.atraso = [...tramosMora];
+            filtrosActivos.gestion = [...listGestion];
+
+            renderSlicer('slicer-estatus', listEstatus, 'estatus');
+            renderSlicer('slicer-tipo', listTipos, 'tipo');
+            renderSlicer('slicer-regional', listRegionales, 'regional');
+            renderSlicer('slicer-atraso', tramosMora, 'atraso');
+            renderSlicer('slicer-gestion', listGestion, 'gestion');
+        }
+
+        function renderSlicer(idContenedor, listaValores, campo) {
+            const div = document.getElementById(idContenedor); div.innerHTML = '';
+            listaValores.forEach(val => {
+                const item = document.createElement('div');
+                item.className = obtenerEstiloActivo(campo, val);
+                // Sanitizar ID eliminando caracteres problemáticos para JavaScript
+                const safeId = val.replace(/[^a-zA-Z0-9]/g, '-');
+                item.id = `el-${campo}-${safeId}`;
+                item.innerHTML = `<label style="cursor:pointer; display:block; width:100%; text-align:left;">${val}</label>`;
+                item.onclick = () => ejecutarFiltroCruzado(campo, val, item);
+                div.appendChild(item);
+            });
+        }
+
+        function obtenerEstiloActivo(campo, valor) {
+            if (campo === 'estatus' && ['APROBADO', 'APROBADO SC', 'RECUPERADO', 'RENOVADO'].includes(valor.toUpperCase())) return 'slicer-item active-excel-green';
+            return 'slicer-item active-excel-blue';
+        }
+
+        function ejecutarFiltroCruzado(campo, valor, elementoDOM) {
+            const index = filtrosActivos[campo].indexOf(valor);
+            if (index > -1) { filtrosActivos[campo].splice(index, 1); elementoDOM.className = 'slicer-item'; }
+            else { filtrosActivos[campo].push(valor); elementoDOM.className = obtenerEstiloActivo(campo, valor); }
+            recalcularYRenderizar();
+        }
+
+        function resetFiltro(campo) {
+            const listaUnicos = campo === 'atraso' ? tramosMora : [...new Set(baseDatos.map(d => d[campo]))].sort();
+            filtrosActivos[campo] = [...listaUnicos];
+            listaUnicos.forEach(valor => {
+                const safeId = valor.replace(/[^a-zA-Z0-9]/g, '-');
+                const el = document.getElementById(`el-${campo}-${safeId}`);
+                if (el) el.className = obtenerEstiloActivo(campo, valor);
+            });
+            recalcularYRenderizar();
+        }
+
+        function limpiarFiltro(campo) {
+            filtrosActivos[campo] = [];
+            const listaUnicos = campo === 'atraso' ? tramosMora : [...new Set(baseDatos.map(d => d[campo]))];
+            listaUnicos.forEach(valor => {
+                const safeId = valor.replace(/[^a-zA-Z0-9]/g, '-');
+                const el = document.getElementById(`el-${campo}-${safeId}`);
+                if (el) el.className = 'slicer-item';
+            });
+            recalcularYRenderizar();
+        }
+
+        function recalcularYRenderizar() {
+            // INCLUSIÓN DE LA COLUMNA GESTIÓN EN EL MAPEO CRUZADO DE FILTROS
+            let dataFiltrada = baseDatos.filter(d => 
+                filtrosActivos.estatus.includes(d.estatus) && 
+                filtrosActivos.tipo.includes(d.tipo) && 
+                filtrosActivos.regional.includes(d.regional) && 
+                filtrosActivos.atraso.includes(d.atraso) &&
+                filtrosActivos.gestion.includes(d.gestion)
+            );
+            
+            let totalCuotas = 0, totalMontoDinero = 0, acumuladoAtrasoTotal = 0;
+            
+            let morasCuenta = { 'ADELANTADO': 0, 'ANTICIPADO DE -10 A 0': 0, 'ATRASO DE 0 A 30': 0, 'ATRASO DE 31 A 60': 0, 'ATRASO DE 61 A 90': 0, 'ATRASO MAYOR A 90': 0 };
+            let morasSuma = { 'ADELANTADO': 0, 'ANTICIPADO DE -10 A 0': 0, 'ATRASO DE 0 A 30': 0, 'ATRASO DE 31 A 60': 0, 'ATRASO DE 61 A 90': 0, 'ATRASO MAYOR A 90': 0 };
+            
+            let regionalesCuenta = {}; let regionalesSuma = {};
+
+            dataFiltrada.forEach(item => {
+                totalCuotas += item.cantidad; 
+                totalMontoDinero += item.monto;
+                
+                if (morasCuenta[item.atraso] !== undefined) {
+                    morasCuenta[item.atraso] += item.cantidad;
+                    morasSuma[item.atraso] += item.monto;
+                }
+                if (item.atraso.startsWith('ATRASO')) {
+                    acumuladoAtrasoTotal += item.cantidad;
+                }
+
+                if (!regionalesCuenta[item.regional]) regionalesCuenta[item.regional] = 0;
+                if (!regionalesSuma[item.regional]) regionalesSuma[item.regional] = 0;
+                
+                regionalesCuenta[item.regional] += item.cantidad;
+                regionalesSuma[item.regional] += item.monto;
+            });
+
+            document.getElementById('kpi-total').innerText = totalCuotas.toLocaleString('es-MX');
+            document.getElementById('kpi-atraso-total').innerText = acumuladoAtrasoTotal.toLocaleString('es-MX');
+            document.getElementById('kpi-monto').innerText = '$' + totalMontoDinero.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+            // GRUPO ATRASO - CUENTA
+            let htmlCuenta = `<table class="excel-table"><thead><tr><th>GRUPO ATRASO</th><th class="text-right th-cuenta">CUENTA DE CUOTA</th></tr></thead><tbody>`;
+            tramosMora.forEach(tramo => {
+                htmlCuenta += `<tr><td class="text-bold">${tramo}</td><td class="text-right">${morasCuenta[tramo].toLocaleString('es-MX')}</td></tr>`;
+            });
+            htmlCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td></tr></tbody></table>`;
+            document.getElementById('contenedor-tabla-cuenta').innerHTML = htmlCuenta;
+
+            // GRUPO ATRASO - SUMA
+            let htmlSuma = `<table class="excel-table"><thead><tr><th>GRUPO ATRASO</th><th class="text-right th-suma">SUMA DE CUOTA ($)</th></tr></thead><tbody>`;
+            tramosMora.forEach(tramo => {
+                htmlSuma += `<tr><td class="text-bold">${tramo}</td><td class="text-right">$${morasSuma[tramo].toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</td></tr>`;
+            });
+            htmlSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</td></tr></tbody></table>`;
+            document.getElementById('contenedor-tabla-suma').innerHTML = htmlSuma;
+
+            // REGIONAL - CUENTA
+            const listaRegionales = Object.keys(regionalesCuenta).sort();
+            let htmlRegCuenta = `<table class="excel-table"><thead><tr><th>REGIONAL</th><th class="text-right th-cuenta">CUENTA DE CUOTA</th></tr></thead><tbody>`;
+            listaRegionales.forEach(reg => {
+                htmlRegCuenta += `<tr><td class="text-bold">${reg}</td><td class="text-right">${regionalesCuenta[reg].toLocaleString('es-MX')}</td></tr>`;
+            });
+            htmlRegCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td></tr></tbody></table>`;
+            document.getElementById('contenedor-regional-cuenta').innerHTML = htmlRegCuenta;
+
+            // REGIONAL - SUMA
+            let htmlRegSuma = `<table class="excel-table"><thead><tr><th>REGIONAL</th><th class="text-right th-suma">SUMA DE CUOTA ($)</th></tr></thead><tbody>`;
+            listaRegionales.forEach(reg => {
+                htmlRegSuma += `<tr><td class="text-bold">${reg}</td><td class="text-right">$${regionalesSuma[reg].toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</td></tr>`;
+            });
+            htmlRegSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</td></tr></tbody></table>`;
+            document.getElementById('contenedor-regional-suma').innerHTML = htmlRegSuma;
+        }
+
+        window.onload = inicializarDashboard;
+    </script>
+</body>
+</html>
