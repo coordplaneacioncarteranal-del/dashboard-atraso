@@ -9,7 +9,7 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; margin: 0; padding: 24px; color: #1e293b; }
         .header { background-color: #1B365D; color: white; padding: 24px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
         
-        .slicer-panel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+        .slicer-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
         .slicer-card { background: white; padding: 16px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-top: 4px solid #1B365D; display: flex; flex-direction: column; }
         .slicer-title { font-weight: 700; color: #1B365D; margin-bottom: 12px; font-size: 13px; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; }
         .slicer-actions { display: flex; gap: 4px; }
@@ -51,8 +51,8 @@
 <body>
 
     <div class="header">
-        <h1 style="margin:0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">DASHBOARD ATRASO INSUMO VIGENTES</h1>
-        <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px;">Coordinador nacional de planeación de cartera</p>
+        <h1 style="margin:0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">SISTEMA DE CONTROL DE VIGENCIAS Y ATRASOS</h1>
+        <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px;">Consolidado Matricial con Análisis de Participación Porcentual (%)</p>
     </div>
 
     <div class="slicer-panel">
@@ -61,6 +61,7 @@
         <div class="slicer-card"><div class="slicer-title"><span>REGIONAL</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('regional')">Todos</button><button class="btn-none" onclick="limpiarFiltro('regional')">Ninguno</button></div></div><div class="slicer-list" id="slicer-regional"></div></div>
         <div class="slicer-card"><div class="slicer-title"><span>GRUPO ATRASO</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('atraso')">Todos</button><button class="btn-none" onclick="limpiarFiltro('atraso')">Ninguno</button></div></div><div class="slicer-list" id="slicer-atraso"></div></div>
         <div class="slicer-card"><div class="slicer-title"><span>GESTIÓN</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('gestion')">Todos</button><button class="btn-none" onclick="limpiarFiltro('gestion')">Ninguno</button></div></div><div class="slicer-list" id="slicer-gestion"></div></div>
+        <div class="slicer-card"><div class="slicer-title"><span>NOMBRE PLAN</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('NOMBREPLAN')">Todos</button><button class="btn-none" onclick="limpiarFiltro('NOMBREPLAN')">Ninguno</button></div></div><div class="slicer-list" id="slicer-NOMBREPLAN"></div></div>
     </div>
 
     <div class="kpi-container">
@@ -91,9 +92,30 @@
         </div>
     </div>
 
+    <div class="tables-wrapper">
+        <div class="chart-card">
+            <h2>Volumen: CUENTA DE CUOTA por Estatus</h2>
+            <div class="table-container" id="contenedor-estatus-cuenta"></div>
+        </div>
+        <div class="chart-card">
+            <h2>Financiero: SUMA DE CUOTA ($) por Estatus</h2>
+            <div class="table-container" id="contenedor-estatus-suma"></div>
+        </div>
+    </div>
+
+    <div class="tables-wrapper">
+        <div class="chart-card">
+            <h2>Volumen: CUENTA DE CUOTA por Nombre Plan</h2>
+            <div class="table-container" id="contenedor-NOMBREPLAN-cuenta"></div>
+        </div>
+        <div class="chart-card">
+            <h2>Financiero: SUMA DE CUOTA ($) por Nombre Plan</h2>
+            <div class="table-container" id="contenedor-NOMBREPLAN-suma"></div>
+        </div>
+    </div>
+
     <script>
         let baseDatos = [];
-        // NUEVA LISTA DE TRAMOS ACTUALIZADA CON TUS NUEVOS GRUPOS
         const tramosMora = [
             'ADELANTADO', 
             'ANTICIPADO DE -10 A 0', 
@@ -104,7 +126,8 @@
             'ATRASO DE 61 A 90', 
             'ATRASO MAYOR A 90'
         ];
-        let filtrosActivos = { estatus: [], tipo: [], regional: [], atraso: [], gestion: [] };
+        // Llave en mayúsculas idéntica al JSON generado
+        let filtrosActivos = { estatus: [], tipo: [], regional: [], atraso: [], gestion: [], NOMBREPLAN: [] };
 
         function inicializarDashboard() {
             if (typeof SERVER_DATA !== 'undefined') {
@@ -121,14 +144,21 @@
             const listTipos = [...new Set(baseDatos.map(d => d.tipo))].sort();
             const listRegionales = [...new Set(baseDatos.map(d => d.regional))].sort(); 
             const listGestion = [...new Set(baseDatos.map(d => d.gestion))].sort();
+            const listNombreplan = [...new Set(baseDatos.map(d => d.NOMBREPLAN || 'SIN ESPECIFICAR'))].sort();
 
-            filtrosActivos.estatus = [...listEstatus]; filtrosActivos.tipo = [...listTipos]; filtrosActivos.regional = [...listRegionales]; filtrosActivos.atraso = [...tramosMora]; filtrosActivos.gestion = [...listGestion];
+            filtrosActivos.estatus = [...listEstatus]; 
+            filtrosActivos.tipo = [...listTipos]; 
+            filtrosActivos.regional = [...listRegionales]; 
+            filtrosActivos.atraso = [...tramosMora]; 
+            filtrosActivos.gestion = [...listGestion];
+            filtrosActivos.NOMBREPLAN = [...listNombreplan];
 
             renderSlicer('slicer-estatus', listEstatus, 'estatus');
             renderSlicer('slicer-tipo', listTipos, 'tipo');
             renderSlicer('slicer-regional', listRegionales, 'regional');
             renderSlicer('slicer-atraso', tramosMora, 'atraso');
             renderSlicer('slicer-gestion', listGestion, 'gestion');
+            renderSlicer('slicer-NOMBREPLAN', listNombreplan, 'NOMBREPLAN');
         }
 
         function renderSlicer(idContenedor, listaValores, campo) {
@@ -157,7 +187,7 @@
         }
 
         function resetFiltro(campo) {
-            const listaUnicos = campo === 'atraso' ? tramosMora : [...new Set(baseDatos.map(d => d[campo]))].sort();
+            const listaUnicos = campo === 'atraso' ? tramosMora : [...new Set(baseDatos.map(d => d[campo] || 'SIN ESPECIFICAR'))].sort();
             filtrosActivos[campo] = [...listaUnicos];
             listaUnicos.forEach(valor => {
                 const safeId = valor.replace(/[^a-zA-Z0-9]/g, '-');
@@ -169,7 +199,7 @@
 
         function limpiarFiltro(campo) {
             filtrosActivos[campo] = [];
-            const listaUnicos = campo === 'atraso' ? tramosMora : [...new Set(baseDatos.map(d => d[campo]))];
+            const listaUnicos = campo === 'atraso' ? tramosMora : [...new Set(baseDatos.map(d => d[campo] || 'SIN ESPECIFICAR'))];
             listaUnicos.forEach(valor => {
                 const safeId = valor.replace(/[^a-zA-Z0-9]/g, '-');
                 const el = document.getElementById(`el-${campo}-${safeId}`);
@@ -184,19 +214,21 @@
                 filtrosActivos.tipo.includes(d.tipo) && 
                 filtrosActivos.regional.includes(d.regional) && 
                 filtrosActivos.atraso.includes(d.atraso) &&
-                filtrosActivos.gestion.includes(d.gestion)
+                filtrosActivos.gestion.includes(d.gestion) &&
+                filtrosActivos.NOMBREPLAN.includes(d.NOMBREPLAN || 'SIN ESPECIFICAR')
             );
             
             let totalCuotas = 0, totalMontoDinero = 0, acumuladoAtrasoTotal = 0;
             
-            // Inicialización dinámica basada en tus nuevos tramos configurados
-            let morasCuenta = {};
-            let morasSuma = {};
+            let morasCuenta = {}; let morasSuma = {};
             tramosMora.forEach(t => { morasCuenta[t] = 0; morasSuma[t] = 0; });
             
             let regionalesCuenta = {}; let regionalesSuma = {};
+            let estatusCuenta = {}; let estatusSuma = {};
+            let nombreplanCuenta = {}; let nombreplanSuma = {};
 
             dataFiltrada.forEach(item => {
+                const planKey = item.NOMBREPLAN || 'SIN ESPECIFICAR';
                 totalCuotas += item.cantidad; 
                 totalMontoDinero += item.monto;
                 
@@ -210,9 +242,18 @@
 
                 if (!regionalesCuenta[item.regional]) regionalesCuenta[item.regional] = 0;
                 if (!regionalesSuma[item.regional]) regionalesSuma[item.regional] = 0;
-                
                 regionalesCuenta[item.regional] += item.cantidad;
                 regionalesSuma[item.regional] += item.monto;
+
+                if (!estatusCuenta[item.estatus]) estatusCuenta[item.estatus] = 0;
+                if (!estatusSuma[item.estatus]) estatusSuma[item.estatus] = 0;
+                estatusCuenta[item.estatus] += item.cantidad;
+                estatusSuma[item.estatus] += item.monto;
+
+                if (!nombreplanCuenta[planKey]) nombreplanCuenta[planKey] = 0;
+                if (!nombreplanSuma[planKey]) nombreplanSuma[planKey] = 0;
+                nombreplanCuenta[planKey] += item.cantidad;
+                nombreplanSuma[planKey] += item.monto;
             });
 
             document.getElementById('kpi-total').innerText = totalCuotas.toLocaleString('es-MX');
@@ -222,105 +263,75 @@
             const calcPct = (parcial, total) => total > 0 ? ((parcial / total) * 100).toFixed(1) + '%' : '0.0%';
 
             // ====================================================================================
-            // 1. GRUPO ATRASO - CUENTA
+            // 1. GRUPO ATRASO
             // ====================================================================================
-            let htmlCuenta = `
-                <table class="excel-table">
-                    <thead>
-                        <tr>
-                            <th>CONCEPTO ↕</th>
-                            <th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th>
-                            <th class="text-right th-pct">% PART. ↕</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
+            let htmlCuenta = `<table class="excel-table"><thead><tr><th>CONCEPTO ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
             tramosMora.forEach(tramo => {
-                htmlCuenta += `
-                    <tr>
-                        <td class="text-bold">${tramo}</td>
-                        <td class="text-right">${morasCuenta[tramo].toLocaleString('es-MX')}</td>
-                        <td class="text-right"><span class="badge-pct">${calcPct(morasCuenta[tramo], totalCuotas)}</span></td>
-                    </tr>`;
+                htmlCuenta += `<tr><td class="text-bold">${tramo}</td><td class="text-right">${morasCuenta[tramo].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(morasCuenta[tramo], totalCuotas)}</span></td></tr>`;
             });
             htmlCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
             document.getElementById('contenedor-tabla-cuenta').innerHTML = htmlCuenta;
 
-            // ====================================================================================
-            // 2. GRUPO ATRASO - SUMA
-            // ====================================================================================
-            let htmlSuma = `
-                <table class="excel-table">
-                    <thead>
-                        <tr>
-                            <th>CONCEPTO ↕</th>
-                            <th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th>
-                            <th class="text-right th-pct">% PART. ↕</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
+            let htmlSuma = `<table class="excel-table"><thead><tr><th>CONCEPTO ↕</th><th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
             tramosMora.forEach(tramo => {
-                htmlSuma += `
-                    <tr>
-                        <td class="text-bold">${tramo}</td>
-                        <td class="text-right">$${morasSuma[tramo].toLocaleString('es-MX')}</td>
-                        <td class="text-right"><span class="badge-pct">${calcPct(morasSuma[tramo], totalMontoDinero)}</span></td>
-                    </tr>`;
+                htmlSuma += `<tr><td class="text-bold">${tramo}</td><td class="text-right">$${morasSuma[tramo].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(morasSuma[tramo], totalMontoDinero)}</span></td></tr>`;
             });
             htmlSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
             document.getElementById('contenedor-tabla-suma').innerHTML = htmlSuma;
 
             // ====================================================================================
-            // 3. REGIONAL - CUENTA
+            // 2. REGIONALES
             // ====================================================================================
             const listaRegionales = Object.keys(regionalesCuenta).sort();
-            let htmlRegCuenta = `
-                <table class="excel-table">
-                    <thead>
-                        <tr>
-                            <th>REGIONAL ↕</th>
-                            <th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th>
-                            <th class="text-right th-pct">% PART. ↕</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
+            let htmlRegCuenta = `<table class="excel-table"><thead><tr><th>REGIONAL ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
             listaRegionales.forEach(reg => {
-                htmlRegCuenta += `
-                    <tr>
-                        <td class="text-bold">${reg}</td>
-                        <td class="text-right">${regionalesCuenta[reg].toLocaleString('es-MX')}</td>
-                        <td class="text-right"><span class="badge-pct">${calcPct(regionalesCuenta[reg], totalCuotas)}</span></td>
-                    </tr>`;
+                htmlRegCuenta += `<tr><td class="text-bold">${reg}</td><td class="text-right">${regionalesCuenta[reg].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(regionalesCuenta[reg], totalCuotas)}</span></td></tr>`;
             });
             htmlRegCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
             document.getElementById('contenedor-regional-cuenta').innerHTML = htmlRegCuenta;
 
-            // ====================================================================================
-            // 4. REGIONAL - SUMA
-            // ====================================================================================
-            let htmlRegSuma = `
-                <table class="excel-table">
-                    <thead>
-                        <tr>
-                            <th>REGIONAL ↕</th>
-                            <th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th>
-                            <th class="text-right th-pct">% PART. ↕</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
+            let htmlRegSuma = `<table class="excel-table"><thead><tr><th>REGIONAL ↕</th><th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
             listaRegionales.forEach(reg => {
-                htmlRegSuma += `
-                    <tr>
-                        <td class="text-bold">${reg}</td>
-                        <td class="text-right">$${regionalesSuma[reg].toLocaleString('es-MX')}</td>
-                        <td class="text-right"><span class="badge-pct">${calcPct(regionalesSuma[reg], totalMontoDinero)}</span></td>
-                    </tr>`;
+                htmlRegSuma += `<tr><td class="text-bold">${reg}</td><td class="text-right">$${regionalesSuma[reg].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(regionalesSuma[reg], totalMontoDinero)}</span></td></tr>`;
             });
             htmlRegSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
             document.getElementById('contenedor-regional-suma').innerHTML = htmlRegSuma;
+
+            // ====================================================================================
+            // 3. ESTATUS
+            // ====================================================================================
+            const listaEstatus = Object.keys(estatusCuenta).sort();
+            let htmlEstCuenta = `<table class="excel-table"><thead><tr><th>ESTATUS ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
+            listaEstatus.forEach(est => {
+                htmlEstCuenta += `<tr><td class="text-bold">${est}</td><td class="text-right">${estatusCuenta[est].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(estatusCuenta[est], totalCuotas)}</span></td></tr>`;
+            });
+            htmlEstCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
+            document.getElementById('contenedor-estatus-cuenta').innerHTML = htmlEstCuenta;
+
+            let htmlEstSuma = `<table class="excel-table"><thead><tr><th>ESTATUS ↕</th><th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
+            listaEstatus.forEach(est => {
+                htmlEstSuma += `<tr><td class="text-bold">${est}</td><td class="text-right">$${estatusSuma[est].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(estatusSuma[est], totalMontoDinero)}</span></td></tr>`;
+            });
+            htmlEstSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
+            document.getElementById('contenedor-estatus-suma').innerHTML = htmlEstSuma;
+
+            // ====================================================================================
+            // 4. NOMBREPLAN
+            // ====================================================================================
+            const listaPlanes = Object.keys(nombreplanCuenta).sort();
+            let htmlPlanCuenta = `<table class="excel-table"><thead><tr><th>NOMBRE PLAN ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
+            listaPlanes.forEach(p => {
+                htmlPlanCuenta += `<tr><td class="text-bold">${p}</td><td class="text-right">${nombreplanCuenta[p].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(nombreplanCuenta[p], totalCuotas)}</span></td></tr>`;
+            });
+            htmlPlanCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
+            document.getElementById('contenedor-NOMBREPLAN-cuenta').innerHTML = htmlPlanCuenta;
+
+            let htmlPlanSuma = `<table class="excel-table"><thead><tr><th>NOMBRE PLAN ↕</th><th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
+            listaPlanes.forEach(p => {
+                htmlPlanSuma += `<tr><td class="text-bold">${p}</td><td class="text-right">$${nombreplanSuma[p].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(nombreplanSuma[p], totalMontoDinero)}</span></td></tr>`;
+            });
+            htmlPlanSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
+            document.getElementById('contenedor-NOMBREPLAN-suma').innerHTML = htmlPlanSuma;
 
             habilitarOrdenamientoTablas();
         }
