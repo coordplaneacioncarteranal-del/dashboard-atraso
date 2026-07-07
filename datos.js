@@ -2405,8 +2405,8 @@ const SERVER_DATA = [
         "atraso": "ADELANTADO",
         "gestion": "20 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 12,
-        "monto": 322000.0
+        "cantidad": 13,
+        "monto": 354800.0
     },
     {
         "estatus": "Comercial",
@@ -9109,7 +9109,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -9335,8 +9335,8 @@ const SERVER_DATA = [
         "atraso": "ADELANTADO",
         "gestion": "14 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 23,
-        "monto": 708800.0
+        "cantidad": 28,
+        "monto": 813800.0
     },
     {
         "estatus": "Aprobado Ncp",
@@ -11216,8 +11216,8 @@ const SERVER_DATA = [
         "atraso": "ADELANTADO",
         "gestion": "6 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 3,
-        "monto": 66000.0
+        "cantidad": 5,
+        "monto": 114000.0
     },
     {
         "estatus": "Confirmar Por Cobrador",
@@ -11416,17 +11416,6 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Estandar Renacer",
         "cantidad": 5,
         "monto": 129400.0
-    },
-    {
-        "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "20 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 1,
-        "monto": 32800.0
     },
     {
         "estatus": "Aprobado",
@@ -12739,14 +12728,14 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
         "gestion": "24 CUOTAS O MÁS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 236,
-        "monto": 5422500.0
+        "cantidad": 119,
+        "monto": 2785000.0
     },
     {
         "estatus": "",
@@ -12978,6 +12967,17 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Estandar Renacer",
         "cantidad": 25,
         "monto": 955300.0
+    },
+    {
+        "estatus": "Aprobado",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
+        "regional": "VALLE CENTRO",
+        "mes_pago": "2026-06",
+        "atraso": "ADELANTADO",
+        "gestion": "24 CUOTAS O MÁS CARTERA",
+        "NOMBREPLAN": "Estandar Renacer",
+        "cantidad": 117,
+        "monto": 2637500.0
     },
     {
         "estatus": "",
@@ -14972,7 +14972,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -17321,8 +17321,8 @@ const SERVER_DATA = [
         "atraso": "ADELANTADO",
         "gestion": "17 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 9,
-        "monto": 217000.0
+        "cantidad": 12,
+        "monto": 274000.0
     },
     {
         "estatus": "Aprobado",
@@ -22033,17 +22033,6 @@ const SERVER_DATA = [
         "monto": 59000.0
     },
     {
-        "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "17 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 3,
-        "monto": 57000.0
-    },
-    {
         "estatus": "Aprobado Ncp",
         "tipo": "ASESOR COBRANZA",
         "regional": "VALLE NORTE",
@@ -24674,25 +24663,14 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "16 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 3,
-        "monto": 54000.0
-    },
-    {
-        "estatus": "Aprobado",
         "tipo": "PUNTO DE RECAUDO",
         "regional": "SANTANDER",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
         "gestion": "16 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 25,
-        "monto": 678700.0
+        "cantidad": 28,
+        "monto": 732700.0
     },
     {
         "estatus": "Aprobado Ncp",
@@ -26907,14 +26885,14 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO",
         "regional": "SANTANDER",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
         "gestion": "13 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 1,
-        "monto": 20000.0
+        "cantidad": 5,
+        "monto": 98000.0
     },
     {
         "estatus": "Aprobado",
@@ -29052,7 +29030,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO",
         "regional": "SANTANDER",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -29448,7 +29426,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -29610,17 +29588,6 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Estandar Renacer",
         "cantidad": 1,
         "monto": 15500.0
-    },
-    {
-        "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "6 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 2,
-        "monto": 48000.0
     },
     {
         "estatus": "Aprobado",
@@ -29795,8 +29762,8 @@ const SERVER_DATA = [
         "atraso": "ADELANTADO",
         "gestion": "1 CUOTA CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 14,
-        "monto": 383250.0
+        "cantidad": 15,
+        "monto": 401250.0
     },
     {
         "estatus": "Aprobado",
@@ -31918,8 +31885,8 @@ const SERVER_DATA = [
         "atraso": "ADELANTADO",
         "gestion": "15 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 63,
-        "monto": 1646000.0
+        "cantidad": 71,
+        "monto": 1830000.0
     },
     {
         "estatus": "Aprobado Ncp",
@@ -33449,17 +33416,6 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Estandar Renacer",
         "cantidad": 31,
         "monto": 921300.0
-    },
-    {
-        "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "15 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 8,
-        "monto": 184000.0
     },
     {
         "estatus": "Recuperado",
@@ -35982,7 +35938,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado Ncp",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO",
         "regional": "SANTANDER",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -41977,7 +41933,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Solicitud",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -42502,17 +42458,6 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Estandar Renacer",
         "cantidad": 2,
         "monto": 72000.0
-    },
-    {
-        "estatus": "Aprobado",
-        "tipo": "PUNTO DE RECAUDO",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "13 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 4,
-        "monto": 78000.0
     },
     {
         "estatus": "Recuperado",
@@ -47829,7 +47774,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -49485,8 +49430,8 @@ const SERVER_DATA = [
         "atraso": "ADELANTADO",
         "gestion": "7 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 1,
-        "monto": 28000.0
+        "cantidad": 2,
+        "monto": 43000.0
     },
     {
         "estatus": "Aprobado",
@@ -50898,17 +50843,6 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "ANTIOQUIA",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "1 CUOTA CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 1,
-        "monto": 18000.0
-    },
-    {
-        "estatus": "Aprobado",
         "tipo": "OFICINA",
         "regional": "QUINDIO",
         "mes_pago": "2026-06",
@@ -51272,7 +51206,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -53098,7 +53032,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -56937,17 +56871,6 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "14 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 5,
-        "monto": 105000.0
-    },
-    {
-        "estatus": "Aprobado",
         "tipo": "ASESOR COBRANZA",
         "regional": "QUINDIO",
         "mes_pago": "2026-06",
@@ -58070,7 +57993,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ADELANTADO",
@@ -60080,17 +60003,6 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Estandar Renacer",
         "cantidad": 2,
         "monto": 42100.0
-    },
-    {
-        "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ADELANTADO",
-        "gestion": "7 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 1,
-        "monto": 15000.0
     },
     {
         "estatus": "Aprobado",
@@ -63955,7 +63867,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ANTICIPADO DE -10 A 0",
@@ -68746,8 +68658,8 @@ const SERVER_DATA = [
         "atraso": "ANTICIPADO DE -10 A 0",
         "gestion": "14 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 25,
-        "monto": 691600.0
+        "cantidad": 29,
+        "monto": 778600.0
     },
     {
         "estatus": "Aprobado",
@@ -68759,17 +68671,6 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Estandar Renacer",
         "cantidad": 53,
         "monto": 1661200.0
-    },
-    {
-        "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ANTICIPADO DE -10 A 0",
-        "gestion": "14 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 4,
-        "monto": 87000.0
     },
     {
         "estatus": "Aprobado",
@@ -79971,7 +79872,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Recuperado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO",
         "regional": "SANTANDER",
         "mes_pago": "2026-06",
         "atraso": "ANTICIPADO DE -10 A 0",
@@ -107697,8 +107598,8 @@ const SERVER_DATA = [
         "atraso": "ATRASO DE 1 A 10",
         "gestion": "14 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 9,
-        "monto": 255000.0
+        "cantidad": 10,
+        "monto": 268000.0
     },
     {
         "estatus": "Aprobado",
@@ -113191,14 +113092,14 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 1 A 10",
         "gestion": "24 CUOTAS O MÁS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 91,
-        "monto": 2084000.0
+        "cantidad": 5,
+        "monto": 111000.0
     },
     {
         "estatus": "Recuperado",
@@ -126335,17 +126236,6 @@ const SERVER_DATA = [
         "monto": 44000.0
     },
     {
-        "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ATRASO DE 1 A 10",
-        "gestion": "14 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 1,
-        "monto": 13000.0
-    },
-    {
         "estatus": "Aprobado Ncp",
         "tipo": "MEDIOS",
         "regional": "ANTIOQUIA",
@@ -128106,6 +127996,17 @@ const SERVER_DATA = [
         "monto": 85600.0
     },
     {
+        "estatus": "Aprobado",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
+        "regional": "VALLE CENTRO",
+        "mes_pago": "2026-06",
+        "atraso": "ATRASO DE 1 A 10",
+        "gestion": "24 CUOTAS O MÁS CARTERA",
+        "NOMBREPLAN": "Estandar Renacer",
+        "cantidad": 86,
+        "monto": 1973000.0
+    },
+    {
         "estatus": "",
         "tipo": "PUNTO DE RECAUDO",
         "regional": "QUINDIO",
@@ -128558,14 +128459,14 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Solicitud",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 1 A 10",
         "gestion": "24 CUOTAS O MÁS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 3,
-        "monto": 64000.0
+        "cantidad": 1,
+        "monto": 22000.0
     },
     {
         "estatus": "Recuperado",
@@ -129064,7 +128965,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 1 A 10",
@@ -129361,7 +129262,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 1 A 10",
@@ -129383,7 +129284,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 1 A 10",
@@ -129933,7 +129834,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 1 A 10",
@@ -130835,7 +130736,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 1 A 10",
@@ -131253,7 +131154,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 1 A 10",
@@ -133197,6 +133098,17 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Basico Individual",
         "cantidad": 3,
         "monto": 103600.0
+    },
+    {
+        "estatus": "Solicitud",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
+        "regional": "VALLE CENTRO",
+        "mes_pago": "2026-06",
+        "atraso": "ATRASO DE 1 A 10",
+        "gestion": "24 CUOTAS O MÁS CARTERA",
+        "NOMBREPLAN": "Estandar Renacer",
+        "cantidad": 2,
+        "monto": 42000.0
     },
     {
         "estatus": "Renovado",
@@ -142165,7 +142077,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Solicitud",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 11 A 25",
@@ -145047,7 +144959,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 11 A 25",
@@ -145597,7 +145509,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 11 A 25",
@@ -146917,7 +146829,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Recuperado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO",
         "regional": "SANTANDER",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 11 A 25",
@@ -154397,7 +154309,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Recuperado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO",
         "regional": "SANTANDER",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 11 A 25",
@@ -160810,7 +160722,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado Ncp",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO",
         "regional": "SANTANDER",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 11 A 25",
@@ -172355,8 +172267,8 @@ const SERVER_DATA = [
         "atraso": "ATRASO DE 26 A 50",
         "gestion": "13 CUOTAS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 2,
-        "monto": 42000.0
+        "cantidad": 3,
+        "monto": 55000.0
     },
     {
         "estatus": "Aprobado",
@@ -183029,17 +182941,6 @@ const SERVER_DATA = [
         "monto": 37000.0
     },
     {
-        "estatus": "Aprobado",
-        "tipo": "#N/A",
-        "regional": "SANTANDER",
-        "mes_pago": "2026-06",
-        "atraso": "ATRASO DE 26 A 50",
-        "gestion": "13 CUOTAS CARTERA",
-        "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 1,
-        "monto": 13000.0
-    },
-    {
         "estatus": "Aprobado Ncp",
         "tipo": "OFICINA",
         "regional": "TOLIMA NORTE",
@@ -183756,14 +183657,14 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 26 A 50",
         "gestion": "24 CUOTAS O MÁS CARTERA",
         "NOMBREPLAN": "Estandar Renacer",
-        "cantidad": 4,
-        "monto": 95500.0
+        "cantidad": 3,
+        "monto": 74000.0
     },
     {
         "estatus": "Recuperado",
@@ -184504,7 +184405,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 26 A 50",
@@ -186085,6 +185986,17 @@ const SERVER_DATA = [
         "NOMBREPLAN": "Mascotas Plata",
         "cantidad": 1,
         "monto": 39000.0
+    },
+    {
+        "estatus": "Aprobado",
+        "tipo": "ASESOR COBRANZA COMPRA DE CARTERA GUADALAJARA",
+        "regional": "VALLE CENTRO",
+        "mes_pago": "2026-06",
+        "atraso": "ATRASO DE 26 A 50",
+        "gestion": "24 CUOTAS O MÁS CARTERA",
+        "NOMBREPLAN": "Estandar Renacer",
+        "cantidad": 1,
+        "monto": 21500.0
     },
     {
         "estatus": "",
@@ -208341,7 +208253,7 @@ const SERVER_DATA = [
     },
     {
         "estatus": "Aprobado",
-        "tipo": "#N/A",
+        "tipo": "PUNTO DE RECAUDO COMPRA DE CARTERA GUADALAJARA",
         "regional": "VALLE CENTRO",
         "mes_pago": "2026-06",
         "atraso": "ATRASO DE 61 A 90",
