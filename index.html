@@ -53,6 +53,7 @@
     <div class="header">
         <h1 style="margin:0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">SISTEMA DE CONTROL DE VIGENCIAS Y ATRASOS</h1>
         <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px;">Consolidado Matricial con Análisis de Participación Porcentual (%)</p>
+        <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px; font-weight: 600;" id="fecha-actualizacion"></p>
     </div>
 
     <div class="slicer-panel">
@@ -132,6 +133,9 @@
         function inicializarDashboard() {
             if (typeof SERVER_DATA !== 'undefined') {
                 baseDatos = SERVER_DATA;
+                if (typeof FECHA_ACTUALIZACION !== 'undefined') {
+                    document.getElementById('fecha-actualizacion').innerText = 'Última actualización de vigentes: ' + FECHA_ACTUALIZACION;
+                }
                 generarListasFiltros();
                 recalcularYRenderizar();
             } else {

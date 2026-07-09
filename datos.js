@@ -1,3 +1,4 @@
+const FECHA_ACTUALIZACION = '07/07/2026 09:26 AM';
 const SERVER_DATA = [
     {
         "estatus": "Aprobado",
