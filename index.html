@@ -4,27 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Corporativo - Análisis de Mora, Gestión y Participación</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="datos.js"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; margin: 0; padding: 24px; color: #1e293b; }
         .header { background-color: #1B365D; color: white; padding: 24px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
         
         .slicer-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
-        .slicer-card { background: white; padding: 16px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-top: 4px solid #1B365D; display: flex; flex-direction: column; }
-        .slicer-title { font-weight: 700; color: #1B365D; margin-bottom: 12px; font-size: 13px; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; }
-        .slicer-actions { display: flex; gap: 4px; }
-        .slicer-list { max-height: 240px; overflow-y: auto; padding-right: 4px; }
-        .slicer-item { display: flex; align-items: center; padding: 6px 12px; margin-bottom: 6px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 500; transition: all 0.15s ease-in-out; }
-        .slicer-item:hover { background-color: #f1f5f9; }
-        .slicer-item.active-excel-green { background-color: #A7F3D0; color: #064e3b; border-color: #34d399; font-weight: 600; }
-        .slicer-item.active-excel-blue { background-color: #BAE6FD; color: #0c4a6e; border-color: #38bdf8; font-weight: 600; }
-        .btn-clear { font-size: 11px; background: #e2e2e2; color: #475569; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: 600; }
-        .btn-none { font-size: 11px; background: #fecdd3; color: #9f1239; border: none; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: 600; }
+        .dropdown-container { position: relative; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: white; padding: 12px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .dropdown-label { font-size: 13px; font-weight: 700; color: #1B365D; margin-bottom: 8px; display: block; text-transform: uppercase; }
+        .dropdown-header { display: flex; justify-content: space-between; align-items: center; border: 1px solid #4f46e5; padding: 8px 12px; border-radius: 8px; background: white; cursor: pointer; font-size: 13px; color: #1e293b; transition: all 0.2s; }
+        .dropdown-header:hover { background: #f8fafc; }
+        .dropdown-arrow { transition: transform 0.2s; font-size: 10px; }
+        .dropdown-list-wrapper { display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #cbd5e1; border-radius: 8px; margin-top: 4px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); z-index: 100; padding: 8px 0; }
+        .dropdown-list-wrapper.show { display: block; }
+        .dropdown-list { max-height: 200px; overflow-y: auto; padding: 0 8px; }
+        .dropdown-item { padding: 6px 8px; display: flex; align-items: center; gap: 8px; font-size: 12px; color: #334155; cursor: pointer; border-radius: 4px; margin-bottom: 2px; }
+        .dropdown-item:hover { background-color: #f1f5f9; }
+        .dropdown-item input[type="checkbox"] { cursor: pointer; width: 14px; height: 14px; margin: 0; border: 1px solid #cbd5e1; border-radius: 3px; accent-color: #4f46e5; }
         
-        .kpi-container { display: flex; gap: 16px; margin-bottom: 24px; }
-        .kpi-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); flex: 1; border-left: 5px solid #1B365D; }
-        .kpi-card h3 { margin: 0; color: #64748b; font-size: 12px; text-transform: uppercase; font-weight: 600; }
-        .kpi-card p { margin: 8px 0 0 0; font-size: 28px; font-weight: 700; color: #1B365D; }
+        .kpi-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .kpi-card { position: relative; padding: 24px; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .kpi-bg-circle { position: absolute; bottom: -20px; right: -20px; width: 120px; height: 120px; border-radius: 50%; opacity: 0.6; pointer-events: none; }
+        .kpi-icon-wrapper { background: white; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); z-index: 1; }
+        .kpi-content { z-index: 1; position: relative; }
+        .kpi-title { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .kpi-value { font-size: 28px; font-weight: 700; color: #0f172a; margin: 0; }
+        
+        .kpi-blue { background-color: #e0f2fe; }
+        .kpi-blue .kpi-bg-circle { background-color: #bae6fd; }
+        .kpi-blue .kpi-icon { color: #0284c7; fill: currentColor; }
+        
+        .kpi-purple { background-color: #f3e8ff; }
+        .kpi-purple .kpi-bg-circle { background-color: #e9d5ff; }
+        .kpi-purple .kpi-icon { color: #9333ea; fill: currentColor; }
+        
+        .kpi-green { background-color: #dcfce7; }
+        .kpi-green .kpi-bg-circle { background-color: #bbf7d0; }
+        .kpi-green .kpi-icon { color: #16a34a; fill: currentColor; }
+        
+        .kpi-orange { background-color: #ffedd5; }
+        .kpi-orange .kpi-bg-circle { background-color: #fed7aa; }
+        .kpi-orange .kpi-icon { color: #ea580c; fill: currentColor; }
         
         .tables-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
         .chart-card { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
@@ -46,6 +67,16 @@
         .text-bold { font-weight: 600; color: #1B365D; }
         .total-row { background-color: #e2e8f0 !important; font-weight: 700; color: #1B365D; }
         .badge-pct { background-color: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid #cbd5e1; }
+        
+        /* Nuevos Estilos para Gráfico y Tabla Resumen */
+        .chart-wrapper { width: 100%; height: 300px; margin-bottom: 24px; position: relative; }
+        .summary-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 16px; }
+        .summary-table th { color: #64748b; font-weight: 600; padding: 12px 8px; border-bottom: 2px solid #e2e8f0; text-align: right; }
+        .summary-table th:first-child { text-align: left; }
+        .summary-table td { padding: 12px 8px; border-bottom: 1px solid #f1f5f9; font-weight: 600; color: #1e293b; text-align: right; }
+        .summary-table td:first-child { text-align: left; }
+        .summary-table tr:last-child { border-top: 2px solid #1e293b; font-weight: 700; background-color: #f8fafc; }
+        .color-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
     </style>
 </head>
 <body>
@@ -56,62 +87,92 @@
         <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px; font-weight: 600;" id="fecha-actualizacion"></p>
     </div>
 
-    <div class="slicer-panel">
-        <div class="slicer-card"><div class="slicer-title"><span>ESTATUS</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('estatus')">Todos</button><button class="btn-none" onclick="limpiarFiltro('estatus')">Ninguno</button></div></div><div class="slicer-list" id="slicer-estatus"></div></div>
-        <div class="slicer-card"><div class="slicer-title"><span>TIPO</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('tipo')">Todos</button><button class="btn-none" onclick="limpiarFiltro('tipo')">Ninguno</button></div></div><div class="slicer-list" id="slicer-tipo"></div></div>
-        <div class="slicer-card"><div class="slicer-title"><span>REGIONAL</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('regional')">Todos</button><button class="btn-none" onclick="limpiarFiltro('regional')">Ninguno</button></div></div><div class="slicer-list" id="slicer-regional"></div></div>
-        <div class="slicer-card"><div class="slicer-title"><span>GRUPO ATRASO</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('atraso')">Todos</button><button class="btn-none" onclick="limpiarFiltro('atraso')">Ninguno</button></div></div><div class="slicer-list" id="slicer-atraso"></div></div>
-        <div class="slicer-card"><div class="slicer-title"><span>GESTIÓN</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('gestion')">Todos</button><button class="btn-none" onclick="limpiarFiltro('gestion')">Ninguno</button></div></div><div class="slicer-list" id="slicer-gestion"></div></div>
-        <div class="slicer-card"><div class="slicer-title"><span>NOMBRE PLAN</span><div class="slicer-actions"><button class="btn-clear" onclick="resetFiltro('NOMBREPLAN')">Todos</button><button class="btn-none" onclick="limpiarFiltro('NOMBREPLAN')">Ninguno</button></div></div><div class="slicer-list" id="slicer-NOMBREPLAN"></div></div>
+    <div class="slicer-panel" id="filtros-container">
+        <!-- Renderizados vía JS -->
     </div>
 
     <div class="kpi-container">
-        <div class="kpi-card"><h3>Total Cuotas Procesadas</h3><p id="kpi-total">0</p></div>
-        <div class="kpi-card" style="border-left-color: #F59E0B;"><h3>Total Cuotas en Atraso (Cartera)</h3><p id="kpi-atraso-total">0</p></div>
-        <div class="kpi-card" style="border-left-color: #EF4444;"><h3>Monto Total de Cuotas</h3><p id="kpi-monto">$0</p></div>
+        <div class="kpi-card kpi-blue">
+            <div class="kpi-bg-circle"></div>
+            <div class="kpi-icon-wrapper"><svg class="kpi-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+            <div class="kpi-content">
+                <div class="kpi-title">Total Contratos Activos</div>
+                <p class="kpi-value" id="kpi-total">0</p>
+            </div>
+        </div>
+        <div class="kpi-card kpi-purple">
+            <div class="kpi-bg-circle"></div>
+            <div class="kpi-icon-wrapper"><svg class="kpi-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+            <div class="kpi-content">
+                <div class="kpi-title">Total Contratos en Atraso</div>
+                <p class="kpi-value" id="kpi-atraso-total">0</p>
+            </div>
+        </div>
+        <div class="kpi-card kpi-green">
+            <div class="kpi-bg-circle"></div>
+            <div class="kpi-icon-wrapper"><svg class="kpi-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+            <div class="kpi-content">
+                <div class="kpi-title">Valor Total Cartera</div>
+                <p class="kpi-value" id="kpi-monto">$0</p>
+            </div>
+        </div>
+        <div class="kpi-card kpi-orange">
+            <div class="kpi-bg-circle"></div>
+            <div class="kpi-icon-wrapper"><svg class="kpi-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
+            <div class="kpi-content">
+                <div class="kpi-title">Valor Total en Mora</div>
+                <p class="kpi-value" id="kpi-mora-monto">$0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor para la Alerta Top 5 -->
+    <div id="contenedor-alerta-top5"></div>
+
+    <div class="tables-wrapper" style="display: block;">
+        <div class="chart-card" style="margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                <div style="background: #eff6ff; padding: 8px; border-radius: 8px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="#3b82f6"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+                <div>
+                    <h2 style="margin:0; border:none; padding:0;">Análisis por Regional y Grupo Atraso</h2>
+                    <p style="margin:0; font-size: 12px; color: #64748b;" id="subtitulo-regional"></p>
+                </div>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="regionalChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
+            <h2>Volumen: CUENTA DE CONTRATOS por Regional y Grupo Atraso</h2>
+            <div class="table-container" id="contenedor-regional-cuenta-pivot"></div>
+        </div>
+        <div class="chart-card" style="overflow-x: auto;">
+            <h2>Financiero: VALOR TOTAL DE CARTERA ($) por Regional y Grupo Atraso</h2>
+            <div class="table-container" id="contenedor-regional-suma-pivot"></div>
+        </div>
     </div>
 
     <div class="tables-wrapper">
         <div class="chart-card">
-            <h2>Volumen: CUENTA DE CUOTA por Grupo Atraso</h2>
-            <div class="table-container" id="contenedor-tabla-cuenta"></div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                <div style="background: #eff6ff; padding: 8px; border-radius: 8px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="#3b82f6"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></div>
+                <div>
+                    <h2 style="margin:0; border:none; padding:0;">Análisis por Atraso</h2>
+                    <p style="margin:0; font-size: 12px; color: #64748b;" id="subtitulo-atraso"></p>
+                </div>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="atrasoChart"></canvas>
+            </div>
+            <div id="contenedor-atraso-resumen"></div>
         </div>
         <div class="chart-card">
-            <h2>Financiero: SUMA DE CUOTA ($) por Grupo Atraso</h2>
-            <div class="table-container" id="contenedor-tabla-suma"></div>
-        </div>
-    </div>
-
-    <div class="tables-wrapper">
-        <div class="chart-card">
-            <h2>Volumen: CUENTA DE CUOTA por Regional</h2>
-            <div class="table-container" id="contenedor-regional-cuenta"></div>
-        </div>
-        <div class="chart-card">
-            <h2>Financiero: SUMA DE CUOTA ($) por Regional</h2>
-            <div class="table-container" id="contenedor-regional-suma"></div>
-        </div>
-    </div>
-
-    <div class="tables-wrapper">
-        <div class="chart-card">
-            <h2>Volumen: CUENTA DE CUOTA por Estatus</h2>
-            <div class="table-container" id="contenedor-estatus-cuenta"></div>
-        </div>
-        <div class="chart-card">
-            <h2>Financiero: SUMA DE CUOTA ($) por Estatus</h2>
+            <h2>Financiero: VALOR TOTAL DE CARTERA ($) por Estatus</h2>
             <div class="table-container" id="contenedor-estatus-suma"></div>
-        </div>
-    </div>
-
-    <div class="tables-wrapper">
-        <div class="chart-card">
-            <h2>Volumen: CUENTA DE CUOTA por Nombre Plan</h2>
-            <div class="table-container" id="contenedor-NOMBREPLAN-cuenta"></div>
-        </div>
-        <div class="chart-card">
-            <h2>Financiero: SUMA DE CUOTA ($) por Nombre Plan</h2>
-            <div class="table-container" id="contenedor-NOMBREPLAN-suma"></div>
+            <br>
+            <h2>Volumen: CUENTA DE CONTRATOS por Estatus</h2>
+            <div class="table-container" id="contenedor-estatus-cuenta"></div>
         </div>
     </div>
 
@@ -127,8 +188,19 @@
             'ATRASO DE 61 A 90', 
             'ATRASO MAYOR A 90'
         ];
-        // Llave en mayúsculas idéntica al JSON generado
-        let filtrosActivos = { estatus: [], tipo: [], regional: [], atraso: [], gestion: [], NOMBREPLAN: [] };
+        // Configuración de dimensiones
+        const dimensiones = [
+            { id: 'estatus', label: 'ESTATUS' },
+            { id: 'tipo', label: 'TIPO' },
+            { id: 'regional', label: 'REGIONAL' },
+            { id: 'atraso', label: 'GRUPO ATRASO' },
+            { id: 'gestion', label: 'GESTIÓN' },
+            { id: 'TIPOVENDEDOR', label: 'TIPO VENDEDOR' },
+            { id: 'PRODUCTO', label: 'PRODUCTO' }
+        ];
+
+        let filtrosActivos = { estatus: [], tipo: [], regional: [], atraso: [], gestion: [], TIPOVENDEDOR: [], PRODUCTO: [] };
+        let valoresUnicos = {};
 
         function inicializarDashboard() {
             if (typeof SERVER_DATA !== 'undefined') {
@@ -144,72 +216,142 @@
         }
 
         function generarListasFiltros() {
-            const listEstatus = [...new Set(baseDatos.map(d => d.estatus))].sort();
-            const listTipos = [...new Set(baseDatos.map(d => d.tipo))].sort();
-            const listRegionales = [...new Set(baseDatos.map(d => d.regional))].sort(); 
-            const listGestion = [...new Set(baseDatos.map(d => d.gestion))].sort();
-            const listNombreplan = [...new Set(baseDatos.map(d => d.NOMBREPLAN || 'SIN ESPECIFICAR'))].sort();
+            valoresUnicos.estatus = [...new Set(baseDatos.map(d => d.estatus))].sort();
+            valoresUnicos.tipo = [...new Set(baseDatos.map(d => d.tipo))].sort();
+            valoresUnicos.regional = [...new Set(baseDatos.map(d => d.regional))].sort(); 
+            valoresUnicos.gestion = [...new Set(baseDatos.map(d => d.gestion))].sort();
+            valoresUnicos.TIPOVENDEDOR = [...new Set(baseDatos.map(d => d.TIPOVENDEDOR || 'SIN ESPECIFICAR'))].sort();
+            valoresUnicos.PRODUCTO = [...new Set(baseDatos.map(d => d.PRODUCTO || 'SIN ESPECIFICAR'))].sort();
+            valoresUnicos.atraso = [...tramosMora];
 
-            filtrosActivos.estatus = [...listEstatus]; 
-            filtrosActivos.tipo = [...listTipos]; 
-            filtrosActivos.regional = [...listRegionales]; 
-            filtrosActivos.atraso = [...tramosMora]; 
-            filtrosActivos.gestion = [...listGestion];
-            filtrosActivos.NOMBREPLAN = [...listNombreplan];
+            dimensiones.forEach(dim => {
+                filtrosActivos[dim.id] = [...valoresUnicos[dim.id]];
+            });
 
-            renderSlicer('slicer-estatus', listEstatus, 'estatus');
-            renderSlicer('slicer-tipo', listTipos, 'tipo');
-            renderSlicer('slicer-regional', listRegionales, 'regional');
-            renderSlicer('slicer-atraso', tramosMora, 'atraso');
-            renderSlicer('slicer-gestion', listGestion, 'gestion');
-            renderSlicer('slicer-NOMBREPLAN', listNombreplan, 'NOMBREPLAN');
+            const defaultsEstatus = ['N/A', '', 'APROBADO', 'APROBADO NCP', 'APROBADO SC', 'RECUPERADO', 'RENOVADO'];
+            filtrosActivos['estatus'] = valoresUnicos.estatus.filter(v => defaultsEstatus.includes(v.toUpperCase().trim()));
+            if (filtrosActivos['estatus'].length === 0) filtrosActivos['estatus'] = [...valoresUnicos.estatus];
+
+            const defaultsTipo = ['ASESOR COBRANZA', 'ASIGNAR COBRADOR', 'MEDIOS', 'OFICINA'];
+            filtrosActivos['tipo'] = valoresUnicos.tipo.filter(v => defaultsTipo.includes(v.toUpperCase().trim()));
+            if (filtrosActivos['tipo'].length === 0) filtrosActivos['tipo'] = [...valoresUnicos.tipo];
+
+            const defaultsProducto = ['EXEQUIAL MASCOTAS', 'JR', 'JR CELESTIAL'];
+            filtrosActivos['PRODUCTO'] = valoresUnicos.PRODUCTO.filter(v => defaultsProducto.includes(v.toUpperCase().trim()));
+            if (filtrosActivos['PRODUCTO'].length === 0) filtrosActivos['PRODUCTO'] = [...valoresUnicos.PRODUCTO];
+
+            renderAllSlicers();
         }
 
-        function renderSlicer(idContenedor, listaValores, campo) {
-            const div = document.getElementById(idContenedor); div.innerHTML = '';
-            listaValores.forEach(val => {
-                const item = document.createElement('div');
-                item.className = obtenerEstiloActivo(campo, val);
-                const safeId = val.replace(/[^a-zA-Z0-9]/g, '-');
-                item.id = `el-${campo}-${safeId}`;
-                item.innerHTML = `<label style="cursor:pointer; display:block; width:100%; text-align:left;">${val}</label>`;
-                item.onclick = () => ejecutarFiltroCruzado(campo, val, item);
-                div.appendChild(item);
+        function renderAllSlicers() {
+            const container = document.getElementById('filtros-container');
+            container.innerHTML = '';
+            dimensiones.forEach(dim => {
+                const dropDiv = document.createElement('div');
+                dropDiv.className = 'dropdown-container';
+                
+                const label = document.createElement('label');
+                label.className = 'dropdown-label';
+                label.innerText = dim.label;
+                dropDiv.appendChild(label);
+                
+                const header = document.createElement('div');
+                header.className = 'dropdown-header';
+                header.innerHTML = `<span>Todos</span><span class="dropdown-arrow">▼</span>`;
+                header.onclick = () => toggleDropdown(dim.id);
+                dropDiv.appendChild(header);
+                
+                const listWrapper = document.createElement('div');
+                listWrapper.className = 'dropdown-list-wrapper';
+                listWrapper.id = `dropdown-list-${dim.id}`;
+                
+                const actions = document.createElement('div');
+                actions.style.display = 'flex';
+                actions.style.justifyContent = 'space-between';
+                actions.style.padding = '0 8px 8px 8px';
+                actions.style.borderBottom = '1px solid #e2e8f0';
+                actions.style.marginBottom = '8px';
+                actions.innerHTML = `
+                    <button style="font-size:11px; padding:4px 8px; border:none; border-radius:4px; background:#e2e8f0; cursor:pointer;" onclick="setTodosFiltro('${dim.id}')">Todos</button>
+                    <button style="font-size:11px; padding:4px 8px; border:none; border-radius:4px; background:#fee2e2; color:#991b1b; cursor:pointer;" onclick="setNingunoFiltro('${dim.id}')">Ninguno</button>
+                `;
+                listWrapper.appendChild(actions);
+
+                const list = document.createElement('div');
+                list.className = 'dropdown-list';
+                
+                valoresUnicos[dim.id].forEach(val => {
+                    const item = document.createElement('label');
+                    item.className = 'dropdown-item';
+                    const isChecked = filtrosActivos[dim.id].includes(val);
+                    item.innerHTML = `<input type="checkbox" value="${val}" ${isChecked ? 'checked' : ''} onchange="toggleFiltroValor('${dim.id}', '${val}', this.checked)"> ${val}`;
+                    list.appendChild(item);
+                });
+                
+                listWrapper.appendChild(list);
+                dropDiv.appendChild(listWrapper);
+                container.appendChild(dropDiv);
+                
+                // Actualizar el header justo después de crearlo para que muestre "Varios (X)" si viene prefiltrado
+                setTimeout(() => actualizarHeaderTexto(dim.id), 0);
             });
         }
-
-        function obtenerEstiloActivo(campo, valor) {
-            if (campo === 'estatus' && ['APROBADO', 'APROBADO SC', 'RECUPERADO', 'RENOVADO'].includes(valor.toUpperCase())) return 'slicer-item active-excel-green';
-            return 'slicer-item active-excel-blue';
+        
+        function toggleDropdown(id) {
+            const listWrapper = document.getElementById(`dropdown-list-${id}`);
+            const wasShowing = listWrapper.classList.contains('show');
+            document.querySelectorAll('.dropdown-list-wrapper').forEach(el => el.classList.remove('show'));
+            if (!wasShowing) {
+                listWrapper.classList.add('show');
+            }
         }
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown-container')) {
+                document.querySelectorAll('.dropdown-list-wrapper').forEach(el => el.classList.remove('show'));
+            }
+        });
 
-        function ejecutarFiltroCruzado(campo, valor, elementoDOM) {
-            const index = filtrosActivos[campo].indexOf(valor);
-            if (index > -1) { filtrosActivos[campo].splice(index, 1); elementoDOM.className = 'slicer-item'; }
-            else { filtrosActivos[campo].push(valor); elementoDOM.className = obtenerEstiloActivo(campo, valor); }
+        function toggleFiltroValor(campo, valor, isChecked) {
+            if (isChecked) {
+                if (!filtrosActivos[campo].includes(valor)) filtrosActivos[campo].push(valor);
+            } else {
+                filtrosActivos[campo] = filtrosActivos[campo].filter(v => v !== valor);
+            }
+            actualizarHeaderTexto(campo);
             recalcularYRenderizar();
         }
 
-        function resetFiltro(campo) {
-            const listaUnicos = campo === 'atraso' ? tramosMora : [...new Set(baseDatos.map(d => d[campo] || 'SIN ESPECIFICAR'))].sort();
-            filtrosActivos[campo] = [...listaUnicos];
-            listaUnicos.forEach(valor => {
-                const safeId = valor.replace(/[^a-zA-Z0-9]/g, '-');
-                const el = document.getElementById(`el-${campo}-${safeId}`);
-                if (el) el.className = obtenerEstiloActivo(campo, valor);
-            });
+        function setTodosFiltro(campo) {
+            filtrosActivos[campo] = [...valoresUnicos[campo]];
+            const list = document.getElementById(`dropdown-list-${campo}`);
+            list.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+            actualizarHeaderTexto(campo);
             recalcularYRenderizar();
         }
 
-        function limpiarFiltro(campo) {
+        function setNingunoFiltro(campo) {
             filtrosActivos[campo] = [];
-            const listaUnicos = campo === 'atraso' ? tramosMora : [...new Set(baseDatos.map(d => d[campo] || 'SIN ESPECIFICAR'))];
-            listaUnicos.forEach(valor => {
-                const safeId = valor.replace(/[^a-zA-Z0-9]/g, '-');
-                const el = document.getElementById(`el-${campo}-${safeId}`);
-                if (el) el.className = 'slicer-item';
-            });
+            const list = document.getElementById(`dropdown-list-${campo}`);
+            list.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            actualizarHeaderTexto(campo);
             recalcularYRenderizar();
+        }
+
+        function actualizarHeaderTexto(campo) {
+            const dropdown = document.getElementById(`dropdown-list-${campo}`).closest('.dropdown-container');
+            const headerText = dropdown.querySelector('.dropdown-header span');
+            const totalUnicos = valoresUnicos[campo].length;
+            const totalSeleccionados = filtrosActivos[campo].length;
+            if (totalSeleccionados === totalUnicos) {
+                headerText.innerText = 'Todos';
+            } else if (totalSeleccionados === 0) {
+                headerText.innerText = 'Ninguno';
+            } else if (totalSeleccionados === 1) {
+                headerText.innerText = filtrosActivos[campo][0];
+            } else {
+                headerText.innerText = `Varios (${totalSeleccionados})`;
+            }
         }
 
         function recalcularYRenderizar() {
@@ -219,90 +361,312 @@
                 filtrosActivos.regional.includes(d.regional) && 
                 filtrosActivos.atraso.includes(d.atraso) &&
                 filtrosActivos.gestion.includes(d.gestion) &&
-                filtrosActivos.NOMBREPLAN.includes(d.NOMBREPLAN || 'SIN ESPECIFICAR')
+                filtrosActivos.TIPOVENDEDOR.includes(d.TIPOVENDEDOR || 'SIN ESPECIFICAR') &&
+                filtrosActivos.PRODUCTO.includes(d.PRODUCTO || 'SIN ESPECIFICAR')
             );
             
-            let totalCuotas = 0, totalMontoDinero = 0, acumuladoAtrasoTotal = 0;
+            let totalCuotas = 0, totalMontoDinero = 0, acumuladoAtrasoTotal = 0, valorTotalMora = 0;
             
-            let morasCuenta = {}; let morasSuma = {};
-            tramosMora.forEach(t => { morasCuenta[t] = 0; morasSuma[t] = 0; });
+            // Estructuras de datos base
+            let morasSuma = {}; let morasCuenta = {};
+            tramosMora.forEach(t => { morasSuma[t] = 0; morasCuenta[t] = 0; });
             
-            let regionalesCuenta = {}; let regionalesSuma = {};
             let estatusCuenta = {}; let estatusSuma = {};
-            let nombreplanCuenta = {}; let nombreplanSuma = {};
+            
+            const morasSeveras = ['ATRASO DE 11 A 25', 'ATRASO DE 26 A 50', 'ATRASO DE 51 A 60', 'ATRASO DE 61 A 90', 'ATRASO MAYOR A 90'];
+
+            // Estructura Pivot Regional
+            let pivotCuenta = {}; let pivotSuma = {};
+            let colTotalsCuenta = {}; let colTotalsSuma = {};
+            tramosMora.forEach(t => { colTotalsCuenta[t] = 0; colTotalsSuma[t] = 0; });
+            colTotalsCuenta['TOTAL'] = 0; colTotalsSuma['TOTAL'] = 0;
 
             dataFiltrada.forEach(item => {
-                const planKey = item.NOMBREPLAN || 'SIN ESPECIFICAR';
-                totalCuotas += item.cantidad; 
-                totalMontoDinero += item.monto;
+                const regional = item.regional || 'Sin Regional';
+                const atraso = item.atraso;
+                const monto = item.monto;
+                const cant = item.cantidad;
+
+                totalCuotas += cant; 
+                totalMontoDinero += monto;
                 
-                if (morasCuenta[item.atraso] !== undefined) {
-                    morasCuenta[item.atraso] += item.cantidad;
-                    morasSuma[item.atraso] += item.monto;
+                // Acumular Atrasos para gráficos
+                if (morasCuenta[atraso] !== undefined) {
+                    morasCuenta[atraso] += cant;
+                    morasSuma[atraso] += monto;
                 }
-                if (item.atraso.startsWith('ATRASO')) {
-                    acumuladoAtrasoTotal += item.cantidad;
-                }
+                
+                if (atraso.startsWith('ATRASO')) acumuladoAtrasoTotal += cant;
+                if (morasSeveras.includes(atraso)) valorTotalMora += monto;
 
-                if (!regionalesCuenta[item.regional]) regionalesCuenta[item.regional] = 0;
-                if (!regionalesSuma[item.regional]) regionalesSuma[item.regional] = 0;
-                regionalesCuenta[item.regional] += item.cantidad;
-                regionalesSuma[item.regional] += item.monto;
-
+                // Estatus
                 if (!estatusCuenta[item.estatus]) estatusCuenta[item.estatus] = 0;
                 if (!estatusSuma[item.estatus]) estatusSuma[item.estatus] = 0;
-                estatusCuenta[item.estatus] += item.cantidad;
-                estatusSuma[item.estatus] += item.monto;
-
-                if (!nombreplanCuenta[planKey]) nombreplanCuenta[planKey] = 0;
-                if (!nombreplanSuma[planKey]) nombreplanSuma[planKey] = 0;
-                nombreplanCuenta[planKey] += item.cantidad;
-                nombreplanSuma[planKey] += item.monto;
+                estatusCuenta[item.estatus] += cant;
+                estatusSuma[item.estatus] += monto;
+                
+                // Pivot Regional
+                if (!pivotCuenta[regional]) {
+                    pivotCuenta[regional] = { TOTAL: 0 };
+                    pivotSuma[regional] = { TOTAL: 0 };
+                    tramosMora.forEach(t => { pivotCuenta[regional][t] = 0; pivotSuma[regional][t] = 0; });
+                }
+                if (pivotCuenta[regional][atraso] !== undefined) {
+                    pivotCuenta[regional][atraso] += cant;
+                    pivotSuma[regional][atraso] += monto;
+                    pivotCuenta[regional]['TOTAL'] += cant;
+                    pivotSuma[regional]['TOTAL'] += monto;
+                    
+                    colTotalsCuenta[atraso] += cant;
+                    colTotalsSuma[atraso] += monto;
+                    colTotalsCuenta['TOTAL'] += cant;
+                    colTotalsSuma['TOTAL'] += monto;
+                }
             });
 
+            // KPIs
             document.getElementById('kpi-total').innerText = totalCuotas.toLocaleString('es-MX');
             document.getElementById('kpi-atraso-total').innerText = acumuladoAtrasoTotal.toLocaleString('es-MX');
             document.getElementById('kpi-monto').innerText = '$' + totalMontoDinero.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+            document.getElementById('kpi-mora-monto').innerText = '$' + valorTotalMora.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
             const calcPct = (parcial, total) => total > 0 ? ((parcial / total) * 100).toFixed(1) + '%' : '0.0%';
 
             // ====================================================================================
-            // 1. GRUPO ATRASO
+            // 1. REGIONALES - TABLA PIVOT Y GRÁFICO (Volumen y Financiero)
             // ====================================================================================
-            let htmlCuenta = `<table class="excel-table"><thead><tr><th>CONCEPTO ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
-            tramosMora.forEach(tramo => {
-                htmlCuenta += `<tr><td class="text-bold">${tramo}</td><td class="text-right">${morasCuenta[tramo].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(morasCuenta[tramo], totalCuotas)}</span></td></tr>`;
-            });
-            htmlCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
-            document.getElementById('contenedor-tabla-cuenta').innerHTML = htmlCuenta;
+            const listaRegionales = Object.keys(pivotCuenta).sort((a,b) => pivotCuenta[b].TOTAL - pivotCuenta[a].TOTAL); // Ordenado por mayor cantidad total
 
-            let htmlSuma = `<table class="excel-table"><thead><tr><th>CONCEPTO ↕</th><th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
-            tramosMora.forEach(tramo => {
-                htmlSuma += `<tr><td class="text-bold">${tramo}</td><td class="text-right">$${morasSuma[tramo].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(morasSuma[tramo], totalMontoDinero)}</span></td></tr>`;
+            // Renderizar Gráfico Stacked Bar
+            document.getElementById('subtitulo-regional').innerText = `${totalCuotas.toLocaleString('es-MX')} contratos • $ ${(totalMontoDinero/1000000).toFixed(1)}M`;
+            
+            const tramoColors = {
+                'ADELANTADO': '#3b82f6',
+                'ANTICIPADO DE -10 A 0': '#8b5cf6',
+                'ATRASO DE 1 A 10': '#ec4899',
+                'ATRASO DE 11 A 25': '#f43f5e',
+                'ATRASO DE 26 A 50': '#10b981',
+                'ATRASO DE 51 A 60': '#06b6d4',
+                'ATRASO DE 61 A 90': '#f59e0b',
+                'ATRASO MAYOR A 90': '#0ea5e9'
+            };
+
+            const datasetsRegional = tramosMora.map(tramo => ({
+                label: tramo,
+                data: listaRegionales.map(reg => pivotSuma[reg][tramo] || 0),
+                backgroundColor: tramoColors[tramo] || '#cbd5e1',
+                borderWidth: 0
+            }));
+
+            if (window.myRegionalChart) { window.myRegionalChart.destroy(); }
+            const ctxReg = document.getElementById('regionalChart').getContext('2d');
+            window.myRegionalChart = new Chart(ctxReg, {
+                type: 'bar',
+                data: {
+                    labels: listaRegionales,
+                    datasets: datasetsRegional
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 10 } } },
+                        y: { 
+                            stacked: true, 
+                            beginAtZero: true, 
+                            ticks: { callback: (val) => '$' + (val/1000000).toFixed(1) + 'M' },
+                            grid: { color: '#f1f5f9' }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const reg = context.label;
+                                    const tramo = context.dataset.label;
+                                    const monto = context.raw;
+                                    const count = pivotCuenta[reg][tramo] || 0;
+                                    if (monto === 0) return null;
+                                    return `${tramo}: ${count.toLocaleString('es-MX')} cont. ($ ${(monto/1000000).toFixed(1)}M)`;
+                                }
+                            }
+                        }
+                    }
+                }
             });
-            htmlSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
-            document.getElementById('contenedor-tabla-suma').innerHTML = htmlSuma;
+
+            // Headers para la pivot
+            let thCols = tramosMora.map(t => `<th class="text-right" style="font-size:11px;">${t}</th>`).join('');
+            
+            // Generar tabla Pivot Cuenta
+            let htmlPivotCuenta = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>REGIONAL</th>${thCols}<th class="text-right">TOTAL</th></tr></thead><tbody>`;
+            listaRegionales.forEach((reg, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = tramosMora.map(t => `<td class="text-right">${pivotCuenta[reg][t] > 0 ? pivotCuenta[reg][t].toLocaleString('es-MX') : '-'}</td>`).join('');
+                htmlPivotCuenta += `<tr><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${reg}</td>${tdCols}<td class="text-right text-bold">${pivotCuenta[reg].TOTAL.toLocaleString('es-MX')}</td></tr>`;
+            });
+            let tdTotals = tramosMora.map(t => `<td class="text-right">${colTotalsCuenta[t] > 0 ? colTotalsCuenta[t].toLocaleString('es-MX') : '-'}</td>`).join('');
+            htmlPivotCuenta += `<tr class="total-row"><td>TOTAL</td>${tdTotals}<td class="text-right">${colTotalsCuenta['TOTAL'].toLocaleString('es-MX')}</td></tr></tbody></table>`;
+            document.getElementById('contenedor-regional-cuenta-pivot').innerHTML = htmlPivotCuenta;
+
+            // Generar tabla Pivot Suma
+            let htmlPivotSuma = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>REGIONAL</th>${thCols}<th class="text-right">TOTAL</th></tr></thead><tbody>`;
+            listaRegionales.forEach((reg, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = tramosMora.map(t => `<td class="text-right">${pivotSuma[reg][t] > 0 ? '$ ' + pivotSuma[reg][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                htmlPivotSuma += `<tr><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${reg}</td>${tdCols}<td class="text-right text-bold">$ ${pivotSuma[reg].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td></tr>`;
+            });
+            let tdTotalsSuma = tramosMora.map(t => `<td class="text-right">${colTotalsSuma[t] > 0 ? '$ ' + colTotalsSuma[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+            htmlPivotSuma += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSuma}<td class="text-right">$ ${colTotalsSuma['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td></tr></tbody></table>`;
+            document.getElementById('contenedor-regional-suma-pivot').innerHTML = htmlPivotSuma;
 
             // ====================================================================================
-            // 2. REGIONALES
+            // 2. ALERTA TOP 5 REGIONALES > 51 DIAS POR TIPO
             // ====================================================================================
-            const listaRegionales = Object.keys(regionalesCuenta).sort();
-            let htmlRegCuenta = `<table class="excel-table"><thead><tr><th>REGIONAL ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
-            listaRegionales.forEach(reg => {
-                htmlRegCuenta += `<tr><td class="text-bold">${reg}</td><td class="text-right">${regionalesCuenta[reg].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(regionalesCuenta[reg], totalCuotas)}</span></td></tr>`;
-            });
-            htmlRegCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
-            document.getElementById('contenedor-regional-cuenta').innerHTML = htmlRegCuenta;
+            const tramosCriticos = ['ATRASO DE 51 A 60', 'ATRASO DE 61 A 90', 'ATRASO MAYOR A 90'];
+            let regionalesCriticas = {};
+            let pivotTiposCriticos = {};
+            const tiposAlerta = ['ASESOR COBRANZA', 'ASIGNAR COBRADOR', 'MEDIOS', 'OFICINA'];
+            
+            dataFiltrada.forEach(item => {
+                if (tramosCriticos.includes(item.atraso)) {
+                    const reg = item.regional || 'Sin Regional';
+                    const tipo = item.tipo ? item.tipo.toUpperCase() : 'SIN TIPO';
+                    const monto = item.monto;
+                    
+                    if (!regionalesCriticas[reg]) regionalesCriticas[reg] = 0;
+                    regionalesCriticas[reg] += monto;
 
-            let htmlRegSuma = `<table class="excel-table"><thead><tr><th>REGIONAL ↕</th><th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
-            listaRegionales.forEach(reg => {
-                htmlRegSuma += `<tr><td class="text-bold">${reg}</td><td class="text-right">$${regionalesSuma[reg].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(regionalesSuma[reg], totalMontoDinero)}</span></td></tr>`;
+                    if (!pivotTiposCriticos[reg]) {
+                        pivotTiposCriticos[reg] = { TOTAL: 0 };
+                        tiposAlerta.forEach(t => pivotTiposCriticos[reg][t] = 0);
+                        pivotTiposCriticos[reg]['OTROS'] = 0;
+                    }
+
+                    if (tiposAlerta.includes(tipo)) {
+                        pivotTiposCriticos[reg][tipo] += monto;
+                    } else {
+                        pivotTiposCriticos[reg]['OTROS'] += monto;
+                    }
+                    pivotTiposCriticos[reg].TOTAL += monto;
+                }
             });
-            htmlRegSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
-            document.getElementById('contenedor-regional-suma').innerHTML = htmlRegSuma;
+
+            const top5Regionales = Object.keys(regionalesCriticas)
+                .sort((a, b) => regionalesCriticas[b] - regionalesCriticas[a])
+                .slice(0, 5);
+
+            if (top5Regionales.length > 0) {
+                let htmlAlerta = `
+                <div style="background-color: #fdfbfb; border-left: 4px solid #dc2626; padding: 16px; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <h3 style="color: #991b1b; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px;">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        ALERTA CRÍTICA: Top 5 Regionales con Atrasos Mayores a 51 Días (Valor de Cartera por Tipo)
+                    </h3>
+                    <div class="table-container" style="border: 1px solid #f87171; overflow-x: auto; border-radius: 6px;">
+                        <table class="excel-table" style="background: white; min-width: 800px; margin: 0; border: none;">
+                            <thead>
+                                <tr style="background-color: #991b1b;">
+                                    <th style="color: #ffffff; font-weight: 600; font-size: 11px;">REGIONAL</th>
+                                    ${tiposAlerta.map(t => `<th class="text-right" style="color: #ffffff; font-weight: 600; font-size:11px;">${t}</th>`).join('')}
+                                    <th class="text-right" style="color: #ffffff; font-weight: 600; font-size:11px;">OTROS</th>
+                                    <th class="text-right" style="color: #fca5a5; font-weight: 700; font-size:11px;">TOTAL CRÍTICO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+                
+                top5Regionales.forEach(reg => {
+                    let tdCols = tiposAlerta.map(t => `<td class="text-right">${pivotTiposCriticos[reg][t] > 0 ? '$ ' + pivotTiposCriticos[reg][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                    htmlAlerta += `
+                        <tr>
+                            <td class="text-bold" style="color: #1e293b;">${reg}</td>
+                            ${tdCols}
+                            <td class="text-right">${pivotTiposCriticos[reg]['OTROS'] > 0 ? '$ ' + pivotTiposCriticos[reg]['OTROS'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>
+                            <td class="text-right text-bold" style="color: #dc2626;">$ ${pivotTiposCriticos[reg].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td>
+                        </tr>
+                    `;
+                });
+                
+                htmlAlerta += `</tbody></table></div></div>`;
+                document.getElementById('contenedor-alerta-top5').innerHTML = htmlAlerta;
+            } else {
+                document.getElementById('contenedor-alerta-top5').innerHTML = '';
+            }
 
             // ====================================================================================
-            // 3. ESTATUS
+            // 3. GRÁFICO DE ATRASO Y TABLA RESUMEN
+            // ====================================================================================
+            document.getElementById('subtitulo-atraso').innerText = `${totalCuotas.toLocaleString('es-MX')} contratos • $ ${(totalMontoDinero/1000000).toFixed(1)}M`;
+            
+            // Filtrar tramos que tienen valor para mostrar en gráfica
+            let atrasoData = tramosMora.map(t => ({ label: t, monto: morasSuma[t], count: morasCuenta[t] })).filter(d => d.monto > 0);
+            // Ordenar de mayor a menor por monto
+            atrasoData.sort((a,b) => b.monto - a.monto);
+
+            const palette = ['#10b981', '#f59e0b', '#f97316', '#ef4444', '#dc2626', '#10b981', '#f59e0b', '#64748b'];
+            
+            let htmlResumenAtraso = `<table class="summary-table">
+                <thead><tr><th>CATEGORÍA</th><th>CONTRATOS</th><th>VALOR</th><th>% TOTAL</th></tr></thead><tbody>`;
+            
+            let chartLabels = [];
+            let chartDataValues = [];
+            let chartColors = [];
+
+            atrasoData.forEach((d, idx) => {
+                const color = palette[idx % palette.length];
+                chartLabels.push(d.label);
+                chartDataValues.push(d.monto);
+                chartColors.push(color);
+                
+                htmlResumenAtraso += `<tr>
+                    <td><div class="color-dot" style="background:${color};"></div>${d.label}</td>
+                    <td>${d.count.toLocaleString('es-MX')}</td>
+                    <td>$ ${(d.monto/1000000).toFixed(1)}M</td>
+                    <td>${calcPct(d.monto, totalMontoDinero)}</td>
+                </tr>`;
+            });
+            htmlResumenAtraso += `<tr><td>TOTAL</td><td>${totalCuotas.toLocaleString('es-MX')}</td><td>$ ${(totalMontoDinero/1000000).toFixed(1)}M</td><td>100%</td></tr></tbody></table>`;
+            
+            document.getElementById('contenedor-atraso-resumen').innerHTML = htmlResumenAtraso;
+
+            // Renderizar Gráfico
+            if (window.myAtrasoChart) { window.myAtrasoChart.destroy(); }
+            const ctx = document.getElementById('atrasoChart').getContext('2d');
+            window.myAtrasoChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        data: chartDataValues,
+                        backgroundColor: chartColors,
+                        borderRadius: 6,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: { label: (ctx) => '$ ' + (ctx.raw/1000000).toFixed(1) + 'M' }
+                        }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true, 
+                            ticks: { callback: (val) => '$' + (val/1000000).toFixed(1) + 'M' },
+                            grid: { color: '#f1f5f9' }
+                        },
+                        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+                    }
+                }
+            });
+
+            // ====================================================================================
+            // 4. ESTATUS
             // ====================================================================================
             const listaEstatus = Object.keys(estatusCuenta).sort();
             let htmlEstCuenta = `<table class="excel-table"><thead><tr><th>ESTATUS ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
@@ -318,24 +682,6 @@
             });
             htmlEstSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
             document.getElementById('contenedor-estatus-suma').innerHTML = htmlEstSuma;
-
-            // ====================================================================================
-            // 4. NOMBREPLAN
-            // ====================================================================================
-            const listaPlanes = Object.keys(nombreplanCuenta).sort();
-            let htmlPlanCuenta = `<table class="excel-table"><thead><tr><th>NOMBRE PLAN ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
-            listaPlanes.forEach(p => {
-                htmlPlanCuenta += `<tr><td class="text-bold">${p}</td><td class="text-right">${nombreplanCuenta[p].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(nombreplanCuenta[p], totalCuotas)}</span></td></tr>`;
-            });
-            htmlPlanCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
-            document.getElementById('contenedor-NOMBREPLAN-cuenta').innerHTML = htmlPlanCuenta;
-
-            let htmlPlanSuma = `<table class="excel-table"><thead><tr><th>NOMBRE PLAN ↕</th><th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
-            listaPlanes.forEach(p => {
-                htmlPlanSuma += `<tr><td class="text-bold">${p}</td><td class="text-right">$${nombreplanSuma[p].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(nombreplanSuma[p], totalMontoDinero)}</span></td></tr>`;
-            });
-            htmlPlanSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
-            document.getElementById('contenedor-NOMBREPLAN-suma').innerHTML = htmlPlanSuma;
 
             habilitarOrdenamientoTablas();
         }
