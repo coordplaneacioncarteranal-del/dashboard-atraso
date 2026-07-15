@@ -53,9 +53,9 @@
 
         .table-container { overflow-x: auto; border-radius: 8px; border: 1px solid #e2e8f0; }
         .excel-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
-        .excel-table th { background-color: #1B365D; color: white; padding: 12px 16px; font-weight: 600; cursor: pointer; user-select: none; position: relative; }
+        .excel-table th { background-color: #1B365D; color: white; padding: 12px 16px; font-weight: 600; cursor: pointer; user-select: none; position: relative; white-space: nowrap; }
         .excel-table th:hover { background-color: #15294a; }
-        .excel-table td { padding: 12px 16px; border-bottom: 1px solid #e2e8f0; }
+        .excel-table td { padding: 12px 16px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
         .excel-table tr:nth-child(even) { background-color: #f8fafc; }
         .excel-table tr:hover { background-color: #f1f5f9; }
         
@@ -368,8 +368,14 @@
             let totalCuotas = 0, totalMontoDinero = 0, acumuladoAtrasoTotal = 0, valorTotalMora = 0;
             
             // Estructuras de datos base
-            let morasSuma = {}; let morasCuenta = {};
-            tramosMora.forEach(t => { morasSuma[t] = 0; morasCuenta[t] = 0; });
+            const tiposAlertaResumen = ['ASESOR COBRANZA', 'ASIGNAR COBRADOR', 'MEDIOS', 'OFICINA'];
+            let atrasoCuenta = {}; let atrasoDinero = {}; let atrasoTipos = {};
+            tramosMora.forEach(t => { 
+                atrasoCuenta[t] = 0; 
+                atrasoDinero[t] = 0; 
+                atrasoTipos[t] = { 'OTROS': 0 };
+                tiposAlertaResumen.forEach(tipo => atrasoTipos[t][tipo] = 0);
+            });
             
             let estatusCuenta = {}; let estatusSuma = {};
             
@@ -391,9 +397,16 @@
                 totalMontoDinero += monto;
                 
                 // Acumular Atrasos para gráficos
-                if (morasCuenta[atraso] !== undefined) {
-                    morasCuenta[atraso] += cant;
-                    morasSuma[atraso] += monto;
+                if (atrasoCuenta[atraso] !== undefined) {
+                    atrasoCuenta[atraso] += cant;
+                    atrasoDinero[atraso] += monto;
+                    
+                    const tipoUpper = item.tipo ? item.tipo.toUpperCase() : 'SIN TIPO';
+                    if (tiposAlertaResumen.includes(tipoUpper)) {
+                        atrasoTipos[atraso][tipoUpper] += monto;
+                    } else {
+                        atrasoTipos[atraso]['OTROS'] += monto;
+                    }
                 }
                 
                 if (atraso.startsWith('ATRASO')) acumuladoAtrasoTotal += cant;
@@ -432,12 +445,8 @@
 
             const calcPct = (parcial, total) => total > 0 ? ((parcial / total) * 100).toFixed(1) + '%' : '0.0%';
 
-            // ====================================================================================
-            // 1. REGIONALES - TABLA PIVOT Y GRÁFICO (Volumen y Financiero)
-            // ====================================================================================
-            const listaRegionales = Object.keys(pivotCuenta).sort((a,b) => pivotCuenta[b].TOTAL - pivotCuenta[a].TOTAL); // Ordenado por mayor cantidad total
-
-            // Renderizar Gráfico Stacked Bar
+            // 1. REGIONALES
+            const listaRegionales = Object.keys(pivotCuenta).sort((a,b) => pivotCuenta[b].TOTAL - pivotCuenta[a].TOTAL);
             document.getElementById('subtitulo-regional').innerText = `${totalCuotas.toLocaleString('es-MX')} contratos • $ ${(totalMontoDinero/1000000).toFixed(1)}M`;
             
             const tramoColors = {
@@ -462,21 +471,12 @@
             const ctxReg = document.getElementById('regionalChart').getContext('2d');
             window.myRegionalChart = new Chart(ctxReg, {
                 type: 'bar',
-                data: {
-                    labels: listaRegionales,
-                    datasets: datasetsRegional
-                },
+                data: { labels: listaRegionales, datasets: datasetsRegional },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
+                    responsive: true, maintainAspectRatio: false,
                     scales: {
                         x: { stacked: true, grid: { display: false }, ticks: { font: { size: 10 } } },
-                        y: { 
-                            stacked: true, 
-                            beginAtZero: true, 
-                            ticks: { callback: (val) => '$' + (val/1000000).toFixed(1) + 'M' },
-                            grid: { color: '#f1f5f9' }
-                        }
+                        y: { stacked: true, beginAtZero: true, ticks: { callback: (val) => '$' + (val/1000000).toFixed(1) + 'M' }, grid: { color: '#f1f5f9' } }
                     },
                     plugins: {
                         legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } },
@@ -496,10 +496,7 @@
                 }
             });
 
-            // Headers para la pivot
             let thCols = tramosMora.map(t => `<th class="text-right" style="font-size:11px;">${t}</th>`).join('');
-            
-            // Generar tabla Pivot Cuenta
             let htmlPivotCuenta = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>REGIONAL</th>${thCols}<th class="text-right">TOTAL</th></tr></thead><tbody>`;
             listaRegionales.forEach((reg, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
@@ -510,7 +507,6 @@
             htmlPivotCuenta += `<tr class="total-row"><td>TOTAL</td>${tdTotals}<td class="text-right">${colTotalsCuenta['TOTAL'].toLocaleString('es-MX')}</td></tr></tbody></table>`;
             document.getElementById('contenedor-regional-cuenta-pivot').innerHTML = htmlPivotCuenta;
 
-            // Generar tabla Pivot Suma
             let htmlPivotSuma = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>REGIONAL</th>${thCols}<th class="text-right">TOTAL</th></tr></thead><tbody>`;
             listaRegionales.forEach((reg, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
@@ -521,165 +517,88 @@
             htmlPivotSuma += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSuma}<td class="text-right">$ ${colTotalsSuma['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td></tr></tbody></table>`;
             document.getElementById('contenedor-regional-suma-pivot').innerHTML = htmlPivotSuma;
 
-            // ====================================================================================
-            // 2. ALERTA TOP 5 REGIONALES > 51 DIAS POR TIPO
-            // ====================================================================================
+            // 2. ALERTA TOP 5
             const tramosCriticos = ['ATRASO DE 51 A 60', 'ATRASO DE 61 A 90', 'ATRASO MAYOR A 90'];
-            let regionalesCriticas = {};
-            let pivotTiposCriticos = {};
-            const tiposAlerta = ['ASESOR COBRANZA', 'ASIGNAR COBRADOR', 'MEDIOS', 'OFICINA'];
-            
+            let regionalesCriticas = {}; let pivotTiposCriticos = {};
             dataFiltrada.forEach(item => {
                 if (tramosCriticos.includes(item.atraso)) {
                     const reg = item.regional || 'Sin Regional';
                     const tipo = item.tipo ? item.tipo.toUpperCase() : 'SIN TIPO';
                     const monto = item.monto;
-                    
                     if (!regionalesCriticas[reg]) regionalesCriticas[reg] = 0;
                     regionalesCriticas[reg] += monto;
-
                     if (!pivotTiposCriticos[reg]) {
                         pivotTiposCriticos[reg] = { TOTAL: 0 };
-                        tiposAlerta.forEach(t => pivotTiposCriticos[reg][t] = 0);
+                        tiposAlertaResumen.forEach(t => pivotTiposCriticos[reg][t] = 0);
                         pivotTiposCriticos[reg]['OTROS'] = 0;
                     }
-
-                    if (tiposAlerta.includes(tipo)) {
-                        pivotTiposCriticos[reg][tipo] += monto;
-                    } else {
-                        pivotTiposCriticos[reg]['OTROS'] += monto;
-                    }
+                    if (tiposAlertaResumen.includes(tipo)) { pivotTiposCriticos[reg][tipo] += monto; } else { pivotTiposCriticos[reg]['OTROS'] += monto; }
                     pivotTiposCriticos[reg].TOTAL += monto;
                 }
             });
-
-            const top5Regionales = Object.keys(regionalesCriticas)
-                .sort((a, b) => regionalesCriticas[b] - regionalesCriticas[a])
-                .slice(0, 5);
-
+            const top5Regionales = Object.keys(regionalesCriticas).sort((a, b) => regionalesCriticas[b] - regionalesCriticas[a]).slice(0, 5);
             if (top5Regionales.length > 0) {
-                let htmlAlerta = `
-                <div style="background-color: #fdfbfb; border-left: 4px solid #dc2626; padding: 16px; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <h3 style="color: #991b1b; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px;">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-                        ALERTA CRÍTICA: Top 5 Regionales con Atrasos Mayores a 51 Días (Valor de Cartera por Tipo)
-                    </h3>
-                    <div class="table-container" style="border: 1px solid #f87171; overflow-x: auto; border-radius: 6px;">
-                        <table class="excel-table" style="background: white; min-width: 800px; margin: 0; border: none;">
-                            <thead>
-                                <tr style="background-color: #991b1b;">
-                                    <th style="color: #ffffff; font-weight: 600; font-size: 11px;">REGIONAL</th>
-                                    ${tiposAlerta.map(t => `<th class="text-right" style="color: #ffffff; font-weight: 600; font-size:11px;">${t}</th>`).join('')}
-                                    <th class="text-right" style="color: #ffffff; font-weight: 600; font-size:11px;">OTROS</th>
-                                    <th class="text-right" style="color: #fca5a5; font-weight: 700; font-size:11px;">TOTAL CRÍTICO</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                `;
-                
+                let htmlAlerta = `<div style="background-color: #fdfbfb; border-left: 4px solid #dc2626; padding: 16px; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"><h3 style="color: #991b1b; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px;"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>ALERTA CRÍTICA: Top 5 Regionales con Atrasos Mayores a 51 Días</h3><div class="table-container" style="border: 1px solid #f87171; overflow-x: auto; border-radius: 6px;"><table class="excel-table" style="background: white; min-width: 800px; margin: 0; border: none;"><thead><tr style="background-color: #991b1b;"><th style="color: #ffffff; font-weight: 600; font-size: 11px;">REGIONAL</th>${tiposAlertaResumen.map(t => `<th class="text-right" style="color: #ffffff; font-weight: 600; font-size:11px;">${t}</th>`).join('')}<th class="text-right" style="color: #ffffff; font-weight: 600; font-size:11px;">OTROS</th><th class="text-right" style="color: #fca5a5; font-weight: 700; font-size:11px;">TOTAL CRÍTICO</th></tr></thead><tbody>`;
                 top5Regionales.forEach(reg => {
-                    let tdCols = tiposAlerta.map(t => `<td class="text-right">${pivotTiposCriticos[reg][t] > 0 ? '$ ' + pivotTiposCriticos[reg][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
-                    htmlAlerta += `
-                        <tr>
-                            <td class="text-bold" style="color: #1e293b;">${reg}</td>
-                            ${tdCols}
-                            <td class="text-right">${pivotTiposCriticos[reg]['OTROS'] > 0 ? '$ ' + pivotTiposCriticos[reg]['OTROS'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>
-                            <td class="text-right text-bold" style="color: #dc2626;">$ ${pivotTiposCriticos[reg].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td>
-                        </tr>
-                    `;
+                    let tdCols = tiposAlertaResumen.map(t => `<td class="text-right">${pivotTiposCriticos[reg][t] > 0 ? '$ ' + pivotTiposCriticos[reg][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                    htmlAlerta += `<tr><td class="text-bold" style="color: #1e293b;">${reg}</td>${tdCols}<td class="text-right">${pivotTiposCriticos[reg]['OTROS'] > 0 ? '$ ' + pivotTiposCriticos[reg]['OTROS'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td><td class="text-right text-bold" style="color: #dc2626;">$ ${pivotTiposCriticos[reg].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td></tr>`;
                 });
-                
                 htmlAlerta += `</tbody></table></div></div>`;
                 document.getElementById('contenedor-alerta-top5').innerHTML = htmlAlerta;
-            } else {
-                document.getElementById('contenedor-alerta-top5').innerHTML = '';
-            }
+            } else { document.getElementById('contenedor-alerta-top5').innerHTML = ''; }
 
-            // ====================================================================================
             // 3. GRÁFICO DE ATRASO Y TABLA RESUMEN
-            // ====================================================================================
             document.getElementById('subtitulo-atraso').innerText = `${totalCuotas.toLocaleString('es-MX')} contratos • $ ${(totalMontoDinero/1000000).toFixed(1)}M`;
             
-            // Filtrar tramos que tienen valor para mostrar en gráfica
-            let atrasoData = tramosMora.map(t => ({ label: t, monto: morasSuma[t], count: morasCuenta[t] })).filter(d => d.monto > 0);
-            // Ordenar de mayor a menor por monto
-            atrasoData.sort((a,b) => b.monto - a.monto);
-
-            const palette = ['#10b981', '#f59e0b', '#f97316', '#ef4444', '#dc2626', '#10b981', '#f59e0b', '#64748b'];
+            let sortedTramos = tramosMora.filter(t => atrasoDinero[t] > 0).sort((a,b) => atrasoDinero[b] - atrasoDinero[a]);
             
-            let htmlResumenAtraso = `<table class="summary-table">
-                <thead><tr><th>CATEGORÍA</th><th>CONTRATOS</th><th>VALOR</th><th>% TOTAL</th></tr></thead><tbody>`;
+            let htmlResumen = `<div style="overflow-x: auto;"><table class="excel-table" style="margin-top: 16px; min-width: 800px;">
+                <thead><tr><th style="white-space: nowrap;">CATEGORÍA</th>${tiposAlertaResumen.map(t => `<th class="text-right" style="font-size: 11px; white-space: nowrap;">${t}</th>`).join('')}<th class="text-right" style="font-size: 11px; white-space: nowrap;">OTROS</th><th class="text-right" style="white-space: nowrap;">CONTRATOS</th><th class="text-right" style="white-space: nowrap;">VALOR TOTAL</th><th class="text-right" style="white-space: nowrap;">% TOTAL</th></tr></thead>
+                <tbody>`;
             
-            let chartLabels = [];
-            let chartDataValues = [];
-            let chartColors = [];
+            let totalesTipos = {};
+            tiposAlertaResumen.forEach(t => totalesTipos[t] = 0);
+            totalesTipos['OTROS'] = 0;
 
-            atrasoData.forEach((d, idx) => {
-                const color = palette[idx % palette.length];
-                chartLabels.push(d.label);
-                chartDataValues.push(d.monto);
-                chartColors.push(color);
+            sortedTramos.forEach(tramo => {
+                const tramoColor = tramoColors[tramo] || '#cbd5e1';
+                const pct = ((atrasoDinero[tramo] / totalMontoDinero) * 100).toFixed(1) + '%';
                 
-                htmlResumenAtraso += `<tr>
-                    <td><div class="color-dot" style="background:${color};"></div>${d.label}</td>
-                    <td>${d.count.toLocaleString('es-MX')}</td>
-                    <td>$ ${(d.monto/1000000).toFixed(1)}M</td>
-                    <td>${calcPct(d.monto, totalMontoDinero)}</td>
-                </tr>`;
-            });
-            htmlResumenAtraso += `<tr><td>TOTAL</td><td>${totalCuotas.toLocaleString('es-MX')}</td><td>$ ${(totalMontoDinero/1000000).toFixed(1)}M</td><td>100%</td></tr></tbody></table>`;
-            
-            document.getElementById('contenedor-atraso-resumen').innerHTML = htmlResumenAtraso;
+                tiposAlertaResumen.forEach(t => totalesTipos[t] += atrasoTipos[tramo][t] || 0);
+                totalesTipos['OTROS'] += atrasoTipos[tramo]['OTROS'] || 0;
 
-            // Renderizar Gráfico
+                let tdTipos = tiposAlertaResumen.map(t => `<td class="text-right" style="font-size: 11px; white-space: nowrap;">${atrasoTipos[tramo][t] > 0 ? '$ ' + atrasoTipos[tramo][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                let tdOtros = `<td class="text-right" style="font-size: 11px; white-space: nowrap;">${atrasoTipos[tramo]['OTROS'] > 0 ? '$ ' + atrasoTipos[tramo]['OTROS'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`;
+                htmlResumen += `<tr><td style="white-space: nowrap;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:${tramoColor}; margin-right:8px;"></span>${tramo}</td>${tdTipos}${tdOtros}<td class="text-right" style="white-space: nowrap;">${atrasoCuenta[tramo].toLocaleString('es-MX')}</td><td class="text-right text-bold" style="white-space: nowrap;">$ ${atrasoDinero[tramo].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="white-space: nowrap;">${pct}</td></tr>`;
+            });
+            
+            let tdTotalesTipos = tiposAlertaResumen.map(t => `<td class="text-right" style="font-size: 11px; white-space: nowrap;">${totalesTipos[t] > 0 ? '$ ' + totalesTipos[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+            let tdTotalOtros = `<td class="text-right" style="font-size: 11px; white-space: nowrap;">${totalesTipos['OTROS'] > 0 ? '$ ' + totalesTipos['OTROS'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`;
+
+            htmlResumen += `<tr style="font-weight: bold; background-color: #f8fafc; border-top: 2px solid #cbd5e1;"><td style="white-space: nowrap;">TOTAL</td>${tdTotalesTipos}${tdTotalOtros}<td class="text-right" style="white-space: nowrap;">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right" style="white-space: nowrap;">$ ${totalMontoDinero.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="white-space: nowrap;">100%</td></tr></tbody></table></div>`;
+            document.getElementById('contenedor-atraso-resumen').innerHTML = htmlResumen;
+
             if (window.myAtrasoChart) { window.myAtrasoChart.destroy(); }
             const ctx = document.getElementById('atrasoChart').getContext('2d');
             window.myAtrasoChart = new Chart(ctx, {
                 type: 'bar',
-                data: {
-                    labels: chartLabels,
-                    datasets: [{
-                        data: chartDataValues,
-                        backgroundColor: chartColors,
-                        borderRadius: 6,
-                        borderSkipped: false
-                    }]
-                },
+                data: { labels: sortedTramos, datasets: [{ data: sortedTramos.map(t => atrasoDinero[t]), backgroundColor: sortedTramos.map(t => tramoColors[t] || '#64748b'), borderRadius: 6, borderSkipped: false }] },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: { label: (ctx) => '$ ' + (ctx.raw/1000000).toFixed(1) + 'M' }
-                        }
-                    },
-                    scales: {
-                        y: { 
-                            beginAtZero: true, 
-                            ticks: { callback: (val) => '$' + (val/1000000).toFixed(1) + 'M' },
-                            grid: { color: '#f1f5f9' }
-                        },
-                        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
-                    }
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => '$ ' + (ctx.raw/1000000).toFixed(1) + 'M' } } },
+                    scales: { y: { beginAtZero: true, ticks: { callback: (val) => '$' + (val/1000000).toFixed(1) + 'M' }, grid: { color: '#f1f5f9' } }, x: { grid: { display: false }, ticks: { font: { size: 10 } } } }
                 }
             });
 
-            // ====================================================================================
             // 4. ESTATUS
-            // ====================================================================================
             const listaEstatus = Object.keys(estatusCuenta).sort();
             let htmlEstCuenta = `<table class="excel-table"><thead><tr><th>ESTATUS ↕</th><th class="text-right th-cuenta">CUENTA DE CUOTA ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
-            listaEstatus.forEach(est => {
-                htmlEstCuenta += `<tr><td class="text-bold">${est}</td><td class="text-right">${estatusCuenta[est].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(estatusCuenta[est], totalCuotas)}</span></td></tr>`;
-            });
+            listaEstatus.forEach(est => { htmlEstCuenta += `<tr><td class="text-bold">${est}</td><td class="text-right">${estatusCuenta[est].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(estatusCuenta[est], totalCuotas)}</span></td></tr>`; });
             htmlEstCuenta += `<tr class="total-row"><td>Total general</td><td class="text-right">${totalCuotas.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
             document.getElementById('contenedor-estatus-cuenta').innerHTML = htmlEstCuenta;
 
             let htmlEstSuma = `<table class="excel-table"><thead><tr><th>ESTATUS ↕</th><th class="text-right th-suma">SUMA DE CUOTA ($) ↕</th><th class="text-right th-pct">% PART. ↕</th></tr></thead><tbody>`;
-            listaEstatus.forEach(est => {
-                htmlEstSuma += `<tr><td class="text-bold">${est}</td><td class="text-right">$${estatusSuma[est].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(estatusSuma[est], totalMontoDinero)}</span></td></tr>`;
-            });
+            listaEstatus.forEach(est => { htmlEstSuma += `<tr><td class="text-bold">${est}</td><td class="text-right">$${estatusSuma[est].toLocaleString('es-MX')}</td><td class="text-right"><span class="badge-pct">${calcPct(estatusSuma[est], totalMontoDinero)}</span></td></tr>`; });
             htmlEstSuma += `<tr class="total-row"><td>Total general</td><td class="text-right">$${totalMontoDinero.toLocaleString('es-MX')}</td><td class="text-right">100%</td></tr></tbody></table>`;
             document.getElementById('contenedor-estatus-suma').innerHTML = htmlEstSuma;
 
