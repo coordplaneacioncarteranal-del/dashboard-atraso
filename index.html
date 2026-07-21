@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Corporativo - Análisis de Mora, Gestión y Participación</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="datos.js"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; margin: 0; padding: 24px; color: #1e293b; }
@@ -82,9 +84,19 @@
 <body>
 
     <div class="header">
-        <h1 style="margin:0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">SISTEMA DE CONTROL DE VIGENCIAS Y ATRASOS</h1>
-        <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px;">Consolidado Matricial con Análisis de Participación Porcentual (%)</p>
-        <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px; font-weight: 600;" id="fecha-actualizacion"></p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h1 style="margin:0; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">SISTEMA DE CONTROL DE VIGENCIAS Y ATRASOS</h1>
+                <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px;">Consolidado Matricial con Análisis de Participación Porcentual (%)</p>
+                <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px; font-weight: 600;" id="fecha-actualizacion"></p>
+            </div>
+            <div>
+                <a href="mapa.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #3b82f6; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3); transition: all 0.2s;">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Visor Geográfico
+                </a>
+            </div>
+        </div>
     </div>
 
     <div class="slicer-panel" id="filtros-container">
@@ -188,6 +200,10 @@
             'ATRASO DE 61 A 90', 
             'ATRASO MAYOR A 90'
         ];
+        // Global variables for charts
+        let myStackedChart = null;
+        let myAtrasoChart = null;
+
         // Configuración de dimensiones
         const dimensiones = [
             { id: 'estatus', label: 'ESTATUS' },
@@ -368,7 +384,7 @@
             let totalCuotas = 0, totalMontoDinero = 0, acumuladoAtrasoTotal = 0, valorTotalMora = 0;
             
             // Estructuras de datos base
-            const tiposAlertaResumen = ['ASESOR COBRANZA', 'ASIGNAR COBRADOR', 'MEDIOS', 'OFICINA'];
+            const tiposAlertaResumen = ['ASESOR COBRANZA', 'MEDIOS', 'OFICINA', 'PUNTO DE RECAUDO'];
             let atrasoCuenta = {}; let atrasoDinero = {}; let atrasoTipos = {};
             tramosMora.forEach(t => { 
                 atrasoCuenta[t] = 0; 
@@ -517,35 +533,93 @@
             htmlPivotSuma += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSuma}<td class="text-right">$ ${colTotalsSuma['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td></tr></tbody></table>`;
             document.getElementById('contenedor-regional-suma-pivot').innerHTML = htmlPivotSuma;
 
-            // 2. ALERTA TOP 5
-            const tramosCriticos = ['ATRASO DE 51 A 60', 'ATRASO DE 61 A 90', 'ATRASO MAYOR A 90'];
-            let regionalesCriticas = {}; let pivotTiposCriticos = {};
-            dataFiltrada.forEach(item => {
-                if (tramosCriticos.includes(item.atraso)) {
-                    const reg = item.regional || 'Sin Regional';
-                    const tipo = item.tipo ? item.tipo.toUpperCase() : 'SIN TIPO';
-                    const monto = item.monto;
-                    if (!regionalesCriticas[reg]) regionalesCriticas[reg] = 0;
-                    regionalesCriticas[reg] += monto;
-                    if (!pivotTiposCriticos[reg]) {
-                        pivotTiposCriticos[reg] = { TOTAL: 0 };
-                        tiposAlertaResumen.forEach(t => pivotTiposCriticos[reg][t] = 0);
-                        pivotTiposCriticos[reg]['OTROS'] = 0;
+            // 2. ALERTAS MULTIPLES TOP 5 (ETIQUETAS KPI POR CANAL)
+            function getTop5RegionalesForTipo(tipoFilter, tramosFiltro) {
+                let regionalMonto = {};
+                let regionalCantidad = {};
+                dataFiltrada.forEach(item => {
+                    if (tramosFiltro.includes(item.atraso)) {
+                        const reg = item.regional || 'Sin Regional';
+                        const tipo = item.tipo ? item.tipo.toUpperCase() : 'SIN TIPO';
+                        if (tipo === tipoFilter) {
+                            if (!regionalMonto[reg]) { regionalMonto[reg] = 0; regionalCantidad[reg] = 0; }
+                            regionalMonto[reg] += item.monto;
+                            regionalCantidad[reg] += item.cantidad;
+                        }
                     }
-                    if (tiposAlertaResumen.includes(tipo)) { pivotTiposCriticos[reg][tipo] += monto; } else { pivotTiposCriticos[reg]['OTROS'] += monto; }
-                    pivotTiposCriticos[reg].TOTAL += monto;
-                }
-            });
-            const top5Regionales = Object.keys(regionalesCriticas).sort((a, b) => regionalesCriticas[b] - regionalesCriticas[a]).slice(0, 5);
-            if (top5Regionales.length > 0) {
-                let htmlAlerta = `<div style="background-color: #fdfbfb; border-left: 4px solid #dc2626; padding: 16px; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"><h3 style="color: #991b1b; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px;"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>ALERTA CRÍTICA: Top 5 Regionales con Atrasos Mayores a 51 Días</h3><div class="table-container" style="border: 1px solid #f87171; overflow-x: auto; border-radius: 6px;"><table class="excel-table" style="background: white; min-width: 800px; margin: 0; border: none;"><thead><tr style="background-color: #991b1b;"><th style="color: #ffffff; font-weight: 600; font-size: 11px;">REGIONAL</th>${tiposAlertaResumen.map(t => `<th class="text-right" style="color: #ffffff; font-weight: 600; font-size:11px;">${t}</th>`).join('')}<th class="text-right" style="color: #ffffff; font-weight: 600; font-size:11px;">OTROS</th><th class="text-right" style="color: #fca5a5; font-weight: 700; font-size:11px;">TOTAL CRÍTICO</th></tr></thead><tbody>`;
-                top5Regionales.forEach(reg => {
-                    let tdCols = tiposAlertaResumen.map(t => `<td class="text-right">${pivotTiposCriticos[reg][t] > 0 ? '$ ' + pivotTiposCriticos[reg][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
-                    htmlAlerta += `<tr><td class="text-bold" style="color: #1e293b;">${reg}</td>${tdCols}<td class="text-right">${pivotTiposCriticos[reg]['OTROS'] > 0 ? '$ ' + pivotTiposCriticos[reg]['OTROS'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td><td class="text-right text-bold" style="color: #dc2626;">$ ${pivotTiposCriticos[reg].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td></tr>`;
                 });
-                htmlAlerta += `</tbody></table></div></div>`;
-                document.getElementById('contenedor-alerta-top5').innerHTML = htmlAlerta;
-            } else { document.getElementById('contenedor-alerta-top5').innerHTML = ''; }
+                
+                let topRegs = Object.keys(regionalMonto).map(reg => {
+                    return {
+                        regional: reg,
+                        monto: regionalMonto[reg],
+                        cantidad: regionalCantidad[reg]
+                    };
+                }).sort((a, b) => b.monto - a.monto).slice(0, 5);
+                
+                return topRegs;
+            }
+
+            function generarCardAlertaTipo(tipo, tramosFiltro, tituloAlerta, bg, circleBg, iconColor, iconSvg) {
+                const topDataArr = getTop5RegionalesForTipo(tipo, tramosFiltro);
+                if (topDataArr.length === 0) {
+                    return `<div class="kpi-card" style="background-color: #f8fafc; opacity: 0.6; min-height: 120px; margin-bottom: 12px; box-shadow: none; border: 1px dashed #cbd5e1; display:flex; align-items:center; justify-content:center; padding: 16px;">
+                        <p style="color: #94a3b8; font-size: 11px; margin:0; text-align:center;">Sin datos en este rango</p>
+                    </div>`;
+                }
+                
+                let listHtml = topDataArr.map((topData, i) => {
+                    let montoFormateado = '$' + topData.monto.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0});
+                    let cantFormateada = topData.cantidad.toLocaleString('es-MX');
+                    return `<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 6px;">
+                        <div style="display:flex; align-items:center; gap: 6px;">
+                            <span style="background: rgba(0,0,0,0.05); color: #334155; padding: 2px 6px; border-radius: 12px; font-size: 9px; font-weight: 700;">#${i+1}</span>
+                            <span style="font-size: 11px; font-weight: 700; color: #1e293b; text-transform: uppercase;">${topData.regional}</span>
+                        </div>
+                        <div style="text-align: right; display:flex; flex-direction:column; align-items:flex-end;">
+                            <span style="color: ${iconColor}; font-size: 11px; font-weight: 700;">${montoFormateado}</span>
+                            <span style="font-size: 9px; color: #64748b;">${cantFormateada} clientes</span>
+                        </div>
+                    </div>`;
+                }).join('');
+                
+                return `<div class="kpi-card" style="background-color: ${bg}; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); min-height: 120px; margin-bottom: 12px; padding: 16px;">
+                    <div class="kpi-bg-circle" style="background-color: ${circleBg}; width: 80px; height: 80px; bottom: -10px; right: -10px;"></div>
+                    <div class="kpi-content" style="z-index: 2;">
+                        <div style="display:flex; align-items:center; gap: 6px; margin-bottom: 12px;">
+                            <div style="color: ${iconColor}; fill: currentColor; width: 14px; height: 14px;">${iconSvg}</div>
+                            <div class="kpi-title" style="font-size: 9px; margin:0; letter-spacing:0;">${tituloAlerta}</div>
+                        </div>
+                        <div style="position:relative; z-index:2;">
+                            ${listHtml}
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            const iconYellow = `<svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>`;
+            const iconOrange = `<svg viewBox="0 0 24 24" width="14" height="14"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>`;
+            const iconRed = `<svg viewBox="0 0 24 24" width="14" height="14"><path d="M15.73 3H8.27L3 8.27v7.46L8.27 21h7.46L21 15.73V8.27L15.73 3zM12 17.3c-.72 0-1.3-.58-1.3-1.3 0-.72.58-1.3 1.3-1.3.72 0 1.3.58 1.3 1.3 0 .72-.58 1.3-1.3 1.3zm1-4.3h-2V7h2v6z"/></svg>`;
+
+            let htmlAlertasTodas = '<h2 style="margin-bottom:16px;">Semaforización de Alertas (Top Regional por Canal)</h2><div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;">';
+
+            const canales = ['MEDIOS', 'OFICINA', 'ASESOR COBRANZA', 'PUNTO DE RECAUDO'];
+            const alertasConfig = [
+                { tramos: ['ATRASO DE 11 A 25', 'ATRASO DE 26 A 50'], titulo: 'PREVENTIVA (11-50)', bg: '#fef3c7', circleBg: '#fde68a', color: '#d97706', icon: iconYellow },
+                { tramos: ['ATRASO DE 51 A 60', 'ATRASO DE 61 A 90'], titulo: 'PREOCUPANTE (51-90)', bg: '#ffedd5', circleBg: '#fed7aa', color: '#ea580c', icon: iconOrange },
+                { tramos: ['ATRASO MAYOR A 90'], titulo: 'CRÍTICA (>90)', bg: '#fee2e2', circleBg: '#fecaca', color: '#dc2626', icon: iconRed }
+            ];
+
+            canales.forEach(canal => {
+                htmlAlertasTodas += `<div><h3 style="text-align: center; color: #1e293b; margin-bottom: 12px; font-size: 12px; font-weight: 700; background: #f1f5f9; padding: 8px; border-radius: 6px;">${canal}</h3>`;
+                alertasConfig.forEach(alerta => {
+                    htmlAlertasTodas += generarCardAlertaTipo(canal, alerta.tramos, alerta.titulo, alerta.bg, alerta.circleBg, alerta.color, alerta.icon);
+                });
+                htmlAlertasTodas += `</div>`;
+            });
+            htmlAlertasTodas += '</div>';
+
+            document.getElementById('contenedor-alerta-top5').innerHTML = htmlAlertasTodas;
 
             // 3. GRÁFICO DE ATRASO Y TABLA RESUMEN
             document.getElementById('subtitulo-atraso').innerText = `${totalCuotas.toLocaleString('es-MX')} contratos • $ ${(totalMontoDinero/1000000).toFixed(1)}M`;

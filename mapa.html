@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor Geográfico de Cobranza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="datos_clientes.js"></script>
+    
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; overflow: hidden; }
+        
+        .header { background: #1e3a8a; color: white; padding: 12px 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); display: flex; justify-content: space-between; align-items: center; z-index: 1000; position: relative; }
+        .header h1 { margin: 0; font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        
+        .btn-back { background: rgba(255,255,255,0.1); color: white; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+        .btn-back:hover { background: rgba(255,255,255,0.2); }
+
+        .main-container { display: flex; height: calc(100vh - 146px); }
+        
+        /* Estilos de Filtros */
+        .slicer-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; padding: 12px 24px; background: white; border-bottom: 1px solid #e2e8f0; z-index: 500; position: relative; }
+        .dropdown-container { position: relative; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8fafc; padding: 8px 12px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .dropdown-label { font-size: 11px; font-weight: 700; color: #1e3a8a; margin-bottom: 4px; display: block; text-transform: uppercase; }
+        .dropdown-header { display: flex; justify-content: space-between; align-items: center; background: white; border: 1px solid #cbd5e1; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; color: #1e293b; transition: all 0.2s; }
+        .dropdown-header:hover { border-color: #3b82f6; }
+        .dropdown-arrow { transition: transform 0.2s; font-size: 10px; }
+        .dropdown-list-wrapper { display: none; position: absolute; top: 100%; left: 0; min-width: 200px; background: white; border: 1px solid #cbd5e1; border-radius: 6px; margin-top: 4px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); z-index: 1000; padding: 6px 0; }
+        .dropdown-list-wrapper.show { display: block; }
+        .dropdown-list { max-height: 200px; overflow-y: auto; padding: 0 6px; }
+        .dropdown-item { padding: 4px 6px; display: flex; align-items: center; gap: 8px; font-size: 11px; color: #334155; cursor: pointer; border-radius: 4px; margin-bottom: 2px; }
+        .dropdown-item:hover { background-color: #f1f5f9; }
+        .dropdown-item input[type="checkbox"] { cursor: pointer; width: 12px; height: 12px; margin: 0; accent-color: #3b82f6; }
+        
+        #map { flex: 1; height: 100%; z-index: 1; }
+        
+        .sidebar { width: 450px; background: white; box-shadow: -4px 0 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease; z-index: 10; border-left: 1px solid #e2e8f0; }
+        
+        .sidebar-header { padding: 20px; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
+        .sidebar-header h2 { margin: 0 0 4px 0; color: #1e293b; font-size: 18px; }
+        .sidebar-header p { margin: 0; color: #64748b; font-size: 13px; }
+        
+        .search-box { padding: 16px; border-bottom: 1px solid #e2e8f0; }
+        .search-box input { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit; font-size: 13px; box-sizing: border-box; }
+        .search-box input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        
+        .client-list { flex: 1; overflow-y: auto; padding: 0; margin: 0; list-style: none; }
+        .client-card { padding: 16px; border-bottom: 1px solid #f1f5f9; transition: background 0.2s; cursor: pointer; }
+        .client-card:hover { background: #f8fafc; }
+        
+        .client-name { font-weight: 700; color: #0f172a; margin-bottom: 4px; font-size: 14px; }
+        .client-address { color: #475569; font-size: 12px; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 4px; }
+        
+        .badge-container { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+        
+        .badge-atraso { background: #fee2e2; color: #991b1b; }
+        .badge-monto { font-size: 13px; font-weight: 700; color: #1e293b; }
+        
+        .empty-state { padding: 40px 20px; text-align: center; color: #94a3b8; }
+        .empty-state svg { margin-bottom: 16px; opacity: 0.5; }
+        
+        .loading-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background:white; z-index:9999; display:flex; justify-content:center; align-items:center; flex-direction:column; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 16px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="loading-overlay" id="loader">
+        <div class="spinner"></div>
+        <h3 style="color:#1e293b; margin:0;">Cargando ubicación de clientes...</h3>
+        <p style="color:#64748b; font-size:13px; margin-top:8px;" id="loader-text">Procesando base de datos...</p>
+    </div>
+
+    <div class="header">
+        <h1>
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Visor Geográfico Operativo
+        </h1>
+        <a href="index.html" class="btn-back">← Volver al Dashboard</a>
+    </div>
+
+    <div class="slicer-panel" id="filtros-container">
+        <!-- Renderizados vía JS -->
+    </div>
+
+    <div class="main-container">
+        <div id="map"></div>
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2 id="panel-title">Panel de Detalle</h2>
+                <p id="panel-subtitle">Selecciona una zona en el mapa</p>
+            </div>
+            
+            <ul class="client-list" id="client-list">
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    <h3>Sin zona seleccionada</h3>
+                    <p>Usa el mapa interactivo para localizar los focos de atraso.</p>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Diccionario Geocoding
+        const geocodingDict = {
+            'ANTIOQUIA': {lat: 6.2442, lng: -75.5812},
+            'BOGOTA': {lat: 4.7110, lng: -74.0721},
+            'BOGOTA D.C.': {lat: 4.7110, lng: -74.0721},
+            'VALLE': {lat: 3.4516, lng: -76.5320},
+            'VALLE SUR': {lat: 3.4516, lng: -76.5320},
+            'VALLE CENTRO': {lat: 4.0847, lng: -76.1954},
+            'VALLE NORTE': {lat: 4.7107, lng: -75.9221},
+            'HUILA': {lat: 2.9273, lng: -75.2819},
+            'QUINDIO': {lat: 4.5339, lng: -75.6811},
+            'CALDAS': {lat: 5.0689, lng: -75.5174},
+            'RISARALDA': {lat: 4.8133, lng: -75.6961},
+            'ATLANTICO': {lat: 10.9685, lng: -74.7813},
+            'TOLIMA': {lat: 4.4389, lng: -75.2322},
+            'TOLIMA NORTE': {lat: 5.1000, lng: -74.9000},
+            'META': {lat: 4.1420, lng: -73.6266},
+            'CUNDINAMARCA': {lat: 4.7110, lng: -74.0721},
+            'SANTANDER': {lat: 7.1193, lng: -73.1227},
+            'NORTE DE SANTANDER': {lat: 7.8939, lng: -72.5078},
+            'BOYACA': {lat: 5.5353, lng: -73.3678},
+            'CAUCA': {lat: 2.4448, lng: -76.6147},
+            'NARIÑO': {lat: 1.2136, lng: -77.2811},
+            'BOLIVAR': {lat: 10.3997, lng: -75.4800},
+            'MAGDALENA': {lat: 11.2404, lng: -74.1990},
+            'CESAR': {lat: 10.4742, lng: -73.2436},
+            'CORDOBA': {lat: 8.7479, lng: -75.8814},
+            'SUCRE': {lat: 9.3047, lng: -75.3978},
+            'CHOCO': {lat: 5.6919, lng: -76.6583},
+            'CAQUETA': {lat: 1.6144, lng: -75.6062},
+            'CASANARE': {lat: 5.3377, lng: -72.3959},
+            'PUTUMAYO': {lat: 1.1479, lng: -76.6479},
+            'GUAJIRA': {lat: 11.5444, lng: -72.9072},
+            'ARAUCA': {lat: 7.0847, lng: -70.7591},
+            'MEDELLIN': {lat: 6.2442, lng: -75.5812},
+            'CALI': {lat: 3.4516, lng: -76.5320},
+            'BARRANQUILLA': {lat: 10.9685, lng: -74.7813},
+            'CARTAGENA': {lat: 10.3997, lng: -75.4800},
+            'BUCARAMANGA': {lat: 7.1193, lng: -73.1227},
+            'PEREIRA': {lat: 4.8133, lng: -75.6961},
+            'MANIZALES': {lat: 5.0689, lng: -75.5174},
+            'IBAGUE': {lat: 4.4389, lng: -75.2322},
+            'NEIVA': {lat: 2.9273, lng: -75.2819},
+            'VILLAVICENCIO': {lat: 4.1420, lng: -73.6266},
+            'CUCUTA': {lat: 7.8939, lng: -72.5078},
+            'ARMENIA': {lat: 4.5339, lng: -75.6811}
+        };
+
+        function getCoordsForPlace(regional, zona) {
+            let regUpper = regional ? regional.toUpperCase().trim() : '';
+            if (geocodingDict[regUpper]) return geocodingDict[regUpper];
+            let zonaUpper = zona ? zona.toUpperCase().trim() : '';
+            if (geocodingDict[zonaUpper]) return geocodingDict[zonaUpper];
+            for (let key in geocodingDict) {
+                if (regUpper.includes(key) || zonaUpper.includes(key)) {
+                    let offsetLat = (key.length % 5) * 0.01;
+                    let offsetLng = (key.length % 3) * 0.01;
+                    return { lat: geocodingDict[key].lat + offsetLat, lng: geocodingDict[key].lng + offsetLng };
+                }
+            }
+            return null;
+        }
+
+        let myMap = null;
+        let markersGroup = null;
+        let clientesData = []; // Data filtrada en uso
+        let zonasMap = {};
+        let currentZonaClientes = [];
+
+        // Filtros Logic
+        let dimensiones = [
+            { id: 'estatus', label: 'Estatus', col: 6 },
+            { id: 'tipo', label: 'Tipo', col: 7 },
+            { id: 'regional', label: 'Regional', col: 2 },
+            { id: 'zona', label: 'Zona', col: 3 },
+            { id: 'atraso', label: 'Grupo Atraso', col: 4 },
+            { id: 'gestion', label: 'Gestión', col: 8 },
+            { id: 'tipovendedor', label: 'Tipo Vendedor', col: 9 },
+            { id: 'producto', label: 'Producto', col: 10 }
+        ];
+        
+        let valoresUnicos = {};
+        let filtrosActivos = {};
+
+        function extraerValoresUnicos(data) {
+            dimensiones.forEach(dim => {
+                valoresUnicos[dim.id] = new Set();
+                filtrosActivos[dim.id] = [];
+            });
+            
+            data.forEach(d => {
+                dimensiones.forEach(dim => {
+                    let val = d[dim.col] || 'SIN ESPECIFICAR';
+                    valoresUnicos[dim.id].add(val);
+                });
+            });
+            
+            dimensiones.forEach(dim => {
+                valoresUnicos[dim.id] = Array.from(valoresUnicos[dim.id]).sort();
+                filtrosActivos[dim.id] = [...valoresUnicos[dim.id]]; // Todos seleccionados
+            });
+        }
+
+        window.onload = function() {
+            if (typeof CLIENTES_MAPA !== 'undefined') {
+                document.getElementById('loader-text').innerText = `Agrupando ${CLIENTES_MAPA.length.toLocaleString('es-MX')} clientes en mora...`;
+                
+                setTimeout(() => {
+                    extraerValoresUnicos(CLIENTES_MAPA);
+                    renderAllSlicers();
+                    inicializarMapa(); // Crea mapa vacío y el markersGroup
+                    recalcularYRenderizar(); // Filtra, agrupa y pinta
+                    
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
+            } else {
+                alert("❌ Error: No se encontraron los datos de clientes.");
+                document.getElementById('loader').style.display = 'none';
+            }
+        };
+
+        // UI de Filtros
+        function renderAllSlicers() {
+            const container = document.getElementById('filtros-container');
+            container.innerHTML = '';
+            dimensiones.forEach(dim => {
+                const dropDiv = document.createElement('div');
+                dropDiv.className = 'dropdown-container';
+                
+                const label = document.createElement('label');
+                label.className = 'dropdown-label';
+                label.innerText = dim.label;
+                dropDiv.appendChild(label);
+                
+                const header = document.createElement('div');
+                header.className = 'dropdown-header';
+                header.innerHTML = `<span>Todos</span><span class="dropdown-arrow">▼</span>`;
+                header.onclick = () => toggleDropdown(dim.id);
+                dropDiv.appendChild(header);
+                
+                const listWrapper = document.createElement('div');
+                listWrapper.className = 'dropdown-list-wrapper';
+                listWrapper.id = `dropdown-list-${dim.id}`;
+                
+                const btnsDiv = document.createElement('div');
+                btnsDiv.style.cssText = 'padding: 4px 8px; border-bottom: 1px solid #cbd5e1; display:flex; gap:8px; margin-bottom:4px;';
+                btnsDiv.innerHTML = `<a href="javascript:void(0)" style="font-size:10px; color:#4f46e5; text-decoration:none; font-weight:600;" onclick="setTodosFiltro('${dim.id}')">Seleccionar Todo</a> | <a href="javascript:void(0)" style="font-size:10px; color:#64748b; text-decoration:none;" onclick="setNingunoFiltro('${dim.id}')">Borrar Todo</a>`;
+                listWrapper.appendChild(btnsDiv);
+                
+                const list = document.createElement('div');
+                list.className = 'dropdown-list';
+                
+                valoresUnicos[dim.id].forEach(val => {
+                    const item = document.createElement('label');
+                    item.className = 'dropdown-item';
+                    const isChecked = filtrosActivos[dim.id].includes(val);
+                    item.innerHTML = `<input type="checkbox" value="${val}" ${isChecked ? 'checked' : ''} onchange="toggleFiltroValor('${dim.id}', '${val}', this.checked)"> ${val}`;
+                    list.appendChild(item);
+                });
+                
+                listWrapper.appendChild(list);
+                dropDiv.appendChild(listWrapper);
+                container.appendChild(dropDiv);
+                
+                setTimeout(() => actualizarHeaderTexto(dim.id), 0);
+            });
+        }
+        
+        function toggleDropdown(id) {
+            const listWrapper = document.getElementById(`dropdown-list-${id}`);
+            const wasShowing = listWrapper.classList.contains('show');
+            document.querySelectorAll('.dropdown-list-wrapper').forEach(el => el.classList.remove('show'));
+            if (!wasShowing) {
+                listWrapper.classList.add('show');
+            }
+        }
+        
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown-container')) {
+                document.querySelectorAll('.dropdown-list-wrapper').forEach(el => el.classList.remove('show'));
+            }
+        });
+
+        function toggleFiltroValor(campo, valor, isChecked) {
+            if (isChecked) {
+                if (!filtrosActivos[campo].includes(valor)) filtrosActivos[campo].push(valor);
+            } else {
+                filtrosActivos[campo] = filtrosActivos[campo].filter(v => v !== valor);
+            }
+            actualizarHeaderTexto(campo);
+            recalcularYRenderizar();
+        }
+
+        function setTodosFiltro(campo) {
+            filtrosActivos[campo] = [...valoresUnicos[campo]];
+            const list = document.getElementById(`dropdown-list-${campo}`);
+            list.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+            actualizarHeaderTexto(campo);
+            recalcularYRenderizar();
+        }
+
+        function setNingunoFiltro(campo) {
+            filtrosActivos[campo] = [];
+            const list = document.getElementById(`dropdown-list-${campo}`);
+            list.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            actualizarHeaderTexto(campo);
+            recalcularYRenderizar();
+        }
+
+        function actualizarHeaderTexto(campo) {
+            const dropdown = document.getElementById(`dropdown-list-${campo}`).closest('.dropdown-container');
+            const headerText = dropdown.querySelector('.dropdown-header span');
+            const totalUnicos = valoresUnicos[campo].length;
+            const totalSeleccionados = filtrosActivos[campo].length;
+            if (totalSeleccionados === totalUnicos) {
+                headerText.innerText = 'Todos';
+            } else if (totalSeleccionados === 0) {
+                headerText.innerText = 'Ninguno';
+            } else if (totalSeleccionados === 1) {
+                headerText.innerText = filtrosActivos[campo][0];
+            } else {
+                headerText.innerText = `Varios (${totalSeleccionados})`;
+            }
+        }
+
+        function recalcularYRenderizar() {
+            clientesData = CLIENTES_MAPA.filter(d => 
+                filtrosActivos.estatus.includes(d[6] || 'SIN ESPECIFICAR') && 
+                filtrosActivos.tipo.includes(d[7] || 'SIN ESPECIFICAR') && 
+                filtrosActivos.regional.includes(d[2] || 'SIN ESPECIFICAR') && 
+                filtrosActivos.zona.includes(d[3] || 'SIN ESPECIFICAR') &&
+                filtrosActivos.atraso.includes(d[4] || 'SIN ESPECIFICAR') &&
+                filtrosActivos.gestion.includes(d[8] || 'SIN ESPECIFICAR') &&
+                filtrosActivos.tipovendedor.includes(d[9] || 'SIN ESPECIFICAR') &&
+                filtrosActivos.producto.includes(d[10] || 'SIN ESPECIFICAR')
+            );
+            
+            agruparDatosZonas();
+            renderizarMarcadores();
+        }
+
+        function agruparDatosZonas() {
+            zonasMap = {};
+            clientesData.forEach(c => {
+                let reg = c[2] || 'Sin Regional';
+                let zona = c[3] || 'Sin Zona';
+                let key = reg + '|' + zona;
+                
+                if (!zonasMap[key]) {
+                    zonasMap[key] = { regional: reg, zona: zona, monto: 0, cantidad: 0, clientes: [] };
+                }
+                zonasMap[key].monto += c[5];
+                zonasMap[key].cantidad += 1;
+                zonasMap[key].clientes.push(c);
+            });
+        }
+
+        function inicializarMapa() {
+            myMap = L.map('map').setView([4.5709, -74.2973], 6);
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap contributors',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(myMap);
+            
+            markersGroup = L.layerGroup().addTo(myMap);
+        }
+
+        function renderizarMarcadores() {
+            markersGroup.clearLayers();
+            let maxMonto = 0;
+            for (let k in zonasMap) { if (zonasMap[k].monto > maxMonto) maxMonto = zonasMap[k].monto; }
+
+            for (let k in zonasMap) {
+                let node = zonasMap[k];
+                let coords = getCoordsForPlace(node.regional, node.zona);
+                if (coords) {
+                    let radius = maxMonto > 0 ? (node.monto / maxMonto) * 30 + 6 : 6;
+                    
+                    let marker = L.circleMarker([coords.lat, coords.lng], {
+                        radius: radius,
+                        fillColor: '#3b82f6',
+                        color: '#1d4ed8',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.5
+                    });
+                    
+                    let tooltipContent = `<b>${node.regional} - ${node.zona}</b><br>${node.cantidad.toLocaleString('es-MX')} clientes en mora<br>$ ${(node.monto/1000000).toFixed(1)}M`;
+                    marker.bindTooltip(tooltipContent);
+                    
+                    marker.on('click', function() {
+                        cargarPanelLateral(node);
+                    });
+                    
+                    markersGroup.addLayer(marker);
+                }
+            }
+            
+            // Si el panel lateral estaba abierto con una zona, lo reseteamos para evitar desincronización
+            document.getElementById('panel-title').innerText = 'Sin zona seleccionada';
+            document.getElementById('panel-subtitle').innerText = 'Usa el mapa interactivo para localizar los focos de atraso.';
+            document.getElementById('client-list').innerHTML = '';
+        }
+
+        function cargarPanelLateral(node) {
+            document.getElementById('panel-title').innerText = `${node.zona !== 'SIN ESPECIFICAR' && node.zona !== 'Sin Zona' ? node.zona : node.regional}`;
+            document.getElementById('panel-subtitle').innerText = `${node.cantidad.toLocaleString('es-MX')} clientes • $ ${(node.monto/1000000).toFixed(1)}M Total`;
+            
+            currentZonaClientes = node.clientes;
+            renderizarListaAtrasos(currentZonaClientes);
+        }
+
+        function renderizarListaAtrasos(clientes) {
+            const listEl = document.getElementById('client-list');
+            listEl.innerHTML = '';
+            
+            if (clientes.length === 0) {
+                listEl.innerHTML = `
+                <div class="empty-state">
+                    <h3>No se encontraron resultados</h3>
+                </div>`;
+                return;
+            }
+            
+            let resumenAtraso = {};
+            clientes.forEach(c => {
+                let atraso = c[4];
+                let monto = c[5];
+                if (!resumenAtraso[atraso]) {
+                    resumenAtraso[atraso] = { cantidad: 0, monto: 0 };
+                }
+                resumenAtraso[atraso].cantidad++;
+                resumenAtraso[atraso].monto += monto;
+            });
+
+            // Ordenar por monto descendente
+            let resumenArr = Object.keys(resumenAtraso).map(k => ({
+                atraso: k,
+                cantidad: resumenAtraso[k].cantidad,
+                monto: resumenAtraso[k].monto
+            })).sort((a,b) => b.monto - a.monto);
+            
+            let html = '';
+            resumenArr.forEach(item => {
+                html += `
+                <li class="client-card">
+                    <div class="client-name" style="margin-bottom: 8px;">${item.atraso}</div>
+                    <div class="badge-container" style="margin-top: 0;">
+                        <span class="badge" style="background: #f1f5f9; color: #475569;">${item.cantidad.toLocaleString('es-MX')} clientes</span>
+                        <span class="badge-monto" style="color: #0f172a;">$ ${item.monto.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</span>
+                    </div>
+                </li>`;
+            });
+            
+            listEl.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
