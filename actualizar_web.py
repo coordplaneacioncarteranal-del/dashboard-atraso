@@ -11,15 +11,11 @@ from datetime import datetime
 RUTA_CARPETA = r"C:\Users\Coord Planeación\Documents\DASHBOARD VIGENTES"
 ARCHIVO_EXCEL = os.path.join(RUTA_CARPETA, "vigentes dashboard.xlsx")
 ARCHIVO_JS_DATOS = os.path.join(RUTA_CARPETA, "datos.js")
-ARCHIVO_JS_CLIENTES = os.path.join(RUTA_CARPETA, "datos_clientes.js")
 
 print("📖 Abriendo el Excel masivo de 65 MB en modo Ultra-Light (Read Only)...")
 
 # Diccionario maestro para consolidar las agrupaciones de 6 dimensiones y sumas
 matriz_consolidada = {}
-
-# Lista para el detalle de clientes en mora del mapa interactivo
-clientes_mapa = []
 
 try:
     # Mantenemos read_only=True para proteger tu memoria RAM
@@ -109,11 +105,7 @@ for fila in iterador_filas:
     matriz_consolidada[llave_grupo]["cantidad"] += 1
     matriz_consolidada[llave_grupo]["monto"] += monto_limpio
 
-    # Si el cliente tiene mora, lo guardamos para el mapa detallado
-    if val_atraso not in ['ADELANTADO', 'ANTICIPADO DE -10 A 0', 'N/A']:
-        nombre = str(fila[idx_nombres]).strip() if fila[idx_nombres] is not None else "SIN NOMBRE"
-        direccion = str(fila[idx_direccion]).strip() if fila[idx_direccion] is not None else "SIN DIRECCION"
-        clientes_mapa.append([nombre, direccion, val_regional, val_zona, val_atraso, monto_limpio, val_estatus, val_tipo, val_gestion, val_tipovendedor, val_producto])
+
 
 wb.close()
 
@@ -150,12 +142,6 @@ try:
         json.dump(js_records_final, f, ensure_ascii=False, indent=4)
         f.write(";")
     print(f"\n✨ ¡Éxito absoluto! Archivo 'datos.js' actualizado con {contador_filas:,} filas consolidadas.")
-
-    with codecs.open(ARCHIVO_JS_CLIENTES, "w", encoding="utf-8") as f:
-        f.write("const CLIENTES_MAPA = ")
-        json.dump(clientes_mapa, f, ensure_ascii=False)
-        f.write(";")
-    print(f"✨ ¡Éxito! Archivo 'datos_clientes.js' actualizado con {len(clientes_mapa):,} clientes en mora.")
 except Exception as e:
     print(f"❌ Error al escribir el archivo de datos. Detalle: {e}")
 

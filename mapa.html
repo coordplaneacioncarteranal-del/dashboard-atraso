@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <script src="datos_clientes.js"></script>
+    <script src="depto.js"></script>
+    <script src="datos.js?v=1.2"></script>
     
     <style>
         body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; overflow: hidden; }
@@ -169,22 +170,33 @@
             return null;
         }
 
+        const POBLACION_COLOMBIA = {
+            'BOGOTA': 8000000, 'ANTIOQUIA': 6900000, 'VALLE DEL CAUCA': 4600000, 'CUNDINAMARCA': 3500000,
+            'ATLANTICO': 2800000, 'BOLIVAR': 2200000, 'SANTANDER': 2300000, 'NARIÑO': 1600000,
+            'CORDOBA': 1800000, 'TOLIMA': 1300000, 'BOYACA': 1300000, 'NORTE DE SANTANDER': 1600000,
+            'MAGDALENA': 1500000, 'CAUCA': 1500000, 'CESAR': 1300000, 'META': 1100000, 'HUILA': 1100000,
+            'CALDAS': 1000000, 'SUCRE': 950000, 'RISARALDA': 950000, 'LA GUAJIRA': 1000000,
+            'QUINDIO': 550000, 'CHOCO': 550000, 'CASANARE': 440000, 'CAQUETA': 420000, 'PUTUMAYO': 360000,
+            'ARAUCA': 300000, 'GUAVIARE': 90000, 'SAN ANDRES': 60000, 'AMAZONAS': 80000,
+            'VICHADA': 110000, 'VAUPES': 45000, 'GUAINIA': 50000
+        };
+
         let myMap = null;
-        let markersGroup = null;
+        let geojsonLayer = null;
         let clientesData = []; // Data filtrada en uso
-        let zonasMap = {};
-        let currentZonaClientes = [];
+        let regionalesMap = {};
+        let currentRegionalClientes = [];
 
         // Filtros Logic
         let dimensiones = [
-            { id: 'estatus', label: 'Estatus', col: 6 },
-            { id: 'tipo', label: 'Tipo', col: 7 },
-            { id: 'regional', label: 'Regional', col: 2 },
-            { id: 'zona', label: 'Zona', col: 3 },
-            { id: 'atraso', label: 'Grupo Atraso', col: 4 },
-            { id: 'gestion', label: 'Gestión', col: 8 },
-            { id: 'tipovendedor', label: 'Tipo Vendedor', col: 9 },
-            { id: 'producto', label: 'Producto', col: 10 }
+            { id: 'estatus', label: 'Estatus', key: 'estatus' },
+            { id: 'tipo', label: 'Tipo', key: 'tipo' },
+            { id: 'regional', label: 'Regional', key: 'regional' },
+            { id: 'zona', label: 'Zona', key: 'ZONA' },
+            { id: 'atraso', label: 'Grupo Atraso', key: 'atraso' },
+            { id: 'gestion', label: 'Gestión', key: 'gestion' },
+            { id: 'tipovendedor', label: 'Tipo Vendedor', key: 'TIPOVENDEDOR' },
+            { id: 'producto', label: 'Producto', key: 'PRODUCTO' }
         ];
         
         let valoresUnicos = {};
@@ -198,7 +210,7 @@
             
             data.forEach(d => {
                 dimensiones.forEach(dim => {
-                    let val = d[dim.col] || 'SIN ESPECIFICAR';
+                    let val = d[dim.key] || 'SIN ESPECIFICAR';
                     valoresUnicos[dim.id].add(val);
                 });
             });
@@ -210,11 +222,11 @@
         }
 
         window.onload = function() {
-            if (typeof CLIENTES_MAPA !== 'undefined') {
-                document.getElementById('loader-text').innerText = `Agrupando ${CLIENTES_MAPA.length.toLocaleString('es-MX')} clientes en mora...`;
+            if (typeof SERVER_DATA !== 'undefined') {
+                document.getElementById('loader-text').innerText = `Procesando grupos de clientes...`;
                 
                 setTimeout(() => {
-                    extraerValoresUnicos(CLIENTES_MAPA);
+                    extraerValoresUnicos(SERVER_DATA);
                     renderAllSlicers();
                     inicializarMapa(); // Crea mapa vacío y el markersGroup
                     recalcularYRenderizar(); // Filtra, agrupa y pinta
@@ -332,35 +344,60 @@
         }
 
         function recalcularYRenderizar() {
-            clientesData = CLIENTES_MAPA.filter(d => 
-                filtrosActivos.estatus.includes(d[6] || 'SIN ESPECIFICAR') && 
-                filtrosActivos.tipo.includes(d[7] || 'SIN ESPECIFICAR') && 
-                filtrosActivos.regional.includes(d[2] || 'SIN ESPECIFICAR') && 
-                filtrosActivos.zona.includes(d[3] || 'SIN ESPECIFICAR') &&
-                filtrosActivos.atraso.includes(d[4] || 'SIN ESPECIFICAR') &&
-                filtrosActivos.gestion.includes(d[8] || 'SIN ESPECIFICAR') &&
-                filtrosActivos.tipovendedor.includes(d[9] || 'SIN ESPECIFICAR') &&
-                filtrosActivos.producto.includes(d[10] || 'SIN ESPECIFICAR')
+            clientesData = SERVER_DATA.filter(d => 
+                filtrosActivos.estatus.includes(d.estatus || 'SIN ESPECIFICAR') && 
+                filtrosActivos.tipo.includes(d.tipo || 'SIN ESPECIFICAR') && 
+                filtrosActivos.regional.includes(d.regional || 'SIN ESPECIFICAR') && 
+                filtrosActivos.zona.includes(d.ZONA || 'SIN ESPECIFICAR') &&
+                filtrosActivos.atraso.includes(d.atraso || 'SIN ESPECIFICAR') &&
+                filtrosActivos.gestion.includes(d.gestion || 'SIN ESPECIFICAR') &&
+                filtrosActivos.tipovendedor.includes(d.TIPOVENDEDOR || 'SIN ESPECIFICAR') &&
+                filtrosActivos.producto.includes(d.PRODUCTO || 'SIN ESPECIFICAR')
             );
             
-            agruparDatosZonas();
-            renderizarMarcadores();
+            agruparDatosRegional();
+            renderizarRegiones();
         }
 
-        function agruparDatosZonas() {
-            zonasMap = {};
+        function agruparDatosRegional() {
+            regionalesMap = {};
             clientesData.forEach(c => {
-                let reg = c[2] || 'Sin Regional';
-                let zona = c[3] || 'Sin Zona';
-                let key = reg + '|' + zona;
+                let reg = c.regional || 'SIN ESPECIFICAR';
+                // Normalizar nombres para coincidir con GeoJSON (ej. BOGOTA D.C. -> BOGOTA)
+                let regKey = reg.toUpperCase().trim();
+                if (regKey.includes('BOGOTA')) regKey = 'BOGOTA';
+                if (regKey.includes('VALLE')) regKey = 'VALLE DEL CAUCA';
+                if (regKey.includes('NARIÑO') || regKey.includes('NARINO')) regKey = 'NARIÑO';
+                if (regKey.includes('QUINDIO')) regKey = 'QUINDIO';
+                if (regKey.includes('BOYACA')) regKey = 'BOYACA';
                 
-                if (!zonasMap[key]) {
-                    zonasMap[key] = { regional: reg, zona: zona, monto: 0, cantidad: 0, clientes: [] };
+                // Reglas especiales de negocio
+                if (regKey === 'TOLIMA NORTE') regKey = 'TOLIMA';
+                if (regKey === 'TOLIMA SUR') regKey = 'CUNDINAMARCA';
+                
+                if (!regionalesMap[regKey]) {
+                    regionalesMap[regKey] = { regional: reg, monto: 0, cantidadMora: 0, cantidadActivos: 0, clientes: [] };
                 }
-                zonasMap[key].monto += c[5];
-                zonasMap[key].cantidad += 1;
-                zonasMap[key].clientes.push(c);
+                
+                // Siempre sumamos a cantidad activos
+                regionalesMap[regKey].cantidadActivos += c.cantidad;
+                
+                // Solo sumamos a mora si el atraso no es adelantado o N/A
+                let val_atraso = c.atraso;
+                if (val_atraso !== 'ADELANTADO' && val_atraso !== 'ANTICIPADO DE -10 A 0' && val_atraso !== 'N/A') {
+                    regionalesMap[regKey].monto += c.monto;
+                    regionalesMap[regKey].cantidadMora += c.cantidad;
+                }
+                
+                regionalesMap[regKey].clientes.push(c);
             });
+            
+            // Calcular participación territorial
+            for (let k in regionalesMap) {
+                let node = regionalesMap[k];
+                let poblacion = POBLACION_COLOMBIA[k] || 1000000; // Por defecto 1M si no encuentra
+                node.participacion = ((node.cantidadActivos * 7) / poblacion) * 100;
+            }
         }
 
         function inicializarMapa() {
@@ -370,53 +407,111 @@
                 subdomains: 'abcd',
                 maxZoom: 20
             }).addTo(myMap);
-            
-            markersGroup = L.layerGroup().addTo(myMap);
         }
 
-        function renderizarMarcadores() {
-            markersGroup.clearLayers();
-            let maxMonto = 0;
-            for (let k in zonasMap) { if (zonasMap[k].monto > maxMonto) maxMonto = zonasMap[k].monto; }
+        // Función para definir colores de coropletas
+        function getColor(monto, maxMonto) {
+            if (maxMonto === 0) return '#f1f5f9';
+            let d = monto / maxMonto;
+            return d > 0.8 ? '#08306b' :
+                   d > 0.6 ? '#08519c' :
+                   d > 0.4 ? '#2171b5' :
+                   d > 0.2 ? '#4292c6' :
+                   d > 0.05 ? '#6baed6' :
+                   d > 0   ? '#9ecae1' :
+                             '#f1f5f9';
+        }
 
-            for (let k in zonasMap) {
-                let node = zonasMap[k];
-                let coords = getCoordsForPlace(node.regional, node.zona);
-                if (coords) {
-                    let radius = maxMonto > 0 ? (node.monto / maxMonto) * 30 + 6 : 6;
-                    
-                    let marker = L.circleMarker([coords.lat, coords.lng], {
-                        radius: radius,
-                        fillColor: '#3b82f6',
-                        color: '#1d4ed8',
-                        weight: 2,
-                        opacity: 1,
-                        fillOpacity: 0.5
-                    });
-                    
-                    let tooltipContent = `<b>${node.regional} - ${node.zona}</b><br>${node.cantidad.toLocaleString('es-MX')} clientes en mora<br>$ ${(node.monto/1000000).toFixed(1)}M`;
-                    marker.bindTooltip(tooltipContent);
-                    
-                    marker.on('click', function() {
-                        cargarPanelLateral(node);
-                    });
-                    
-                    markersGroup.addLayer(marker);
-                }
+        function renderizarRegiones() {
+            if (geojsonLayer) {
+                myMap.removeLayer(geojsonLayer);
             }
             
-            // Si el panel lateral estaba abierto con una zona, lo reseteamos para evitar desincronización
-            document.getElementById('panel-title').innerText = 'Sin zona seleccionada';
-            document.getElementById('panel-subtitle').innerText = 'Usa el mapa interactivo para localizar los focos de atraso.';
+            let maxMonto = 0;
+            for (let k in regionalesMap) { if (regionalesMap[k].monto > maxMonto) maxMonto = regionalesMap[k].monto; }
+
+            geojsonLayer = L.geoJson(COLOMBIA_GEOJSON, {
+                style: function (feature) {
+                    let dptName = feature.properties.NOMBRE_DPT;
+                    // Normalizar nombres de depto a la key del map
+                    let dptKey = dptName.toUpperCase().trim();
+                    if (dptKey === 'BOGOTÁ, D.C.' || dptKey === 'SANTAFE DE BOGOTA D.C') dptKey = 'BOGOTA';
+                    if (dptKey === 'VALLE DEL CAUCA') dptKey = 'VALLE DEL CAUCA';
+                    if (dptKey === 'NARIÑO') dptKey = 'NARIÑO';
+                    if (dptKey === 'BOYACÁ') dptKey = 'BOYACA';
+                    if (dptKey === 'CÓRDOBA') dptKey = 'CORDOBA';
+                    if (dptKey === 'CHOCÓ') dptKey = 'CHOCO';
+                    if (dptKey === 'CAQUETÁ') dptKey = 'CAQUETA';
+                    if (dptKey === 'ATLÁNTICO') dptKey = 'ATLANTICO';
+                    
+                    let node = regionalesMap[dptKey];
+                    let monto = node ? node.monto : 0;
+                    
+                    return {
+                        fillColor: getColor(monto, maxMonto),
+                        weight: 1,
+                        opacity: 1,
+                        color: 'white',
+                        dashArray: '3',
+                        fillOpacity: 0.7
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    let dptName = feature.properties.NOMBRE_DPT;
+                    let dptKey = dptName.toUpperCase().trim();
+                    if (dptKey === 'BOGOTÁ, D.C.' || dptKey === 'SANTAFE DE BOGOTA D.C') dptKey = 'BOGOTA';
+                    if (dptKey === 'BOYACÁ') dptKey = 'BOYACA';
+                    if (dptKey === 'CÓRDOBA') dptKey = 'CORDOBA';
+                    if (dptKey === 'CHOCÓ') dptKey = 'CHOCO';
+                    if (dptKey === 'CAQUETÁ') dptKey = 'CAQUETA';
+                    if (dptKey === 'ATLÁNTICO') dptKey = 'ATLANTICO';
+                    
+                    let node = regionalesMap[dptKey];
+                    
+                    if (node && node.cantidadActivos > 0) {
+                        let partText = node.participacion.toFixed(3) + "%";
+                        let tooltipContent = `<b>${feature.properties.NOMBRE_DPT}</b><br>` +
+                                             `<b>Activos (Total):</b> ${node.cantidadActivos.toLocaleString('es-MX')}<br>` +
+                                             `<b>Mora:</b> ${node.cantidadMora.toLocaleString('es-MX')} clientes | $ ${(node.monto/1000000).toFixed(1)}M<br>` +
+                                             `<b>Participación Territorial:</b> ${partText}`;
+                        layer.bindTooltip(tooltipContent);
+                        
+                        layer.on({
+                            mouseover: function (e) {
+                                let target = e.target;
+                                target.setStyle({
+                                    weight: 3,
+                                    color: '#f59e0b',
+                                    dashArray: '',
+                                    fillOpacity: 0.9
+                                });
+                                target.bringToFront();
+                            },
+                            mouseout: function (e) {
+                                geojsonLayer.resetStyle(e.target);
+                            },
+                            click: function () {
+                                cargarPanelLateral(node, feature.properties.NOMBRE_DPT);
+                            }
+                        });
+                    } else {
+                        layer.bindTooltip(`<b>${feature.properties.NOMBRE_DPT}</b><br>0 clientes activos`);
+                    }
+                }
+            }).addTo(myMap);
+            
+            // Resetear panel lateral
+            document.getElementById('panel-title').innerText = 'Sin Regional Seleccionada';
+            document.getElementById('panel-subtitle').innerText = 'Haz clic en un departamento para ver detalles.';
             document.getElementById('client-list').innerHTML = '';
         }
 
-        function cargarPanelLateral(node) {
-            document.getElementById('panel-title').innerText = `${node.zona !== 'SIN ESPECIFICAR' && node.zona !== 'Sin Zona' ? node.zona : node.regional}`;
-            document.getElementById('panel-subtitle').innerText = `${node.cantidad.toLocaleString('es-MX')} clientes • $ ${(node.monto/1000000).toFixed(1)}M Total`;
+        function cargarPanelLateral(node, nombreDepto) {
+            document.getElementById('panel-title').innerText = nombreDepto;
+            document.getElementById('panel-subtitle').innerText = `${node.cantidadActivos.toLocaleString('es-MX')} activos • ${node.cantidadMora.toLocaleString('es-MX')} en mora • $ ${(node.monto/1000000).toFixed(1)}M Total`;
             
-            currentZonaClientes = node.clientes;
-            renderizarListaAtrasos(currentZonaClientes);
+            currentRegionalClientes = node.clientes;
+            renderizarListaAtrasos(currentRegionalClientes);
         }
 
         function renderizarListaAtrasos(clientes) {
@@ -431,22 +526,27 @@
                 return;
             }
             
-            let resumenAtraso = {};
+            // Agrupar por val_atraso
+            let grupos = {};
+            
             clientes.forEach(c => {
-                let atraso = c[4];
-                let monto = c[5];
-                if (!resumenAtraso[atraso]) {
-                    resumenAtraso[atraso] = { cantidad: 0, monto: 0 };
+                let atraso = c.atraso || 'SIN ESPECIFICAR';
+                
+                // Excluir a los clientes adelantados del resumen de atrasos del panel lateral
+                if (atraso === 'ADELANTADO' || atraso === 'ANTICIPADO DE -10 A 0' || atraso === 'N/A') return;
+                
+                if (!grupos[atraso]) {
+                    grupos[atraso] = { cantidad: 0, monto: 0 };
                 }
-                resumenAtraso[atraso].cantidad++;
-                resumenAtraso[atraso].monto += monto;
+                grupos[atraso].cantidad += c.cantidad;
+                grupos[atraso].monto += c.monto;
             });
 
             // Ordenar por monto descendente
-            let resumenArr = Object.keys(resumenAtraso).map(k => ({
+            let resumenArr = Object.keys(grupos).map(k => ({
                 atraso: k,
-                cantidad: resumenAtraso[k].cantidad,
-                monto: resumenAtraso[k].monto
+                cantidad: grupos[k].cantidad,
+                monto: grupos[k].monto
             })).sort((a,b) => b.monto - a.monto);
             
             let html = '';
