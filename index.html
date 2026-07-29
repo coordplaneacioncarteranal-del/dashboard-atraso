@@ -201,13 +201,55 @@
             </div>
         </div>
 
-        <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
-            <h2>Volumen: CUENTA DE CONTRATOS por Regional y Grupo Atraso</h2>
-            <div class="table-container" id="contenedor-regional-cuenta-pivot"></div>
+        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+            <button id="btn-tab-regional" onclick="switchTablaTab('regional')" style="padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">🏢 Vista por Regional</button>
+            <button id="btn-tab-zona" onclick="switchTablaTab('zona')" style="padding: 10px 20px; background: white; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">🗺️ Vista por Zona</button>
         </div>
-        <div class="chart-card" style="overflow-x: auto;">
-            <h2>Financiero: VALOR TOTAL DE CARTERA ($) por Regional y Grupo Atraso</h2>
-            <div class="table-container" id="contenedor-regional-suma-pivot"></div>
+        
+        <script>
+            function switchTablaTab(tab) {
+                if (tab === 'regional') {
+                    document.getElementById('seccion-regional').style.display = 'block';
+                    document.getElementById('seccion-zona').style.display = 'none';
+                    document.getElementById('btn-tab-regional').style.background = '#3b82f6';
+                    document.getElementById('btn-tab-regional').style.color = 'white';
+                    document.getElementById('btn-tab-regional').style.border = 'none';
+                    document.getElementById('btn-tab-zona').style.background = 'white';
+                    document.getElementById('btn-tab-zona').style.color = '#475569';
+                    document.getElementById('btn-tab-zona').style.border = '1px solid #cbd5e1';
+                } else {
+                    document.getElementById('seccion-regional').style.display = 'none';
+                    document.getElementById('seccion-zona').style.display = 'block';
+                    document.getElementById('btn-tab-zona').style.background = '#3b82f6';
+                    document.getElementById('btn-tab-zona').style.color = 'white';
+                    document.getElementById('btn-tab-zona').style.border = 'none';
+                    document.getElementById('btn-tab-regional').style.background = 'white';
+                    document.getElementById('btn-tab-regional').style.color = '#475569';
+                    document.getElementById('btn-tab-regional').style.border = '1px solid #cbd5e1';
+                }
+            }
+        </script>
+
+        <div id="seccion-regional">
+            <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
+                <h2>Volumen: CUENTA DE CONTRATOS por Regional y Grupo Atraso</h2>
+                <div class="table-container" id="contenedor-regional-cuenta-pivot"></div>
+            </div>
+            <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
+                <h2>Financiero: VALOR TOTAL DE CARTERA ($) por Regional y Grupo Atraso</h2>
+                <div class="table-container" id="contenedor-regional-suma-pivot"></div>
+            </div>
+        </div>
+
+        <div id="seccion-zona" style="display: none;">
+            <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
+                <h2>Volumen: CUENTA DE CONTRATOS por Zona y Grupo Atraso</h2>
+                <div class="table-container" id="contenedor-zona-cuenta-pivot"></div>
+            </div>
+            <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
+                <h2>Financiero: VALOR TOTAL DE CARTERA ($) por Zona y Grupo Atraso</h2>
+                <div class="table-container" id="contenedor-zona-suma-pivot"></div>
+            </div>
         </div>
     </div>
 
@@ -495,6 +537,12 @@
             tramosMora.forEach(t => { colTotalsCuenta[t] = 0; colTotalsSuma[t] = 0; });
             colTotalsCuenta['TOTAL'] = 0; colTotalsSuma['TOTAL'] = 0;
 
+            // Estructura Pivot Zona
+            let pivotCuentaZona = {}; let pivotSumaZona = {};
+            let colTotalsCuentaZona = {}; let colTotalsSumaZona = {};
+            tramosMora.forEach(t => { colTotalsCuentaZona[t] = 0; colTotalsSumaZona[t] = 0; });
+            colTotalsCuentaZona['TOTAL'] = 0; colTotalsSumaZona['TOTAL'] = 0;
+
             dataFiltrada.forEach(item => {
                 const regional = item.regional || 'Sin Regional';
                 const atraso = item.atraso;
@@ -542,6 +590,25 @@
                     colTotalsSuma[atraso] += monto;
                     colTotalsCuenta['TOTAL'] += cant;
                     colTotalsSuma['TOTAL'] += monto;
+                }
+
+                // Pivot Zona
+                const zona = item.ZONA || 'SIN ZONA';
+                if (!pivotCuentaZona[zona]) {
+                    pivotCuentaZona[zona] = { TOTAL: 0 };
+                    pivotSumaZona[zona] = { TOTAL: 0 };
+                    tramosMora.forEach(t => { pivotCuentaZona[zona][t] = 0; pivotSumaZona[zona][t] = 0; });
+                }
+                if (pivotCuentaZona[zona][atraso] !== undefined) {
+                    pivotCuentaZona[zona][atraso] += cant;
+                    pivotSumaZona[zona][atraso] += monto;
+                    pivotCuentaZona[zona]['TOTAL'] += cant;
+                    pivotSumaZona[zona]['TOTAL'] += monto;
+                    
+                    colTotalsCuentaZona[atraso] += cant;
+                    colTotalsSumaZona[atraso] += monto;
+                    colTotalsCuentaZona['TOTAL'] += cant;
+                    colTotalsSumaZona['TOTAL'] += monto;
                 }
             });
 
@@ -664,6 +731,51 @@
             let tdTotalsSuma = tramosMora.map(t => `<td class="text-right">${colTotalsSuma[t] > 0 ? '$ ' + colTotalsSuma[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
             htmlPivotSuma += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSuma}<td class="text-right">$ ${colTotalsSuma['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td colspan="4"></td></tr></tbody></table>`;
             document.getElementById('contenedor-regional-suma-pivot').innerHTML = htmlPivotSuma;
+
+            // ================== ZONA ==================
+            const listaZonas = Object.keys(pivotCuentaZona).sort((a,b) => pivotCuentaZona[b].TOTAL - pivotCuentaZona[a].TOTAL);
+            
+            // ================== TABLA CUENTA PIVOT ZONA ==================
+            let htmlPivotCuentaZona = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>ZONA</th>${thCols}<th class="text-right">TOTAL</th><th class="th-suma text-right">PRESUPUESTO</th><th class="th-suma text-right">RECAUDO</th><th class="th-suma text-right">FALTANTE ($)</th><th class="th-pct text-right">% CUMPL.</th></tr></thead><tbody>`;
+            listaZonas.forEach((z, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = tramosMora.map(t => `<td class="text-right">${pivotCuentaZona[z][t] > 0 ? pivotCuentaZona[z][t].toLocaleString('es-MX') : '-'}</td>`).join('');
+                
+                let p_z = 0, r_z = 0, c_z = '0%', f_z = 0;
+                if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.zonas && DATOS_RECAUDO.zonas[z]) {
+                    p_z = DATOS_RECAUDO.zonas[z].total.presupuesto;
+                    r_z = DATOS_RECAUDO.zonas[z].total.recaudo;
+                    f_z = p_z - r_z;
+                    c_z = DATOS_RECAUDO.zonas[z].total.cumplimiento.toFixed(1) + '%';
+                }
+                const fmt = (v) => '$' + v.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0});
+                
+                htmlPivotCuentaZona += `<tr><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold">${pivotCuentaZona[z].TOTAL.toLocaleString('es-MX')}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(p_z)}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(r_z)}</td><td class="text-right" style="color:${f_z > 0 ? '#b91c1c' : '#15803d'};font-weight:600;">${fmt(f_z)}</td><td class="text-right"><span class="badge-pct">${c_z}</span></td></tr>`;
+            });
+            let tdTotalsZona = tramosMora.map(t => `<td class="text-right">${colTotalsCuentaZona[t] > 0 ? colTotalsCuentaZona[t].toLocaleString('es-MX') : '-'}</td>`).join('');
+            htmlPivotCuentaZona += `<tr class="total-row"><td>TOTAL</td>${tdTotalsZona}<td class="text-right">${colTotalsCuentaZona['TOTAL'].toLocaleString('es-MX')}</td><td colspan="4"></td></tr></tbody></table>`;
+            document.getElementById('contenedor-zona-cuenta-pivot').innerHTML = htmlPivotCuentaZona;
+
+            // ================== TABLA SUMA PIVOT ZONA ==================
+            let htmlPivotSumaZona = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>ZONA</th>${thCols}<th class="text-right">TOTAL</th><th class="th-suma text-right">PRESUPUESTO</th><th class="th-suma text-right">RECAUDO</th><th class="th-suma text-right">FALTANTE ($)</th><th class="th-pct text-right">% CUMPL.</th></tr></thead><tbody>`;
+            listaZonas.forEach((z, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = tramosMora.map(t => `<td class="text-right">${pivotSumaZona[z][t] > 0 ? '$ ' + pivotSumaZona[z][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                
+                let p_z = 0, r_z = 0, c_z = '0%', f_z = 0;
+                if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.zonas && DATOS_RECAUDO.zonas[z]) {
+                    p_z = DATOS_RECAUDO.zonas[z].total.presupuesto;
+                    r_z = DATOS_RECAUDO.zonas[z].total.recaudo;
+                    f_z = p_z - r_z;
+                    c_z = DATOS_RECAUDO.zonas[z].total.cumplimiento.toFixed(1) + '%';
+                }
+                const fmt = (v) => '$' + v.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0});
+                
+                htmlPivotSumaZona += `<tr><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold">$ ${pivotSumaZona[z].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(p_z)}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(r_z)}</td><td class="text-right" style="color:${f_z > 0 ? '#b91c1c' : '#15803d'};font-weight:600;">${fmt(f_z)}</td><td class="text-right"><span class="badge-pct">${c_z}</span></td></tr>`;
+            });
+            let tdTotalsSumaZona = tramosMora.map(t => `<td class="text-right">${colTotalsSumaZona[t] > 0 ? '$ ' + colTotalsSumaZona[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+            htmlPivotSumaZona += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSumaZona}<td class="text-right">$ ${colTotalsSumaZona['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td colspan="4"></td></tr></tbody></table>`;
+            document.getElementById('contenedor-zona-suma-pivot').innerHTML = htmlPivotSumaZona;
 
             // 2. ALERTAS MULTIPLES TOP 5 (ETIQUETAS KPI POR CANAL)
             function getTop5RegionalesForTipo(tipoFilter, tramosFiltro) {
