@@ -91,6 +91,12 @@
                 <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px;">Consolidado Matricial con Análisis de Participación Porcentual (%)</p>
                 <p style="margin:6px 0 0 0; opacity: 0.85; font-size: 13px; font-weight: 600;" id="fecha-actualizacion"></p>
             </div>
+            <div>
+                <a href="https://mapajd.netlify.app/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(255,255,255,0.15); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; border: 1px solid rgba(255,255,255,0.25); transition: all 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+                    🗺️ MAPA GEOGRÁFICO
+                </a>
+            </div>
         </div>
     </div>
 
@@ -305,13 +311,14 @@
             { id: 'estatus', label: 'ESTATUS' },
             { id: 'tipo', label: 'TIPO' },
             { id: 'regional', label: 'REGIONAL' },
+            { id: 'ZONA', label: 'ZONA' },
             { id: 'atraso', label: 'GRUPO ATRASO' },
             { id: 'gestion', label: 'GESTIÓN' },
             { id: 'TIPOVENDEDOR', label: 'TIPO VENDEDOR' },
             { id: 'PRODUCTO', label: 'PRODUCTO' }
         ];
 
-        let filtrosActivos = { estatus: [], tipo: [], regional: [], atraso: [], gestion: [], TIPOVENDEDOR: [], PRODUCTO: [] };
+        let filtrosActivos = { estatus: [], tipo: [], regional: [], ZONA: [], atraso: [], gestion: [], TIPOVENDEDOR: [], PRODUCTO: [] };
         let valoresUnicos = {};
 
         function inicializarDashboard() {
@@ -349,6 +356,7 @@
             valoresUnicos.estatus = [...new Set(baseDatos.map(d => d.estatus))].sort();
             valoresUnicos.tipo = [...new Set(baseDatos.map(d => d.tipo))].sort();
             valoresUnicos.regional = [...new Set(baseDatos.map(d => d.regional))].sort(); 
+            valoresUnicos.ZONA = [...new Set(baseDatos.map(d => d.ZONA || 'SIN ESPECIFICAR'))].sort();
             valoresUnicos.gestion = [...new Set(baseDatos.map(d => d.gestion))].sort();
             valoresUnicos.TIPOVENDEDOR = [...new Set(baseDatos.map(d => d.TIPOVENDEDOR || 'SIN ESPECIFICAR'))].sort();
             valoresUnicos.PRODUCTO = [...new Set(baseDatos.map(d => d.PRODUCTO || 'SIN ESPECIFICAR'))].sort();
@@ -509,6 +517,7 @@
                 filtrosActivos.estatus.includes(d.estatus) && 
                 filtrosActivos.tipo.includes(d.tipo) && 
                 filtrosActivos.regional.includes(d.regional) && 
+                filtrosActivos.ZONA.includes(d.ZONA || 'SIN ESPECIFICAR') &&
                 filtrosActivos.atraso.includes(d.atraso) &&
                 filtrosActivos.gestion.includes(d.gestion) &&
                 filtrosActivos.TIPOVENDEDOR.includes(d.TIPOVENDEDOR || 'SIN ESPECIFICAR') &&
@@ -691,11 +700,11 @@
             
             // ================== TABLA CUENTA PIVOT ==================
             let htmlPivotCuenta = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>REGIONAL</th>${thCols}<th class="text-right">TOTAL</th><th class="th-suma text-right">PRESUPUESTO</th><th class="th-suma text-right">RECAUDO</th><th class="th-suma text-right">FALTANTE ($)</th><th class="th-pct text-right">% CUMPL.</th></tr></thead><tbody>`;
+            let sum_p_reg = 0, sum_r_reg = 0;
             listaRegionales.forEach((reg, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = tramosMora.map(t => `<td class="text-right">${pivotCuenta[reg][t] > 0 ? pivotCuenta[reg][t].toLocaleString('es-MX') : '-'}</td>`).join('');
                 
-                // Extraer datos de recaudo para esta regional
                 let p_reg = 0, r_reg = 0, c_reg = '0%', f_reg = 0;
                 if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.regionales[reg]) {
                     p_reg = DATOS_RECAUDO.regionales[reg].total.presupuesto;
@@ -703,16 +712,22 @@
                     f_reg = p_reg - r_reg;
                     c_reg = DATOS_RECAUDO.regionales[reg].total.cumplimiento.toFixed(1) + '%';
                 }
+                sum_p_reg += p_reg;
+                sum_r_reg += r_reg;
                 const fmt = (v) => '$' + v.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0});
                 
                 htmlPivotCuenta += `<tr><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${reg}</td>${tdCols}<td class="text-right text-bold">${pivotCuenta[reg].TOTAL.toLocaleString('es-MX')}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(p_reg)}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(r_reg)}</td><td class="text-right" style="color:${f_reg > 0 ? '#b91c1c' : '#15803d'};font-weight:600;">${fmt(f_reg)}</td><td class="text-right"><span class="badge-pct">${c_reg}</span></td></tr>`;
             });
+            let sum_f_reg = sum_p_reg - sum_r_reg;
+            let sum_c_reg = calcPct(sum_r_reg, sum_p_reg);
+            let fmtG = (v) => '$' + v.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0});
             let tdTotals = tramosMora.map(t => `<td class="text-right">${colTotalsCuenta[t] > 0 ? colTotalsCuenta[t].toLocaleString('es-MX') : '-'}</td>`).join('');
-            htmlPivotCuenta += `<tr class="total-row"><td>TOTAL</td>${tdTotals}<td class="text-right">${colTotalsCuenta['TOTAL'].toLocaleString('es-MX')}</td><td colspan="4"></td></tr></tbody></table>`;
+            htmlPivotCuenta += `<tr class="total-row"><td>TOTAL</td>${tdTotals}<td class="text-right">${colTotalsCuenta['TOTAL'].toLocaleString('es-MX')}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_p_reg)}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_r_reg)}</td><td class="text-right" style="color:${sum_f_reg > 0 ? '#b91c1c' : '#15803d'};">${fmtG(sum_f_reg)}</td><td class="text-right">${sum_c_reg}</td></tr></tbody></table>`;
             document.getElementById('contenedor-regional-cuenta-pivot').innerHTML = htmlPivotCuenta;
 
             // ================== TABLA SUMA PIVOT ==================
             let htmlPivotSuma = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>REGIONAL</th>${thCols}<th class="text-right">TOTAL</th><th class="th-suma text-right">PRESUPUESTO</th><th class="th-suma text-right">RECAUDO</th><th class="th-suma text-right">FALTANTE ($)</th><th class="th-pct text-right">% CUMPL.</th></tr></thead><tbody>`;
+            let sum_p_reg2 = 0, sum_r_reg2 = 0;
             listaRegionales.forEach((reg, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = tramosMora.map(t => `<td class="text-right">${pivotSuma[reg][t] > 0 ? '$ ' + pivotSuma[reg][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
@@ -724,12 +739,16 @@
                     f_reg = p_reg - r_reg;
                     c_reg = DATOS_RECAUDO.regionales[reg].total.cumplimiento.toFixed(1) + '%';
                 }
+                sum_p_reg2 += p_reg;
+                sum_r_reg2 += r_reg;
                 const fmt = (v) => '$' + v.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0});
                 
                 htmlPivotSuma += `<tr><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${reg}</td>${tdCols}<td class="text-right text-bold">$ ${pivotSuma[reg].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(p_reg)}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(r_reg)}</td><td class="text-right" style="color:${f_reg > 0 ? '#b91c1c' : '#15803d'};font-weight:600;">${fmt(f_reg)}</td><td class="text-right"><span class="badge-pct">${c_reg}</span></td></tr>`;
             });
+            let sum_f_reg2 = sum_p_reg2 - sum_r_reg2;
+            let sum_c_reg2 = calcPct(sum_r_reg2, sum_p_reg2);
             let tdTotalsSuma = tramosMora.map(t => `<td class="text-right">${colTotalsSuma[t] > 0 ? '$ ' + colTotalsSuma[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
-            htmlPivotSuma += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSuma}<td class="text-right">$ ${colTotalsSuma['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td colspan="4"></td></tr></tbody></table>`;
+            htmlPivotSuma += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSuma}<td class="text-right">$ ${colTotalsSuma['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_p_reg2)}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_r_reg2)}</td><td class="text-right" style="color:${sum_f_reg2 > 0 ? '#b91c1c' : '#15803d'};">${fmtG(sum_f_reg2)}</td><td class="text-right">${sum_c_reg2}</td></tr></tbody></table>`;
             document.getElementById('contenedor-regional-suma-pivot').innerHTML = htmlPivotSuma;
 
             // ================== ZONA ==================
@@ -737,44 +756,56 @@
             
             // ================== TABLA CUENTA PIVOT ZONA ==================
             let htmlPivotCuentaZona = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>ZONA</th>${thCols}<th class="text-right">TOTAL</th><th class="th-suma text-right">PRESUPUESTO</th><th class="th-suma text-right">RECAUDO</th><th class="th-suma text-right">FALTANTE ($)</th><th class="th-pct text-right">% CUMPL.</th></tr></thead><tbody>`;
+            let sum_p_z = 0, sum_r_z = 0;
             listaZonas.forEach((z, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = tramosMora.map(t => `<td class="text-right">${pivotCuentaZona[z][t] > 0 ? pivotCuentaZona[z][t].toLocaleString('es-MX') : '-'}</td>`).join('');
                 
                 let p_z = 0, r_z = 0, c_z = '0%', f_z = 0;
-                if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.zonas && DATOS_RECAUDO.zonas[z]) {
-                    p_z = DATOS_RECAUDO.zonas[z].total.presupuesto;
-                    r_z = DATOS_RECAUDO.zonas[z].total.recaudo;
+                let zKey = z.toUpperCase();
+                if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.zonas && DATOS_RECAUDO.zonas[zKey]) {
+                    p_z = DATOS_RECAUDO.zonas[zKey].total.presupuesto;
+                    r_z = DATOS_RECAUDO.zonas[zKey].total.recaudo;
                     f_z = p_z - r_z;
-                    c_z = DATOS_RECAUDO.zonas[z].total.cumplimiento.toFixed(1) + '%';
+                    c_z = DATOS_RECAUDO.zonas[zKey].total.cumplimiento.toFixed(1) + '%';
                 }
+                sum_p_z += p_z;
+                sum_r_z += r_z;
                 const fmt = (v) => '$' + v.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0});
                 
                 htmlPivotCuentaZona += `<tr><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold">${pivotCuentaZona[z].TOTAL.toLocaleString('es-MX')}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(p_z)}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(r_z)}</td><td class="text-right" style="color:${f_z > 0 ? '#b91c1c' : '#15803d'};font-weight:600;">${fmt(f_z)}</td><td class="text-right"><span class="badge-pct">${c_z}</span></td></tr>`;
             });
+            let sum_f_z = sum_p_z - sum_r_z;
+            let sum_c_z = calcPct(sum_r_z, sum_p_z);
             let tdTotalsZona = tramosMora.map(t => `<td class="text-right">${colTotalsCuentaZona[t] > 0 ? colTotalsCuentaZona[t].toLocaleString('es-MX') : '-'}</td>`).join('');
-            htmlPivotCuentaZona += `<tr class="total-row"><td>TOTAL</td>${tdTotalsZona}<td class="text-right">${colTotalsCuentaZona['TOTAL'].toLocaleString('es-MX')}</td><td colspan="4"></td></tr></tbody></table>`;
+            htmlPivotCuentaZona += `<tr class="total-row"><td>TOTAL</td>${tdTotalsZona}<td class="text-right">${colTotalsCuentaZona['TOTAL'].toLocaleString('es-MX')}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_p_z)}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_r_z)}</td><td class="text-right" style="color:${sum_f_z > 0 ? '#b91c1c' : '#15803d'};">${fmtG(sum_f_z)}</td><td class="text-right">${sum_c_z}</td></tr></tbody></table>`;
             document.getElementById('contenedor-zona-cuenta-pivot').innerHTML = htmlPivotCuentaZona;
 
             // ================== TABLA SUMA PIVOT ZONA ==================
             let htmlPivotSumaZona = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>ZONA</th>${thCols}<th class="text-right">TOTAL</th><th class="th-suma text-right">PRESUPUESTO</th><th class="th-suma text-right">RECAUDO</th><th class="th-suma text-right">FALTANTE ($)</th><th class="th-pct text-right">% CUMPL.</th></tr></thead><tbody>`;
+            let sum_p_z2 = 0, sum_r_z2 = 0;
             listaZonas.forEach((z, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = tramosMora.map(t => `<td class="text-right">${pivotSumaZona[z][t] > 0 ? '$ ' + pivotSumaZona[z][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
                 
                 let p_z = 0, r_z = 0, c_z = '0%', f_z = 0;
-                if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.zonas && DATOS_RECAUDO.zonas[z]) {
-                    p_z = DATOS_RECAUDO.zonas[z].total.presupuesto;
-                    r_z = DATOS_RECAUDO.zonas[z].total.recaudo;
+                let zKey = z.toUpperCase();
+                if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.zonas && DATOS_RECAUDO.zonas[zKey]) {
+                    p_z = DATOS_RECAUDO.zonas[zKey].total.presupuesto;
+                    r_z = DATOS_RECAUDO.zonas[zKey].total.recaudo;
                     f_z = p_z - r_z;
-                    c_z = DATOS_RECAUDO.zonas[z].total.cumplimiento.toFixed(1) + '%';
+                    c_z = DATOS_RECAUDO.zonas[zKey].total.cumplimiento.toFixed(1) + '%';
                 }
+                sum_p_z2 += p_z;
+                sum_r_z2 += r_z;
                 const fmt = (v) => '$' + v.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0});
                 
                 htmlPivotSumaZona += `<tr><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold">$ ${pivotSumaZona[z].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(p_z)}</td><td class="text-right" style="color:#0f766e;font-weight:600;">${fmt(r_z)}</td><td class="text-right" style="color:${f_z > 0 ? '#b91c1c' : '#15803d'};font-weight:600;">${fmt(f_z)}</td><td class="text-right"><span class="badge-pct">${c_z}</span></td></tr>`;
             });
+            let sum_f_z2 = sum_p_z2 - sum_r_z2;
+            let sum_c_z2 = calcPct(sum_r_z2, sum_p_z2);
             let tdTotalsSumaZona = tramosMora.map(t => `<td class="text-right">${colTotalsSumaZona[t] > 0 ? '$ ' + colTotalsSumaZona[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
-            htmlPivotSumaZona += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSumaZona}<td class="text-right">$ ${colTotalsSumaZona['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td colspan="4"></td></tr></tbody></table>`;
+            htmlPivotSumaZona += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSumaZona}<td class="text-right">$ ${colTotalsSumaZona['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_p_z2)}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_r_z2)}</td><td class="text-right" style="color:${sum_f_z2 > 0 ? '#b91c1c' : '#15803d'};">${fmtG(sum_f_z2)}</td><td class="text-right">${sum_c_z2}</td></tr></tbody></table>`;
             document.getElementById('contenedor-zona-suma-pivot').innerHTML = htmlPivotSumaZona;
 
             // 2. ALERTAS MULTIPLES TOP 5 (ETIQUETAS KPI POR CANAL)
@@ -856,7 +887,6 @@
 
             canales.forEach(canal => {
                 let canalKey = canal;
-                if (canal === 'ASESOR COBRANZA') canalKey = 'ASESOR DE COBRANZA';
 
                 let headerExtra = '';
                 if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.tipos && DATOS_RECAUDO.tipos[canalKey]) {
