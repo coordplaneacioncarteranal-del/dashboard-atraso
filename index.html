@@ -105,8 +105,8 @@
     </div>
     
     <div style="display: flex; gap: 10px; margin: 0 24px 20px 24px; justify-content: flex-end;">
-        <button onclick="filtrarZonasEspeciales()" style="background: #f59e0b; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; display:flex; align-items:center; gap:6px; box-shadow: 0 2px 4px rgba(245,158,11,0.2);">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> Filtrar Zonas Especiales
+        <button onclick="filtrarRegionesEspeciales()" style="background: #f59e0b; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; display:flex; align-items:center; gap:6px; box-shadow: 0 2px 4px rgba(245,158,11,0.2);">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> Filtrar Regiones Especiales
         </button>
         <button onclick="limpiarTodosFiltros()" style="background: #e2e8f0; color: #475569; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600;">
             Limpiar Filtros
@@ -436,20 +436,32 @@
             recalcularYRenderizar();
         }
 
-        function filtrarZonasEspeciales() {
-            const zonasEspeciales = ['ATLANTICO', 'SANTANDER', 'CAUCA', 'PUTUMAYO', 'BOGOTA', 'META'];
+        function filtrarRegionesEspeciales() {
+            const regionesEspeciales = ['ATLANTICO', 'SANTANDER', 'CAUCA', 'PUTUMAYO', 'BOGOTA', 'META'];
             
-            // Solo modificamos el filtro de regional, mantenemos el resto intacto
-            filtrosActivos['regional'] = valoresUnicos['regional'].filter(v => zonasEspeciales.includes(v.toUpperCase()));
+            // 1. Filtrar Regional
+            filtrosActivos['regional'] = valoresUnicos['regional'].filter(v => regionesEspeciales.includes(v.toUpperCase()));
 
-            // Solo actualizamos visualmente el de regional
-            const wrapper = document.getElementById('dropdown-list-regional');
-            if (wrapper) {
-                const checkboxes = wrapper.querySelectorAll('input[type="checkbox"]');
+            const wrapperReg = document.getElementById('dropdown-list-regional');
+            if (wrapperReg) {
+                const checkboxes = wrapperReg.querySelectorAll('input[type="checkbox"]');
                 checkboxes.forEach(cb => {
-                    cb.checked = zonasEspeciales.includes(cb.value.toUpperCase());
+                    cb.checked = regionesEspeciales.includes(cb.value.toUpperCase());
                 });
                 actualizarHeaderTexto('regional');
+            }
+
+            // 2. Extraer Zonas que pertenecen a esas regionales y filtrar ZONA
+            const zonasValidas = [...new Set(baseDatos.filter(d => regionesEspeciales.includes(d.regional.toUpperCase())).map(d => d.ZONA || 'SIN ESPECIFICAR'))];
+            filtrosActivos['ZONA'] = valoresUnicos['ZONA'].filter(v => zonasValidas.includes(v));
+
+            const wrapperZona = document.getElementById('dropdown-list-ZONA');
+            if (wrapperZona) {
+                const checkboxes = wrapperZona.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    cb.checked = zonasValidas.includes(cb.value);
+                });
+                actualizarHeaderTexto('ZONA');
             }
 
             recalcularYRenderizar();
