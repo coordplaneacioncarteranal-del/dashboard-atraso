@@ -213,29 +213,25 @@
         <div style="display: flex; gap: 8px; margin-bottom: 16px;">
             <button id="btn-tab-regional" onclick="switchTablaTab('regional')" style="padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">🏢 Vista por Regional</button>
             <button id="btn-tab-zona" onclick="switchTablaTab('zona')" style="padding: 10px 20px; background: white; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">🗺️ Vista por Zona</button>
+            <button id="btn-tab-gestion" onclick="switchTablaTab('gestion')" style="padding: 10px 20px; background: white; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">📋 Vista por Gestión</button>
         </div>
         
         <script>
             function switchTablaTab(tab) {
-                if (tab === 'regional') {
-                    document.getElementById('seccion-regional').style.display = 'block';
-                    document.getElementById('seccion-zona').style.display = 'none';
-                    document.getElementById('btn-tab-regional').style.background = '#3b82f6';
-                    document.getElementById('btn-tab-regional').style.color = 'white';
-                    document.getElementById('btn-tab-regional').style.border = 'none';
-                    document.getElementById('btn-tab-zona').style.background = 'white';
-                    document.getElementById('btn-tab-zona').style.color = '#475569';
-                    document.getElementById('btn-tab-zona').style.border = '1px solid #cbd5e1';
-                } else {
-                    document.getElementById('seccion-regional').style.display = 'none';
-                    document.getElementById('seccion-zona').style.display = 'block';
-                    document.getElementById('btn-tab-zona').style.background = '#3b82f6';
-                    document.getElementById('btn-tab-zona').style.color = 'white';
-                    document.getElementById('btn-tab-zona').style.border = 'none';
-                    document.getElementById('btn-tab-regional').style.background = 'white';
-                    document.getElementById('btn-tab-regional').style.color = '#475569';
-                    document.getElementById('btn-tab-regional').style.border = '1px solid #cbd5e1';
-                }
+                const tabs = ['regional', 'zona', 'gestion'];
+                tabs.forEach(t => {
+                    if (t === tab) {
+                        document.getElementById(`seccion-${t}`).style.display = 'block';
+                        document.getElementById(`btn-tab-${t}`).style.background = '#3b82f6';
+                        document.getElementById(`btn-tab-${t}`).style.color = 'white';
+                        document.getElementById(`btn-tab-${t}`).style.border = 'none';
+                    } else {
+                        document.getElementById(`seccion-${t}`).style.display = 'none';
+                        document.getElementById(`btn-tab-${t}`).style.background = 'white';
+                        document.getElementById(`btn-tab-${t}`).style.color = '#475569';
+                        document.getElementById(`btn-tab-${t}`).style.border = '1px solid #cbd5e1';
+                    }
+                });
             }
         </script>
 
@@ -258,6 +254,17 @@
             <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
                 <h2>Financiero: VALOR TOTAL DE CARTERA ($) por Zona y Grupo Atraso</h2>
                 <div class="table-container" id="contenedor-zona-suma-pivot"></div>
+            </div>
+        </div>
+
+        <div id="seccion-gestion" style="display: none;">
+            <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
+                <h2>Volumen: CUENTA DE CONTRATOS por Gestión y Grupo Atraso</h2>
+                <div class="table-container" id="contenedor-gestion-cuenta-pivot"></div>
+            </div>
+            <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
+                <h2>Financiero: VALOR TOTAL DE CARTERA ($) por Gestión y Grupo Atraso</h2>
+                <div class="table-container" id="contenedor-gestion-suma-pivot"></div>
             </div>
         </div>
     </div>
@@ -613,6 +620,12 @@
             tramosMora.forEach(t => { colTotalsCuentaZona[t] = 0; colTotalsSumaZona[t] = 0; });
             colTotalsCuentaZona['TOTAL'] = 0; colTotalsSumaZona['TOTAL'] = 0;
 
+            // Estructura Pivot Gestion
+            let pivotCuentaGestion = {}; let pivotSumaGestion = {};
+            let colTotalsCuentaGestion = {}; let colTotalsSumaGestion = {};
+            tramosMora.forEach(t => { colTotalsCuentaGestion[t] = 0; colTotalsSumaGestion[t] = 0; });
+            colTotalsCuentaGestion['TOTAL'] = 0; colTotalsSumaGestion['TOTAL'] = 0;
+
             dataFiltrada.forEach(item => {
                 const regional = item.regional || 'Sin Regional';
                 const atraso = item.atraso;
@@ -679,6 +692,25 @@
                     colTotalsSumaZona[atraso] += monto;
                     colTotalsCuentaZona['TOTAL'] += cant;
                     colTotalsSumaZona['TOTAL'] += monto;
+                }
+
+                // Pivot Gestion
+                const gestion = item.gestion || 'SIN GESTION';
+                if (!pivotCuentaGestion[gestion]) {
+                    pivotCuentaGestion[gestion] = { TOTAL: 0 };
+                    pivotSumaGestion[gestion] = { TOTAL: 0 };
+                    tramosMora.forEach(t => { pivotCuentaGestion[gestion][t] = 0; pivotSumaGestion[gestion][t] = 0; });
+                }
+                if (pivotCuentaGestion[gestion][atraso] !== undefined) {
+                    pivotCuentaGestion[gestion][atraso] += cant;
+                    pivotSumaGestion[gestion][atraso] += monto;
+                    pivotCuentaGestion[gestion]['TOTAL'] += cant;
+                    pivotSumaGestion[gestion]['TOTAL'] += monto;
+                    
+                    colTotalsCuentaGestion[atraso] += cant;
+                    colTotalsSumaGestion[atraso] += monto;
+                    colTotalsCuentaGestion['TOTAL'] += cant;
+                    colTotalsSumaGestion['TOTAL'] += monto;
                 }
             });
 
@@ -868,6 +900,34 @@
             let tdTotalsSumaZona = tramosMora.map(t => `<td class="text-right">${colTotalsSumaZona[t] > 0 ? '$ ' + colTotalsSumaZona[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
             htmlPivotSumaZona += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSumaZona}<td class="text-right">$ ${colTotalsSumaZona['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_p_z2)}</td><td class="text-right" style="color:#0f766e;">${fmtG(sum_r_z2)}</td><td class="text-right" style="color:${sum_f_z2 > 0 ? '#b91c1c' : '#15803d'};">${fmtG(sum_f_z2)}</td><td class="text-right">${sum_c_z2}</td></tr></tbody></table>`;
             document.getElementById('contenedor-zona-suma-pivot').innerHTML = htmlPivotSumaZona;
+
+            // ================== TABLA CUENTA PIVOT GESTION ==================
+            const listaGestion = Object.keys(pivotCuentaGestion).sort((a,b) => pivotCuentaGestion[b].TOTAL - pivotCuentaGestion[a].TOTAL);
+            
+            let htmlPivotCuentaGestion = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>GESTIÓN</th>${thCols}<th class="text-right">TOTAL</th><th class="th-suma text-right">PRESUPUESTO</th><th class="th-suma text-right">RECAUDO</th><th class="th-suma text-right">FALTANTE ($)</th><th class="th-pct text-right">% CUMPL.</th></tr></thead><tbody>`;
+            listaGestion.forEach((g, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = tramosMora.map(t => `<td class="text-right">${pivotCuentaGestion[g][t] > 0 ? pivotCuentaGestion[g][t].toLocaleString('es-MX') : '-'}</td>`).join('');
+                
+                let p_g = 0, r_g = 0, c_g = '0.0%', f_g = 0; // Se dejan en 0 para Gestión ya que no hay datos de Recaudo
+                
+                htmlPivotCuentaGestion += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('gestion', '${g}')" title="Clic para filtrar por ${g}"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${g}</td>${tdCols}<td class="text-right text-bold">${pivotCuentaGestion[g].TOTAL.toLocaleString('es-MX')}</td><td class="text-right" style="color:#0f766e;font-weight:600;">$0</td><td class="text-right" style="color:#0f766e;font-weight:600;">$0</td><td class="text-right" style="color:#15803d;font-weight:600;">$0</td><td class="text-right"><span class="badge-pct">0.0%</span></td></tr>`;
+            });
+            let tdTotalsGestion = tramosMora.map(t => `<td class="text-right">${colTotalsCuentaGestion[t] > 0 ? colTotalsCuentaGestion[t].toLocaleString('es-MX') : '-'}</td>`).join('');
+            htmlPivotCuentaGestion += `<tr class="total-row"><td>TOTAL</td>${tdTotalsGestion}<td class="text-right">${colTotalsCuentaGestion['TOTAL'].toLocaleString('es-MX')}</td><td class="text-right" style="color:#0f766e;">$0</td><td class="text-right" style="color:#0f766e;">$0</td><td class="text-right" style="color:#15803d;">$0</td><td class="text-right">0.0%</td></tr></tbody></table>`;
+            document.getElementById('contenedor-gestion-cuenta-pivot').innerHTML = htmlPivotCuentaGestion;
+
+            // ================== TABLA SUMA PIVOT GESTION ==================
+            let htmlPivotSumaGestion = `<table class="excel-table" style="min-width: 1000px;"><thead><tr><th>GESTIÓN</th>${thCols}<th class="text-right">TOTAL</th><th class="th-suma text-right">PRESUPUESTO</th><th class="th-suma text-right">RECAUDO</th><th class="th-suma text-right">FALTANTE ($)</th><th class="th-pct text-right">% CUMPL.</th></tr></thead><tbody>`;
+            listaGestion.forEach((g, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = tramosMora.map(t => `<td class="text-right">${pivotSumaGestion[g][t] > 0 ? '$ ' + pivotSumaGestion[g][t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                
+                htmlPivotSumaGestion += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('gestion', '${g}')" title="Clic para filtrar por ${g}"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${g}</td>${tdCols}<td class="text-right text-bold">$ ${pivotSumaGestion[g].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;font-weight:600;">$0</td><td class="text-right" style="color:#0f766e;font-weight:600;">$0</td><td class="text-right" style="color:#15803d;font-weight:600;">$0</td><td class="text-right"><span class="badge-pct">0.0%</span></td></tr>`;
+            });
+            let tdTotalsSumaGestion = tramosMora.map(t => `<td class="text-right">${colTotalsSumaGestion[t] > 0 ? '$ ' + colTotalsSumaGestion[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+            htmlPivotSumaGestion += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSumaGestion}<td class="text-right">$ ${colTotalsSumaGestion['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;">$0</td><td class="text-right" style="color:#0f766e;">$0</td><td class="text-right" style="color:#15803d;">$0</td><td class="text-right">0.0%</td></tr></tbody></table>`;
+            document.getElementById('contenedor-gestion-suma-pivot').innerHTML = htmlPivotSumaGestion;
 
             // 2. ALERTAS MULTIPLES TOP 5 (ETIQUETAS KPI POR CANAL)
             function getTop5RegionalesForTipo(tipoFilter, tramosFiltro) {
