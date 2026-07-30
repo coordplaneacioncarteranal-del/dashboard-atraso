@@ -2,581 +2,549 @@ const DATOS_RECAUDO = {
   "regionales": {
     "ANTIOQUIA": {
       "total": {
-        "presupuesto": 3408460888.0,
-        "recaudo": 2987016716.0,
-        "cumplimiento": 87.6353525579901,
-        "cierre": 87.6353525579901
+        "presupuesto": 483872348.0,
+        "recaudo": 405049207.0,
+        "cumplimiento": 83.70993066129913,
+        "cierre": 83.70993066129913
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1514643350.0,
-          "recaudo": 1452713169.0,
-          "cumplimiento": 95.91123672777489,
-          "cierre": 95.91123672777489
+          "presupuesto": 213753550.0,
+          "recaudo": 199039190.0,
+          "cumplimiento": 93.11620321627407,
+          "cierre": 93.11620321627407
         },
         "MEDIOS": {
-          "presupuesto": 1693405588.0,
-          "recaudo": 1333808242.0,
-          "cumplimiento": 78.76484236569084,
-          "cierre": 78.76484236569084
+          "presupuesto": 241634698.0,
+          "recaudo": 177974267.0,
+          "cumplimiento": 73.65426756715213,
+          "cierre": 73.65426756715213
         },
         "OFICINA": {
-          "presupuesto": 194799350.0,
-          "recaudo": 195515255.0,
-          "cumplimiento": 100.36750892649282,
-          "cierre": 100.36750892649282
+          "presupuesto": 27731000.0,
+          "recaudo": 27552650.0,
+          "cumplimiento": 99.35685694709892,
+          "cierre": 99.35685694709892
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 5612600.0,
-          "recaudo": 4980050.0,
-          "cumplimiento": 88.72982218579625,
-          "cierre": 88.72982218579625
+          "presupuesto": 753100.0,
+          "recaudo": 483100.0,
+          "cumplimiento": 64.14818749170097,
+          "cierre": 64.14818749170097
         }
       }
     },
     "ATLANTICO": {
       "total": {
-        "presupuesto": 738537760.0,
-        "recaudo": 547942586.0,
-        "cumplimiento": 74.19290057694545,
-        "cierre": 74.19290057694545
+        "presupuesto": 117928517.0,
+        "recaudo": 82598782.0,
+        "cumplimiento": 70.04139804454593,
+        "cierre": 70.04139804454593
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 386046872.0,
-          "recaudo": 350797822.0,
-          "cumplimiento": 90.86923051147012,
-          "cierre": 90.86923051147012
+          "presupuesto": 62078096.0,
+          "recaudo": 52812960.0,
+          "cumplimiento": 85.0750319404126,
+          "cierre": 85.0750319404126
         },
         "MEDIOS": {
-          "presupuesto": 336295028.0,
-          "recaudo": 179059514.0,
-          "cumplimiento": 53.244769946464984,
-          "cierre": 53.244769946464984
+          "presupuesto": 52413921.0,
+          "recaudo": 26260022.0,
+          "cumplimiento": 50.10123550955098,
+          "cierre": 50.10123550955098
         },
         "OFICINA": {
-          "presupuesto": 16195860.0,
-          "recaudo": 18085250.0,
-          "cumplimiento": 111.66588251565524,
-          "cierre": 111.66588251565524
+          "presupuesto": 3436500.0,
+          "recaudo": 3525800.0,
+          "cumplimiento": 102.59857413065619,
+          "cierre": 102.59857413065619
         }
       }
     },
     "BOGOTA": {
       "total": {
-        "presupuesto": 483609444.0,
-        "recaudo": 397303002.0,
-        "cumplimiento": 82.15368970337974,
-        "cierre": 82.15368970337974
+        "presupuesto": 69520400.0,
+        "recaudo": 56241804.0,
+        "cumplimiento": 80.89971289002939,
+        "cierre": 80.89971289002939
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 103541400.0,
-          "recaudo": 103305190.0,
-          "cumplimiento": 99.77186903016572,
-          "cierre": 99.77186903016572
+          "presupuesto": 14790850.0,
+          "recaudo": 16274050.0,
+          "cumplimiento": 110.02782125435657,
+          "cierre": 110.02782125435657
         },
         "MEDIOS": {
-          "presupuesto": 363760544.0,
-          "recaudo": 278238912.0,
-          "cumplimiento": 76.48957991441755,
-          "cierre": 76.48957991441755
+          "presupuesto": 52354450.0,
+          "recaudo": 37882104.0,
+          "cumplimiento": 72.35698971147629,
+          "cierre": 72.35698971147629
         },
         "OFICINA": {
-          "presupuesto": 16307500.0,
-          "recaudo": 15758900.0,
-          "cumplimiento": 96.63590372527977,
-          "cierre": 96.63590372527977
+          "presupuesto": 2375100.0,
+          "recaudo": 2085650.0,
+          "cumplimiento": 87.81314470969643,
+          "cierre": 87.81314470969643
         }
       }
     },
     "CALDAS": {
       "total": {
-        "presupuesto": 4079579205.0,
-        "recaudo": 3920014864.0,
-        "cumplimiento": 96.08870589387172,
-        "cierre": 96.08870589387172
+        "presupuesto": 585431610.0,
+        "recaudo": 528900740.0,
+        "cumplimiento": 90.34372776693763,
+        "cierre": 90.34372776693763
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1086438250.0,
-          "recaudo": 1078537000.0,
-          "cumplimiento": 99.2727382343175,
-          "cierre": 99.2727382343175
+          "presupuesto": 156564050.0,
+          "recaudo": 150859950.0,
+          "cumplimiento": 96.35669874406034,
+          "cierre": 96.35669874406034
         },
         "MEDIOS": {
-          "presupuesto": 633162680.0,
-          "recaudo": 597010616.0,
-          "cumplimiento": 94.29024085879477,
-          "cierre": 94.29024085879477
+          "presupuesto": 92032610.0,
+          "recaudo": 82973940.0,
+          "cumplimiento": 90.15710844232278,
+          "cierre": 90.15710844232278
         },
         "OFICINA": {
-          "presupuesto": 2282382950.0,
-          "recaudo": 2168808948.0,
-          "cumplimiento": 95.0238849269357,
-          "cierre": 95.0238849269357
+          "presupuesto": 325751150.0,
+          "recaudo": 285205550.0,
+          "cumplimiento": 87.55319820052823,
+          "cierre": 87.55319820052823
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 77595325.0,
-          "recaudo": 75658300.0,
-          "cumplimiento": 97.50368337267741,
-          "cierre": 97.50368337267741
+          "presupuesto": 11083800.0,
+          "recaudo": 9861300.0,
+          "cumplimiento": 88.97038921669463,
+          "cierre": 88.97038921669463
         }
       }
     },
     "CAUCA": {
       "total": {
-        "presupuesto": 750262335.0,
-        "recaudo": 645473495.0,
-        "cumplimiento": 86.033040029925,
-        "cierre": 86.033040029925
+        "presupuesto": 106698000.0,
+        "recaudo": 91849878.0,
+        "cumplimiento": 86.08397345779677,
+        "cierre": 86.08397345779677
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 304146790.0,
-          "recaudo": 265522378.0,
-          "cumplimiento": 87.3007333070982,
-          "cierre": 87.3007333070982
+          "presupuesto": 42513965.0,
+          "recaudo": 35835205.0,
+          "cumplimiento": 84.29043256727525,
+          "cierre": 84.29043256727525
         },
         "MEDIOS": {
-          "presupuesto": 312704870.0,
-          "recaudo": 237685192.0,
-          "cumplimiento": 76.00943087327038,
-          "cierre": 76.00943087327038
+          "presupuesto": 43856360.0,
+          "recaudo": 33331618.0,
+          "cumplimiento": 76.00178856612814,
+          "cierre": 76.00178856612814
         },
         "OFICINA": {
-          "presupuesto": 111672275.0,
-          "recaudo": 115919675.0,
-          "cumplimiento": 103.80345076698761,
-          "cierre": 103.80345076698761
+          "presupuesto": 16852925.0,
+          "recaudo": 17880755.0,
+          "cumplimiento": 106.09882260794492,
+          "cierre": 106.09882260794492
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 21738400.0,
-          "recaudo": 26346250.0,
-          "cumplimiento": 121.19682221322637,
-          "cierre": 121.19682221322637
+          "presupuesto": 3474750.0,
+          "recaudo": 4802300.0,
+          "cumplimiento": 138.20562630405064,
+          "cierre": 138.20562630405064
         }
       }
     },
     "CUNDINAMARCA": {
       "total": {
-        "presupuesto": 3370860370.0,
-        "recaudo": 3066089246.0,
-        "cumplimiento": 90.95865474843148,
-        "cierre": 90.95865474843148
+        "presupuesto": 480801145.0,
+        "recaudo": 425399406.0,
+        "cumplimiento": 88.47720318968875,
+        "cierre": 88.47720318968875
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1170875400.0,
-          "recaudo": 1098583428.0,
-          "cumplimiento": 93.82581852859835,
-          "cierre": 93.82581852859835
+          "presupuesto": 165920150.0,
+          "recaudo": 152457550.0,
+          "cumplimiento": 91.88609701714951,
+          "cierre": 91.88609701714951
         },
         "MEDIOS": {
-          "presupuesto": 1001052370.0,
-          "recaudo": 802235267.0,
-          "cumplimiento": 80.13919061996727,
-          "cierre": 80.13919061996727
+          "presupuesto": 142942220.0,
+          "recaudo": 109229850.0,
+          "cumplimiento": 76.41538658067574,
+          "cierre": 76.41538658067574
         },
         "OFICINA": {
-          "presupuesto": 1122725350.0,
-          "recaudo": 1098526841.0,
-          "cumplimiento": 97.8446635234521,
-          "cierre": 97.8446635234521
+          "presupuesto": 161752425.0,
+          "recaudo": 156338356.0,
+          "cumplimiento": 96.65286687355692,
+          "cierre": 96.65286687355692
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 76207250.0,
-          "recaudo": 66743710.0,
-          "cumplimiento": 87.58183768604692,
-          "cierre": 87.58183768604692
+          "presupuesto": 10186350.0,
+          "recaudo": 7373650.0,
+          "cumplimiento": 72.3875578592921,
+          "cierre": 72.3875578592921
         }
       }
     },
     "HUILA": {
       "total": {
-        "presupuesto": 2999051995.0,
-        "recaudo": 2391591841.0,
-        "cumplimiento": 79.74492756335157,
-        "cierre": 79.74492756335157
+        "presupuesto": 421975376.0,
+        "recaudo": 348884610.0,
+        "cumplimiento": 82.67890257179367,
+        "cierre": 82.67890257179367
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 546062780.0,
-          "recaudo": 516051551.0,
-          "cumplimiento": 94.50406984339786,
-          "cierre": 94.50406984339786
+          "presupuesto": 76278470.0,
+          "recaudo": 70578270.0,
+          "cumplimiento": 92.52711807145582,
+          "cierre": 92.52711807145582
         },
         "MEDIOS": {
-          "presupuesto": 1716092891.0,
-          "recaudo": 1272875541.0,
-          "cumplimiento": 74.17288118117378,
-          "cierre": 74.17288118117378
+          "presupuesto": 236715423.0,
+          "recaudo": 180274163.0,
+          "cumplimiento": 76.15649234650841,
+          "cierre": 76.15649234650841
         },
         "OFICINA": {
-          "presupuesto": 685998036.0,
-          "recaudo": 553704854.0,
-          "cumplimiento": 80.71522438003015,
-          "cierre": 80.71522438003015
+          "presupuesto": 101292260.0,
+          "recaudo": 88560880.0,
+          "cumplimiento": 87.43104359602599,
+          "cierre": 87.43104359602599
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 50898288.0,
-          "recaudo": 48959895.0,
-          "cumplimiento": 96.19163418620288,
-          "cierre": 96.19163418620288
+          "presupuesto": 7689223.0,
+          "recaudo": 9471297.0,
+          "cumplimiento": 123.17625591038262,
+          "cierre": 123.17625591038262
         }
       }
     },
     "META": {
       "total": {
-        "presupuesto": 206684200.0,
-        "recaudo": 179716940.0,
-        "cumplimiento": 86.95243274522194,
-        "cierre": 86.95243274522194
+        "presupuesto": 31971650.0,
+        "recaudo": 23607850.0,
+        "cumplimiento": 73.83994882966628,
+        "cierre": 73.83994882966628
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 126894900.0,
-          "recaudo": 119371840.0,
-          "cumplimiento": 94.07142446229123,
-          "cierre": 94.07142446229123
+          "presupuesto": 18285850.0,
+          "recaudo": 14282000.0,
+          "cumplimiento": 78.10410782107476,
+          "cierre": 78.10410782107476
         },
         "MEDIOS": {
-          "presupuesto": 57268900.0,
-          "recaudo": 34507550.0,
-          "cumplimiento": 60.255304362402626,
-          "cierre": 60.255304362402626
+          "presupuesto": 9964900.0,
+          "recaudo": 4884800.0,
+          "cumplimiento": 49.020060412046284,
+          "cierre": 49.020060412046284
         },
         "OFICINA": {
-          "presupuesto": 22520400.0,
-          "recaudo": 25837550.0,
-          "cumplimiento": 114.72953411129465,
-          "cierre": 114.72953411129465
+          "presupuesto": 3720900.0,
+          "recaudo": 4441050.0,
+          "cumplimiento": 119.35418850278158,
+          "cierre": 119.35418850278158
         }
       }
     },
     "PUTUMAYO": {
       "total": {
-        "presupuesto": 94626500.0,
-        "recaudo": 75737650.0,
-        "cumplimiento": 80.03851986494269,
-        "cierre": 80.03851986494269
+        "presupuesto": 12223550.0,
+        "recaudo": 8475500.0,
+        "cumplimiento": 69.33746742967469,
+        "cierre": 69.33746742967469
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 52244900.0,
-          "recaudo": 44758000.0,
-          "cumplimiento": 85.669606028531,
-          "cierre": 85.669606028531
+          "presupuesto": 7178700.0,
+          "recaudo": 4977400.0,
+          "cumplimiento": 69.33567358992575,
+          "cierre": 69.33567358992575
         },
         "OFICINA": {
-          "presupuesto": 42381600.0,
-          "recaudo": 30979650.0,
-          "cumplimiento": 73.09693357494763,
-          "cierre": 73.09693357494763
+          "presupuesto": 5044850.0,
+          "recaudo": 3498100.0,
+          "cumplimiento": 69.34002002041686,
+          "cierre": 69.34002002041686
         }
       }
     },
     "QUINDIO": {
       "total": {
-        "presupuesto": 5333215464.0,
-        "recaudo": 4975159058.0,
-        "cumplimiento": 93.2862940112408,
-        "cierre": 93.2862940112408
+        "presupuesto": 769346770.0,
+        "recaudo": 693905430.0,
+        "cumplimiento": 90.19410453884143,
+        "cierre": 90.19410453884143
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 2728733460.0,
-          "recaudo": 2594626180.0,
-          "cumplimiento": 95.0853653548119,
-          "cierre": 95.0853653548119
+          "presupuesto": 391765740.0,
+          "recaudo": 367342100.0,
+          "cumplimiento": 93.76575399370041,
+          "cierre": 93.76575399370041
         },
         "MEDIOS": {
-          "presupuesto": 1119323760.0,
-          "recaudo": 935749590.0,
-          "cumplimiento": 83.59954674776134,
-          "cierre": 83.59954674776134
+          "presupuesto": 164234950.0,
+          "recaudo": 128975170.0,
+          "cumplimiento": 78.5308912627915,
+          "cierre": 78.5308912627915
         },
         "OFICINA": {
-          "presupuesto": 1457907344.0,
-          "recaudo": 1420584948.0,
-          "cumplimiento": 97.44000219536585,
-          "cierre": 97.44000219536585
+          "presupuesto": 209325080.0,
+          "recaudo": 196837560.0,
+          "cumplimiento": 94.03438899915862,
+          "cierre": 94.03438899915862
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 27250900.0,
-          "recaudo": 24198340.0,
-          "cumplimiento": 88.7983149180394,
-          "cierre": 88.7983149180394
+          "presupuesto": 4021000.0,
+          "recaudo": 750600.0,
+          "cumplimiento": 18.66699825913952,
+          "cierre": 18.66699825913952
         }
       }
     },
     "RISARALDA": {
       "total": {
-        "presupuesto": 4210625400.0,
-        "recaudo": 3996402598.0,
-        "cumplimiento": 94.91232817813714,
-        "cierre": 94.91232817813714
+        "presupuesto": 603853735.0,
+        "recaudo": 541770045.0,
+        "cumplimiento": 89.718753664743,
+        "cierre": 89.718753664743
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 2470221340.0,
-          "recaudo": 2372530500.0,
-          "cumplimiento": 96.04525965272408,
-          "cierre": 96.04525965272408
+          "presupuesto": 349816360.0,
+          "recaudo": 316982760.0,
+          "cumplimiento": 90.61404675298776,
+          "cierre": 90.61404675298776
         },
         "MEDIOS": {
-          "presupuesto": 963152460.0,
-          "recaudo": 840954905.0,
-          "cumplimiento": 87.31275056910512,
-          "cierre": 87.31275056910512
+          "presupuesto": 139622025.0,
+          "recaudo": 114834460.0,
+          "cumplimiento": 82.2466655959187,
+          "cierre": 82.2466655959187
         },
         "OFICINA": {
-          "presupuesto": 763086000.0,
-          "recaudo": 771793893.0,
-          "cumplimiento": 101.141141758596,
-          "cierre": 101.141141758596
+          "presupuesto": 112651850.0,
+          "recaudo": 109919825.0,
+          "cumplimiento": 97.57480680521448,
+          "cierre": 97.57480680521448
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 14165600.0,
-          "recaudo": 11123300.0,
-          "cumplimiento": 78.5233241091094,
-          "cierre": 78.5233241091094
+          "presupuesto": 1763500.0,
+          "recaudo": 33000.0,
+          "cumplimiento": 1.8712787071165298,
+          "cierre": 1.8712787071165298
         }
       }
     },
     "SANTANDER": {
       "total": {
-        "presupuesto": 418965391.0,
-        "recaudo": 356350085.0,
-        "cumplimiento": 85.05477842679373,
-        "cierre": 85.05477842679373
+        "presupuesto": 59352725.0,
+        "recaudo": 46659980.0,
+        "cumplimiento": 78.61472240743791,
+        "cierre": 78.61472240743791
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 151257425.0,
-          "recaudo": 142121180.0,
-          "cumplimiento": 93.95980395673138,
-          "cierre": 93.95980395673138
+          "presupuesto": 20808125.0,
+          "recaudo": 15389050.0,
+          "cumplimiento": 73.95692788273811,
+          "cierre": 73.95692788273811
         },
         "MEDIOS": {
-          "presupuesto": 126595133.0,
-          "recaudo": 85312560.0,
-          "cumplimiento": 67.39007889031564,
-          "cierre": 67.39007889031564
+          "presupuesto": 18277600.0,
+          "recaudo": 14247400.0,
+          "cumplimiento": 77.95005908872062,
+          "cierre": 77.95005908872062
         },
         "OFICINA": {
-          "presupuesto": 49969683.0,
-          "recaudo": 42371085.0,
-          "cumplimiento": 84.79358374156585,
-          "cierre": 84.79358374156585
+          "presupuesto": 7623300.0,
+          "recaudo": 5724730.0,
+          "cumplimiento": 75.09516875893641,
+          "cierre": 75.09516875893641
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 91143150.0,
-          "recaudo": 86545260.0,
-          "cumplimiento": 94.9553093128776,
-          "cierre": 94.9553093128776
+          "presupuesto": 12643700.0,
+          "recaudo": 11298800.0,
+          "cumplimiento": 89.36308200922198,
+          "cierre": 89.36308200922198
         }
       }
     },
     "TOLIMA": {
       "total": {
-        "presupuesto": 2857976887.0,
-        "recaudo": 2622745188.0,
-        "cumplimiento": 91.76929316433622,
-        "cierre": 91.76929316433622
+        "presupuesto": 405210380.0,
+        "recaudo": 359540305.0,
+        "cumplimiento": 88.72929291692874,
+        "cierre": 88.72929291692874
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 944694750.0,
-          "recaudo": 874161940.0,
-          "cumplimiento": 92.53379888053786,
-          "cierre": 92.53379888053786
+          "presupuesto": 131805000.0,
+          "recaudo": 120844900.0,
+          "cumplimiento": 91.68460984029437,
+          "cierre": 91.68460984029437
         },
         "MEDIOS": {
-          "presupuesto": 843763937.0,
-          "recaudo": 699856015.0,
-          "cumplimiento": 82.94452800250457,
-          "cierre": 82.94452800250457
+          "presupuesto": 121124480.0,
+          "recaudo": 101437662.0,
+          "cumplimiento": 83.74662330851699,
+          "cierre": 83.74662330851699
         },
         "OFICINA": {
-          "presupuesto": 1030069900.0,
-          "recaudo": 1011647233.0,
-          "cumplimiento": 98.21151292742366,
-          "cierre": 98.21151292742366
+          "presupuesto": 146597000.0,
+          "recaudo": 132650743.0,
+          "cumplimiento": 90.48666957714005,
+          "cierre": 90.48666957714005
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 39448300.0,
-          "recaudo": 37080000.0,
-          "cumplimiento": 93.99644598119565,
-          "cierre": 93.99644598119565
+          "presupuesto": 5683900.0,
+          "recaudo": 4607000.0,
+          "cumplimiento": 81.05350199686835,
+          "cierre": 81.05350199686835
         }
       }
     },
     "VALLE SUR CALI": {
       "total": {
-        "presupuesto": 3202092470.0,
-        "recaudo": 2867690097.0,
-        "cumplimiento": 89.55675464924971,
-        "cierre": 89.55675464924971
+        "presupuesto": 459272800.0,
+        "recaudo": 404107782.0,
+        "cumplimiento": 87.98861635176306,
+        "cierre": 87.98861635176306
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1710140500.0,
-          "recaudo": 1636289607.0,
-          "cumplimiento": 95.68158914428376,
-          "cierre": 95.68158914428376
+          "presupuesto": 246741650.0,
+          "recaudo": 235212102.0,
+          "cumplimiento": 95.32727936284773,
+          "cierre": 95.32727936284773
         },
         "MEDIOS": {
-          "presupuesto": 1277865170.0,
-          "recaudo": 1018686380.0,
-          "cumplimiento": 79.71782969873105,
-          "cierre": 79.71782969873105
+          "presupuesto": 180875300.0,
+          "recaudo": 138854290.0,
+          "cumplimiento": 76.76796665990327,
+          "cierre": 76.76796665990327
         },
         "OFICINA": {
-          "presupuesto": 188654200.0,
-          "recaudo": 186091790.0,
-          "cumplimiento": 98.64174240488683,
-          "cierre": 98.64174240488683
+          "presupuesto": 27966650.0,
+          "recaudo": 26214890.0,
+          "cumplimiento": 93.73625371648016,
+          "cierre": 93.73625371648016
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 25432600.0,
-          "recaudo": 26622320.0,
-          "cumplimiento": 104.67793304656227,
-          "cierre": 104.67793304656227
+          "presupuesto": 3689200.0,
+          "recaudo": 3826500.0,
+          "cumplimiento": 103.72167407568035,
+          "cierre": 103.72167407568035
         }
       }
     },
     "VALLE CENTRO PALMIRA": {
       "total": {
-        "presupuesto": 2459450290.0,
-        "recaudo": 2213221587.0,
-        "cumplimiento": 89.9884659591961,
-        "cierre": 89.9884659591961
+        "presupuesto": 360328010.0,
+        "recaudo": 311651050.0,
+        "cumplimiento": 86.49093086046794,
+        "cierre": 86.49093086046794
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1103420750.0,
-          "recaudo": 1016506459.0,
-          "cumplimiento": 92.12319588878495,
-          "cierre": 92.12319588878495
+          "presupuesto": 153992500.0,
+          "recaudo": 143154840.0,
+          "cumplimiento": 92.96221569232269,
+          "cierre": 92.96221569232269
         },
         "MEDIOS": {
-          "presupuesto": 826595840.0,
-          "recaudo": 684926863.0,
-          "cumplimiento": 82.86115533801863,
-          "cierre": 82.86115533801863
+          "presupuesto": 123714510.0,
+          "recaudo": 95273550.0,
+          "cumplimiento": 77.01081304044287,
+          "cierre": 77.01081304044287
         },
         "OFICINA": {
-          "presupuesto": 517566250.0,
-          "recaudo": 501248715.0,
-          "cumplimiento": 96.84725675215492,
-          "cierre": 96.84725675215492
+          "presupuesto": 81014200.0,
+          "recaudo": 72473160.0,
+          "cumplimiento": 89.45735438972427,
+          "cierre": 89.45735438972427
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 11867450.0,
-          "recaudo": 10539550.0,
-          "cumplimiento": 88.81057008877224,
-          "cierre": 88.81057008877224
+          "presupuesto": 1606800.0,
+          "recaudo": 749500.0,
+          "cumplimiento": 46.64550659696291,
+          "cierre": 46.64550659696291
         }
       }
     },
     "VALLE CENTRO": {
       "total": {
-        "presupuesto": 3035335672.0,
-        "recaudo": 2893411200.0,
-        "cumplimiento": 95.3242577646615,
-        "cierre": 95.3242577646615
+        "presupuesto": 486863427.0,
+        "recaudo": 455295455.0,
+        "cumplimiento": 93.51605188450517,
+        "cierre": 93.51605188450517
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1705844909.0,
-          "recaudo": 1641585251.0,
-          "cumplimiento": 96.23297184515619,
-          "cierre": 96.23297184515619
+          "presupuesto": 259775165.0,
+          "recaudo": 244007050.0,
+          "cumplimiento": 93.9300914311805,
+          "cierre": 93.9300914311805
         },
         "MEDIOS": {
-          "presupuesto": 422461100.0,
-          "recaudo": 369307364.0,
-          "cumplimiento": 87.41807565240917,
-          "cierre": 87.41807565240917
+          "presupuesto": 61689000.0,
+          "recaudo": 56177535.0,
+          "cumplimiento": 91.06572484559646,
+          "cierre": 91.06572484559646
         },
         "OFICINA": {
-          "presupuesto": 838163763.0,
-          "recaudo": 819828685.0,
-          "cumplimiento": 97.81247068778372,
-          "cierre": 97.81247068778372
+          "presupuesto": 155798262.0,
+          "recaudo": 147662770.0,
+          "cumplimiento": 94.77818821881337,
+          "cierre": 94.77818821881337
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 68865900.0,
-          "recaudo": 62689900.0,
-          "cumplimiento": 91.03184594988231,
-          "cierre": 91.03184594988231
+          "presupuesto": 9601000.0,
+          "recaudo": 7448100.0,
+          "cumplimiento": 77.5762941360275,
+          "cierre": 77.5762941360275
         }
       }
     },
     "VALLE NORTE": {
       "total": {
-        "presupuesto": 3920984375.0,
-        "recaudo": 3734331447.0,
-        "cumplimiento": 95.23964111690702,
-        "cierre": 95.23964111690702
+        "presupuesto": 562475100.0,
+        "recaudo": 518738301.0,
+        "cumplimiento": 92.22422485902042,
+        "cierre": 92.22422485902042
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1820829375.0,
-          "recaudo": 1744679519.0,
-          "cumplimiento": 95.81784778708328,
-          "cierre": 95.81784778708328
+          "presupuesto": 260269350.0,
+          "recaudo": 241422060.0,
+          "cumplimiento": 92.75854417740699,
+          "cierre": 92.75854417740699
         },
         "MEDIOS": {
-          "presupuesto": 427526150.0,
-          "recaudo": 382764269.0,
-          "cumplimiento": 89.53002500548797,
-          "cierre": 89.53002500548797
+          "presupuesto": 61270600.0,
+          "recaudo": 53266550.0,
+          "cumplimiento": 86.93655684781935,
+          "cierre": 86.93655684781935
         },
         "OFICINA": {
-          "presupuesto": 1666658200.0,
-          "recaudo": 1599681859.0,
-          "cumplimiento": 95.98139912550756,
-          "cierre": 95.98139912550756
+          "presupuesto": 239959700.0,
+          "recaudo": 224049691.0,
+          "cumplimiento": 93.36971624818668,
+          "cierre": 93.36971624818668
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 5970650.0,
-          "recaudo": 7205800.0,
-          "cumplimiento": 120.68702737557888,
-          "cierre": 120.68702737557888
-        }
-      }
-    },
-    "SIN IDENTIFICAR": {
-      "total": {
-        "presupuesto": 0.0,
-        "recaudo": 328776226.0,
-        "cumplimiento": 0,
-        "cierre": 0
-      },
-      "tipos": {
-        "SIN IDENTIFICAR": {
-          "presupuesto": 0.0,
-          "recaudo": 328776226.0,
-          "cumplimiento": 0,
-          "cierre": 0
-        }
-      }
-    },
-    "RECAUDO ZONA": {
-      "total": {
-        "presupuesto": 43796597027.0,
-        "recaudo": 40320682459.0,
-        "cumplimiento": 92.06350537723937,
-        "cierre": 92.06350537723937
-      },
-      "tipos": {
-        "RECAUDO ZONA": {
-          "presupuesto": 43796597027.0,
-          "recaudo": 40320682459.0,
-          "cumplimiento": 92.06350537723937,
-          "cierre": 92.06350537723937
+          "presupuesto": 975450.0,
+          "recaudo": 0.0,
+          "cumplimiento": 0.0,
+          "cierre": 0.0
         }
       }
     }
@@ -584,3459 +552,1895 @@ const DATOS_RECAUDO = {
   "zonas": {
     "MEDELLIN": {
       "total": {
-        "presupuesto": 4784215688.0,
-        "recaudo": 4323390441.0,
-        "cumplimiento": 90.36779950879172,
-        "cierre": 90.36779950879172
+        "presupuesto": 222918700.0,
+        "recaudo": 209168590.0,
+        "cumplimiento": 93.83178261850621,
+        "cierre": 93.83178261850621
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1457680950.0,
-          "recaudo": 1396191519.0,
-          "cumplimiento": 95.78169482149026,
-          "cierre": 95.78169482149026
+          "presupuesto": 206343700.0,
+          "recaudo": 192252540.0,
+          "cumplimiento": 93.17102484834768,
+          "cierre": 93.17102484834768
         },
         "OFICINA": {
-          "presupuesto": 111682050.0,
-          "recaudo": 114043505.0,
-          "cumplimiento": 102.11444453249202,
-          "cierre": 102.11444453249202
+          "presupuesto": 15821900.0,
+          "recaudo": 16432950.0,
+          "cumplimiento": 103.86205196594594,
+          "cierre": 103.86205196594594
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 5183600.0,
-          "recaudo": 4834250.0,
-          "cumplimiento": 93.26047534531986,
-          "cierre": 93.26047534531986
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 3209669088.0,
-          "recaudo": 2808321167.0,
-          "cumplimiento": 87.49566045607253,
-          "cierre": 87.49566045607253
+          "presupuesto": 753100.0,
+          "recaudo": 483100.0,
+          "cumplimiento": 64.14818749170097,
+          "cierre": 64.14818749170097
         }
       }
     },
     "VALPARAISO": {
       "total": {
-        "presupuesto": 111347200.0,
-        "recaudo": 108473600.0,
-        "cumplimiento": 97.41924359121738,
-        "cierre": 97.41924359121738
+        "presupuesto": 7623350.0,
+        "recaudo": 6689400.0,
+        "cumplimiento": 87.7488243357579,
+        "cierre": 87.7488243357579
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 7085400.0,
-          "recaudo": 7277900.0,
-          "cumplimiento": 102.7168543766054,
-          "cierre": 102.7168543766054
+          "presupuesto": 992000.0,
+          "recaudo": 1068000.0,
+          "cumplimiento": 107.66129032258065,
+          "cierre": 107.66129032258065
         },
         "OFICINA": {
-          "presupuesto": 45992050.0,
-          "recaudo": 44591350.0,
-          "cumplimiento": 96.95447365359882,
-          "cierre": 96.95447365359882
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 58269750.0,
-          "recaudo": 56604350.0,
-          "cumplimiento": 97.14191325687857,
-          "cierre": 97.14191325687857
+          "presupuesto": 6631350.0,
+          "recaudo": 5621400.0,
+          "cumplimiento": 84.77006944287362,
+          "cierre": 84.77006944287362
         }
       }
     },
     "LA PINTADA": {
       "total": {
-        "presupuesto": 170095150.0,
-        "recaudo": 163403350.0,
-        "cumplimiento": 96.0658490262656,
-        "cierre": 96.0658490262656
+        "presupuesto": 10113200.0,
+        "recaudo": 9223650.0,
+        "cumplimiento": 91.20406992841039,
+        "cierre": 91.20406992841039
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 45801300.0,
-          "recaudo": 44824850.0,
-          "cumplimiento": 97.86807361363105,
-          "cierre": 97.86807361363105
+          "presupuesto": 6417850.0,
+          "recaudo": 5718650.0,
+          "cumplimiento": 89.10538576002867,
+          "cierre": 89.10538576002867
         },
         "OFICINA": {
-          "presupuesto": 26916450.0,
-          "recaudo": 26030850.0,
-          "cumplimiento": 96.709818716807,
-          "cierre": 96.709818716807
+          "presupuesto": 3695350.0,
+          "recaudo": 3505000.0,
+          "cumplimiento": 94.8489317655973,
+          "cierre": 94.8489317655973
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 429000.0,
-          "recaudo": 145800.0,
-          "cumplimiento": 33.98601398601399,
-          "cierre": 33.98601398601399
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 96948400.0,
-          "recaudo": 92401850.0,
-          "cumplimiento": 95.31034034599848,
-          "cierre": 95.31034034599848
+          "presupuesto": 0.0,
+          "recaudo": 0.0,
+          "cumplimiento": 0,
+          "cierre": 0
         }
       }
     },
     "ANTIOQUIA MEDIOS": {
       "total": {
-        "presupuesto": 1693405588.0,
-        "recaudo": 1333808242.0,
-        "cumplimiento": 78.76484236569084,
-        "cierre": 78.76484236569084
+        "presupuesto": 241634698.0,
+        "recaudo": 177974267.0,
+        "cumplimiento": 73.65426756715213,
+        "cierre": 73.65426756715213
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 1693405588.0,
-          "recaudo": 1333808242.0,
-          "cumplimiento": 78.76484236569084,
-          "cierre": 78.76484236569084
+          "presupuesto": 241634698.0,
+          "recaudo": 177974267.0,
+          "cumplimiento": 73.65426756715213,
+          "cierre": 73.65426756715213
         }
       }
     },
     "ITAGUI": {
       "total": {
-        "presupuesto": 34184450.0,
-        "recaudo": 30105849.0,
-        "cumplimiento": 88.06884124214372,
-        "cierre": 88.06884124214372
+        "presupuesto": 1582400.0,
+        "recaudo": 1993300.0,
+        "cumplimiento": 125.96688574317491,
+        "cierre": 125.96688574317491
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 10208800.0,
-          "recaudo": 10849550.0,
-          "cumplimiento": 106.2764477705509,
-          "cierre": 106.2764477705509
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 23975650.0,
-          "recaudo": 19256299.0,
-          "cumplimiento": 80.31606650914573,
-          "cierre": 80.31606650914573
+          "presupuesto": 1582400.0,
+          "recaudo": 1993300.0,
+          "cumplimiento": 125.96688574317491,
+          "cierre": 125.96688574317491
         }
       }
     },
     "BARRANQUILLA": {
       "total": {
-        "presupuesto": 961778924.0,
-        "recaudo": 792814038.0,
-        "cumplimiento": 82.43204526698487,
-        "cierre": 82.43204526698487
+        "presupuesto": 53128896.0,
+        "recaudo": 45896160.0,
+        "cumplimiento": 86.38643648834713,
+        "cierre": 86.38643648834713
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 334762272.0,
-          "recaudo": 305195022.0,
-          "cumplimiento": 91.16768749854822,
-          "cierre": 91.16768749854822
+          "presupuesto": 51605096.0,
+          "recaudo": 43883460.0,
+          "cumplimiento": 85.0370668819219,
+          "cierre": 85.0370668819219
         },
         "OFICINA": {
-          "presupuesto": 10381810.0,
-          "recaudo": 10646450.0,
-          "cumplimiento": 102.5490738127552,
-          "cierre": 102.5490738127552
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 616634842.0,
-          "recaudo": 476972566.0,
-          "cumplimiento": 77.3508944861082,
-          "cierre": 77.3508944861082
-        }
-      }
-    },
-    "ATLANTICO MEDIOS": {
-      "total": {
-        "presupuesto": 336295028.0,
-        "recaudo": 179059514.0,
-        "cumplimiento": 53.244769946464984,
-        "cierre": 53.244769946464984
-      },
-      "tipos": {
-        "MEDIOS": {
-          "presupuesto": 336295028.0,
-          "recaudo": 179059514.0,
-          "cumplimiento": 53.244769946464984,
-          "cierre": 53.244769946464984
+          "presupuesto": 1523800.0,
+          "recaudo": 2012700.0,
+          "cumplimiento": 132.08426302664392,
+          "cierre": 132.08426302664392
         }
       }
     },
     "SOLEDAD": {
       "total": {
-        "presupuesto": 163592260.0,
-        "recaudo": 123693320.0,
-        "cumplimiento": 75.61074099715964,
-        "cierre": 75.61074099715964
+        "presupuesto": 12385700.0,
+        "recaudo": 10442600.0,
+        "cumplimiento": 84.31174661101109,
+        "cierre": 84.31174661101109
       },
       "tipos": {
-        "OFICINA": {
-          "presupuesto": 5814050.0,
-          "recaudo": 7438800.0,
-          "cumplimiento": 127.9452361090806,
-          "cierre": 127.9452361090806
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 106493610.0,
-          "recaudo": 70651720.0,
-          "cumplimiento": 66.34362380991686,
-          "cierre": 66.34362380991686
-        },
         "COBRADOR": {
-          "presupuesto": 51284600.0,
-          "recaudo": 45602800.0,
-          "cumplimiento": 88.92104062428098,
-          "cierre": 88.92104062428098
+          "presupuesto": 10473000.0,
+          "recaudo": 8929500.0,
+          "cumplimiento": 85.26210254941277,
+          "cierre": 85.26210254941277
+        },
+        "OFICINA": {
+          "presupuesto": 1912700.0,
+          "recaudo": 1513100.0,
+          "cumplimiento": 79.10806713023474,
+          "cierre": 79.10806713023474
+        }
+      }
+    },
+    "ATLANTICO MEDIOS": {
+      "total": {
+        "presupuesto": 52413921.0,
+        "recaudo": 26260022.0,
+        "cumplimiento": 50.10123550955098,
+        "cierre": 50.10123550955098
+      },
+      "tipos": {
+        "MEDIOS": {
+          "presupuesto": 52413921.0,
+          "recaudo": 26260022.0,
+          "cumplimiento": 50.10123550955098,
+          "cierre": 50.10123550955098
         }
       }
     },
     "BOGOTA": {
       "total": {
-        "presupuesto": 598673944.0,
-        "recaudo": 518627892.0,
-        "cumplimiento": 86.6294411503568,
-        "cierre": 86.6294411503568
+        "presupuesto": 17165950.0,
+        "recaudo": 18359700.0,
+        "cumplimiento": 106.95417381502335,
+        "cierre": 106.95417381502335
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 103468400.0,
-          "recaudo": 103305190.0,
-          "cumplimiento": 99.84226101882314,
-          "cierre": 99.84226101882314
+          "presupuesto": 14790850.0,
+          "recaudo": 16274050.0,
+          "cumplimiento": 110.02782125435657,
+          "cierre": 110.02782125435657
         },
         "OFICINA": {
-          "presupuesto": 16307500.0,
-          "recaudo": 15758900.0,
-          "cumplimiento": 96.63590372527977,
-          "cierre": 96.63590372527977
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 478898044.0,
-          "recaudo": 399563802.0,
-          "cumplimiento": 83.43400166403686,
-          "cierre": 83.43400166403686
+          "presupuesto": 2375100.0,
+          "recaudo": 2085650.0,
+          "cumplimiento": 87.81314470969643,
+          "cierre": 87.81314470969643
         }
       }
     },
     "CUNDINAMARCA BOGOTA MEDIOS": {
       "total": {
-        "presupuesto": 363760544.0,
-        "recaudo": 278238912.0,
-        "cumplimiento": 76.48957991441755,
-        "cierre": 76.48957991441755
+        "presupuesto": 52354450.0,
+        "recaudo": 37882104.0,
+        "cumplimiento": 72.35698971147629,
+        "cierre": 72.35698971147629
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 363760544.0,
-          "recaudo": 278238912.0,
-          "cumplimiento": 76.48957991441755,
-          "cierre": 76.48957991441755
+          "presupuesto": 52354450.0,
+          "recaudo": 37882104.0,
+          "cumplimiento": 72.35698971147629,
+          "cierre": 72.35698971147629
         }
       }
     },
     "MANIZALES": {
       "total": {
-        "presupuesto": 398298900.0,
-        "recaudo": 381705608.0,
-        "cumplimiento": 95.83395987284926,
-        "cierre": 95.83395987284926
+        "presupuesto": 15524600.0,
+        "recaudo": 15464300.0,
+        "cumplimiento": 99.611584195406,
+        "cierre": 99.611584195406
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 80217550.0,
-          "recaudo": 79092400.0,
-          "cumplimiento": 98.59737675857716,
-          "cierre": 98.59737675857716
+          "presupuesto": 12052800.0,
+          "recaudo": 12136800.0,
+          "cumplimiento": 100.69693349263243,
+          "cierre": 100.69693349263243
         },
         "OFICINA": {
-          "presupuesto": 24321750.0,
-          "recaudo": 23499350.0,
-          "cumplimiento": 96.61866436420077,
-          "cierre": 96.61866436420077
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 293759600.0,
-          "recaudo": 279113858.0,
-          "cumplimiento": 95.01437842371789,
-          "cierre": 95.01437842371789
+          "presupuesto": 3471800.0,
+          "recaudo": 3327500.0,
+          "cumplimiento": 95.84365458839795,
+          "cierre": 95.84365458839795
         }
       }
     },
     "CHINCHINA": {
       "total": {
-        "presupuesto": 288981050.0,
-        "recaudo": 266010540.0,
-        "cumplimiento": 92.0512054337127,
-        "cierre": 92.0512054337127
+        "presupuesto": 18998600.0,
+        "recaudo": 15540750.0,
+        "cumplimiento": 81.79944838040699,
+        "cierre": 81.79944838040699
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 48948850.0,
-          "recaudo": 47746150.0,
-          "cumplimiento": 97.5429453398803,
-          "cierre": 97.5429453398803
+          "presupuesto": 7200450.0,
+          "recaudo": 6444500.0,
+          "cumplimiento": 89.50135061003131,
+          "cierre": 89.50135061003131
         },
         "OFICINA": {
-          "presupuesto": 79603850.0,
-          "recaudo": 68342850.0,
-          "cumplimiento": 85.8536992871576,
-          "cierre": 85.8536992871576
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 160428350.0,
-          "recaudo": 149921540.0,
-          "cumplimiento": 93.45077724728827,
-          "cierre": 93.45077724728827
+          "presupuesto": 11798150.0,
+          "recaudo": 9096250.0,
+          "cumplimiento": 77.09895195433182,
+          "cierre": 77.09895195433182
         }
       }
     },
     "PALESTINA": {
       "total": {
-        "presupuesto": 121560250.0,
-        "recaudo": 119480050.0,
-        "cumplimiento": 98.28874981747734,
-        "cierre": 98.28874981747734
+        "presupuesto": 6683150.0,
+        "recaudo": 6177550.0,
+        "cumplimiento": 92.43470519141422,
+        "cierre": 92.43470519141422
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 13636900.0,
-          "recaudo": 16345200.0,
-          "cumplimiento": 119.86008550330354,
-          "cierre": 119.86008550330354
+          "presupuesto": 1895300.0,
+          "recaudo": 2436900.0,
+          "cumplimiento": 128.57595103677517,
+          "cierre": 128.57595103677517
         },
         "OFICINA": {
-          "presupuesto": 33803600.0,
-          "recaudo": 30947750.0,
-          "cumplimiento": 91.55163947035227,
-          "cierre": 91.55163947035227
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 74119750.0,
-          "recaudo": 72187100.0,
-          "cumplimiento": 97.39253033098466,
-          "cierre": 97.39253033098466
+          "presupuesto": 4787850.0,
+          "recaudo": 3740650.0,
+          "cumplimiento": 78.12796975678017,
+          "cierre": 78.12796975678017
         }
       }
     },
     "ARAUCA": {
       "total": {
-        "presupuesto": 443939800.0,
-        "recaudo": 438330700.0,
-        "cumplimiento": 98.73651787922597,
-        "cierre": 98.73651787922597
+        "presupuesto": 29759050.0,
+        "recaudo": 26454500.0,
+        "cumplimiento": 88.8956468704478,
+        "cierre": 88.8956468704478
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 106118200.0,
-          "recaudo": 109296000.0,
-          "cumplimiento": 102.99458528320307,
-          "cierre": 102.99458528320307
+          "presupuesto": 15816200.0,
+          "recaudo": 15863100.0,
+          "cumplimiento": 100.2965314045093,
+          "cierre": 100.2965314045093
         },
         "OFICINA": {
-          "presupuesto": 95957450.0,
-          "recaudo": 91361600.0,
-          "cumplimiento": 95.2105334187184,
-          "cierre": 95.2105334187184
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 241864150.0,
-          "recaudo": 237673100.0,
-          "cumplimiento": 98.2671884196149,
-          "cierre": 98.2671884196149
+          "presupuesto": 13942850.0,
+          "recaudo": 10591400.0,
+          "cumplimiento": 75.96294875151062,
+          "cierre": 75.96294875151062
         }
       }
     },
     "RISARALDA": {
       "total": {
-        "presupuesto": 524049380.0,
-        "recaudo": 501580400.0,
-        "cumplimiento": 95.71243076368108,
-        "cierre": 95.71243076368108
+        "presupuesto": 33844750.0,
+        "recaudo": 30745650.0,
+        "cumplimiento": 90.8431883822454,
+        "cierre": 90.8431883822454
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 44422100.0,
-          "recaudo": 49342250.0,
-          "cumplimiento": 111.07590591169712,
-          "cierre": 111.07590591169712
+          "presupuesto": 5724800.0,
+          "recaudo": 7157850.0,
+          "cumplimiento": 125.03231553940748,
+          "cierre": 125.03231553940748
         },
         "OFICINA": {
-          "presupuesto": 199756250.0,
-          "recaudo": 184447350.0,
-          "cumplimiento": 92.33620975563969,
-          "cierre": 92.33620975563969
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 279871030.0,
-          "recaudo": 267790800.0,
-          "cumplimiento": 95.68364399845171,
-          "cierre": 95.68364399845171
+          "presupuesto": 28119950.0,
+          "recaudo": 23587800.0,
+          "cumplimiento": 83.88279495518306,
+          "cierre": 83.88279495518306
         }
       }
     },
     "PACORA": {
       "total": {
-        "presupuesto": 163255000.0,
-        "recaudo": 157973250.0,
-        "cumplimiento": 96.76472389819607,
-        "cierre": 96.76472389819607
+        "presupuesto": 10949100.0,
+        "recaudo": 11184550.0,
+        "cumplimiento": 102.15040505612333,
+        "cierre": 102.15040505612333
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 40486600.0,
-          "recaudo": 40501850.0,
-          "cumplimiento": 100.03766678357778,
-          "cierre": 100.03766678357778
+          "presupuesto": 5528200.0,
+          "recaudo": 6821450.0,
+          "cumplimiento": 123.39369053218046,
+          "cierre": 123.39369053218046
         },
         "OFICINA": {
-          "presupuesto": 37975950.0,
-          "recaudo": 35434550.0,
-          "cumplimiento": 93.3078698492072,
-          "cierre": 93.3078698492072
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 84792450.0,
-          "recaudo": 82036850.0,
-          "cumplimiento": 96.75018235703769,
-          "cierre": 96.75018235703769
+          "presupuesto": 5420900.0,
+          "recaudo": 4363100.0,
+          "cumplimiento": 80.4866350605988,
+          "cierre": 80.4866350605988
         }
       }
     },
     "SALAMINA": {
       "total": {
-        "presupuesto": 130017750.0,
-        "recaudo": 122159800.0,
-        "cumplimiento": 93.95624828148465,
-        "cierre": 93.95624828148465
+        "presupuesto": 5173700.0,
+        "recaudo": 4531350.0,
+        "cumplimiento": 87.58432069891954,
+        "cierre": 87.58432069891954
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 7669000.0,
-          "recaudo": 7009800.0,
-          "cumplimiento": 91.40435519624462,
-          "cierre": 91.40435519624462
+          "presupuesto": 929000.0,
+          "recaudo": 926000.0,
+          "cumplimiento": 99.67707212055974,
+          "cierre": 99.67707212055974
         },
         "OFICINA": {
-          "presupuesto": 30702100.0,
-          "recaudo": 28355650.0,
-          "cumplimiento": 92.35736317711167,
-          "cierre": 92.35736317711167
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 91646650.0,
-          "recaudo": 86794350.0,
-          "cumplimiento": 94.70542567567936,
-          "cierre": 94.70542567567936
+          "presupuesto": 4244700.0,
+          "recaudo": 3605350.0,
+          "cumplimiento": 84.93768699790327,
+          "cierre": 84.93768699790327
         }
       }
     },
     "SUPIA": {
       "total": {
-        "presupuesto": 637936850.0,
-        "recaudo": 610766950.0,
-        "cumplimiento": 95.74097342080175,
-        "cierre": 95.74097342080175
+        "presupuesto": 42362300.0,
+        "recaudo": 39171600.0,
+        "cumplimiento": 92.46806712572263,
+        "cierre": 92.46806712572263
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 105498150.0,
-          "recaudo": 99284700.0,
-          "cumplimiento": 94.11037065578876,
-          "cierre": 94.11037065578876
+          "presupuesto": 15690500.0,
+          "recaudo": 13385700.0,
+          "cumplimiento": 85.31085688792581,
+          "cierre": 85.31085688792581
         },
         "OFICINA": {
-          "presupuesto": 191085100.0,
-          "recaudo": 187040200.0,
-          "cumplimiento": 97.88319445105871,
-          "cierre": 97.88319445105871
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 341353600.0,
-          "recaudo": 324442050.0,
-          "cumplimiento": 95.04573849521435,
-          "cierre": 95.04573849521435
+          "presupuesto": 26671800.0,
+          "recaudo": 25785900.0,
+          "cumplimiento": 96.67851438598069,
+          "cierre": 96.67851438598069
         }
       }
     },
     "MARMATO": {
       "total": {
-        "presupuesto": 206056950.0,
-        "recaudo": 209480450.0,
-        "cumplimiento": 101.66143388999981,
-        "cierre": 101.66143388999981
+        "presupuesto": 13428250.0,
+        "recaudo": 12810000.0,
+        "cumplimiento": 95.39590043378698,
+        "cierre": 95.39590043378698
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 60672600.0,
-          "recaudo": 61389950.0,
-          "cumplimiento": 101.1823294205292,
-          "cierre": 101.1823294205292
+          "presupuesto": 8717100.0,
+          "recaudo": 8546850.0,
+          "cumplimiento": 98.04694221702171,
+          "cierre": 98.04694221702171
         },
         "OFICINA": {
-          "presupuesto": 23207050.0,
-          "recaudo": 24371700.0,
-          "cumplimiento": 105.0185180796353,
-          "cierre": 105.0185180796353
+          "presupuesto": 3452900.0,
+          "recaudo": 2946300.0,
+          "cumplimiento": 85.3282747835153,
+          "cierre": 85.3282747835153
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 8764400.0,
-          "recaudo": 11094800.0,
-          "cumplimiento": 126.58938432750672,
-          "cierre": 126.58938432750672
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 113412900.0,
-          "recaudo": 112624000.0,
-          "cumplimiento": 99.30440011674156,
-          "cierre": 99.30440011674156
+          "presupuesto": 1258250.0,
+          "recaudo": 1316850.0,
+          "cumplimiento": 104.65726207033579,
+          "cierre": 104.65726207033579
         }
       }
     },
     "RIOSUCIO": {
       "total": {
-        "presupuesto": 500306100.0,
-        "recaudo": 484932646.0,
-        "cumplimiento": 96.92719037405301,
-        "cierre": 96.92719037405301
+        "presupuesto": 33003250.0,
+        "recaudo": 29839000.0,
+        "cumplimiento": 90.41230787876951,
+        "cierre": 90.41230787876951
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 66242300.0,
-          "recaudo": 69175850.0,
-          "cumplimiento": 104.42851471038898,
-          "cierre": 104.42851471038898
+          "presupuesto": 9682350.0,
+          "recaudo": 9804400.0,
+          "cumplimiento": 101.26054108764917,
+          "cierre": 101.26054108764917
         },
         "OFICINA": {
-          "presupuesto": 137042700.0,
-          "recaudo": 130104248.0,
-          "cumplimiento": 94.93701452175125,
-          "cierre": 94.93701452175125
+          "presupuesto": 19484100.0,
+          "recaudo": 17021650.0,
+          "cumplimiento": 87.36174624437362,
+          "cierre": 87.36174624437362
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 27589750.0,
-          "recaudo": 24029400.0,
-          "cumplimiento": 87.09538868601564,
-          "cierre": 87.09538868601564
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 269431350.0,
-          "recaudo": 261623148.0,
-          "cumplimiento": 97.10196975964378,
-          "cierre": 97.10196975964378
+          "presupuesto": 3836800.0,
+          "recaudo": 3012950.0,
+          "cumplimiento": 78.52767931609674,
+          "cierre": 78.52767931609674
         }
       }
     },
     "SAN LORENZO": {
       "total": {
-        "presupuesto": 105270950.0,
-        "recaudo": 107061600.0,
-        "cumplimiento": 101.70099158409798,
-        "cierre": 101.70099158409798
+        "presupuesto": 7177900.0,
+        "recaudo": 6771600.0,
+        "cumplimiento": 94.33957006924031,
+        "cierre": 94.33957006924031
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 15886400.0,
-          "recaudo": 18743200.0,
-          "cumplimiento": 117.98267700674792,
-          "cierre": 117.98267700674792
+          "presupuesto": 2183500.0,
+          "recaudo": 2421400.0,
+          "cumplimiento": 110.89535149988549,
+          "cierre": 110.89535149988549
         },
         "OFICINA": {
-          "presupuesto": 33990300.0,
-          "recaudo": 32335450.0,
-          "cumplimiento": 95.1314051361712,
-          "cierre": 95.1314051361712
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 55394250.0,
-          "recaudo": 55982950.0,
-          "cumplimiento": 101.06274568208795,
-          "cierre": 101.06274568208795
+          "presupuesto": 4994400.0,
+          "recaudo": 4350200.0,
+          "cumplimiento": 87.101553740189,
+          "cierre": 87.101553740189
         }
       }
     },
     "BELEN": {
       "total": {
-        "presupuesto": 699228100.0,
-        "recaudo": 661365100.0,
-        "cumplimiento": 94.58502883393845,
-        "cierre": 94.58502883393845
+        "presupuesto": 48049950.0,
+        "recaudo": 42842050.0,
+        "cumplimiento": 89.16148716075666,
+        "cierre": 89.16148716075666
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 77587000.0,
-          "recaudo": 79047550.0,
-          "cumplimiento": 101.88246742366633,
-          "cierre": 101.88246742366633
+          "presupuesto": 11196350.0,
+          "recaudo": 10217650.0,
+          "cumplimiento": 91.25875843466844,
+          "cierre": 91.25875843466844
         },
         "OFICINA": {
-          "presupuesto": 258354500.0,
-          "recaudo": 236296600.0,
-          "cumplimiento": 91.46215761676302,
-          "cierre": 91.46215761676302
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 363286600.0,
-          "recaudo": 346020950.0,
-          "cumplimiento": 95.24737493758371,
-          "cierre": 95.24737493758371
+          "presupuesto": 36853600.0,
+          "recaudo": 32624400.0,
+          "cumplimiento": 88.52432326828315,
+          "cierre": 88.52432326828315
         }
       }
     },
     "ANSERMA": {
       "total": {
-        "presupuesto": 1472811300.0,
-        "recaudo": 1417842550.0,
-        "cumplimiento": 96.26776695697541,
-        "cierre": 96.26776695697541
+        "presupuesto": 100768850.0,
+        "recaudo": 87673650.0,
+        "cumplimiento": 87.00471425445463,
+        "cierre": 87.00471425445463
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 226899150.0,
-          "recaudo": 216483400.0,
-          "cumplimiento": 95.40952445172228,
-          "cierre": 95.40952445172228
+          "presupuesto": 32571650.0,
+          "recaudo": 29352100.0,
+          "cumplimiento": 90.11548386403514,
+          "cierre": 90.11548386403514
         },
         "OFICINA": {
-          "presupuesto": 473677700.0,
-          "recaudo": 456497200.0,
-          "cumplimiento": 96.37295570384673,
-          "cierre": 96.37295570384673
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 772234450.0,
-          "recaudo": 744861950.0,
-          "cumplimiento": 96.45541583906287,
-          "cierre": 96.45541583906287
+          "presupuesto": 68197200.0,
+          "recaudo": 58321550.0,
+          "cumplimiento": 85.51898025138863,
+          "cierre": 85.51898025138863
         }
       }
     },
     "MISTRATO": {
       "total": {
-        "presupuesto": 148561050.0,
-        "recaudo": 137640100.0,
-        "cumplimiento": 92.64884705647948,
-        "cierre": 92.64884705647948
+        "presupuesto": 10424150.0,
+        "recaudo": 9797250.0,
+        "cumplimiento": 93.98608039984076,
+        "cierre": 93.98608039984076
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 14299700.0,
-          "recaudo": 14198000.0,
-          "cumplimiento": 99.28879626845318,
-          "cierre": 99.28879626845318
+          "presupuesto": 2039900.0,
+          "recaudo": 2089000.0,
+          "cumplimiento": 102.40698073434973,
+          "cierre": 102.40698073434973
         },
         "OFICINA": {
-          "presupuesto": 57833200.0,
-          "recaudo": 52587100.0,
-          "cumplimiento": 90.92891280440992,
-          "cierre": 90.92891280440992
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 76428150.0,
-          "recaudo": 70855000.0,
-          "cumplimiento": 92.70798782909176,
-          "cierre": 92.70798782909176
+          "presupuesto": 8384250.0,
+          "recaudo": 7708250.0,
+          "cumplimiento": 91.93726332110803,
+          "cierre": 91.93726332110803
         }
       }
     },
     "QUINCHIA": {
       "total": {
-        "presupuesto": 515402175.0,
-        "recaudo": 504612300.0,
-        "cumplimiento": 97.90651349113922,
-        "cierre": 97.90651349113922
+        "presupuesto": 34041100.0,
+        "recaudo": 32013700.0,
+        "cumplimiento": 94.04425826427466,
+        "cierre": 94.04425826427466
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 18336100.0,
-          "recaudo": 18945050.0,
-          "cumplimiento": 103.32104427877246,
-          "cierre": 103.32104427877246
+          "presupuesto": 2645000.0,
+          "recaudo": 2624600.0,
+          "cumplimiento": 99.22873345935727,
+          "cierre": 99.22873345935727
         },
         "OFICINA": {
-          "presupuesto": 177873550.0,
-          "recaudo": 172622350.0,
-          "cumplimiento": 97.0477904106597,
-          "cierre": 97.0477904106597
+          "presupuesto": 25407350.0,
+          "recaudo": 23857600.0,
+          "cumplimiento": 93.90038709271136,
+          "cierre": 93.90038709271136
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 41241175.0,
-          "recaudo": 40534100.0,
-          "cumplimiento": 98.2855119913533,
-          "cierre": 98.2855119913533
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 277951350.0,
-          "recaudo": 272510800.0,
-          "cumplimiento": 98.0426250852892,
-          "cierre": 98.0426250852892
+          "presupuesto": 5988750.0,
+          "recaudo": 5531500.0,
+          "cumplimiento": 92.36485076184513,
+          "cierre": 92.36485076184513
         }
       }
     },
     "VITERBO": {
       "total": {
-        "presupuesto": 599176850.0,
-        "recaudo": 579599575.0,
-        "cumplimiento": 96.73263828534097,
-        "cierre": 96.73263828534097
+        "presupuesto": 41062400.0,
+        "recaudo": 37590750.0,
+        "cumplimiento": 91.54542842113467,
+        "cierre": 91.54542842113467
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 131689800.0,
-          "recaudo": 127751550.0,
-          "cumplimiento": 97.00944947900292,
-          "cierre": 97.00944947900292
+          "presupuesto": 19025750.0,
+          "recaudo": 17319000.0,
+          "cumplimiento": 91.02926297255036,
+          "cierre": 91.02926297255036
         },
         "OFICINA": {
-          "presupuesto": 153900100.0,
-          "recaudo": 148660850.0,
-          "cumplimiento": 96.59568122437867,
-          "cierre": 96.59568122437867
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 313586950.0,
-          "recaudo": 303187175.0,
-          "cumplimiento": 96.68360721005769,
-          "cierre": 96.68360721005769
+          "presupuesto": 22036650.0,
+          "recaudo": 20271750.0,
+          "cumplimiento": 91.99106942298398,
+          "cierre": 91.99106942298398
         }
       }
     },
     "BELALCAZAR": {
       "total": {
-        "presupuesto": 181035850.0,
-        "recaudo": 167242200.0,
-        "cumplimiento": 92.3807080199861,
-        "cierre": 92.3807080199861
+        "presupuesto": 10600350.0,
+        "recaudo": 9279650.0,
+        "cumplimiento": 87.54097742055687,
+        "cierre": 87.54097742055687
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 12868700.0,
-          "recaudo": 10868650.0,
-          "cumplimiento": 84.4580260632387,
-          "cierre": 84.4580260632387
+          "presupuesto": 1694150.0,
+          "recaudo": 1470300.0,
+          "cumplimiento": 86.78688427825163,
+          "cierre": 86.78688427825163
         },
         "OFICINA": {
-          "presupuesto": 64873150.0,
-          "recaudo": 60569950.0,
-          "cumplimiento": 93.36674725984479,
-          "cierre": 93.36674725984479
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 103294000.0,
-          "recaudo": 95803600.0,
-          "cumplimiento": 92.74846554494937,
-          "cierre": 92.74846554494937
+          "presupuesto": 8906200.0,
+          "recaudo": 7809350.0,
+          "cumplimiento": 87.68442208798365,
+          "cierre": 87.68442208798365
         }
       }
     },
     "GUATICA": {
       "total": {
-        "presupuesto": 247837900.0,
-        "recaudo": 240819150.0,
-        "cumplimiento": 97.1680077986458,
-        "cierre": 97.1680077986458
+        "presupuesto": 16100950.0,
+        "recaudo": 14073050.0,
+        "cumplimiento": 87.40509100394698,
+        "cierre": 87.40509100394698
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 14416750.0,
-          "recaudo": 12925550.0,
-          "cumplimiento": 89.65647597412732,
-          "cierre": 89.65647597412732
+          "presupuesto": 1971050.0,
+          "recaudo": 1842350.0,
+          "cumplimiento": 93.47048527434616,
+          "cierre": 93.47048527434616
         },
         "OFICINA": {
-          "presupuesto": 100760000.0,
-          "recaudo": 98052550.0,
-          "cumplimiento": 97.31297141722905,
-          "cierre": 97.31297141722905
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 132661150.0,
-          "recaudo": 129841050.0,
-          "cumplimiento": 97.8742080857885,
-          "cierre": 97.8742080857885
+          "presupuesto": 14129900.0,
+          "recaudo": 12230700.0,
+          "cumplimiento": 86.55899900211608,
+          "cierre": 86.55899900211608
         }
       }
     },
     "CALDAS MEDIOS": {
       "total": {
-        "presupuesto": 633162680.0,
-        "recaudo": 597010616.0,
-        "cumplimiento": 94.29024085879477,
-        "cierre": 94.29024085879477
+        "presupuesto": 92032610.0,
+        "recaudo": 82973940.0,
+        "cumplimiento": 90.15710844232278,
+        "cierre": 90.15710844232278
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 633162680.0,
-          "recaudo": 597010616.0,
-          "cumplimiento": 94.29024085879477,
-          "cierre": 94.29024085879477
+          "presupuesto": 92032610.0,
+          "recaudo": 82973940.0,
+          "cumplimiento": 90.15710844232278,
+          "cierre": 90.15710844232278
         }
       }
     },
     "NEIRA": {
       "total": {
-        "presupuesto": 256098100.0,
-        "recaudo": 251758950.0,
-        "cumplimiento": 98.305668804259,
-        "cierre": 98.305668804259
+        "presupuesto": 15446600.0,
+        "recaudo": 13965850.0,
+        "cumplimiento": 90.41374800927065,
+        "cierre": 90.41374800927065
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 107664650.0,
-          "recaudo": 107281650.0,
-          "cumplimiento": 99.64426578268726,
-          "cierre": 99.64426578268726
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 148433450.0,
-          "recaudo": 144477300.0,
-          "cumplimiento": 97.3347314907792,
-          "cierre": 97.3347314907792
-        }
-      }
-    },
-    "POPAYAN": {
-      "total": {
-        "presupuesto": 304619800.0,
-        "recaudo": 278818807.0,
-        "cumplimiento": 91.53009981622994,
-        "cierre": 91.53009981622994
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 67925090.0,
-          "recaudo": 52317628.0,
-          "cumplimiento": 77.02253762195971,
-          "cierre": 77.02253762195971
-        },
-        "OFICINA": {
-          "presupuesto": 29100975.0,
-          "recaudo": 32568075.0,
-          "cumplimiento": 111.9140338081456,
-          "cierre": 111.9140338081456
-        },
-        "PUNTO DE RECAUDO": {
-          "presupuesto": 12170900.0,
-          "recaudo": 17157000.0,
-          "cumplimiento": 140.96738942888365,
-          "cierre": 140.96738942888365
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 195422835.0,
-          "recaudo": 176776104.0,
-          "cumplimiento": 90.45826399970096,
-          "cierre": 90.45826399970096
+          "presupuesto": 15446600.0,
+          "recaudo": 13965850.0,
+          "cumplimiento": 90.41374800927065,
+          "cierre": 90.41374800927065
         }
       }
     },
     "SANTANDER": {
       "total": {
-        "presupuesto": 328360500.0,
-        "recaudo": 305745600.0,
-        "cumplimiento": 93.11278305399097,
-        "cierre": 93.11278305399097
+        "presupuesto": 46801550.0,
+        "recaudo": 40748700.0,
+        "cumplimiento": 87.06698816599024,
+        "cierre": 87.06698816599024
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 236221700.0,
-          "recaudo": 213204750.0,
-          "cumplimiento": 90.25620846856998,
-          "cierre": 90.25620846856998
+          "presupuesto": 33159000.0,
+          "recaudo": 28098550.0,
+          "cumplimiento": 84.73883410235533,
+          "cierre": 84.73883410235533
         },
         "OFICINA": {
-          "presupuesto": 82571300.0,
-          "recaudo": 83351600.0,
-          "cumplimiento": 100.94500147145557,
-          "cierre": 100.94500147145557
+          "presupuesto": 12219050.0,
+          "recaudo": 12052950.0,
+          "cumplimiento": 98.64064718615604,
+          "cierre": 98.64064718615604
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 9567500.0,
-          "recaudo": 9189250.0,
-          "cumplimiento": 96.04651162790697,
-          "cierre": 96.04651162790697
+          "presupuesto": 1423500.0,
+          "recaudo": 597200.0,
+          "cumplimiento": 41.952932911837024,
+          "cierre": 41.952932911837024
+        }
+      }
+    },
+    "POPAYAN": {
+      "total": {
+        "presupuesto": 16040090.0,
+        "recaudo": 17769560.0,
+        "cumplimiento": 110.78217142173143,
+        "cierre": 110.78217142173143
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 9354965.0,
+          "recaudo": 7736655.0,
+          "cumplimiento": 82.70105767365244,
+          "cierre": 82.70105767365244
+        },
+        "OFICINA": {
+          "presupuesto": 4633875.0,
+          "recaudo": 5827805.0,
+          "cumplimiento": 125.76526125542877,
+          "cierre": 125.76526125542877
+        },
+        "PUNTO DE RECAUDO": {
+          "presupuesto": 2051250.0,
+          "recaudo": 4205100.0,
+          "cumplimiento": 205.0018281535649,
+          "cierre": 205.0018281535649
         }
       }
     },
     "CAUCA MEDIOS": {
       "total": {
-        "presupuesto": 312704870.0,
-        "recaudo": 237685192.0,
-        "cumplimiento": 76.00943087327038,
-        "cierre": 76.00943087327038
+        "presupuesto": 43856360.0,
+        "recaudo": 33331618.0,
+        "cumplimiento": 76.00178856612814,
+        "cierre": 76.00178856612814
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 312704870.0,
-          "recaudo": 237685192.0,
-          "cumplimiento": 76.00943087327038,
-          "cierre": 76.00943087327038
+          "presupuesto": 43856360.0,
+          "recaudo": 33331618.0,
+          "cumplimiento": 76.00178856612814,
+          "cierre": 76.00178856612814
         }
       }
     },
     "GIRARDOT": {
       "total": {
-        "presupuesto": 1567135600.0,
-        "recaudo": 1457657467.0,
-        "cumplimiento": 93.01412506996843,
-        "cierre": 93.01412506996843
+        "presupuesto": 96451200.0,
+        "recaudo": 91771800.0,
+        "cumplimiento": 95.14842739126107,
+        "cierre": 95.14842739126107
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 308131000.0,
-          "recaudo": 287071978.0,
-          "cumplimiento": 93.16556204990735,
-          "cierre": 93.16556204990735
+          "presupuesto": 43661200.0,
+          "recaudo": 40436950.0,
+          "cumplimiento": 92.61529687686092,
+          "cierre": 92.61529687686092
         },
         "OFICINA": {
-          "presupuesto": 332587900.0,
-          "recaudo": 325852800.0,
-          "cumplimiento": 97.97494136136642,
-          "cierre": 97.97494136136642
+          "presupuesto": 47888050.0,
+          "recaudo": 47035800.0,
+          "cumplimiento": 98.22032845354947,
+          "cierre": 98.22032845354947
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 32405200.0,
-          "recaudo": 31673110.0,
-          "cumplimiento": 97.74082554651723,
-          "cierre": 97.74082554651723
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 894011500.0,
-          "recaudo": 813059579.0,
-          "cumplimiento": 90.94509175776821,
-          "cierre": 90.94509175776821
+          "presupuesto": 4901950.0,
+          "recaudo": 4299050.0,
+          "cumplimiento": 87.70081294178847,
+          "cierre": 87.70081294178847
         }
       }
     },
     "MELGAR": {
       "total": {
-        "presupuesto": 642800650.0,
-        "recaudo": 601209418.0,
-        "cumplimiento": 93.52968420302624,
-        "cierre": 93.52968420302624
+        "presupuesto": 39901600.0,
+        "recaudo": 38078106.0,
+        "cumplimiento": 95.43002285622632,
+        "cierre": 95.43002285622632
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 174718250.0,
-          "recaudo": 161807150.0,
-          "cumplimiento": 92.61033120466809,
-          "cierre": 92.61033120466809
+          "presupuesto": 24548950.0,
+          "recaudo": 22565500.0,
+          "cumplimiento": 91.92042836862676,
+          "cierre": 91.92042836862676
         },
         "OFICINA": {
-          "presupuesto": 107259050.0,
-          "recaudo": 105096806.0,
-          "cumplimiento": 97.98409178526194,
-          "cierre": 97.98409178526194
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 360823350.0,
-          "recaudo": 334305462.0,
-          "cumplimiento": 92.65072839659628,
-          "cierre": 92.65072839659628
+          "presupuesto": 15352650.0,
+          "recaudo": 15512606.0,
+          "cumplimiento": 101.04187876360106,
+          "cierre": 101.04187876360106
         }
       }
     },
     "TOCAIMA": {
       "total": {
-        "presupuesto": 200024250.0,
-        "recaudo": 196987470.0,
-        "cumplimiento": 98.4817940824675,
-        "cierre": 98.4817940824675
+        "presupuesto": 13676100.0,
+        "recaudo": 13179300.0,
+        "cumplimiento": 96.36738543883125,
+        "cierre": 96.36738543883125
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 25835450.0,
-          "recaudo": 25909650.0,
-          "cumplimiento": 100.28720227439429,
-          "cierre": 100.28720227439429
+          "presupuesto": 3649800.0,
+          "recaudo": 3737700.0,
+          "cumplimiento": 102.40835114252835,
+          "cierre": 102.40835114252835
         },
         "OFICINA": {
-          "presupuesto": 69316950.0,
-          "recaudo": 68264860.0,
-          "cumplimiento": 98.48220384768804,
-          "cierre": 98.48220384768804
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 104871850.0,
-          "recaudo": 102812960.0,
-          "cumplimiento": 98.0367562887467,
-          "cierre": 98.0367562887467
+          "presupuesto": 10026300.0,
+          "recaudo": 9441600.0,
+          "cumplimiento": 94.16833727297208,
+          "cierre": 94.16833727297208
         }
       }
     },
     "ANAPOIMA": {
       "total": {
-        "presupuesto": 428136900.0,
-        "recaudo": 418906050.0,
-        "cumplimiento": 97.84394897987069,
-        "cierre": 97.84394897987069
+        "presupuesto": 27941550.0,
+        "recaudo": 25805950.0,
+        "cumplimiento": 92.35690217614986,
+        "cierre": 92.35690217614986
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 107355350.0,
-          "recaudo": 103542150.0,
-          "cumplimiento": 96.44805778193634,
-          "cierre": 96.44805778193634
+          "presupuesto": 15161100.0,
+          "recaudo": 14155500.0,
+          "cumplimiento": 93.36723588657814,
+          "cierre": 93.36723588657814
         },
         "OFICINA": {
-          "presupuesto": 66715650.0,
-          "recaudo": 71168350.0,
-          "cumplimiento": 106.67414617110079,
-          "cierre": 106.67414617110079
+          "presupuesto": 10243250.0,
+          "recaudo": 9920250.0,
+          "cumplimiento": 96.84670392697629,
+          "cierre": 96.84670392697629
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 18160450.0,
-          "recaudo": 17627100.0,
-          "cumplimiento": 97.06312343581794,
-          "cierre": 97.06312343581794
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 235905450.0,
-          "recaudo": 226568450.0,
-          "cumplimiento": 96.04205837550595,
-          "cierre": 96.04205837550595
+          "presupuesto": 2537200.0,
+          "recaudo": 1730200.0,
+          "cumplimiento": 68.19328393504651,
+          "cierre": 68.19328393504651
         }
       }
     },
     "VILLARRICA": {
       "total": {
-        "presupuesto": 106149450.0,
-        "recaudo": 106120400.0,
-        "cumplimiento": 99.97263292461713,
-        "cierre": 99.97263292461713
+        "presupuesto": 15488950.0,
+        "recaudo": 13963950.0,
+        "cumplimiento": 90.15427127080919,
+        "cierre": 90.15427127080919
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 72862900.0,
-          "recaudo": 70689550.0,
-          "cumplimiento": 97.01720628742474,
-          "cierre": 97.01720628742474
+          "presupuesto": 10576950.0,
+          "recaudo": 10074500.0,
+          "cumplimiento": 95.24957572835268,
+          "cierre": 95.24957572835268
         },
         "OFICINA": {
-          "presupuesto": 29272550.0,
-          "recaudo": 31034050.0,
-          "cumplimiento": 106.01758302573572,
-          "cierre": 106.01758302573572
+          "presupuesto": 4298000.0,
+          "recaudo": 3371350.0,
+          "cumplimiento": 78.43997208003722,
+          "cierre": 78.43997208003722
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 4014000.0,
-          "recaudo": 4396800.0,
-          "cumplimiento": 109.53662182361734,
-          "cierre": 109.53662182361734
+          "presupuesto": 614000.0,
+          "recaudo": 518100.0,
+          "cumplimiento": 84.38110749185668,
+          "cierre": 84.38110749185668
         }
       }
     },
     "ICONONZO": {
       "total": {
-        "presupuesto": 228682025.0,
-        "recaudo": 209229650.0,
-        "cumplimiento": 91.49370178963562,
-        "cierre": 91.49370178963562
+        "presupuesto": 14729075.0,
+        "recaudo": 9589800.0,
+        "cumplimiento": 65.10795823906118,
+        "cierre": 65.10795823906118
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 26023650.0,
-          "recaudo": 22302100.0,
-          "cumplimiento": 85.69935424123825,
-          "cierre": 85.69935424123825
+          "presupuesto": 3719350.0,
+          "recaudo": 1290600.0,
+          "cumplimiento": 34.6996114912552,
+          "cierre": 34.6996114912552
         },
         "OFICINA": {
-          "presupuesto": 75973950.0,
-          "recaudo": 71264025.0,
-          "cumplimiento": 93.80060533906688,
-          "cierre": 93.80060533906688
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 126684425.0,
-          "recaudo": 115663525.0,
-          "cumplimiento": 91.30050911941228,
-          "cierre": 91.30050911941228
+          "presupuesto": 11009725.0,
+          "recaudo": 8299200.0,
+          "cumplimiento": 75.38062939810033,
+          "cierre": 75.38062939810033
         }
       }
     },
     "FACATATIVA": {
       "total": {
-        "presupuesto": 257547150.0,
-        "recaudo": 246182950.0,
-        "cumplimiento": 95.5875264005057,
-        "cierre": 95.5875264005057
+        "presupuesto": 15073550.0,
+        "recaudo": 13896500.0,
+        "cumplimiento": 92.19128871433736,
+        "cierre": 92.19128871433736
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 54147300.0,
-          "recaudo": 53280400.0,
-          "cumplimiento": 98.39899681055195,
-          "cierre": 98.39899681055195
+          "presupuesto": 7752100.0,
+          "recaudo": 7612100.0,
+          "cumplimiento": 98.19403774461114,
+          "cierre": 98.19403774461114
         },
         "OFICINA": {
-          "presupuesto": 39530800.0,
-          "recaudo": 38294100.0,
-          "cumplimiento": 96.87155332044887,
-          "cierre": 96.87155332044887
+          "presupuesto": 5619250.0,
+          "recaudo": 5752100.0,
+          "cumplimiento": 102.3641945099435,
+          "cierre": 102.3641945099435
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 12019500.0,
-          "recaudo": 10287900.0,
-          "cumplimiento": 85.59341070760014,
-          "cierre": 85.59341070760014
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 151849550.0,
-          "recaudo": 144320550.0,
-          "cumplimiento": 95.04180288976819,
-          "cierre": 95.04180288976819
+          "presupuesto": 1702200.0,
+          "recaudo": 532300.0,
+          "cumplimiento": 31.271295969921276,
+          "cierre": 31.271295969921276
         }
       }
     },
     "FUSAGASUGA": {
       "total": {
-        "presupuesto": 1184438000.0,
-        "recaudo": 1126923624.0,
-        "cumplimiento": 95.14416322340216,
-        "cierre": 95.14416322340216
+        "presupuesto": 60905950.0,
+        "recaudo": 61392200.0,
+        "cumplimiento": 100.79836206479004,
+        "cierre": 100.79836206479004
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 223157550.0,
-          "recaudo": 209424050.0,
-          "cumplimiento": 93.845827757116,
-          "cierre": 93.845827757116
+          "presupuesto": 31764950.0,
+          "recaudo": 30283700.0,
+          "cumplimiento": 95.336841392793,
+          "cierre": 95.336841392793
         },
         "OFICINA": {
-          "presupuesto": 203053800.0,
-          "recaudo": 202778200.0,
-          "cumplimiento": 99.86427242435256,
-          "cierre": 99.86427242435256
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 758226650.0,
-          "recaudo": 714721374.0,
-          "cumplimiento": 94.26223333089123,
-          "cierre": 94.26223333089123
+          "presupuesto": 29141000.0,
+          "recaudo": 31108500.0,
+          "cumplimiento": 106.75165574276792,
+          "cierre": 106.75165574276792
         }
       }
     },
     "ESPINAL": {
       "total": {
-        "presupuesto": 1129424520.0,
-        "recaudo": 970159512.0,
-        "cumplimiento": 85.89857000802498,
-        "cierre": 85.89857000802498
+        "presupuesto": 48785850.0,
+        "recaudo": 43464550.0,
+        "cumplimiento": 89.0925340031997,
+        "cierre": 89.0925340031997
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 178643950.0,
-          "recaudo": 164556400.0,
-          "cumplimiento": 92.11417459141494,
-          "cierre": 92.11417459141494
+          "presupuesto": 25085750.0,
+          "recaudo": 22301000.0,
+          "cumplimiento": 88.89907616874122,
+          "cierre": 88.89907616874122
         },
         "OFICINA": {
-          "presupuesto": 167016300.0,
-          "recaudo": 153537050.0,
-          "cumplimiento": 91.92938054549167,
-          "cierre": 91.92938054549167
+          "presupuesto": 23700100.0,
+          "recaudo": 21163550.0,
+          "cumplimiento": 89.29730254302724,
+          "cierre": 89.29730254302724
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 6386100.0,
+          "presupuesto": 0.0,
           "recaudo": 0.0,
-          "cumplimiento": 0.0,
-          "cierre": 0.0
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 777378170.0,
-          "recaudo": 652066062.0,
-          "cumplimiento": 83.88016118332729,
-          "cierre": 83.88016118332729
+          "cumplimiento": 0,
+          "cierre": 0
         }
       }
     },
     "CUNDINAMARCA MEDIOS": {
       "total": {
-        "presupuesto": 1001052370.0,
-        "recaudo": 802235267.0,
-        "cumplimiento": 80.13919061996727,
-        "cierre": 80.13919061996727
+        "presupuesto": 142942220.0,
+        "recaudo": 109229850.0,
+        "cumplimiento": 76.41538658067574,
+        "cierre": 76.41538658067574
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 1001052370.0,
-          "recaudo": 802235267.0,
-          "cumplimiento": 80.13919061996727,
-          "cierre": 80.13919061996727
+          "presupuesto": 142942220.0,
+          "recaudo": 109229850.0,
+          "cumplimiento": 76.41538658067574,
+          "cierre": 76.41538658067574
         }
       }
     },
     "CACHIPAY": {
       "total": {
-        "presupuesto": 81246900.0,
-        "recaudo": 78970590.0,
-        "cumplimiento": 97.19828079594421,
-        "cierre": 97.19828079594421
+        "presupuesto": 4905100.0,
+        "recaudo": 5027400.0,
+        "cumplimiento": 102.49332327577419,
+        "cierre": 102.49332327577419
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 31998400.0,
-          "recaudo": 31236600.0,
-          "cumplimiento": 97.61925596279814,
-          "cierre": 97.61925596279814
+          "presupuesto": 4474100.0,
+          "recaudo": 4733400.0,
+          "cumplimiento": 105.79557899912832,
+          "cierre": 105.79557899912832
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 3222000.0,
-          "recaudo": 2758800.0,
-          "cumplimiento": 85.62383612662943,
-          "cierre": 85.62383612662943
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 46026500.0,
-          "recaudo": 44975190.0,
-          "cumplimiento": 97.71585934190085,
-          "cierre": 97.71585934190085
+          "presupuesto": 431000.0,
+          "recaudo": 294000.0,
+          "cumplimiento": 68.21345707656613,
+          "cierre": 68.21345707656613
         }
       }
     },
     "NEIVA": {
       "total": {
-        "presupuesto": 3040990566.0,
-        "recaudo": 2519545943.0,
-        "cumplimiento": 82.8528036610818,
-        "cierre": 82.8528036610818
+        "presupuesto": 118195935.0,
+        "recaudo": 103203270.0,
+        "cumplimiento": 87.31541401994917,
+        "cierre": 87.31541401994917
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 542423480.0,
-          "recaudo": 516051551.0,
-          "cumplimiento": 95.13812916063294,
-          "cierre": 95.13812916063294
+          "presupuesto": 76278470.0,
+          "recaudo": 70578270.0,
+          "cumplimiento": 92.52711807145582,
+          "cierre": 92.52711807145582
         },
         "OFICINA": {
-          "presupuesto": 274731773.0,
-          "recaudo": 206959220.0,
-          "cumplimiento": 75.33137421276716,
-          "cierre": 75.33137421276716
-        },
-        "PUNTO DE RECAUDO": {
-          "presupuesto": 0.0,
-          "recaudo": 3245355.0,
-          "cumplimiento": 0,
-          "cierre": 0
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 2223835313.0,
-          "recaudo": 1793289817.0,
-          "cumplimiento": 80.63950628523902,
-          "cierre": 80.63950628523902
-        }
-      }
-    },
-    "PITALITO": {
-      "total": {
-        "presupuesto": 345745710.0,
-        "recaudo": 242899296.0,
-        "cumplimiento": 70.2537411093257,
-        "cierre": 70.2537411093257
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 3639300.0,
-          "recaudo": 0.0,
-          "cumplimiento": 0.0,
-          "cierre": 0.0
-        },
-        "OFICINA": {
-          "presupuesto": 112366655.0,
-          "recaudo": 79114598.0,
-          "cumplimiento": 70.40754038642514,
-          "cierre": 70.40754038642514
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 229739755.0,
-          "recaudo": 163784698.0,
-          "cumplimiento": 71.2914044850444,
-          "cierre": 71.2914044850444
+          "presupuesto": 41917465.0,
+          "recaudo": 32625000.0,
+          "cumplimiento": 77.83151963030207,
+          "cierre": 77.83151963030207
         }
       }
     },
     "HUILA MEDIOS": {
       "total": {
-        "presupuesto": 1716092891.0,
-        "recaudo": 1272875541.0,
-        "cumplimiento": 74.17288118117378,
-        "cierre": 74.17288118117378
+        "presupuesto": 236715423.0,
+        "recaudo": 180274163.0,
+        "cumplimiento": 76.15649234650841,
+        "cierre": 76.15649234650841
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 1716092891.0,
-          "recaudo": 1272875541.0,
-          "cumplimiento": 74.17288118117378,
-          "cierre": 74.17288118117378
+          "presupuesto": 236715423.0,
+          "recaudo": 180274163.0,
+          "cumplimiento": 76.15649234650841,
+          "cierre": 76.15649234650841
         }
       }
     },
     "AIPE": {
       "total": {
-        "presupuesto": 244400724.0,
-        "recaudo": 229692127.0,
-        "cumplimiento": 93.98177028313549,
-        "cierre": 93.98177028313549
+        "presupuesto": 16500493.0,
+        "recaudo": 15677967.0,
+        "cumplimiento": 95.01514288088241,
+        "cierre": 95.01514288088241
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 56467858.0,
-          "recaudo": 58143971.0,
-          "cumplimiento": 102.968260280034,
-          "cierre": 102.968260280034
+          "presupuesto": 8811270.0,
+          "recaudo": 6206670.0,
+          "cumplimiento": 70.44012951594945,
+          "cierre": 70.44012951594945
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 50898288.0,
-          "recaudo": 45714540.0,
-          "cumplimiento": 89.81547670129886,
-          "cierre": 89.81547670129886
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 137034578.0,
-          "recaudo": 125833616.0,
-          "cumplimiento": 91.82617835332043,
-          "cierre": 91.82617835332043
+          "presupuesto": 7689223.0,
+          "recaudo": 9471297.0,
+          "cumplimiento": 123.17625591038262,
+          "cierre": 123.17625591038262
         }
       }
     },
     "GARZON": {
       "total": {
-        "presupuesto": 490981650.0,
-        "recaudo": 405651796.0,
-        "cumplimiento": 82.6205614812692,
-        "cierre": 82.6205614812692
+        "presupuesto": 26172650.0,
+        "recaudo": 25515660.0,
+        "cumplimiento": 97.48978418310718,
+        "cierre": 97.48978418310718
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 179231850.0,
-          "recaudo": 153488215.0,
-          "cumplimiento": 85.63668510925933,
-          "cierre": 85.63668510925933
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 311749800.0,
-          "recaudo": 252163581.0,
-          "cumplimiento": 80.88652534821193,
-          "cierre": 80.88652534821193
+          "presupuesto": 26172650.0,
+          "recaudo": 25515660.0,
+          "cumplimiento": 97.48978418310718,
+          "cierre": 97.48978418310718
+        }
+      }
+    },
+    "PITALITO": {
+      "total": {
+        "presupuesto": 14988275.0,
+        "recaudo": 13915860.0,
+        "cumplimiento": 92.84497382120357,
+        "cierre": 92.84497382120357
+      },
+      "tipos": {
+        "OFICINA": {
+          "presupuesto": 14988275.0,
+          "recaudo": 13915860.0,
+          "cumplimiento": 92.84497382120357,
+          "cierre": 92.84497382120357
         }
       }
     },
     "LA PLATA": {
       "total": {
-        "presupuesto": 197409250.0,
-        "recaudo": 158585409.0,
-        "cumplimiento": 80.33332227339905,
-        "cierre": 80.33332227339905
+        "presupuesto": 9402600.0,
+        "recaudo": 10297690.0,
+        "cumplimiento": 109.5196009614362,
+        "cierre": 109.5196009614362
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 63199900.0,
-          "recaudo": 55998850.0,
-          "cumplimiento": 88.6059155156891,
-          "cierre": 88.6059155156891
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 134209350.0,
-          "recaudo": 102586559.0,
-          "cumplimiento": 76.4377139148651,
-          "cierre": 76.4377139148651
+          "presupuesto": 9402600.0,
+          "recaudo": 10297690.0,
+          "cumplimiento": 109.5196009614362,
+          "cierre": 109.5196009614362
         }
       }
     },
     "ACACIAS": {
       "total": {
-        "presupuesto": 263713100.0,
-        "recaudo": 244409730.0,
-        "cumplimiento": 92.68016264645176,
-        "cierre": 92.68016264645176
+        "presupuesto": 16580600.0,
+        "recaudo": 12822900.0,
+        "cumplimiento": 77.3367670651243,
+        "cierre": 77.3367670651243
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 100057850.0,
-          "recaudo": 93534690.0,
-          "cumplimiento": 93.48061146626677,
-          "cierre": 93.48061146626677
+          "presupuesto": 14024400.0,
+          "recaudo": 9353050.0,
+          "cumplimiento": 66.69126664955364,
+          "cierre": 66.69126664955364
         },
         "OFICINA": {
-          "presupuesto": 16799500.0,
-          "recaudo": 18817700.0,
-          "cumplimiento": 112.01345278133277,
-          "cierre": 112.01345278133277
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 146855750.0,
-          "recaudo": 132057340.0,
-          "cumplimiento": 89.92316610006759,
-          "cierre": 89.92316610006759
+          "presupuesto": 2556200.0,
+          "recaudo": 3469850.0,
+          "cumplimiento": 135.74250841092245,
+          "cierre": 135.74250841092245
         }
       }
     },
     "VILLAVICENCIO": {
       "total": {
-        "presupuesto": 93258850.0,
-        "recaudo": 80454500.0,
-        "cumplimiento": 86.27009661817618,
-        "cierre": 86.27009661817618
+        "presupuesto": 5426150.0,
+        "recaudo": 5900150.0,
+        "cumplimiento": 108.7354754291717,
+        "cierre": 108.7354754291717
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 26837050.0,
-          "recaudo": 25837150.0,
-          "cumplimiento": 96.2741806569649,
-          "cierre": 96.2741806569649
+          "presupuesto": 4261450.0,
+          "recaudo": 4928950.0,
+          "cumplimiento": 115.66368254936701,
+          "cierre": 115.66368254936701
         },
         "OFICINA": {
-          "presupuesto": 5720900.0,
-          "recaudo": 7019850.0,
-          "cumplimiento": 122.70534356482372,
-          "cierre": 122.70534356482372
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 60700900.0,
-          "recaudo": 47597500.0,
-          "cumplimiento": 78.4131701506897,
-          "cierre": 78.4131701506897
+          "presupuesto": 1164700.0,
+          "recaudo": 971200.0,
+          "cumplimiento": 83.3862797286855,
+          "cierre": 83.3862797286855
         }
       }
     },
     "META MEDIOS": {
       "total": {
-        "presupuesto": 57268900.0,
-        "recaudo": 34507550.0,
-        "cumplimiento": 60.255304362402626,
-        "cierre": 60.255304362402626
+        "presupuesto": 9964900.0,
+        "recaudo": 4884800.0,
+        "cumplimiento": 49.020060412046284,
+        "cierre": 49.020060412046284
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 57268900.0,
-          "recaudo": 34507550.0,
-          "cumplimiento": 60.255304362402626,
-          "cierre": 60.255304362402626
+          "presupuesto": 9964900.0,
+          "recaudo": 4884800.0,
+          "cumplimiento": 49.020060412046284,
+          "cierre": 49.020060412046284
         }
       }
     },
     "PUTUMAYO MEDIOS": {
       "total": {
-        "presupuesto": 52244900.0,
-        "recaudo": 44758000.0,
-        "cumplimiento": 85.669606028531,
-        "cierre": 85.669606028531
+        "presupuesto": 7178700.0,
+        "recaudo": 4977400.0,
+        "cumplimiento": 69.33567358992575,
+        "cierre": 69.33567358992575
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 52244900.0,
-          "recaudo": 44758000.0,
-          "cumplimiento": 85.669606028531,
-          "cierre": 85.669606028531
+          "presupuesto": 7178700.0,
+          "recaudo": 4977400.0,
+          "cumplimiento": 69.33567358992575,
+          "cierre": 69.33567358992575
         }
       }
     },
     "MOCOA": {
       "total": {
-        "presupuesto": 114001000.0,
-        "recaudo": 91803530.0,
-        "cumplimiento": 80.52870588854483,
-        "cierre": 80.52870588854483
+        "presupuesto": 5044850.0,
+        "recaudo": 3498100.0,
+        "cumplimiento": 69.34002002041686,
+        "cierre": 69.34002002041686
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 42381600.0,
-          "recaudo": 30979650.0,
-          "cumplimiento": 73.09693357494763,
-          "cierre": 73.09693357494763
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 71619400.0,
-          "recaudo": 60823880.0,
-          "cumplimiento": 84.92654224972563,
-          "cierre": 84.92654224972563
+          "presupuesto": 5044850.0,
+          "recaudo": 3498100.0,
+          "cumplimiento": 69.34002002041686,
+          "cierre": 69.34002002041686
         }
       }
     },
     "ARMENIA": {
       "total": {
-        "presupuesto": 5035232621.0,
-        "recaudo": 4884252023.0,
-        "cumplimiento": 97.00151692356141,
-        "cierre": 97.00151692356141
+        "presupuesto": 278116940.0,
+        "recaudo": 267895110.0,
+        "cumplimiento": 96.32462876946654,
+        "cierre": 96.32462876946654
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 1580198160.0,
-          "recaudo": 1518308180.0,
-          "cumplimiento": 96.08340386879074,
-          "cierre": 96.08340386879074
+          "presupuesto": 227810490.0,
+          "recaudo": 215342710.0,
+          "cumplimiento": 94.52712647253425,
+          "cierre": 94.52712647253425
         },
         "OFICINA": {
-          "presupuesto": 349171300.0,
-          "recaudo": 384031048.0,
-          "cumplimiento": 109.9835662323908,
-          "cierre": 109.9835662323908
+          "presupuesto": 49574150.0,
+          "recaudo": 51801800.0,
+          "cumplimiento": 104.49357175059986,
+          "cierre": 104.49357175059986
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 5003900.0,
-          "recaudo": 4888700.0,
-          "cumplimiento": 97.69779571933893,
-          "cierre": 97.69779571933893
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 3100859261.0,
-          "recaudo": 2977024095.0,
-          "cumplimiento": 96.00642416902004,
-          "cierre": 96.00642416902004
+          "presupuesto": 732300.0,
+          "recaudo": 750600.0,
+          "cumplimiento": 102.49897582957803,
+          "cierre": 102.49897582957803
         }
       }
     },
     "LA TEBAIDA": {
       "total": {
-        "presupuesto": 334129550.0,
-        "recaudo": 309582360.0,
-        "cumplimiento": 92.65339147644977,
-        "cierre": 92.65339147644977
+        "presupuesto": 47484000.0,
+        "recaudo": 42757000.0,
+        "cumplimiento": 90.04506781231572,
+        "cierre": 90.04506781231572
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 87760400.0,
-          "recaudo": 76251600.0,
-          "cumplimiento": 86.88611264305996,
-          "cierre": 86.88611264305996
+          "presupuesto": 12173100.0,
+          "recaudo": 10216000.0,
+          "cumplimiento": 83.92274769779267,
+          "cierre": 83.92274769779267
         },
         "OFICINA": {
-          "presupuesto": 246369150.0,
-          "recaudo": 233330760.0,
-          "cumplimiento": 94.70778301585243,
-          "cierre": 94.70778301585243
+          "presupuesto": 35310900.0,
+          "recaudo": 32541000.0,
+          "cumplimiento": 92.15567997417227,
+          "cierre": 92.15567997417227
         }
       }
     },
     "CALARCA": {
       "total": {
-        "presupuesto": 1257513030.0,
-        "recaudo": 1150474620.0,
-        "cumplimiento": 91.48808740375438,
-        "cierre": 91.48808740375438
+        "presupuesto": 84915280.0,
+        "recaudo": 78337550.0,
+        "cumplimiento": 92.2537734080368,
+        "cierre": 92.2537734080368
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 352291050.0,
-          "recaudo": 319386900.0,
-          "cumplimiento": 90.65995289974015,
-          "cierre": 90.65995289974015
+          "presupuesto": 51187000.0,
+          "recaudo": 47230100.0,
+          "cumplimiento": 92.2697169203118,
+          "cierre": 92.2697169203118
         },
         "OFICINA": {
-          "presupuesto": 233390590.0,
-          "recaudo": 220417950.0,
-          "cumplimiento": 94.44166107982332,
-          "cierre": 94.44166107982332
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 671831390.0,
-          "recaudo": 610669770.0,
-          "cumplimiento": 90.89628425965628,
-          "cierre": 90.89628425965628
+          "presupuesto": 33728280.0,
+          "recaudo": 31107450.0,
+          "cumplimiento": 92.22957707893791,
+          "cierre": 92.22957707893791
         }
       }
     },
     "MONTENEGRO": {
       "total": {
-        "presupuesto": 930588108.0,
-        "recaudo": 873654090.0,
-        "cumplimiento": 93.88193148928569,
-        "cierre": 93.88193148928569
+        "presupuesto": 64625400.0,
+        "recaudo": 56430340.0,
+        "cumplimiento": 87.31913458175887,
+        "cierre": 87.31913458175887
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 258037500.0,
-          "recaudo": 245532960.0,
-          "cumplimiento": 95.15398343264062,
-          "cierre": 95.15398343264062
+          "presupuesto": 36979900.0,
+          "recaudo": 32978000.0,
+          "cumplimiento": 89.17817517083606,
+          "cierre": 89.17817517083606
         },
         "OFICINA": {
-          "presupuesto": 183243754.0,
-          "recaudo": 170371510.0,
-          "cumplimiento": 92.97534365073092,
-          "cierre": 92.97534365073092
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 489306854.0,
-          "recaudo": 457749620.0,
-          "cumplimiento": 93.5506249826617,
-          "cierre": 93.5506249826617
+          "presupuesto": 27645500.0,
+          "recaudo": 23452340.0,
+          "cumplimiento": 84.8323958691288,
+          "cierre": 84.8323958691288
         }
       }
     },
     "CIRCASIA": {
       "total": {
-        "presupuesto": 410018900.0,
-        "recaudo": 381795554.0,
-        "cumplimiento": 93.11657438230286,
-        "cierre": 93.11657438230286
+        "presupuesto": 26621100.0,
+        "recaudo": 23416010.0,
+        "cumplimiento": 87.96033973051452,
+        "cierre": 87.96033973051452
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 85214400.0,
-          "recaudo": 82647240.0,
-          "cumplimiento": 96.98741057849377,
-          "cierre": 96.98741057849377
+          "presupuesto": 12376200.0,
+          "recaudo": 11545040.0,
+          "cumplimiento": 93.28420678398862,
+          "cierre": 93.28420678398862
         },
         "OFICINA": {
-          "presupuesto": 100675050.0,
-          "recaudo": 90473630.0,
-          "cumplimiento": 89.86698293171943,
-          "cierre": 89.86698293171943
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 224129450.0,
-          "recaudo": 208674684.0,
-          "cumplimiento": 93.10453579393516,
-          "cierre": 93.10453579393516
+          "presupuesto": 14244900.0,
+          "recaudo": 11870970.0,
+          "cumplimiento": 83.33487774571951,
+          "cierre": 83.33487774571951
         }
       }
     },
     "BARCELONA": {
       "total": {
-        "presupuesto": 389096950.0,
-        "recaudo": 355059450.0,
-        "cumplimiento": 91.25218020855728,
-        "cierre": 91.25218020855728
+        "presupuesto": 25110400.0,
+        "recaudo": 24639600.0,
+        "cumplimiento": 98.12507964827323,
+        "cierre": 98.12507964827323
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 114026650.0,
-          "recaudo": 108476750.0,
-          "cumplimiento": 95.13280448035613,
-          "cierre": 95.13280448035613
+          "presupuesto": 16041400.0,
+          "recaudo": 16271200.0,
+          "cumplimiento": 101.43254329422619,
+          "cierre": 101.43254329422619
         },
         "OFICINA": {
-          "presupuesto": 67473050.0,
-          "recaudo": 57296850.0,
-          "cumplimiento": 84.91812657053445,
-          "cierre": 84.91812657053445
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 207597250.0,
-          "recaudo": 189285850.0,
-          "cumplimiento": 91.17936292508692,
-          "cierre": 91.17936292508692
+          "presupuesto": 9069000.0,
+          "recaudo": 8368400.0,
+          "cumplimiento": 92.27478222516264,
+          "cierre": 92.27478222516264
         }
       }
     },
     "CORDOBA": {
       "total": {
-        "presupuesto": 182244200.0,
-        "recaudo": 166360800.0,
-        "cumplimiento": 91.28455116815789,
-        "cierre": 91.28455116815789
+        "presupuesto": 12329750.0,
+        "recaudo": 11247250.0,
+        "cumplimiento": 91.22042214967863,
+        "cierre": 91.22042214967863
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 12954500.0,
-          "recaudo": 11253700.0,
-          "cumplimiento": 86.87097147709291,
-          "cierre": 86.87097147709291
+          "presupuesto": 1806900.0,
+          "recaudo": 1608700.0,
+          "cumplimiento": 89.03093696386075,
+          "cierre": 89.03093696386075
         },
         "OFICINA": {
-          "presupuesto": 71964450.0,
-          "recaudo": 66302700.0,
-          "cumplimiento": 92.13257379164295,
-          "cierre": 92.13257379164295
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 97325250.0,
-          "recaudo": 88804400.0,
-          "cumplimiento": 91.24497496795539,
-          "cierre": 91.24497496795539
+          "presupuesto": 10522850.0,
+          "recaudo": 9638550.0,
+          "cumplimiento": 91.59638310913869,
+          "cierre": 91.59638310913869
         }
       }
     },
     "PIJAO": {
       "total": {
-        "presupuesto": 167509700.0,
-        "recaudo": 150352530.0,
-        "cumplimiento": 89.75750658021595,
-        "cierre": 89.75750658021595
+        "presupuesto": 10344600.0,
+        "recaudo": 6182700.0,
+        "cumplimiento": 59.76741488312744,
+        "cierre": 59.76741488312744
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 8327700.0,
-          "recaudo": 7791100.0,
-          "cumplimiento": 93.55644415624963,
-          "cierre": 93.55644415624963
+          "presupuesto": 1178200.0,
+          "recaudo": 1047800.0,
+          "cumplimiento": 88.9322695637413,
+          "cierre": 88.9322695637413
         },
         "OFICINA": {
-          "presupuesto": 43173850.0,
-          "recaudo": 38324250.0,
-          "cumplimiento": 88.76727463499317,
-          "cierre": 88.76727463499317
+          "presupuesto": 5877700.0,
+          "recaudo": 5134900.0,
+          "cumplimiento": 87.36240366129609,
+          "cierre": 87.36240366129609
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 22247000.0,
-          "recaudo": 19309640.0,
-          "cumplimiento": 86.79660178900525,
-          "cierre": 86.79660178900525
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 93761150.0,
-          "recaudo": 84927540.0,
-          "cumplimiento": 90.57860318479456,
-          "cierre": 90.57860318479456
+          "presupuesto": 3288700.0,
+          "recaudo": 0.0,
+          "cumplimiento": 0.0,
+          "cierre": 0.0
         }
       }
     },
     "QUIMBAYA": {
       "total": {
-        "presupuesto": 598302000.0,
-        "recaudo": 581925600.0,
-        "cumplimiento": 97.26285387647042,
-        "cierre": 97.26285387647042
+        "presupuesto": 38379450.0,
+        "recaudo": 37366600.0,
+        "cumplimiento": 97.36095749157427,
+        "cierre": 97.36095749157427
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 168302400.0,
-          "recaudo": 166192700.0,
-          "cumplimiento": 98.74648252193671,
-          "cierre": 98.74648252193671
+          "presupuesto": 24318300.0,
+          "recaudo": 23178100.0,
+          "cumplimiento": 95.3113498887669,
+          "cierre": 95.3113498887669
         },
         "OFICINA": {
-          "presupuesto": 97485000.0,
-          "recaudo": 95968500.0,
-          "cumplimiento": 98.44437605785505,
-          "cierre": 98.44437605785505
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 332514600.0,
-          "recaudo": 319764400.0,
-          "cumplimiento": 96.16552175453349,
-          "cierre": 96.16552175453349
+          "presupuesto": 14061150.0,
+          "recaudo": 14188500.0,
+          "cumplimiento": 100.90568694594681,
+          "cierre": 100.90568694594681
         }
       }
     },
     "GENOVA": {
       "total": {
-        "presupuesto": 257039450.0,
-        "recaudo": 250255750.0,
-        "cumplimiento": 97.36083313281289,
-        "cierre": 97.36083313281289
+        "presupuesto": 17184900.0,
+        "recaudo": 16658100.0,
+        "cumplimiento": 96.93451809437354,
+        "cierre": 96.93451809437354
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 55385300.0,
-          "recaudo": 53254850.0,
-          "cumplimiento": 96.15340171489547,
-          "cierre": 96.15340171489547
+          "presupuesto": 7894250.0,
+          "recaudo": 7924450.0,
+          "cumplimiento": 100.38255692434366,
+          "cierre": 100.38255692434366
         },
         "OFICINA": {
-          "presupuesto": 64961150.0,
-          "recaudo": 64067750.0,
-          "cumplimiento": 98.6247164651488,
-          "cierre": 98.6247164651488
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 136693000.0,
-          "recaudo": 132933150.0,
-          "cumplimiento": 97.24942023366229,
-          "cierre": 97.24942023366229
+          "presupuesto": 9290650.0,
+          "recaudo": 8733650.0,
+          "cumplimiento": 94.00472518069242,
+          "cierre": 94.00472518069242
         }
       }
     },
     "QUINDIO MEDIOS": {
       "total": {
-        "presupuesto": 1119323760.0,
-        "recaudo": 935749590.0,
-        "cumplimiento": 83.59954674776134,
-        "cierre": 83.59954674776134
+        "presupuesto": 164234950.0,
+        "recaudo": 128975170.0,
+        "cumplimiento": 78.5308912627915,
+        "cierre": 78.5308912627915
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 1119323760.0,
-          "recaudo": 935749590.0,
-          "cumplimiento": 83.59954674776134,
-          "cierre": 83.59954674776134
+          "presupuesto": 164234950.0,
+          "recaudo": 128975170.0,
+          "cumplimiento": 78.5308912627915,
+          "cierre": 78.5308912627915
         }
       }
     },
     "PEREIRA": {
       "total": {
-        "presupuesto": 6281490912.0,
-        "recaudo": 6066864869.0,
-        "cumplimiento": 96.58319902063404,
-        "cierre": 96.58319902063404
+        "presupuesto": 351959110.0,
+        "recaudo": 335891025.0,
+        "cumplimiento": 95.43467279480278,
+        "cierre": 95.43467279480278
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 2097976590.0,
-          "recaudo": 2029523650.0,
-          "cumplimiento": 96.73719238211328,
-          "cierre": 96.73719238211328
+          "presupuesto": 299207160.0,
+          "recaudo": 281181110.0,
+          "cumplimiento": 93.97539484015022,
+          "cierre": 93.97539484015022
         },
         "OFICINA": {
-          "presupuesto": 348937900.0,
-          "recaudo": 371672440.0,
-          "cumplimiento": 106.51535416473818,
-          "cierre": 106.51535416473818
+          "presupuesto": 51189450.0,
+          "recaudo": 54676915.0,
+          "cumplimiento": 106.81285889963654,
+          "cierre": 106.81285889963654
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 12758600.0,
-          "recaudo": 9782100.0,
-          "cumplimiento": 76.67063784427759,
-          "cierre": 76.67063784427759
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 3821817822.0,
-          "recaudo": 3655886679.0,
-          "cumplimiento": 95.65831887525276,
-          "cierre": 95.65831887525276
+          "presupuesto": 1562500.0,
+          "recaudo": 33000.0,
+          "cumplimiento": 2.112,
+          "cierre": 2.112
         }
       }
     },
     "LA VIRGINIA": {
       "total": {
-        "presupuesto": 840430350.0,
-        "recaudo": 783520800.0,
-        "cumplimiento": 93.22852274432974,
-        "cierre": 93.22852274432974
+        "presupuesto": 57741000.0,
+        "recaudo": 43466500.0,
+        "cumplimiento": 75.27839836511318,
+        "cierre": 75.27839836511318
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 274980600.0,
-          "recaudo": 252129000.0,
-          "cumplimiento": 91.68974102173027,
-          "cierre": 91.68974102173027
+          "presupuesto": 39502100.0,
+          "recaudo": 26145050.0,
+          "cumplimiento": 66.1864812250488,
+          "cierre": 66.1864812250488
         },
         "OFICINA": {
-          "presupuesto": 124261000.0,
-          "recaudo": 123051650.0,
-          "cumplimiento": 99.02676624202283,
-          "cierre": 99.02676624202283
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 441188750.0,
-          "recaudo": 408340150.0,
-          "cumplimiento": 92.55452456573292,
-          "cierre": 92.55452456573292
-        }
-      }
-    },
-    "RENACER MASCOTAS COBRADOR": {
-      "total": {
-        "presupuesto": 10890800.0,
-        "recaudo": 9644700.0,
-        "cumplimiento": 88.5582326367209,
-        "cierre": 88.5582326367209
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 10890800.0,
-          "recaudo": 9644700.0,
-          "cumplimiento": 88.5582326367209,
-          "cierre": 88.5582326367209
+          "presupuesto": 18238900.0,
+          "recaudo": 17321450.0,
+          "cumplimiento": 94.96981725871626,
+          "cierre": 94.96981725871626
         }
       }
     },
     "SANTA ROSA": {
       "total": {
-        "presupuesto": 275773150.0,
-        "recaudo": 265797400.0,
-        "cumplimiento": 96.38262463187587,
-        "cierre": 96.38262463187587
+        "presupuesto": 17999300.0,
+        "recaudo": 17275310.0,
+        "cumplimiento": 95.97767690965759,
+        "cierre": 95.97767690965759
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 39980750.0,
-          "recaudo": 37005100.0,
-          "cumplimiento": 92.55729319735121,
-          "cierre": 92.55729319735121
+          "presupuesto": 5562950.0,
+          "recaudo": 4978100.0,
+          "cumplimiento": 89.4866932113357,
+          "cierre": 89.4866932113357
         },
         "OFICINA": {
-          "presupuesto": 77868950.0,
-          "recaudo": 79417470.0,
-          "cumplimiento": 101.98862319319832,
-          "cierre": 101.98862319319832
+          "presupuesto": 12235350.0,
+          "recaudo": 12297210.0,
+          "cumplimiento": 100.5055842293028,
+          "cierre": 100.5055842293028
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 1407000.0,
-          "recaudo": 1341200.0,
-          "cumplimiento": 95.32338308457712,
-          "cierre": 95.32338308457712
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 156516450.0,
-          "recaudo": 148033630.0,
-          "cumplimiento": 94.5802374127448,
-          "cierre": 94.5802374127448
+          "presupuesto": 201000.0,
+          "recaudo": 0.0,
+          "cumplimiento": 0.0,
+          "cierre": 0.0
         }
       }
     },
     "MARSELLA": {
       "total": {
-        "presupuesto": 340911850.0,
-        "recaudo": 316011630.0,
-        "cumplimiento": 92.69599458041719,
-        "cierre": 92.69599458041719
+        "presupuesto": 22803050.0,
+        "recaudo": 18534350.0,
+        "cumplimiento": 81.2801357713113,
+        "cierre": 81.2801357713113
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 36812100.0,
-          "recaudo": 36008600.0,
-          "cumplimiento": 97.81729377025489,
-          "cierre": 97.81729377025489
+          "presupuesto": 5544150.0,
+          "recaudo": 4678500.0,
+          "cumplimiento": 84.38624496090473,
+          "cierre": 84.38624496090473
         },
         "OFICINA": {
-          "presupuesto": 118765700.0,
-          "recaudo": 109343240.0,
-          "cumplimiento": 92.06634575470865,
-          "cierre": 92.06634575470865
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 185334050.0,
-          "recaudo": 170659790.0,
-          "cumplimiento": 92.0822644300926,
-          "cierre": 92.0822644300926
+          "presupuesto": 17258900.0,
+          "recaudo": 13855850.0,
+          "cumplimiento": 80.28234707889843,
+          "cierre": 80.28234707889843
         }
       }
     },
     "RISARALDA MEDIOS": {
       "total": {
-        "presupuesto": 963152460.0,
-        "recaudo": 840954905.0,
-        "cumplimiento": 87.31275056910512,
-        "cierre": 87.31275056910512
+        "presupuesto": 139622025.0,
+        "recaudo": 114834460.0,
+        "cumplimiento": 82.2466655959187,
+        "cierre": 82.2466655959187
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 963152460.0,
-          "recaudo": 840954905.0,
-          "cumplimiento": 87.31275056910512,
-          "cierre": 87.31275056910512
+          "presupuesto": 139622025.0,
+          "recaudo": 114834460.0,
+          "cumplimiento": 82.2466655959187,
+          "cierre": 82.2466655959187
         }
       }
     },
     "APIA": {
       "total": {
-        "presupuesto": 136331250.0,
-        "recaudo": 127812836.0,
-        "cumplimiento": 93.75167909045065,
-        "cierre": 93.75167909045065
+        "presupuesto": 9132350.0,
+        "recaudo": 8129600.0,
+        "cumplimiento": 89.01980322698977,
+        "cierre": 89.01980322698977
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 62237900.0,
-          "recaudo": 58226843.0,
-          "cumplimiento": 93.5552822315663,
-          "cierre": 93.5552822315663
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 74093350.0,
-          "recaudo": 69585993.0,
-          "cumplimiento": 93.91665108947024,
-          "cierre": 93.91665108947024
+          "presupuesto": 9132350.0,
+          "recaudo": 8129600.0,
+          "cumplimiento": 89.01980322698977,
+          "cierre": 89.01980322698977
         }
       }
     },
     "SANTUARIO": {
       "total": {
-        "presupuesto": 73211400.0,
-        "recaudo": 69079100.0,
-        "cumplimiento": 94.35566045725119,
-        "cierre": 94.35566045725119
+        "presupuesto": 4596900.0,
+        "recaudo": 3638800.0,
+        "cumplimiento": 79.15769322804499,
+        "cierre": 79.15769322804499
       },
       "tipos": {
         "OFICINA": {
-          "presupuesto": 31014550.0,
-          "recaudo": 30082250.0,
-          "cumplimiento": 96.993991529782,
-          "cierre": 96.993991529782
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 42196850.0,
-          "recaudo": 38996850.0,
-          "cumplimiento": 92.41649554409868,
-          "cierre": 92.41649554409868
+          "presupuesto": 4596900.0,
+          "recaudo": 3638800.0,
+          "cumplimiento": 79.15769322804499,
+          "cierre": 79.15769322804499
         }
       }
     },
     "SAN GIL": {
       "total": {
-        "presupuesto": 681533367.0,
-        "recaudo": 797678037.0,
-        "cumplimiento": 117.04167038970522,
-        "cierre": 117.04167038970522
+        "presupuesto": 39773775.0,
+        "recaudo": 31080650.0,
+        "cumplimiento": 78.14357576066139,
+        "cierre": 78.14357576066139
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 124448100.0,
-          "recaudo": 121212890.0,
-          "cumplimiento": 97.4003540431714,
-          "cierre": 97.4003540431714
+          "presupuesto": 20808125.0,
+          "recaudo": 15389050.0,
+          "cumplimiento": 73.95692788273811,
+          "cierre": 73.95692788273811
         },
         "OFICINA": {
-          "presupuesto": 39940733.0,
-          "recaudo": 34635050.0,
-          "cumplimiento": 86.71611009242119,
-          "cierre": 86.71611009242119
+          "presupuesto": 6321950.0,
+          "recaudo": 4392800.0,
+          "cumplimiento": 69.48488994693093,
+          "cierre": 69.48488994693093
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 91143150.0,
-          "recaudo": 86545260.0,
-          "cumplimiento": 94.9553093128776,
-          "cierre": 94.9553093128776
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 426001384.0,
-          "recaudo": 555284837.0,
-          "cumplimiento": 130.34812980795388,
-          "cierre": 130.34812980795388
-        }
-      }
-    },
-    "BUCARAMANGA": {
-      "total": {
-        "presupuesto": 163344450.0,
-        "recaudo": 110877600.0,
-        "cumplimiento": 67.8796249275687,
-        "cierre": 67.8796249275687
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 26809325.0,
-          "recaudo": 20908290.0,
-          "cumplimiento": 77.98887140948159,
-          "cierre": 77.98887140948159
-        },
-        "OFICINA": {
-          "presupuesto": 10028950.0,
-          "recaudo": 7736035.0,
-          "cumplimiento": 77.1370382741962,
-          "cierre": 77.1370382741962
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 126506175.0,
-          "recaudo": 82233275.0,
-          "cumplimiento": 65.00336841264863,
-          "cierre": 65.00336841264863
+          "presupuesto": 12643700.0,
+          "recaudo": 11298800.0,
+          "cumplimiento": 89.36308200922198,
+          "cierre": 89.36308200922198
         }
       }
     },
     "SANTANDER MEDIOS": {
       "total": {
-        "presupuesto": 126595133.0,
-        "recaudo": 85312560.0,
-        "cumplimiento": 67.39007889031564,
-        "cierre": 67.39007889031564
+        "presupuesto": 18277600.0,
+        "recaudo": 14247400.0,
+        "cumplimiento": 77.95005908872062,
+        "cierre": 77.95005908872062
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 126595133.0,
-          "recaudo": 85312560.0,
-          "cumplimiento": 67.39007889031564,
-          "cierre": 67.39007889031564
+          "presupuesto": 18277600.0,
+          "recaudo": 14247400.0,
+          "cumplimiento": 77.95005908872062,
+          "cierre": 77.95005908872062
+        }
+      }
+    },
+    "BUCARAMANGA": {
+      "total": {
+        "presupuesto": 1301350.0,
+        "recaudo": 1331930.0,
+        "cumplimiento": 102.34986744534523,
+        "cierre": 102.34986744534523
+      },
+      "tipos": {
+        "OFICINA": {
+          "presupuesto": 1301350.0,
+          "recaudo": 1331930.0,
+          "cumplimiento": 102.34986744534523,
+          "cierre": 102.34986744534523
         }
       }
     },
     "IBAGUE": {
       "total": {
-        "presupuesto": 1575588884.0,
-        "recaudo": 1445286995.0,
-        "cumplimiento": 91.72995631517796,
-        "cierre": 91.72995631517796
+        "presupuesto": 71814900.0,
+        "recaudo": 69401750.0,
+        "cumplimiento": 96.63976417150202,
+        "cierre": 96.63976417150202
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 373158250.0,
-          "recaudo": 337066340.0,
-          "cumplimiento": 90.32798819267697,
-          "cierre": 90.32798819267697
+          "presupuesto": 51347950.0,
+          "recaudo": 47172000.0,
+          "cumplimiento": 91.8673481609295,
+          "cierre": 91.8673481609295
         },
         "OFICINA": {
-          "presupuesto": 134561500.0,
-          "recaudo": 147588360.0,
-          "cumplimiento": 109.68097115445354,
-          "cierre": 109.68097115445354
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 1067869134.0,
-          "recaudo": 960632295.0,
-          "cumplimiento": 89.95786697211533,
-          "cierre": 89.95786697211533
+          "presupuesto": 20466950.0,
+          "recaudo": 22229750.0,
+          "cumplimiento": 108.61291008186369,
+          "cierre": 108.61291008186369
         }
       }
     },
     "LA DORADA": {
       "total": {
-        "presupuesto": 326321590.0,
-        "recaudo": 306392800.0,
-        "cumplimiento": 93.89289871994066,
-        "cierre": 93.89289871994066
+        "presupuesto": 19856550.0,
+        "recaudo": 17762550.0,
+        "cumplimiento": 89.45436140719309,
+        "cierre": 89.45436140719309
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 120186250.0,
-          "recaudo": 114245550.0,
-          "cumplimiento": 95.05708847725926,
-          "cierre": 95.05708847725926
+          "presupuesto": 16628800.0,
+          "recaudo": 14739550.0,
+          "cumplimiento": 88.63868709708458,
+          "cierre": 88.63868709708458
         },
         "OFICINA": {
-          "presupuesto": 23617700.0,
-          "recaudo": 22770550.0,
-          "cumplimiento": 96.41307155226801,
-          "cierre": 96.41307155226801
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 182517640.0,
-          "recaudo": 169376700.0,
-          "cumplimiento": 92.80018084827307,
-          "cierre": 92.80018084827307
+          "presupuesto": 3227750.0,
+          "recaudo": 3023000.0,
+          "cumplimiento": 93.65657191542095,
+          "cierre": 93.65657191542095
         }
       }
     },
     "PTO BOYACA": {
       "total": {
-        "presupuesto": 153783350.0,
-        "recaudo": 143578340.0,
-        "cumplimiento": 93.36403453299724,
-        "cierre": 93.36403453299724
+        "presupuesto": 21716400.0,
+        "recaudo": 19702190.0,
+        "cumplimiento": 90.72493599307437,
+        "cierre": 90.72493599307437
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 35776700.0,
-          "recaudo": 33102100.0,
-          "cumplimiento": 92.52418473475754,
-          "cierre": 92.52418473475754
+          "presupuesto": 4937550.0,
+          "recaudo": 4608300.0,
+          "cumplimiento": 93.33171309657624,
+          "cierre": 93.33171309657624
         },
         "OFICINA": {
-          "presupuesto": 118006650.0,
-          "recaudo": 110476240.0,
-          "cumplimiento": 93.61865623674598,
-          "cierre": 93.61865623674598
+          "presupuesto": 16778850.0,
+          "recaudo": 15093890.0,
+          "cumplimiento": 89.95783382055386,
+          "cierre": 89.95783382055386
         }
       }
     },
     "LIBANO": {
       "total": {
-        "presupuesto": 429926750.0,
-        "recaudo": 404950950.0,
-        "cumplimiento": 94.1906848085168,
-        "cierre": 94.1906848085168
+        "presupuesto": 25522050.0,
+        "recaudo": 23082000.0,
+        "cumplimiento": 90.43944353999777,
+        "cierre": 90.43944353999777
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 70844200.0,
-          "recaudo": 62943050.0,
-          "cumplimiento": 88.8471462730894,
-          "cierre": 88.8471462730894
+          "presupuesto": 9791600.0,
+          "recaudo": 8112600.0,
+          "cumplimiento": 82.85264920952653,
+          "cierre": 82.85264920952653
         },
         "OFICINA": {
-          "presupuesto": 102979400.0,
-          "recaudo": 107309050.0,
-          "cumplimiento": 104.20438456623364,
-          "cierre": 104.20438456623364
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 256103150.0,
-          "recaudo": 234698850.0,
-          "cumplimiento": 91.6423128727624,
-          "cierre": 91.6423128727624
+          "presupuesto": 15730450.0,
+          "recaudo": 14969400.0,
+          "cumplimiento": 95.16193115899418,
+          "cierre": 95.16193115899418
         }
       }
     },
     "ARMERO": {
       "total": {
-        "presupuesto": 285690100.0,
-        "recaudo": 266942150.0,
-        "cumplimiento": 93.43766199808815,
-        "cierre": 93.43766199808815
+        "presupuesto": 19418100.0,
+        "recaudo": 16313000.0,
+        "cumplimiento": 84.00924910264135,
+        "cierre": 84.00924910264135
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 16034700.0,
-          "recaudo": 13995500.0,
-          "cumplimiento": 87.28258090266733,
-          "cierre": 87.28258090266733
+          "presupuesto": 2264700.0,
+          "recaudo": 1854600.0,
+          "cumplimiento": 81.89164127699033,
+          "cierre": 81.89164127699033
         },
         "OFICINA": {
-          "presupuesto": 81101500.0,
-          "recaudo": 76400400.0,
-          "cumplimiento": 94.20343643459123,
-          "cierre": 94.20343643459123
+          "presupuesto": 11469500.0,
+          "recaudo": 9851400.0,
+          "cumplimiento": 85.89214874231658,
+          "cierre": 85.89214874231658
         },
         "PUNTO DE RECAUDO": {
-          "presupuesto": 39448300.0,
-          "recaudo": 37080000.0,
-          "cumplimiento": 93.99644598119565,
-          "cierre": 93.99644598119565
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 149105600.0,
-          "recaudo": 139466250.0,
-          "cumplimiento": 93.53521933448509,
-          "cierre": 93.53521933448509
+          "presupuesto": 5683900.0,
+          "recaudo": 4607000.0,
+          "cumplimiento": 81.05350199686835,
+          "cierre": 81.05350199686835
         }
       }
     },
     "LERIDA": {
       "total": {
-        "presupuesto": 531084800.0,
-        "recaudo": 489310500.0,
-        "cumplimiento": 92.13415635318502,
-        "cierre": 92.13415635318502
+        "presupuesto": 33599900.0,
+        "recaudo": 32705700.0,
+        "cumplimiento": 97.33868255560284,
+        "cierre": 97.33868255560284
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 167017450.0,
-          "recaudo": 146730450.0,
-          "cumplimiento": 87.85336502263685,
-          "cierre": 87.85336502263685
+          "presupuesto": 23570000.0,
+          "recaudo": 19972150.0,
+          "cumplimiento": 84.7354688162919,
+          "cierre": 84.7354688162919
         },
         "OFICINA": {
-          "presupuesto": 67529650.0,
-          "recaudo": 69201980.0,
-          "cumplimiento": 102.4764381275484,
-          "cierre": 102.4764381275484
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 296537700.0,
-          "recaudo": 273378070.0,
-          "cumplimiento": 92.18998798466434,
-          "cierre": 92.18998798466434
+          "presupuesto": 10029900.0,
+          "recaudo": 12733550.0,
+          "cumplimiento": 126.95590185345816,
+          "cierre": 126.95590185345816
         }
       }
     },
     "VENADILLO": {
       "total": {
-        "presupuesto": 227249425.0,
-        "recaudo": 219092800.0,
-        "cumplimiento": 96.41071699081307,
-        "cierre": 96.41071699081307
+        "presupuesto": 14202450.0,
+        "recaudo": 13012600.0,
+        "cumplimiento": 91.62222010991061,
+        "cierre": 91.62222010991061
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 21099300.0,
-          "recaudo": 23032450.0,
-          "cumplimiento": 109.16215229889144,
-          "cierre": 109.16215229889144
+          "presupuesto": 3001400.0,
+          "recaudo": 3785800.0,
+          "cumplimiento": 126.13447058039581,
+          "cierre": 126.13447058039581
         },
         "OFICINA": {
-          "presupuesto": 80280900.0,
-          "recaudo": 74738100.0,
-          "cumplimiento": 93.09574257388743,
-          "cierre": 93.09574257388743
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 125869225.0,
-          "recaudo": 121322250.0,
-          "cumplimiento": 96.38754032210812,
-          "cierre": 96.38754032210812
+          "presupuesto": 11201050.0,
+          "recaudo": 9226800.0,
+          "cumplimiento": 82.37442025524393,
+          "cierre": 82.37442025524393
         }
       }
     },
     "FRESNO": {
       "total": {
-        "presupuesto": 509220250.0,
-        "recaudo": 488858446.0,
-        "cumplimiento": 96.00137582902487,
-        "cierre": 96.00137582902487
+        "presupuesto": 31713250.0,
+        "recaudo": 27642913.0,
+        "cumplimiento": 87.16518489905638,
+        "cierre": 87.16518489905638
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 33117600.0,
-          "recaudo": 35893700.0,
-          "cumplimiento": 108.3825518757398,
-          "cierre": 108.3825518757398
+          "presupuesto": 4784300.0,
+          "recaudo": 5485200.0,
+          "cumplimiento": 114.65000104508496,
+          "cierre": 114.65000104508496
         },
         "OFICINA": {
-          "presupuesto": 189308550.0,
-          "recaudo": 180810073.0,
-          "cumplimiento": 95.51078015229635,
-          "cierre": 95.51078015229635
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 286794100.0,
-          "recaudo": 272154673.0,
-          "cumplimiento": 94.89549227128452,
-          "cierre": 94.89549227128452
+          "presupuesto": 26928950.0,
+          "recaudo": 22157713.0,
+          "cumplimiento": 82.28212759873668,
+          "cierre": 82.28212759873668
         }
       }
     },
     "MARIQUITA": {
       "total": {
-        "presupuesto": 123789800.0,
-        "recaudo": 117109850.0,
-        "cumplimiento": 94.60379611244221,
-        "cierre": 94.60379611244221
+        "presupuesto": 7825650.0,
+        "recaudo": 8111350.0,
+        "cumplimiento": 103.65081494827906,
+        "cierre": 103.65081494827906
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 27226000.0,
-          "recaudo": 26771200.0,
-          "cumplimiento": 98.3295379416734,
-          "cierre": 98.3295379416734
+          "presupuesto": 3907600.0,
+          "recaudo": 4161700.0,
+          "cumplimiento": 106.50271266250384,
+          "cierre": 106.50271266250384
         },
         "OFICINA": {
-          "presupuesto": 30937300.0,
-          "recaudo": 28857550.0,
-          "cumplimiento": 93.27753229919871,
-          "cierre": 93.27753229919871
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 65626500.0,
-          "recaudo": 61481100.0,
-          "cumplimiento": 93.68334438069988,
-          "cierre": 93.68334438069988
+          "presupuesto": 3918050.0,
+          "recaudo": 3949650.0,
+          "cumplimiento": 100.80652365334797,
+          "cierre": 100.80652365334797
         }
       }
     },
     "HONDA": {
       "total": {
-        "presupuesto": 205393750.0,
-        "recaudo": 206597500.0,
-        "cumplimiento": 100.58606943979551,
-        "cierre": 100.58606943979551
+        "presupuesto": 14410500.0,
+        "recaudo": 13677400.0,
+        "cumplimiento": 94.9127372402068,
+        "cierre": 94.9127372402068
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 80234300.0,
-          "recaudo": 80381600.0,
-          "cumplimiento": 100.18358731864052,
-          "cierre": 100.18358731864052
+          "presupuesto": 11571100.0,
+          "recaudo": 10953000.0,
+          "cumplimiento": 94.6582433822195,
+          "cierre": 94.6582433822195
         },
         "OFICINA": {
-          "presupuesto": 20047000.0,
-          "recaudo": 21333000.0,
-          "cumplimiento": 106.4149249264229,
-          "cierre": 106.4149249264229
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 105112450.0,
-          "recaudo": 104882900.0,
-          "cumplimiento": 99.78161483249606,
-          "cierre": 99.78161483249606
+          "presupuesto": 2839400.0,
+          "recaudo": 2724400.0,
+          "cumplimiento": 95.94984855955484,
+          "cierre": 95.94984855955484
         }
       }
     },
     "TOLIMA MEDIOS": {
       "total": {
-        "presupuesto": 843763937.0,
-        "recaudo": 699856015.0,
-        "cumplimiento": 82.94452800250457,
-        "cierre": 82.94452800250457
+        "presupuesto": 121124480.0,
+        "recaudo": 101437662.0,
+        "cumplimiento": 83.74662330851699,
+        "cierre": 83.74662330851699
       },
       "tipos": {
         "MEDIOS": {
-          "presupuesto": 843763937.0,
-          "recaudo": 699856015.0,
-          "cumplimiento": 82.94452800250457,
-          "cierre": 82.94452800250457
+          "presupuesto": 121124480.0,
+          "recaudo": 101437662.0,
+          "cumplimiento": 83.74662330851699,
+          "cierre": 83.74662330851699
         }
       }
     },
     "V/ HERMOSA": {
-      "total": {
-        "presupuesto": 14989950.0,
-        "recaudo": 6620050.0,
-        "cumplimiento": 44.163256048218976,
-        "cierre": 44.163256048218976
-      },
-      "tipos": {
-        "OFICINA": {
-          "presupuesto": 14989950.0,
-          "recaudo": 6620050.0,
-          "cumplimiento": 44.163256048218976,
-          "cierre": 44.163256048218976
-        }
-      }
-    },
-    "ANZOATEGUI": {
-      "total": {
-        "presupuesto": 198158450.0,
-        "recaudo": 200364500.0,
-        "cumplimiento": 101.11327576492448,
-        "cierre": 101.11327576492448
-      },
-      "tipos": {
-        "OFICINA": {
-          "presupuesto": 92624100.0,
-          "recaudo": 94767800.0,
-          "cumplimiento": 102.31440845309159,
-          "cierre": 102.31440845309159
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 105534350.0,
-          "recaudo": 105596700.0,
-          "cumplimiento": 100.05908028997194,
-          "cierre": 100.05908028997194
-        }
-      }
-    },
-    "SANTA ISABEL": {
-      "total": {
-        "presupuesto": 94653000.0,
-        "recaudo": 81917310.0,
-        "cumplimiento": 86.54486387119266,
-        "cierre": 86.54486387119266
-      },
-      "tipos": {
-        "OFICINA": {
-          "presupuesto": 41717300.0,
-          "recaudo": 37068180.0,
-          "cumplimiento": 88.85565460851973,
-          "cierre": 88.85565460851973
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 52935700.0,
-          "recaudo": 44849130.0,
-          "cumplimiento": 84.72378753846648,
-          "cierre": 84.72378753846648
-        }
-      }
-    },
-    "ROVIRA": {
-      "total": {
-        "presupuesto": 71190900.0,
-        "recaudo": 70337900.0,
-        "cumplimiento": 98.80181315308558,
-        "cierre": 98.80181315308558
-      },
-      "tipos": {
-        "OFICINA": {
-          "presupuesto": 32368400.0,
-          "recaudo": 33705900.0,
-          "cumplimiento": 104.13211650869367,
-          "cierre": 104.13211650869367
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 38822500.0,
-          "recaudo": 36632000.0,
-          "cumplimiento": 94.35765342262863,
-          "cierre": 94.35765342262863
-        }
-      }
-    },
-    "CALI": {
-      "total": {
-        "presupuesto": 4571045523.0,
-        "recaudo": 4195969059.0,
-        "cumplimiento": 91.794514797266,
-        "cierre": 91.794514797266
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 1453441900.0,
-          "recaudo": 1390039307.0,
-          "cumplimiento": 95.63776212864099,
-          "cierre": 95.63776212864099
-        },
-        "OFICINA": {
-          "presupuesto": 52200050.0,
-          "recaudo": 57872690.0,
-          "cumplimiento": 110.86711602766664,
-          "cierre": 110.86711602766664
-        },
-        "PUNTO DE RECAUDO": {
-          "presupuesto": 25432600.0,
-          "recaudo": 26622320.0,
-          "cumplimiento": 104.67793304656227,
-          "cierre": 104.67793304656227
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 3039970973.0,
-          "recaudo": 2721434742.0,
-          "cumplimiento": 89.521734456377,
-          "cierre": 89.521734456377
-        }
-      }
-    },
-    "YUMBO": {
-      "total": {
-        "presupuesto": 873659050.0,
-        "recaudo": 821250879.0,
-        "cumplimiento": 94.00130165194305,
-        "cierre": 94.00130165194305
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 256698600.0,
-          "recaudo": 246250300.0,
-          "cumplimiento": 95.92974016998924,
-          "cierre": 95.92974016998924
-        },
-        "OFICINA": {
-          "presupuesto": 136454150.0,
-          "recaudo": 128219100.0,
-          "cumplimiento": 93.96496918562023,
-          "cierre": 93.96496918562023
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 480506300.0,
-          "recaudo": 446781479.0,
-          "cumplimiento": 92.98139878707106,
-          "cierre": 92.98139878707106
-        }
-      }
-    },
-    "VALLE SUR MEDIOS": {
-      "total": {
-        "presupuesto": 1277865170.0,
-        "recaudo": 1018686380.0,
-        "cumplimiento": 79.71782969873105,
-        "cierre": 79.71782969873105
-      },
-      "tipos": {
-        "MEDIOS": {
-          "presupuesto": 1277865170.0,
-          "recaudo": 1018686380.0,
-          "cumplimiento": 79.71782969873105,
-          "cierre": 79.71782969873105
-        }
-      }
-    },
-    "PALMIRA": {
-      "total": {
-        "presupuesto": 2914488630.0,
-        "recaudo": 2650424648.0,
-        "cumplimiento": 90.93961186597596,
-        "cierre": 90.93961186597596
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 852299150.0,
-          "recaudo": 776478689.0,
-          "cumplimiento": 91.10400837546301,
-          "cierre": 91.10400837546301
-        },
-        "OFICINA": {
-          "presupuesto": 256731550.0,
-          "recaudo": 255512990.0,
-          "cumplimiento": 99.5253563498526,
-          "cierre": 99.5253563498526
-        },
-        "PUNTO DE RECAUDO": {
-          "presupuesto": 11867450.0,
-          "recaudo": 10539550.0,
-          "cumplimiento": 88.81057008877224,
-          "cierre": 88.81057008877224
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 1793590480.0,
-          "recaudo": 1607893419.0,
-          "cumplimiento": 89.64662987060457,
-          "cierre": 89.64662987060457
-        }
-      }
-    },
-    "PRADERA": {
-      "total": {
-        "presupuesto": 581991750.0,
-        "recaudo": 540376100.0,
-        "cumplimiento": 92.84944331255555,
-        "cierre": 92.84944331255555
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 145652750.0,
-          "recaudo": 137838100.0,
-          "cumplimiento": 94.63473913125567,
-          "cierre": 94.63473913125567
-        },
-        "OFICINA": {
-          "presupuesto": 123033500.0,
-          "recaudo": 114440550.0,
-          "cumplimiento": 93.01576399923597,
-          "cierre": 93.01576399923597
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 313305500.0,
-          "recaudo": 288097450.0,
-          "cumplimiento": 91.95416294958116,
-          "cierre": 91.95416294958116
-        }
-      }
-    },
-    "FLORIDA": {
-      "total": {
-        "presupuesto": 587761720.0,
-        "recaudo": 551818479.0,
-        "cumplimiento": 93.8847257694836,
-        "cierre": 93.8847257694836
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 105017650.0,
-          "recaudo": 101679670.0,
-          "cumplimiento": 96.8215057183245,
-          "cierre": 96.8215057183245
-        },
-        "OFICINA": {
-          "presupuesto": 137801200.0,
-          "recaudo": 131295175.0,
-          "cumplimiento": 95.27868770373553,
-          "cierre": 95.27868770373553
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 344942870.0,
-          "recaudo": 318843634.0,
-          "cumplimiento": 92.43375113102063,
-          "cierre": 92.43375113102063
-        }
-      }
-    },
-    "VALLE CENTRO PALMIRA MEDIOS": {
-      "total": {
-        "presupuesto": 826595840.0,
-        "recaudo": 684926863.0,
-        "cumplimiento": 82.86115533801863,
-        "cierre": 82.86115533801863
-      },
-      "tipos": {
-        "MEDIOS": {
-          "presupuesto": 826595840.0,
-          "recaudo": 684926863.0,
-          "cumplimiento": 82.86115533801863,
-          "cierre": 82.86115533801863
-        }
-      }
-    },
-    "TULUA": {
-      "total": {
-        "presupuesto": 2630152650.0,
-        "recaudo": 2502773909.0,
-        "cumplimiento": 95.1569829606658,
-        "cierre": 95.1569829606658
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 1002750550.0,
-          "recaudo": 957083501.0,
-          "cumplimiento": 95.44582159541073,
-          "cierre": 95.44582159541073
-        },
-        "OFICINA": {
-          "presupuesto": 119217850.0,
-          "recaudo": 117622585.0,
-          "cumplimiento": 98.66189081584679,
-          "cierre": 98.66189081584679
-        },
-        "PUNTO DE RECAUDO": {
-          "presupuesto": 41606800.0,
-          "recaudo": 38476900.0,
-          "cumplimiento": 92.47743157368508,
-          "cierre": 92.47743157368508
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 1466577450.0,
-          "recaudo": 1389590923.0,
-          "cumplimiento": 94.75059929497756,
-          "cierre": 94.75059929497756
-        }
-      }
-    },
-    "BUGALAGRANDE": {
-      "total": {
-        "presupuesto": 160023150.0,
-        "recaudo": 151170850.0,
-        "cumplimiento": 94.4681128949155,
-        "cierre": 94.4681128949155
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 28383050.0,
-          "recaudo": 26956150.0,
-          "cumplimiento": 94.97270377919216,
-          "cierre": 94.97270377919216
-        },
-        "OFICINA": {
-          "presupuesto": 45947850.0,
-          "recaudo": 44057900.0,
-          "cumplimiento": 95.88674986968923,
-          "cierre": 95.88674986968923
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 85692250.0,
-          "recaudo": 80156800.0,
-          "cumplimiento": 93.54031432247373,
-          "cierre": 93.54031432247373
-        }
-      }
-    },
-    "ANDALUCIA": {
-      "total": {
-        "presupuesto": 379572100.0,
-        "recaudo": 351959100.0,
-        "cumplimiento": 92.72522927791584,
-        "cierre": 92.72522927791584
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 124213400.0,
-          "recaudo": 116467250.0,
-          "cumplimiento": 93.76383707393889,
-          "cierre": 93.76383707393889
-        },
-        "OFICINA": {
-          "presupuesto": 58465250.0,
-          "recaudo": 53977300.0,
-          "cumplimiento": 92.32373076314563,
-          "cierre": 92.32373076314563
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 196893450.0,
-          "recaudo": 181514550.0,
-          "cumplimiento": 92.18922721908727,
-          "cierre": 92.18922721908727
-        }
-      }
-    },
-    "RIOFRIO": {
-      "total": {
-        "presupuesto": 244849500.0,
-        "recaudo": 225344540.0,
-        "cumplimiento": 92.03389837430748,
-        "cierre": 92.03389837430748
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 22517000.0,
-          "recaudo": 22610500.0,
-          "cumplimiento": 100.4152418172936,
-          "cierre": 100.4152418172936
-        },
-        "OFICINA": {
-          "presupuesto": 69170600.0,
-          "recaudo": 63809720.0,
-          "cumplimiento": 92.24977085640431,
-          "cierre": 92.24977085640431
-        },
-        "PUNTO DE RECAUDO": {
-          "presupuesto": 18391500.0,
-          "recaudo": 16286600.0,
-          "cumplimiento": 88.55503901258733,
-          "cierre": 88.55503901258733
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 134770400.0,
-          "recaudo": 122637720.0,
-          "cumplimiento": 90.99751874298806,
-          "cierre": 90.99751874298806
-        }
-      }
-    },
-    "GUACARI": {
-      "total": {
-        "presupuesto": 399086338.0,
-        "recaudo": 383456750.0,
-        "cumplimiento": 96.08365746662066,
-        "cierre": 96.08365746662066
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 151444894.0,
-          "recaudo": 147694250.0,
-          "cumplimiento": 97.52342657389295,
-          "cierre": 97.52342657389295
-        },
-        "OFICINA": {
-          "presupuesto": 38050900.0,
-          "recaudo": 34408850.0,
-          "cumplimiento": 90.42847869564189,
-          "cierre": 90.42847869564189
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 209590544.0,
-          "recaudo": 201353650.0,
-          "cumplimiento": 96.07000686061485,
-          "cierre": 96.07000686061485
-        }
-      }
-    },
-    "CAICEDONIA": {
-      "total": {
-        "presupuesto": 780013650.0,
-        "recaudo": 744070380.0,
-        "cumplimiento": 95.39196910207917,
-        "cierre": 95.39196910207917
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 185113050.0,
-          "recaudo": 179530500.0,
-          "cumplimiento": 96.98424827423025,
-          "cierre": 96.98424827423025
-        },
-        "OFICINA": {
-          "presupuesto": 187155700.0,
-          "recaudo": 176129430.0,
-          "cumplimiento": 94.10850430951342,
-          "cierre": 94.10850430951342
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 407744900.0,
-          "recaudo": 388410450.0,
-          "cumplimiento": 95.25819942812282,
-          "cierre": 95.25819942812282
-        }
-      }
-    },
-    "SEVILLA": {
-      "total": {
-        "presupuesto": 576759712.0,
-        "recaudo": 572706950.0,
-        "cumplimiento": 99.29732227898748,
-        "cierre": 99.29732227898748
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 103258500.0,
-          "recaudo": 100857850.0,
-          "cumplimiento": 97.67510664981576,
-          "cierre": 97.67510664981576
-        },
-        "OFICINA": {
-          "presupuesto": 178705212.0,
-          "recaudo": 190650600.0,
-          "cumplimiento": 106.68440940603344,
-          "cierre": 106.68440940603344
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 294796000.0,
-          "recaudo": 281198500.0,
-          "cumplimiento": 95.38748829699182,
-          "cierre": 95.38748829699182
-        }
-      }
-    },
-    "BOLIVAR": {
-      "total": {
-        "presupuesto": 275368400.0,
-        "recaudo": 269234250.0,
-        "cumplimiento": 97.77238419513641,
-        "cierre": 97.77238419513641
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 70026750.0,
-          "recaudo": 68621350.0,
-          "cumplimiento": 97.99305265487831,
-          "cierre": 97.99305265487831
-        },
-        "OFICINA": {
-          "presupuesto": 48406150.0,
-          "recaudo": 48353100.0,
-          "cumplimiento": 99.8904064876054,
-          "cierre": 99.8904064876054
-        },
-        "PUNTO DE RECAUDO": {
-          "presupuesto": 8867600.0,
-          "recaudo": 7926400.0,
-          "cumplimiento": 89.38607966078759,
-          "cierre": 89.38607966078759
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 148067900.0,
-          "recaudo": 144333400.0,
-          "cumplimiento": 97.47784631240127,
-          "cierre": 97.47784631240127
-        }
-      }
-    },
-    "VALLE CENTRO MEDIOS": {
-      "total": {
-        "presupuesto": 422461100.0,
-        "recaudo": 369307364.0,
-        "cumplimiento": 87.41807565240917,
-        "cierre": 87.41807565240917
-      },
-      "tipos": {
-        "MEDIOS": {
-          "presupuesto": 422461100.0,
-          "recaudo": 369307364.0,
-          "cumplimiento": 87.41807565240917,
-          "cierre": 87.41807565240917
-        }
-      }
-    },
-    "TRUJILLO": {
-      "total": {
-        "presupuesto": 203515752.0,
-        "recaudo": 197796950.0,
-        "cumplimiento": 97.18999539652341,
-        "cierre": 97.18999539652341
-      },
-      "tipos": {
-        "OFICINA": {
-          "presupuesto": 93044251.0,
-          "recaudo": 90819200.0,
-          "cumplimiento": 97.60860990755893,
-          "cierre": 97.60860990755893
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 110471501.0,
-          "recaudo": 106977750.0,
-          "cumplimiento": 96.8374187293789,
-          "cierre": 96.8374187293789
-        }
-      }
-    },
-    "CARTAGO": {
-      "total": {
-        "presupuesto": 3364886135.0,
-        "recaudo": 3247578704.0,
-        "cumplimiento": 96.51377709991961,
-        "cierre": 96.51377709991961
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 1050065275.0,
-          "recaudo": 1007853649.0,
-          "cumplimiento": 95.98009504694839,
-          "cierre": 95.98009504694839
-        },
-        "OFICINA": {
-          "presupuesto": 380752150.0,
-          "recaudo": 377331797.0,
-          "cumplimiento": 99.10168517761488,
-          "cierre": 99.10168517761488
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 1934068710.0,
-          "recaudo": 1862393258.0,
-          "cumplimiento": 96.29405865316957,
-          "cierre": 96.29405865316957
-        }
-      }
-    },
-    "OBANDO": {
-      "total": {
-        "presupuesto": 346524450.0,
-        "recaudo": 331616400.0,
-        "cumplimiento": 95.6978360401409,
-        "cierre": 95.6978360401409
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 42056200.0,
-          "recaudo": 39677850.0,
-          "cumplimiento": 94.34482906206458,
-          "cierre": 94.34482906206458
-        },
-        "OFICINA": {
-          "presupuesto": 126950850.0,
-          "recaudo": 122074100.0,
-          "cumplimiento": 96.15855269972592,
-          "cierre": 96.15855269972592
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 177517400.0,
-          "recaudo": 169864450.0,
-          "cumplimiento": 95.68890148233356,
-          "cierre": 95.68890148233356
-        }
-      }
-    },
-    "EL AGUILA": {
-      "total": {
-        "presupuesto": 114066450.0,
-        "recaudo": 102762300.0,
-        "cumplimiento": 90.08985551842808,
-        "cierre": 90.08985551842808
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 15345200.0,
-          "recaudo": 12070500.0,
-          "cumplimiento": 78.65977634700101,
-          "cierre": 78.65977634700101
-        },
-        "OFICINA": {
-          "presupuesto": 38729000.0,
-          "recaudo": 36757450.0,
-          "cumplimiento": 94.90937023935551,
-          "cierre": 94.90937023935551
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 59992250.0,
-          "recaudo": 53934350.0,
-          "cumplimiento": 89.90219570027796,
-          "cierre": 89.90219570027796
-        }
-      }
-    },
-    "ARGELIA": {
-      "total": {
-        "presupuesto": 159900200.0,
-        "recaudo": 149030650.0,
-        "cumplimiento": 93.20229117912298,
-        "cierre": 93.20229117912298
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 16250900.0,
-          "recaudo": 15151150.0,
-          "cumplimiento": 93.23268249758475,
-          "cierre": 93.23268249758475
-        },
-        "OFICINA": {
-          "presupuesto": 61247000.0,
-          "recaudo": 57361200.0,
-          "cumplimiento": 93.6555259849462,
-          "cierre": 93.6555259849462
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 82402300.0,
-          "recaudo": 76518300.0,
-          "cumplimiento": 92.85942261320376,
-          "cierre": 92.85942261320376
-        }
-      }
-    },
-    "ANSERMA NUEVO": {
-      "total": {
-        "presupuesto": 484152850.0,
-        "recaudo": 449207348.0,
-        "cumplimiento": 92.78213440238966,
-        "cierre": 92.78213440238966
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 95005300.0,
-          "recaudo": 90896250.0,
-          "cumplimiento": 95.67492550415608,
-          "cierre": 95.67492550415608
-        },
-        "OFICINA": {
-          "presupuesto": 135041400.0,
-          "recaudo": 123723305.0,
-          "cumplimiento": 91.61879616176964,
-          "cierre": 91.61879616176964
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 254106150.0,
-          "recaudo": 234587793.0,
-          "cumplimiento": 92.3188175492801,
-          "cierre": 92.3188175492801
-        }
-      }
-    },
-    "TORO": {
-      "total": {
-        "presupuesto": 429582600.0,
-        "recaudo": 404009565.0,
-        "cumplimiento": 94.0470039987653,
-        "cierre": 94.0470039987653
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 132497800.0,
-          "recaudo": 122930970.0,
-          "cumplimiento": 92.77963105802512,
-          "cierre": 92.77963105802512
-        },
-        "OFICINA": {
-          "presupuesto": 75892950.0,
-          "recaudo": 73066450.0,
-          "cumplimiento": 96.2756751450563,
-          "cierre": 96.2756751450563
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 221191850.0,
-          "recaudo": 208012145.0,
-          "cumplimiento": 94.04150514587224,
-          "cierre": 94.04150514587224
-        }
-      }
-    },
-    "LA UNION": {
-      "total": {
-        "presupuesto": 466802800.0,
-        "recaudo": 448202760.0,
-        "cumplimiento": 96.01543949607843,
-        "cierre": 96.01543949607843
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 118162800.0,
-          "recaudo": 113833850.0,
-          "cumplimiento": 96.33645275839774,
-          "cierre": 96.33645275839774
-        },
-        "OFICINA": {
-          "presupuesto": 103711950.0,
-          "recaudo": 100228480.0,
-          "cumplimiento": 96.6412067269008,
-          "cierre": 96.6412067269008
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 244928050.0,
-          "recaudo": 234140430.0,
-          "cumplimiento": 95.59559633941478,
-          "cierre": 95.59559633941478
-        }
-      }
-    },
-    "ROLDANILLO": {
-      "total": {
-        "presupuesto": 204061750.0,
-        "recaudo": 187692830.0,
-        "cumplimiento": 91.9784477002672,
-        "cierre": 91.9784477002672
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 37092500.0,
-          "recaudo": 33614300.0,
-          "cumplimiento": 90.62290220394958,
-          "cierre": 90.62290220394958
-        },
-        "OFICINA": {
-          "presupuesto": 47913100.0,
-          "recaudo": 44274140.0,
-          "cumplimiento": 92.40508336968387,
-          "cierre": 92.40508336968387
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 119056150.0,
-          "recaudo": 109804390.0,
-          "cumplimiento": 92.22907846423726,
-          "cierre": 92.22907846423726
-        }
-      }
-    },
-    "ZARZAL": {
-      "total": {
-        "presupuesto": 530526850.0,
-        "recaudo": 497403674.0,
-        "cumplimiento": 93.756550493156,
-        "cierre": 93.756550493156
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 90352200.0,
-          "recaudo": 85639200.0,
-          "cumplimiento": 94.78374627291865,
-          "cierre": 94.78374627291865
-        },
-        "OFICINA": {
-          "presupuesto": 152275900.0,
-          "recaudo": 144589317.0,
-          "cumplimiento": 94.95219992132701,
-          "cierre": 94.95219992132701
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 287898750.0,
-          "recaudo": 267175157.0,
-          "cumplimiento": 92.80177736096458,
-          "cierre": 92.80177736096458
-        }
-      }
-    },
-    "LA VICTORIA": {
-      "total": {
-        "presupuesto": 442878100.0,
-        "recaudo": 436964850.0,
-        "cumplimiento": 98.66481318448575,
-        "cierre": 98.66481318448575
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 74494250.0,
-          "recaudo": 70928580.0,
-          "cumplimiento": 95.21349634367753,
-          "cierre": 95.21349634367753
-        },
-        "OFICINA": {
-          "presupuesto": 135555750.0,
-          "recaudo": 136707280.0,
-          "cumplimiento": 100.84948812573424,
-          "cierre": 100.84948812573424
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 232828100.0,
-          "recaudo": 229328990.0,
-          "cumplimiento": 98.49712727973986,
-          "cierre": 98.49712727973986
-        }
-      }
-    },
-    "EL DOVIO": {
-      "total": {
-        "presupuesto": 330032700.0,
-        "recaudo": 321779286.0,
-        "cumplimiento": 97.49921325977698,
-        "cierre": 97.49921325977698
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 37303600.0,
-          "recaudo": 36173370.0,
-          "cumplimiento": 96.97018518319948,
-          "cierre": 96.97018518319948
-        },
-        "OFICINA": {
-          "presupuesto": 118304650.0,
-          "recaudo": 116190923.0,
-          "cumplimiento": 98.2133187495166,
-          "cierre": 98.2133187495166
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 174424450.0,
-          "recaudo": 169414993.0,
-          "cumplimiento": 97.12800757003963,
-          "cierre": 97.12800757003963
-        }
-      }
-    },
-    "SAN JOSE DEL PALMAR": {
-      "total": {
-        "presupuesto": 127313550.0,
-        "recaudo": 120407320.0,
-        "cumplimiento": 94.57541636377275,
-        "cierre": 94.57541636377275
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 22191200.0,
-          "recaudo": 24948500.0,
-          "cumplimiento": 112.42519557301993,
-          "cierre": 112.42519557301993
-        },
-        "OFICINA": {
-          "presupuesto": 33303300.0,
-          "recaudo": 24632660.0,
-          "cumplimiento": 73.9646221245342,
-          "cierre": 73.9646221245342
-        },
-        "PUNTO DE RECAUDO": {
-          "presupuesto": 5970650.0,
-          "recaudo": 7205800.0,
-          "cumplimiento": 120.68702737557888,
-          "cierre": 120.68702737557888
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 65848400.0,
-          "recaudo": 63620360.0,
-          "cumplimiento": 96.61640981405775,
-          "cierre": 96.61640981405775
-        }
-      }
-    },
-    "ALCALA": {
-      "total": {
-        "presupuesto": 524741000.0,
-        "recaudo": 508318114.0,
-        "cumplimiento": 96.87028724647017,
-        "cierre": 96.87028724647017
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 75613750.0,
-          "recaudo": 77297800.0,
-          "cumplimiento": 102.2271742903903,
-          "cierre": 102.2271742903903
-        },
-        "OFICINA": {
-          "presupuesto": 167547000.0,
-          "recaudo": 158987667.0,
-          "cumplimiento": 94.8913839101864,
-          "cierre": 94.8913839101864
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 281580250.0,
-          "recaudo": 272032647.0,
-          "cumplimiento": 96.60927817203088,
-          "cierre": 96.60927817203088
-        }
-      }
-    },
-    "ULLOA": {
-      "total": {
-        "presupuesto": 121940400.0,
-        "recaudo": 118387396.0,
-        "cumplimiento": 97.0862782146032,
-        "cierre": 97.0862782146032
-      },
-      "tipos": {
-        "COBRADOR": {
-          "presupuesto": 14398400.0,
-          "recaudo": 13663550.0,
-          "cumplimiento": 94.89630792310257,
-          "cierre": 94.89630792310257
-        },
-        "OFICINA": {
-          "presupuesto": 41481250.0,
-          "recaudo": 40851790.0,
-          "cumplimiento": 98.48254331776405,
-          "cierre": 98.48254331776405
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 66060750.0,
-          "recaudo": 63872056.0,
-          "cumplimiento": 96.68684657682512,
-          "cierre": 96.68684657682512
-        }
-      }
-    },
-    "VALLE NORTE MEDIOS": {
-      "total": {
-        "presupuesto": 427526150.0,
-        "recaudo": 382764269.0,
-        "cumplimiento": 89.53002500548797,
-        "cierre": 89.53002500548797
-      },
-      "tipos": {
-        "MEDIOS": {
-          "presupuesto": 427526150.0,
-          "recaudo": 382764269.0,
-          "cumplimiento": 89.53002500548797,
-          "cierre": 89.53002500548797
-        }
-      }
-    },
-    "VERSALLES": {
-      "total": {
-        "presupuesto": 104401600.0,
-        "recaudo": 94487850.0,
-        "cumplimiento": 90.50421641047647,
-        "cierre": 90.50421641047647
-      },
-      "tipos": {
-        "OFICINA": {
-          "presupuesto": 47951950.0,
-          "recaudo": 42905300.0,
-          "cumplimiento": 89.4756104809085,
-          "cierre": 89.4756104809085
-        },
-        "RECAUDO ZONA": {
-          "presupuesto": 56449650.0,
-          "recaudo": 51582550.0,
-          "cumplimiento": 91.37798020005438,
-          "cierre": 91.37798020005438
-        }
-      }
-    },
-    "SIN IDENTIFICAR": {
-      "total": {
-        "presupuesto": 0.0,
-        "recaudo": 328776226.0,
-        "cumplimiento": 0,
-        "cierre": 0
-      },
-      "tipos": {
-        "SIN IDENTIFICAR": {
-          "presupuesto": 0.0,
-          "recaudo": 328776226.0,
-          "cumplimiento": 0,
-          "cierre": 0
-        }
-      }
-    },
-    "CARAMANTA": {
-      "total": {
-        "presupuesto": 24007600.0,
-        "recaudo": 19299100.0,
-        "cumplimiento": 80.3874606374648,
-        "cierre": 80.3874606374648
-      },
-      "tipos": {
-        "RECAUDO ZONA": {
-          "presupuesto": 24007600.0,
-          "recaudo": 19299100.0,
-          "cumplimiento": 80.3874606374648,
-          "cierre": 80.3874606374648
-        }
-      }
-    },
-    "VILLA RICA": {
-      "total": {
-        "presupuesto": 136458400.0,
-        "recaudo": 132259100.0,
-        "cumplimiento": 96.92265188511664,
-        "cierre": 96.92265188511664
-      },
-      "tipos": {
-        "RECAUDO ZONA": {
-          "presupuesto": 136458400.0,
-          "recaudo": 132259100.0,
-          "cumplimiento": 96.92265188511664,
-          "cierre": 96.92265188511664
-        }
-      }
-    },
-    "TEBAIDA": {
-      "total": {
-        "presupuesto": 405270150.0,
-        "recaudo": 374145080.0,
-        "cumplimiento": 92.31992042838586,
-        "cierre": 92.31992042838586
-      },
-      "tipos": {
-        "RECAUDO ZONA": {
-          "presupuesto": 405270150.0,
-          "recaudo": 374145080.0,
-          "cumplimiento": 92.31992042838586,
-          "cierre": 92.31992042838586
-        }
-      }
-    },
-    "VILLA HERMOSA": {
-      "total": {
-        "presupuesto": 35179050.0,
-        "recaudo": 28627700.0,
-        "cumplimiento": 81.37712644315296,
-        "cierre": 81.37712644315296
-      },
-      "tipos": {
-        "RECAUDO ZONA": {
-          "presupuesto": 35179050.0,
-          "recaudo": 28627700.0,
-          "cumplimiento": 81.37712644315296,
-          "cierre": 81.37712644315296
-        }
-      }
-    },
-    "PUERTO BOYACA": {
-      "total": {
-        "presupuesto": 189435000.0,
-        "recaudo": 168807290.0,
-        "cumplimiento": 89.11092987040409,
-        "cierre": 89.11092987040409
-      },
-      "tipos": {
-        "RECAUDO ZONA": {
-          "presupuesto": 189435000.0,
-          "recaudo": 168807290.0,
-          "cumplimiento": 89.11092987040409,
-          "cierre": 89.11092987040409
-        }
-      }
-    },
-    "STDER DE QUILICHAO": {
-      "total": {
-        "presupuesto": 521468050.0,
-        "recaudo": 465107200.0,
-        "cumplimiento": 89.1918881703299,
-        "cierre": 89.1918881703299
-      },
-      "tipos": {
-        "RECAUDO ZONA": {
-          "presupuesto": 521468050.0,
-          "recaudo": 465107200.0,
-          "cumplimiento": 89.1918881703299,
-          "cierre": 89.1918881703299
-        }
-      }
-    },
-    "CSC": {
-      "total": {
-        "presupuesto": 24634147.0,
-        "recaudo": 11590200.0,
-        "cumplimiento": 47.04932547491902,
-        "cierre": 47.04932547491902
-      },
-      "tipos": {
-        "RECAUDO ZONA": {
-          "presupuesto": 24634147.0,
-          "recaudo": 11590200.0,
-          "cumplimiento": 47.04932547491902,
-          "cierre": 47.04932547491902
-        }
-      }
-    },
-    "KENNEDY": {
       "total": {
         "presupuesto": 0.0,
         "recaudo": 0.0,
@@ -4044,7 +2448,7 @@ const DATOS_RECAUDO = {
         "cierre": 0
       },
       "tipos": {
-        "RECAUDO ZONA": {
+        "OFICINA": {
           "presupuesto": 0.0,
           "recaudo": 0.0,
           "cumplimiento": 0,
@@ -4052,41 +2456,793 @@ const DATOS_RECAUDO = {
         }
       }
     },
-    "RENACER MASCOTAS": {
+    "ANZOATEGUI": {
       "total": {
-        "presupuesto": 21059900.0,
-        "recaudo": 19160450.0,
-        "cumplimiento": 90.98072640420895,
-        "cierre": 90.98072640420895
+        "presupuesto": 13231900.0,
+        "recaudo": 10505750.0,
+        "cumplimiento": 79.39713873291062,
+        "cierre": 79.39713873291062
+      },
+      "tipos": {
+        "OFICINA": {
+          "presupuesto": 13231900.0,
+          "recaudo": 10505750.0,
+          "cumplimiento": 79.39713873291062,
+          "cierre": 79.39713873291062
+        }
+      }
+    },
+    "SANTA ISABEL": {
+      "total": {
+        "presupuesto": 6129350.0,
+        "recaudo": 1340990.0,
+        "cumplimiento": 21.87817631559627,
+        "cierre": 21.87817631559627
+      },
+      "tipos": {
+        "OFICINA": {
+          "presupuesto": 6129350.0,
+          "recaudo": 1340990.0,
+          "cumplimiento": 21.87817631559627,
+          "cierre": 21.87817631559627
+        }
+      }
+    },
+    "ROVIRA": {
+      "total": {
+        "presupuesto": 4644900.0,
+        "recaudo": 4844450.0,
+        "cumplimiento": 104.29610971172684,
+        "cierre": 104.29610971172684
+      },
+      "tipos": {
+        "OFICINA": {
+          "presupuesto": 4644900.0,
+          "recaudo": 4844450.0,
+          "cumplimiento": 104.29610971172684,
+          "cierre": 104.29610971172684
+        }
+      }
+    },
+    "CALI": {
+      "total": {
+        "presupuesto": 222059500.0,
+        "recaudo": 212638992.0,
+        "cumplimiento": 95.75766495015976,
+        "cierre": 95.75766495015976
       },
       "tipos": {
         "COBRADOR": {
-          "presupuesto": 21059900.0,
-          "recaudo": 19160450.0,
-          "cumplimiento": 90.98072640420895,
-          "cierre": 90.98072640420895
+          "presupuesto": 210164400.0,
+          "recaudo": 200576502.0,
+          "cumplimiento": 95.43790575378132,
+          "cierre": 95.43790575378132
+        },
+        "OFICINA": {
+          "presupuesto": 8205900.0,
+          "recaudo": 8235990.0,
+          "cumplimiento": 100.36668738346799,
+          "cierre": 100.36668738346799
+        },
+        "PUNTO DE RECAUDO": {
+          "presupuesto": 3689200.0,
+          "recaudo": 3826500.0,
+          "cumplimiento": 103.72167407568035,
+          "cierre": 103.72167407568035
+        }
+      }
+    },
+    "YUMBO": {
+      "total": {
+        "presupuesto": 56338000.0,
+        "recaudo": 52614500.0,
+        "cumplimiento": 93.3907841953921,
+        "cierre": 93.3907841953921
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 36577250.0,
+          "recaudo": 34635600.0,
+          "cumplimiento": 94.69164576341852,
+          "cierre": 94.69164576341852
+        },
+        "OFICINA": {
+          "presupuesto": 19760750.0,
+          "recaudo": 17978900.0,
+          "cumplimiento": 90.98288273471402,
+          "cierre": 90.98288273471402
+        }
+      }
+    },
+    "VALLE SUR MEDIOS": {
+      "total": {
+        "presupuesto": 180875300.0,
+        "recaudo": 138854290.0,
+        "cumplimiento": 76.76796665990327,
+        "cierre": 76.76796665990327
+      },
+      "tipos": {
+        "MEDIOS": {
+          "presupuesto": 180875300.0,
+          "recaudo": 138854290.0,
+          "cumplimiento": 76.76796665990327,
+          "cierre": 76.76796665990327
+        }
+      }
+    },
+    "PALMIRA": {
+      "total": {
+        "presupuesto": 162691350.0,
+        "recaudo": 148222000.0,
+        "cumplimiento": 91.10625733943446,
+        "cierre": 91.10625733943446
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 118035700.0,
+          "recaudo": 109893100.0,
+          "cumplimiento": 93.10157859020617,
+          "cierre": 93.10157859020617
+        },
+        "OFICINA": {
+          "presupuesto": 43048850.0,
+          "recaudo": 37579400.0,
+          "cumplimiento": 87.29478255516699,
+          "cierre": 87.29478255516699
+        },
+        "PUNTO DE RECAUDO": {
+          "presupuesto": 1606800.0,
+          "recaudo": 749500.0,
+          "cumplimiento": 46.64550659696291,
+          "cierre": 46.64550659696291
+        }
+      }
+    },
+    "PRADERA": {
+      "total": {
+        "presupuesto": 38779150.0,
+        "recaudo": 33709640.0,
+        "cumplimiento": 86.92722764681537,
+        "cierre": 86.92722764681537
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 21162350.0,
+          "recaudo": 18386540.0,
+          "cumplimiento": 86.88326201957722,
+          "cierre": 86.88326201957722
+        },
+        "OFICINA": {
+          "presupuesto": 17616800.0,
+          "recaudo": 15323100.0,
+          "cumplimiento": 86.98004177830254,
+          "cierre": 86.98004177830254
+        }
+      }
+    },
+    "FLORIDA": {
+      "total": {
+        "presupuesto": 35143000.0,
+        "recaudo": 34445860.0,
+        "cumplimiento": 98.01627635660017,
+        "cierre": 98.01627635660017
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 14794450.0,
+          "recaudo": 14875200.0,
+          "cumplimiento": 100.54581278790357,
+          "cierre": 100.54581278790357
+        },
+        "OFICINA": {
+          "presupuesto": 20348550.0,
+          "recaudo": 19570660.0,
+          "cumplimiento": 96.1771723292323,
+          "cierre": 96.1771723292323
+        }
+      }
+    },
+    "VALLE CENTRO PALMIRA MEDIOS": {
+      "total": {
+        "presupuesto": 123714510.0,
+        "recaudo": 95273550.0,
+        "cumplimiento": 77.01081304044287,
+        "cierre": 77.01081304044287
+      },
+      "tipos": {
+        "MEDIOS": {
+          "presupuesto": 123714510.0,
+          "recaudo": 95273550.0,
+          "cumplimiento": 77.01081304044287,
+          "cierre": 77.01081304044287
+        }
+      }
+    },
+    "TULUA": {
+      "total": {
+        "presupuesto": 166772350.0,
+        "recaudo": 154983050.0,
+        "cumplimiento": 92.93090251471541,
+        "cierre": 92.93090251471541
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 143120900.0,
+          "recaudo": 134502750.0,
+          "cumplimiento": 93.97841265671192,
+          "cierre": 93.97841265671192
+        },
+        "OFICINA": {
+          "presupuesto": 17789050.0,
+          "recaudo": 15201150.0,
+          "cumplimiento": 85.45228665948996,
+          "cierre": 85.45228665948996
+        },
+        "PUNTO DE RECAUDO": {
+          "presupuesto": 5862400.0,
+          "recaudo": 5279150.0,
+          "cumplimiento": 90.0510030021834,
+          "cierre": 90.0510030021834
+        }
+      }
+    },
+    "BUGALAGRANDE": {
+      "total": {
+        "presupuesto": 10659600.0,
+        "recaudo": 9817400.0,
+        "cumplimiento": 92.09914068070097,
+        "cierre": 92.09914068070097
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 4003350.0,
+          "recaudo": 3885400.0,
+          "cumplimiento": 97.05371751158405,
+          "cierre": 97.05371751158405
+        },
+        "OFICINA": {
+          "presupuesto": 6656250.0,
+          "recaudo": 5932000.0,
+          "cumplimiento": 89.11924882629107,
+          "cierre": 89.11924882629107
+        }
+      }
+    },
+    "ANDALUCIA": {
+      "total": {
+        "presupuesto": 25999550.0,
+        "recaudo": 22926350.0,
+        "cumplimiento": 88.1797954195361,
+        "cierre": 88.1797954195361
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 17661150.0,
+          "recaudo": 15408950.0,
+          "cumplimiento": 87.24771603208171,
+          "cierre": 87.24771603208171
+        },
+        "OFICINA": {
+          "presupuesto": 8338400.0,
+          "recaudo": 7517400.0,
+          "cumplimiento": 90.15398637628323,
+          "cierre": 90.15398637628323
+        }
+      }
+    },
+    "RIOFRIO": {
+      "total": {
+        "presupuesto": 16054900.0,
+        "recaudo": 14667070.0,
+        "cumplimiento": 91.35572317485628,
+        "cierre": 91.35572317485628
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 3260900.0,
+          "recaudo": 3492350.0,
+          "cumplimiento": 107.09773375448495,
+          "cierre": 107.09773375448495
+        },
+        "OFICINA": {
+          "presupuesto": 10317200.0,
+          "recaudo": 9923820.0,
+          "cumplimiento": 96.18714379870508,
+          "cierre": 96.18714379870508
+        },
+        "PUNTO DE RECAUDO": {
+          "presupuesto": 2476800.0,
+          "recaudo": 1250900.0,
+          "cumplimiento": 50.5046834625323,
+          "cierre": 50.5046834625323
+        }
+      }
+    },
+    "GUACARI": {
+      "total": {
+        "presupuesto": 27081050.0,
+        "recaudo": 26153900.0,
+        "cumplimiento": 96.57638828627398,
+        "cierre": 96.57638828627398
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 21771500.0,
+          "recaudo": 20804450.0,
+          "cumplimiento": 95.55818386422617,
+          "cierre": 95.55818386422617
+        },
+        "OFICINA": {
+          "presupuesto": 5309550.0,
+          "recaudo": 5349450.0,
+          "cumplimiento": 100.75147611379495,
+          "cierre": 100.75147611379495
+        }
+      }
+    },
+    "CAICEDONIA": {
+      "total": {
+        "presupuesto": 53464900.0,
+        "recaudo": 49743250.0,
+        "cumplimiento": 93.0390779745216,
+        "cierre": 93.0390779745216
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 26823900.0,
+          "recaudo": 25259800.0,
+          "cumplimiento": 94.16900599838203,
+          "cierre": 94.16900599838203
+        },
+        "OFICINA": {
+          "presupuesto": 26641000.0,
+          "recaudo": 24483450.0,
+          "cumplimiento": 91.90139259036823,
+          "cierre": 91.90139259036823
+        }
+      }
+    },
+    "SEVILLA": {
+      "total": {
+        "presupuesto": 75322362.0,
+        "recaudo": 75410450.0,
+        "cumplimiento": 100.11694800542766,
+        "cierre": 100.11694800542766
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 15020850.0,
+          "recaudo": 14703600.0,
+          "cumplimiento": 97.8879357692807,
+          "cierre": 97.8879357692807
+        },
+        "OFICINA": {
+          "presupuesto": 60301512.0,
+          "recaudo": 60706850.0,
+          "cumplimiento": 100.67218546692493,
+          "cierre": 100.67218546692493
+        }
+      }
+    },
+    "BOLIVAR": {
+      "total": {
+        "presupuesto": 18370650.0,
+        "recaudo": 17613150.0,
+        "cumplimiento": 95.87657486262053,
+        "cierre": 95.87657486262053
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 10076600.0,
+          "recaudo": 9958550.0,
+          "cumplimiento": 98.82847389000258,
+          "cierre": 98.82847389000258
+        },
+        "OFICINA": {
+          "presupuesto": 7032250.0,
+          "recaudo": 6736550.0,
+          "cumplimiento": 95.79508692097124,
+          "cierre": 95.79508692097124
+        },
+        "PUNTO DE RECAUDO": {
+          "presupuesto": 1261800.0,
+          "recaudo": 918050.0,
+          "cumplimiento": 72.7571722935489,
+          "cierre": 72.7571722935489
         }
       }
     },
     "BUGA": {
       "total": {
-        "presupuesto": 80621142.0,
-        "recaudo": 108761150.0,
-        "cumplimiento": 134.90400570113482,
-        "cierre": 134.90400570113482
+        "presupuesto": 18036015.0,
+        "recaudo": 15991200.0,
+        "cumplimiento": 88.6626009126739,
+        "cierre": 88.6626009126739
       },
       "tipos": {
         "COBRADOR": {
           "presupuesto": 18036015.0,
-          "recaudo": 21671900.0,
-          "cumplimiento": 120.15902625940376,
-          "cierre": 120.15902625940376
+          "recaudo": 15991200.0,
+          "cumplimiento": 88.6626009126739,
+          "cierre": 88.6626009126739
+        }
+      }
+    },
+    "VALLE CENTRO MEDIOS": {
+      "total": {
+        "presupuesto": 61689000.0,
+        "recaudo": 56177535.0,
+        "cumplimiento": 91.06572484559646,
+        "cierre": 91.06572484559646
+      },
+      "tipos": {
+        "MEDIOS": {
+          "presupuesto": 61689000.0,
+          "recaudo": 56177535.0,
+          "cumplimiento": 91.06572484559646,
+          "cierre": 91.06572484559646
+        }
+      }
+    },
+    "TRUJILLO": {
+      "total": {
+        "presupuesto": 13413050.0,
+        "recaudo": 11812100.0,
+        "cumplimiento": 88.06423594931802,
+        "cierre": 88.06423594931802
+      },
+      "tipos": {
+        "OFICINA": {
+          "presupuesto": 13413050.0,
+          "recaudo": 11812100.0,
+          "cumplimiento": 88.06423594931802,
+          "cierre": 88.06423594931802
+        }
+      }
+    },
+    "CARTAGO": {
+      "total": {
+        "presupuesto": 205443050.0,
+        "recaudo": 189911340.0,
+        "cumplimiento": 92.43989514369068,
+        "cierre": 92.43989514369068
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 150475550.0,
+          "recaudo": 139830580.0,
+          "cumplimiento": 92.92578096574493,
+          "cierre": 92.92578096574493
         },
-        "RECAUDO ZONA": {
-          "presupuesto": 62585127.0,
-          "recaudo": 87089250.0,
-          "cumplimiento": 139.15326879499662,
-          "cierre": 139.15326879499662
+        "OFICINA": {
+          "presupuesto": 54967500.0,
+          "recaudo": 50080760.0,
+          "cumplimiento": 91.10976486105426,
+          "cierre": 91.10976486105426
+        }
+      }
+    },
+    "OBANDO": {
+      "total": {
+        "presupuesto": 24343600.0,
+        "recaudo": 21895510.0,
+        "cumplimiento": 89.94359913899342,
+        "cierre": 89.94359913899342
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 6163900.0,
+          "recaudo": 5347750.0,
+          "cumplimiento": 86.75919466571489,
+          "cierre": 86.75919466571489
+        },
+        "OFICINA": {
+          "presupuesto": 18179700.0,
+          "recaudo": 16547760.0,
+          "cumplimiento": 91.02328421261076,
+          "cierre": 91.02328421261076
+        }
+      }
+    },
+    "EL AGUILA": {
+      "total": {
+        "presupuesto": 7762550.0,
+        "recaudo": 4678850.0,
+        "cumplimiento": 60.2746520151239,
+        "cierre": 60.2746520151239
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 2230500.0,
+          "recaudo": 702400.0,
+          "cumplimiento": 31.490697153104684,
+          "cierre": 31.490697153104684
+        },
+        "OFICINA": {
+          "presupuesto": 5532050.0,
+          "recaudo": 3976450.0,
+          "cumplimiento": 71.88022523296065,
+          "cierre": 71.88022523296065
+        }
+      }
+    },
+    "ARGELIA": {
+      "total": {
+        "presupuesto": 11221700.0,
+        "recaudo": 11506600.0,
+        "cumplimiento": 102.53883101490861,
+        "cierre": 102.53883101490861
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 2339500.0,
+          "recaudo": 2538700.0,
+          "cumplimiento": 108.51463988031631,
+          "cierre": 108.51463988031631
+        },
+        "OFICINA": {
+          "presupuesto": 8882200.0,
+          "recaudo": 8967900.0,
+          "cumplimiento": 100.96485105041543,
+          "cierre": 100.96485105041543
+        }
+      }
+    },
+    "ANSERMA NUEVO": {
+      "total": {
+        "presupuesto": 33092100.0,
+        "recaudo": 30292950.0,
+        "cumplimiento": 91.54133463878085,
+        "cierre": 91.54133463878085
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 13535350.0,
+          "recaudo": 11459050.0,
+          "cumplimiento": 84.66016763511841,
+          "cierre": 84.66016763511841
+        },
+        "OFICINA": {
+          "presupuesto": 19556750.0,
+          "recaudo": 18833900.0,
+          "cumplimiento": 96.30383371470208,
+          "cierre": 96.30383371470208
+        }
+      }
+    },
+    "TORO": {
+      "total": {
+        "presupuesto": 30008700.0,
+        "recaudo": 27605990.0,
+        "cumplimiento": 91.99328861296891,
+        "cierre": 91.99328861296891
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 18632700.0,
+          "recaudo": 16881900.0,
+          "cumplimiento": 90.60361622309166,
+          "cierre": 90.60361622309166
+        },
+        "OFICINA": {
+          "presupuesto": 11376000.0,
+          "recaudo": 10724090.0,
+          "cumplimiento": 94.26942686357243,
+          "cierre": 94.26942686357243
+        }
+      }
+    },
+    "LA UNION": {
+      "total": {
+        "presupuesto": 31697300.0,
+        "recaudo": 30004800.0,
+        "cumplimiento": 94.66042849075474,
+        "cierre": 94.66042849075474
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 16676050.0,
+          "recaudo": 15843250.0,
+          "cumplimiento": 95.0060116154605,
+          "cierre": 95.0060116154605
+        },
+        "OFICINA": {
+          "presupuesto": 15021250.0,
+          "recaudo": 14161550.0,
+          "cumplimiento": 94.27677456936007,
+          "cierre": 94.27677456936007
+        }
+      }
+    },
+    "ROLDANILLO": {
+      "total": {
+        "presupuesto": 11917700.0,
+        "recaudo": 12582150.0,
+        "cumplimiento": 105.57532074141822,
+        "cierre": 105.57532074141822
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 5216100.0,
+          "recaudo": 5337700.0,
+          "cumplimiento": 102.33124364946991,
+          "cierre": 102.33124364946991
+        },
+        "OFICINA": {
+          "presupuesto": 6701600.0,
+          "recaudo": 7244450.0,
+          "cumplimiento": 108.10030440491822,
+          "cierre": 108.10030440491822
+        }
+      }
+    },
+    "ZARZAL": {
+      "total": {
+        "presupuesto": 34883800.0,
+        "recaudo": 32757500.0,
+        "cumplimiento": 93.90462048286024,
+        "cierre": 93.90462048286024
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 12862050.0,
+          "recaudo": 11327350.0,
+          "cumplimiento": 88.06799849168678,
+          "cierre": 88.06799849168678
+        },
+        "OFICINA": {
+          "presupuesto": 22021750.0,
+          "recaudo": 21430150.0,
+          "cumplimiento": 97.31356499824038,
+          "cierre": 97.31356499824038
+        }
+      }
+    },
+    "LA VICTORIA": {
+      "total": {
+        "presupuesto": 30192200.0,
+        "recaudo": 29895890.0,
+        "cumplimiento": 99.01858758222323,
+        "cierre": 99.01858758222323
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 10475550.0,
+          "recaudo": 10627000.0,
+          "cumplimiento": 101.44574747865266,
+          "cierre": 101.44574747865266
+        },
+        "OFICINA": {
+          "presupuesto": 19716650.0,
+          "recaudo": 19268890.0,
+          "cumplimiento": 97.72902597550801,
+          "cierre": 97.72902597550801
+        }
+      }
+    },
+    "EL DOVIO": {
+      "total": {
+        "presupuesto": 22393100.0,
+        "recaudo": 21713594.0,
+        "cumplimiento": 96.96555635441274,
+        "cierre": 96.96555635441274
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 5274100.0,
+          "recaudo": 4368280.0,
+          "cumplimiento": 82.82512656187787,
+          "cierre": 82.82512656187787
+        },
+        "OFICINA": {
+          "presupuesto": 17119000.0,
+          "recaudo": 17345314.0,
+          "cumplimiento": 101.32200478999943,
+          "cierre": 101.32200478999943
+        }
+      }
+    },
+    "SAN JOSE DEL PALMAR": {
+      "total": {
+        "presupuesto": 8761350.0,
+        "recaudo": 7662150.0,
+        "cumplimiento": 87.45398825523463,
+        "cierre": 87.45398825523463
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 3502950.0,
+          "recaudo": 4176700.0,
+          "cumplimiento": 119.23378866384047,
+          "cierre": 119.23378866384047
+        },
+        "OFICINA": {
+          "presupuesto": 4282950.0,
+          "recaudo": 3485450.0,
+          "cumplimiento": 81.37965654513827,
+          "cierre": 81.37965654513827
+        },
+        "PUNTO DE RECAUDO": {
+          "presupuesto": 975450.0,
+          "recaudo": 0.0,
+          "cumplimiento": 0.0,
+          "cierre": 0.0
+        }
+      }
+    },
+    "ALCALA": {
+      "total": {
+        "presupuesto": 34561400.0,
+        "recaudo": 32184367.0,
+        "cumplimiento": 93.12228960632382,
+        "cierre": 93.12228960632382
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 10806350.0,
+          "recaudo": 11373900.0,
+          "cumplimiento": 105.25200460840153,
+          "cierre": 105.25200460840153
+        },
+        "OFICINA": {
+          "presupuesto": 23755050.0,
+          "recaudo": 20810467.0,
+          "cumplimiento": 87.60439148728376,
+          "cierre": 87.60439148728376
+        }
+      }
+    },
+    "ULLOA": {
+      "total": {
+        "presupuesto": 8110150.0,
+        "recaudo": 7173610.0,
+        "cumplimiento": 88.45224810885125,
+        "cierre": 88.45224810885125
+      },
+      "tipos": {
+        "COBRADOR": {
+          "presupuesto": 2078700.0,
+          "recaudo": 1607500.0,
+          "cumplimiento": 77.33198633761485,
+          "cierre": 77.33198633761485
+        },
+        "OFICINA": {
+          "presupuesto": 6031450.0,
+          "recaudo": 5566110.0,
+          "cumplimiento": 92.284773976407,
+          "cierre": 92.284773976407
+        }
+      }
+    },
+    "VALLE NORTE MEDIOS": {
+      "total": {
+        "presupuesto": 61270600.0,
+        "recaudo": 53266550.0,
+        "cumplimiento": 86.93655684781935,
+        "cierre": 86.93655684781935
+      },
+      "tipos": {
+        "MEDIOS": {
+          "presupuesto": 61270600.0,
+          "recaudo": 53266550.0,
+          "cumplimiento": 86.93655684781935,
+          "cierre": 86.93655684781935
+        }
+      }
+    },
+    "VERSALLES": {
+      "total": {
+        "presupuesto": 6815800.0,
+        "recaudo": 5606450.0,
+        "cumplimiento": 82.25666832946976,
+        "cierre": 82.25666832946976
+      },
+      "tipos": {
+        "OFICINA": {
+          "presupuesto": 6815800.0,
+          "recaudo": 5606450.0,
+          "cumplimiento": 82.25666832946976,
+          "cierre": 82.25666832946976
         }
       }
     }
@@ -4116,34 +3272,24 @@ const DATOS_RECAUDO = {
   ],
   "tipos": {
     "COBRADOR": {
-      "presupuesto": 17873792251.0,
-      "recaudo": 17007383014.0,
-      "cumplimiento": 95.15262779810185
+      "presupuesto": 2565158871.0,
+      "recaudo": 2376494037.0,
+      "cumplimiento": 92.64510139574898
     },
     "MEDIOS": {
-      "presupuesto": 12173271321.0,
-      "recaudo": 9797736780.0,
-      "cumplimiento": 80.48565189784289
+      "presupuesto": 1749901747.0,
+      "recaudo": 1360854781.0,
+      "cumplimiento": 77.76749656562289
     },
     "OFICINA": {
-      "presupuesto": 11007058661.0,
-      "recaudo": 10576385131.0,
-      "cumplimiento": 96.08729685864259
+      "presupuesto": 1628893152.0,
+      "recaudo": 1504622160.0,
+      "cumplimiento": 92.37083219071695
     },
     "PUNTO DE RECAUDO": {
-      "presupuesto": 516196413.0,
-      "recaudo": 488692675.0,
-      "cumplimiento": 94.67184635395752
-    },
-    "SIN IDENTIFICAR": {
-      "presupuesto": 0.0,
-      "recaudo": 328776226.0,
-      "cumplimiento": 0
-    },
-    "RECAUDO ZONA": {
-      "presupuesto": 43796597027.0,
-      "recaudo": 40320682459.0,
-      "cumplimiento": 92.06350537723937
+      "presupuesto": 73171773.0,
+      "recaudo": 60705147.0,
+      "cumplimiento": 82.96252026037418
     }
   }
 };
