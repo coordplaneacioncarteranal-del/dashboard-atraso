@@ -8,7 +8,7 @@ const DATOS_RECAUDO = {
         "cierre": 83.70993066129913
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 213753550.0,
           "recaudo": 199039190.0,
           "cumplimiento": 93.11620321627407,
@@ -42,7 +42,7 @@ const DATOS_RECAUDO = {
         "cierre": 70.04139804454593
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 62078096.0,
           "recaudo": 52812960.0,
           "cumplimiento": 85.0750319404126,
@@ -70,7 +70,7 @@ const DATOS_RECAUDO = {
         "cierre": 80.89971289002939
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 14790850.0,
           "recaudo": 16274050.0,
           "cumplimiento": 110.02782125435657,
@@ -98,7 +98,7 @@ const DATOS_RECAUDO = {
         "cierre": 90.34372776693763
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 156564050.0,
           "recaudo": 150859950.0,
           "cumplimiento": 96.35669874406034,
@@ -132,7 +132,7 @@ const DATOS_RECAUDO = {
         "cierre": 86.08397345779677
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 42513965.0,
           "recaudo": 35835205.0,
           "cumplimiento": 84.29043256727525,
@@ -166,7 +166,7 @@ const DATOS_RECAUDO = {
         "cierre": 88.47720318968875
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 165920150.0,
           "recaudo": 152457550.0,
           "cumplimiento": 91.88609701714951,
@@ -200,7 +200,7 @@ const DATOS_RECAUDO = {
         "cierre": 82.67890257179367
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 76278470.0,
           "recaudo": 70578270.0,
           "cumplimiento": 92.52711807145582,
@@ -234,7 +234,7 @@ const DATOS_RECAUDO = {
         "cierre": 73.83994882966628
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 18285850.0,
           "recaudo": 14282000.0,
           "cumplimiento": 78.10410782107476,
@@ -284,7 +284,7 @@ const DATOS_RECAUDO = {
         "cierre": 90.19410453884143
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 391765740.0,
           "recaudo": 367342100.0,
           "cumplimiento": 93.76575399370041,
@@ -318,7 +318,7 @@ const DATOS_RECAUDO = {
         "cierre": 89.718753664743
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 349816360.0,
           "recaudo": 316982760.0,
           "cumplimiento": 90.61404675298776,
@@ -352,7 +352,7 @@ const DATOS_RECAUDO = {
         "cierre": 78.61472240743791
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 20808125.0,
           "recaudo": 15389050.0,
           "cumplimiento": 73.95692788273811,
@@ -386,7 +386,7 @@ const DATOS_RECAUDO = {
         "cierre": 88.72929291692874
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 131805000.0,
           "recaudo": 120844900.0,
           "cumplimiento": 91.68460984029437,
@@ -420,7 +420,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.98861635176306
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 246741650.0,
           "recaudo": 235212102.0,
           "cumplimiento": 95.32727936284773,
@@ -454,7 +454,7 @@ const DATOS_RECAUDO = {
         "cierre": 86.49093086046794
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 153992500.0,
           "recaudo": 143154840.0,
           "cumplimiento": 92.96221569232269,
@@ -488,7 +488,7 @@ const DATOS_RECAUDO = {
         "cierre": 93.51605188450517
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 259775165.0,
           "recaudo": 244007050.0,
           "cumplimiento": 93.9300914311805,
@@ -522,7 +522,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.22422485902042
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 260269350.0,
           "recaudo": 241422060.0,
           "cumplimiento": 92.75854417740699,
@@ -558,7 +558,7 @@ const DATOS_RECAUDO = {
         "cierre": 93.83178261850621
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 206343700.0,
           "recaudo": 192252540.0,
           "cumplimiento": 93.17102484834768,
@@ -586,7 +586,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.7488243357579
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 992000.0,
           "recaudo": 1068000.0,
           "cumplimiento": 107.66129032258065,
@@ -608,7 +608,7 @@ const DATOS_RECAUDO = {
         "cierre": 91.20406992841039
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 6417850.0,
           "recaudo": 5718650.0,
           "cumplimiento": 89.10538576002867,
@@ -668,7 +668,7 @@ const DATOS_RECAUDO = {
         "cierre": 86.38643648834713
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 51605096.0,
           "recaudo": 43883460.0,
           "cumplimiento": 85.0370668819219,
@@ -690,7 +690,7 @@ const DATOS_RECAUDO = {
         "cierre": 84.31174661101109
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 10473000.0,
           "recaudo": 8929500.0,
           "cumplimiento": 85.26210254941277,
@@ -728,7 +728,7 @@ const DATOS_RECAUDO = {
         "cierre": 106.95417381502335
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 14790850.0,
           "recaudo": 16274050.0,
           "cumplimiento": 110.02782125435657,
@@ -766,7 +766,7 @@ const DATOS_RECAUDO = {
         "cierre": 99.611584195406
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 12052800.0,
           "recaudo": 12136800.0,
           "cumplimiento": 100.69693349263243,
@@ -788,7 +788,7 @@ const DATOS_RECAUDO = {
         "cierre": 81.79944838040699
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 7200450.0,
           "recaudo": 6444500.0,
           "cumplimiento": 89.50135061003131,
@@ -810,7 +810,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.43470519141422
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 1895300.0,
           "recaudo": 2436900.0,
           "cumplimiento": 128.57595103677517,
@@ -832,7 +832,7 @@ const DATOS_RECAUDO = {
         "cierre": 88.8956468704478
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 15816200.0,
           "recaudo": 15863100.0,
           "cumplimiento": 100.2965314045093,
@@ -854,7 +854,7 @@ const DATOS_RECAUDO = {
         "cierre": 90.8431883822454
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 5724800.0,
           "recaudo": 7157850.0,
           "cumplimiento": 125.03231553940748,
@@ -876,7 +876,7 @@ const DATOS_RECAUDO = {
         "cierre": 102.15040505612333
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 5528200.0,
           "recaudo": 6821450.0,
           "cumplimiento": 123.39369053218046,
@@ -898,7 +898,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.58432069891954
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 929000.0,
           "recaudo": 926000.0,
           "cumplimiento": 99.67707212055974,
@@ -920,7 +920,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.46806712572263
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 15690500.0,
           "recaudo": 13385700.0,
           "cumplimiento": 85.31085688792581,
@@ -942,7 +942,7 @@ const DATOS_RECAUDO = {
         "cierre": 95.39590043378698
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 8717100.0,
           "recaudo": 8546850.0,
           "cumplimiento": 98.04694221702171,
@@ -970,7 +970,7 @@ const DATOS_RECAUDO = {
         "cierre": 90.41230787876951
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 9682350.0,
           "recaudo": 9804400.0,
           "cumplimiento": 101.26054108764917,
@@ -998,7 +998,7 @@ const DATOS_RECAUDO = {
         "cierre": 94.33957006924031
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 2183500.0,
           "recaudo": 2421400.0,
           "cumplimiento": 110.89535149988549,
@@ -1020,7 +1020,7 @@ const DATOS_RECAUDO = {
         "cierre": 89.16148716075666
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 11196350.0,
           "recaudo": 10217650.0,
           "cumplimiento": 91.25875843466844,
@@ -1042,7 +1042,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.00471425445463
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 32571650.0,
           "recaudo": 29352100.0,
           "cumplimiento": 90.11548386403514,
@@ -1064,7 +1064,7 @@ const DATOS_RECAUDO = {
         "cierre": 93.98608039984076
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 2039900.0,
           "recaudo": 2089000.0,
           "cumplimiento": 102.40698073434973,
@@ -1086,7 +1086,7 @@ const DATOS_RECAUDO = {
         "cierre": 94.04425826427466
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 2645000.0,
           "recaudo": 2624600.0,
           "cumplimiento": 99.22873345935727,
@@ -1114,7 +1114,7 @@ const DATOS_RECAUDO = {
         "cierre": 91.54542842113467
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 19025750.0,
           "recaudo": 17319000.0,
           "cumplimiento": 91.02926297255036,
@@ -1136,7 +1136,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.54097742055687
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 1694150.0,
           "recaudo": 1470300.0,
           "cumplimiento": 86.78688427825163,
@@ -1158,7 +1158,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.40509100394698
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 1971050.0,
           "recaudo": 1842350.0,
           "cumplimiento": 93.47048527434616,
@@ -1212,7 +1212,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.06698816599024
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 33159000.0,
           "recaudo": 28098550.0,
           "cumplimiento": 84.73883410235533,
@@ -1240,7 +1240,7 @@ const DATOS_RECAUDO = {
         "cierre": 110.78217142173143
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 9354965.0,
           "recaudo": 7736655.0,
           "cumplimiento": 82.70105767365244,
@@ -1284,7 +1284,7 @@ const DATOS_RECAUDO = {
         "cierre": 95.14842739126107
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 43661200.0,
           "recaudo": 40436950.0,
           "cumplimiento": 92.61529687686092,
@@ -1312,7 +1312,7 @@ const DATOS_RECAUDO = {
         "cierre": 95.43002285622632
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 24548950.0,
           "recaudo": 22565500.0,
           "cumplimiento": 91.92042836862676,
@@ -1334,7 +1334,7 @@ const DATOS_RECAUDO = {
         "cierre": 96.36738543883125
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 3649800.0,
           "recaudo": 3737700.0,
           "cumplimiento": 102.40835114252835,
@@ -1356,7 +1356,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.35690217614986
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 15161100.0,
           "recaudo": 14155500.0,
           "cumplimiento": 93.36723588657814,
@@ -1384,7 +1384,7 @@ const DATOS_RECAUDO = {
         "cierre": 90.15427127080919
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 10576950.0,
           "recaudo": 10074500.0,
           "cumplimiento": 95.24957572835268,
@@ -1412,7 +1412,7 @@ const DATOS_RECAUDO = {
         "cierre": 65.10795823906118
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 3719350.0,
           "recaudo": 1290600.0,
           "cumplimiento": 34.6996114912552,
@@ -1434,7 +1434,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.19128871433736
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 7752100.0,
           "recaudo": 7612100.0,
           "cumplimiento": 98.19403774461114,
@@ -1462,7 +1462,7 @@ const DATOS_RECAUDO = {
         "cierre": 100.79836206479004
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 31764950.0,
           "recaudo": 30283700.0,
           "cumplimiento": 95.336841392793,
@@ -1484,7 +1484,7 @@ const DATOS_RECAUDO = {
         "cierre": 89.0925340031997
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 25085750.0,
           "recaudo": 22301000.0,
           "cumplimiento": 88.89907616874122,
@@ -1550,7 +1550,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.31541401994917
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 76278470.0,
           "recaudo": 70578270.0,
           "cumplimiento": 92.52711807145582,
@@ -1658,7 +1658,7 @@ const DATOS_RECAUDO = {
         "cierre": 77.3367670651243
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 14024400.0,
           "recaudo": 9353050.0,
           "cumplimiento": 66.69126664955364,
@@ -1680,7 +1680,7 @@ const DATOS_RECAUDO = {
         "cierre": 108.7354754291717
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 4261450.0,
           "recaudo": 4928950.0,
           "cumplimiento": 115.66368254936701,
@@ -1750,7 +1750,7 @@ const DATOS_RECAUDO = {
         "cierre": 96.32462876946654
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 227810490.0,
           "recaudo": 215342710.0,
           "cumplimiento": 94.52712647253425,
@@ -1778,7 +1778,7 @@ const DATOS_RECAUDO = {
         "cierre": 90.04506781231572
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 12173100.0,
           "recaudo": 10216000.0,
           "cumplimiento": 83.92274769779267,
@@ -1800,7 +1800,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.2537734080368
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 51187000.0,
           "recaudo": 47230100.0,
           "cumplimiento": 92.2697169203118,
@@ -1822,7 +1822,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.31913458175887
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 36979900.0,
           "recaudo": 32978000.0,
           "cumplimiento": 89.17817517083606,
@@ -1844,7 +1844,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.96033973051452
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 12376200.0,
           "recaudo": 11545040.0,
           "cumplimiento": 93.28420678398862,
@@ -1866,7 +1866,7 @@ const DATOS_RECAUDO = {
         "cierre": 98.12507964827323
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 16041400.0,
           "recaudo": 16271200.0,
           "cumplimiento": 101.43254329422619,
@@ -1888,7 +1888,7 @@ const DATOS_RECAUDO = {
         "cierre": 91.22042214967863
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 1806900.0,
           "recaudo": 1608700.0,
           "cumplimiento": 89.03093696386075,
@@ -1910,7 +1910,7 @@ const DATOS_RECAUDO = {
         "cierre": 59.76741488312744
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 1178200.0,
           "recaudo": 1047800.0,
           "cumplimiento": 88.9322695637413,
@@ -1938,7 +1938,7 @@ const DATOS_RECAUDO = {
         "cierre": 97.36095749157427
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 24318300.0,
           "recaudo": 23178100.0,
           "cumplimiento": 95.3113498887669,
@@ -1960,7 +1960,7 @@ const DATOS_RECAUDO = {
         "cierre": 96.93451809437354
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 7894250.0,
           "recaudo": 7924450.0,
           "cumplimiento": 100.38255692434366,
@@ -1998,7 +1998,7 @@ const DATOS_RECAUDO = {
         "cierre": 95.43467279480278
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 299207160.0,
           "recaudo": 281181110.0,
           "cumplimiento": 93.97539484015022,
@@ -2026,7 +2026,7 @@ const DATOS_RECAUDO = {
         "cierre": 75.27839836511318
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 39502100.0,
           "recaudo": 26145050.0,
           "cumplimiento": 66.1864812250488,
@@ -2048,7 +2048,7 @@ const DATOS_RECAUDO = {
         "cierre": 95.97767690965759
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 5562950.0,
           "recaudo": 4978100.0,
           "cumplimiento": 89.4866932113357,
@@ -2076,7 +2076,7 @@ const DATOS_RECAUDO = {
         "cierre": 81.2801357713113
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 5544150.0,
           "recaudo": 4678500.0,
           "cumplimiento": 84.38624496090473,
@@ -2146,7 +2146,7 @@ const DATOS_RECAUDO = {
         "cierre": 78.14357576066139
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 20808125.0,
           "recaudo": 15389050.0,
           "cumplimiento": 73.95692788273811,
@@ -2206,7 +2206,7 @@ const DATOS_RECAUDO = {
         "cierre": 96.63976417150202
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 51347950.0,
           "recaudo": 47172000.0,
           "cumplimiento": 91.8673481609295,
@@ -2228,7 +2228,7 @@ const DATOS_RECAUDO = {
         "cierre": 89.45436140719309
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 16628800.0,
           "recaudo": 14739550.0,
           "cumplimiento": 88.63868709708458,
@@ -2250,7 +2250,7 @@ const DATOS_RECAUDO = {
         "cierre": 90.72493599307437
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 4937550.0,
           "recaudo": 4608300.0,
           "cumplimiento": 93.33171309657624,
@@ -2272,7 +2272,7 @@ const DATOS_RECAUDO = {
         "cierre": 90.43944353999777
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 9791600.0,
           "recaudo": 8112600.0,
           "cumplimiento": 82.85264920952653,
@@ -2294,7 +2294,7 @@ const DATOS_RECAUDO = {
         "cierre": 84.00924910264135
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 2264700.0,
           "recaudo": 1854600.0,
           "cumplimiento": 81.89164127699033,
@@ -2322,7 +2322,7 @@ const DATOS_RECAUDO = {
         "cierre": 97.33868255560284
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 23570000.0,
           "recaudo": 19972150.0,
           "cumplimiento": 84.7354688162919,
@@ -2344,7 +2344,7 @@ const DATOS_RECAUDO = {
         "cierre": 91.62222010991061
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 3001400.0,
           "recaudo": 3785800.0,
           "cumplimiento": 126.13447058039581,
@@ -2366,7 +2366,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.16518489905638
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 4784300.0,
           "recaudo": 5485200.0,
           "cumplimiento": 114.65000104508496,
@@ -2388,7 +2388,7 @@ const DATOS_RECAUDO = {
         "cierre": 103.65081494827906
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 3907600.0,
           "recaudo": 4161700.0,
           "cumplimiento": 106.50271266250384,
@@ -2410,7 +2410,7 @@ const DATOS_RECAUDO = {
         "cierre": 94.9127372402068
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 11571100.0,
           "recaudo": 10953000.0,
           "cumplimiento": 94.6582433822195,
@@ -2512,7 +2512,7 @@ const DATOS_RECAUDO = {
         "cierre": 95.75766495015976
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 210164400.0,
           "recaudo": 200576502.0,
           "cumplimiento": 95.43790575378132,
@@ -2540,7 +2540,7 @@ const DATOS_RECAUDO = {
         "cierre": 93.3907841953921
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 36577250.0,
           "recaudo": 34635600.0,
           "cumplimiento": 94.69164576341852,
@@ -2578,7 +2578,7 @@ const DATOS_RECAUDO = {
         "cierre": 91.10625733943446
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 118035700.0,
           "recaudo": 109893100.0,
           "cumplimiento": 93.10157859020617,
@@ -2606,7 +2606,7 @@ const DATOS_RECAUDO = {
         "cierre": 86.92722764681537
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 21162350.0,
           "recaudo": 18386540.0,
           "cumplimiento": 86.88326201957722,
@@ -2628,7 +2628,7 @@ const DATOS_RECAUDO = {
         "cierre": 98.01627635660017
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 14794450.0,
           "recaudo": 14875200.0,
           "cumplimiento": 100.54581278790357,
@@ -2666,7 +2666,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.93090251471541
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 143120900.0,
           "recaudo": 134502750.0,
           "cumplimiento": 93.97841265671192,
@@ -2694,7 +2694,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.09914068070097
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 4003350.0,
           "recaudo": 3885400.0,
           "cumplimiento": 97.05371751158405,
@@ -2716,7 +2716,7 @@ const DATOS_RECAUDO = {
         "cierre": 88.1797954195361
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 17661150.0,
           "recaudo": 15408950.0,
           "cumplimiento": 87.24771603208171,
@@ -2738,7 +2738,7 @@ const DATOS_RECAUDO = {
         "cierre": 91.35572317485628
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 3260900.0,
           "recaudo": 3492350.0,
           "cumplimiento": 107.09773375448495,
@@ -2766,7 +2766,7 @@ const DATOS_RECAUDO = {
         "cierre": 96.57638828627398
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 21771500.0,
           "recaudo": 20804450.0,
           "cumplimiento": 95.55818386422617,
@@ -2788,7 +2788,7 @@ const DATOS_RECAUDO = {
         "cierre": 93.0390779745216
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 26823900.0,
           "recaudo": 25259800.0,
           "cumplimiento": 94.16900599838203,
@@ -2810,7 +2810,7 @@ const DATOS_RECAUDO = {
         "cierre": 100.11694800542766
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 15020850.0,
           "recaudo": 14703600.0,
           "cumplimiento": 97.8879357692807,
@@ -2832,7 +2832,7 @@ const DATOS_RECAUDO = {
         "cierre": 95.87657486262053
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 10076600.0,
           "recaudo": 9958550.0,
           "cumplimiento": 98.82847389000258,
@@ -2860,7 +2860,7 @@ const DATOS_RECAUDO = {
         "cierre": 88.6626009126739
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 18036015.0,
           "recaudo": 15991200.0,
           "cumplimiento": 88.6626009126739,
@@ -2908,7 +2908,7 @@ const DATOS_RECAUDO = {
         "cierre": 92.43989514369068
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 150475550.0,
           "recaudo": 139830580.0,
           "cumplimiento": 92.92578096574493,
@@ -2930,7 +2930,7 @@ const DATOS_RECAUDO = {
         "cierre": 89.94359913899342
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 6163900.0,
           "recaudo": 5347750.0,
           "cumplimiento": 86.75919466571489,
@@ -2952,7 +2952,7 @@ const DATOS_RECAUDO = {
         "cierre": 60.2746520151239
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 2230500.0,
           "recaudo": 702400.0,
           "cumplimiento": 31.490697153104684,
@@ -2974,7 +2974,7 @@ const DATOS_RECAUDO = {
         "cierre": 102.53883101490861
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 2339500.0,
           "recaudo": 2538700.0,
           "cumplimiento": 108.51463988031631,
@@ -2996,7 +2996,7 @@ const DATOS_RECAUDO = {
         "cierre": 91.54133463878085
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 13535350.0,
           "recaudo": 11459050.0,
           "cumplimiento": 84.66016763511841,
@@ -3018,7 +3018,7 @@ const DATOS_RECAUDO = {
         "cierre": 91.99328861296891
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 18632700.0,
           "recaudo": 16881900.0,
           "cumplimiento": 90.60361622309166,
@@ -3040,7 +3040,7 @@ const DATOS_RECAUDO = {
         "cierre": 94.66042849075474
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 16676050.0,
           "recaudo": 15843250.0,
           "cumplimiento": 95.0060116154605,
@@ -3062,7 +3062,7 @@ const DATOS_RECAUDO = {
         "cierre": 105.57532074141822
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 5216100.0,
           "recaudo": 5337700.0,
           "cumplimiento": 102.33124364946991,
@@ -3084,7 +3084,7 @@ const DATOS_RECAUDO = {
         "cierre": 93.90462048286024
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 12862050.0,
           "recaudo": 11327350.0,
           "cumplimiento": 88.06799849168678,
@@ -3106,7 +3106,7 @@ const DATOS_RECAUDO = {
         "cierre": 99.01858758222323
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 10475550.0,
           "recaudo": 10627000.0,
           "cumplimiento": 101.44574747865266,
@@ -3128,7 +3128,7 @@ const DATOS_RECAUDO = {
         "cierre": 96.96555635441274
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 5274100.0,
           "recaudo": 4368280.0,
           "cumplimiento": 82.82512656187787,
@@ -3150,7 +3150,7 @@ const DATOS_RECAUDO = {
         "cierre": 87.45398825523463
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 3502950.0,
           "recaudo": 4176700.0,
           "cumplimiento": 119.23378866384047,
@@ -3178,7 +3178,7 @@ const DATOS_RECAUDO = {
         "cierre": 93.12228960632382
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 10806350.0,
           "recaudo": 11373900.0,
           "cumplimiento": 105.25200460840153,
@@ -3200,7 +3200,7 @@ const DATOS_RECAUDO = {
         "cierre": 88.45224810885125
       },
       "tipos": {
-        "COBRADOR": {
+        "ASESOR COBRANZA": {
           "presupuesto": 2078700.0,
           "recaudo": 1607500.0,
           "cumplimiento": 77.33198633761485,
@@ -3271,7 +3271,7 @@ const DATOS_RECAUDO = {
     }
   ],
   "tipos": {
-    "COBRADOR": {
+    "ASESOR COBRANZA": {
       "presupuesto": 2565158871.0,
       "recaudo": 2376494037.0,
       "cumplimiento": 92.64510139574898
