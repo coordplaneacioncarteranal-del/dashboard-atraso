@@ -386,16 +386,26 @@
         let valoresUnicos = {};
 
         function inicializarDashboard() {
-            if (typeof SERVER_DATA !== 'undefined') {
+            if (typeof SERVER_DATA_RAW !== 'undefined') {
+                baseDatos = SERVER_DATA_RAW.map(row => {
+                    let obj = {};
+                    SERVER_DATA_COLUMNS.forEach((col, idx) => {
+                        obj[col] = row[idx];
+                    });
+                    return obj;
+                });
+            } else if (typeof SERVER_DATA !== 'undefined') {
                 baseDatos = SERVER_DATA;
-                if (typeof FECHA_ACTUALIZACION !== 'undefined') {
-                    document.getElementById('fecha-actualizacion').innerText = 'Última actualización de vigentes: ' + FECHA_ACTUALIZACION;
-                }
-                generarListasFiltros();
-                recalcularYRenderizar();
             } else {
                 alert("❌ Error: No se encontraron los datos consolidados.");
+                return;
             }
+            
+            if (typeof FECHA_ACTUALIZACION !== 'undefined') {
+                document.getElementById('fecha-actualizacion').innerText = 'Última actualización de vigentes: ' + FECHA_ACTUALIZACION;
+            }
+            generarListasFiltros();
+            recalcularYRenderizar();
         }
 
         function aplicarFiltrosPorDefecto() {
