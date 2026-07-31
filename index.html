@@ -214,11 +214,12 @@
             <button id="btn-tab-regional" onclick="switchTablaTab('regional')" style="padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">🏢 Vista por Regional</button>
             <button id="btn-tab-zona" onclick="switchTablaTab('zona')" style="padding: 10px 20px; background: white; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">🗺️ Vista por Zona</button>
             <button id="btn-tab-gestion" onclick="switchTablaTab('gestion')" style="padding: 10px 20px; background: white; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">📋 Vista por Gestión</button>
+            <button id="btn-tab-crecimiento" onclick="switchTablaTab('crecimiento')" style="padding: 10px 20px; background: white; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;">📈 Vista de Crecimiento</button>
         </div>
         
         <script>
             function switchTablaTab(tab) {
-                const tabs = ['regional', 'zona', 'gestion'];
+                const tabs = ['regional', 'zona', 'gestion', 'crecimiento'];
                 tabs.forEach(t => {
                     if (t === tab) {
                         document.getElementById(`seccion-${t}`).style.display = 'block';
@@ -265,6 +266,59 @@
             <div class="chart-card" style="margin-bottom: 24px; overflow-x: auto;">
                 <h2>Financiero: VALOR TOTAL DE CARTERA ($) por Gestión y Grupo Atraso</h2>
                 <div class="table-container" id="contenedor-gestion-suma-pivot"></div>
+            </div>
+        </div>
+
+        <div id="seccion-crecimiento" style="display: none;">
+            <div class="chart-card" style="margin-bottom: 24px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <div style="background: #eff6ff; padding: 8px; border-radius: 8px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="#3b82f6"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div>
+                    <div>
+                        <h2 style="margin:0; border:none; padding:0;">Crecimiento de Cartera (Monto Total por Mes)</h2>
+                        <p style="margin:0; font-size: 12px; color: #64748b;">Muestra Aprobados, Renovados y Recuperados</p>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="crecimientoChart"></canvas>
+                </div>
+            </div>
+            <div class="tabs-container" style="margin-bottom: 20px;">
+                <button class="tab-btn active" onclick="cambiarSubTabCrecimiento('regional', this)">Regional</button>
+                <button class="tab-btn" onclick="cambiarSubTabCrecimiento('zona', this)">Zona</button>
+                <button class="tab-btn" onclick="cambiarSubTabCrecimiento('tipo', this)">Tipo</button>
+            </div>
+
+            <div id="sub-crecimiento-regional" class="subtab-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="chart-card" style="margin-bottom: 0; overflow-x: auto;">
+                    <h2>Volumen: CANTIDAD DE CONTRATOS</h2>
+                    <div class="table-container" id="contenedor-crecimiento-regional-cuenta"></div>
+                </div>
+                <div class="chart-card" style="margin-bottom: 0; overflow-x: auto;">
+                    <h2>Financiero: VALOR TOTAL EN DINERO ($)</h2>
+                    <div class="table-container" id="contenedor-crecimiento-regional-suma"></div>
+                </div>
+            </div>
+
+            <div id="sub-crecimiento-zona" class="subtab-content" style="display: none; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="chart-card" style="margin-bottom: 0; overflow-x: auto;">
+                    <h2>Volumen: CANTIDAD DE CONTRATOS</h2>
+                    <div class="table-container" id="contenedor-crecimiento-zona-cuenta"></div>
+                </div>
+                <div class="chart-card" style="margin-bottom: 0; overflow-x: auto;">
+                    <h2>Financiero: VALOR TOTAL EN DINERO ($)</h2>
+                    <div class="table-container" id="contenedor-crecimiento-zona-suma"></div>
+                </div>
+            </div>
+
+            <div id="sub-crecimiento-tipo" class="subtab-content" style="display: none; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="chart-card" style="margin-bottom: 0; overflow-x: auto;">
+                    <h2>Volumen: CANTIDAD DE CONTRATOS</h2>
+                    <div class="table-container" id="contenedor-crecimiento-tipo-cuenta"></div>
+                </div>
+                <div class="chart-card" style="margin-bottom: 0; overflow-x: auto;">
+                    <h2>Financiero: VALOR TOTAL EN DINERO ($)</h2>
+                    <div class="table-container" id="contenedor-crecimiento-tipo-suma"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -399,6 +453,11 @@
                 listWrapper.className = 'dropdown-list-wrapper';
                 listWrapper.id = `dropdown-list-${dim.id}`;
                 
+                const searchContainer = document.createElement('div');
+                searchContainer.style.padding = '8px';
+                searchContainer.innerHTML = `<input type="text" placeholder="Buscar..." style="width: 100%; box-sizing: border-box; padding: 6px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 4px;" onkeyup="filtrarListaOpciones('${dim.id}', this.value)" />`;
+                listWrapper.appendChild(searchContainer);
+
                 const actions = document.createElement('div');
                 actions.style.display = 'flex';
                 actions.style.justifyContent = 'space-between';
@@ -412,6 +471,7 @@
                 listWrapper.appendChild(actions);
 
                 const list = document.createElement('div');
+                list.id = `opciones-lista-${dim.id}`;
                 list.className = 'dropdown-list';
                 
                 valoresUnicos[dim.id].forEach(val => {
@@ -432,6 +492,21 @@
             });
         }
         
+        function filtrarListaOpciones(dimId, searchTerm) {
+            const list = document.getElementById(`opciones-lista-${dimId}`);
+            if (!list) return;
+            const term = searchTerm.toLowerCase().trim();
+            const items = list.querySelectorAll('.dropdown-item');
+            items.forEach(item => {
+                const labelText = item.innerText.toLowerCase();
+                if (labelText.includes(term)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
         function limpiarTodosFiltros() {
             preFiltroState = null;
             if(document.getElementById('btn-deshacer')) document.getElementById('btn-deshacer').style.display = 'none';
@@ -580,6 +655,14 @@
             }
         }
 
+        function cambiarSubTabCrecimiento(tabId, btn) {
+            document.querySelectorAll('#seccion-crecimiento .subtab-content').forEach(el => el.style.display = 'none');
+            const btns = btn.parentElement.querySelectorAll('.tab-btn');
+            btns.forEach(el => el.classList.remove('active'));
+            document.getElementById(`sub-crecimiento-${tabId}`).style.display = 'grid';
+            btn.classList.add('active');
+        }
+
         function recalcularYRenderizar() {
             let dataFiltrada = baseDatos.filter(d => 
                 filtrosActivos.estatus.includes(d.estatus) && 
@@ -625,6 +708,12 @@
             let colTotalsCuentaGestion = {}; let colTotalsSumaGestion = {};
             tramosMora.forEach(t => { colTotalsCuentaGestion[t] = 0; colTotalsSumaGestion[t] = 0; });
             colTotalsCuentaGestion['TOTAL'] = 0; colTotalsSumaGestion['TOTAL'] = 0;
+
+            // Estructura Crecimiento
+            let mesesCrecimientoSet = new Set();
+            let crecimientoRegionalCuenta = {}; let crecimientoRegionalSuma = {};
+            let crecimientoZonaCuenta = {}; let crecimientoZonaSuma = {};
+            let crecimientoTipoCuenta = {}; let crecimientoTipoSuma = {};
 
             dataFiltrada.forEach(item => {
                 const regional = item.regional || 'Sin Regional';
@@ -711,6 +800,62 @@
                     colTotalsSumaGestion[atraso] += monto;
                     colTotalsCuentaGestion['TOTAL'] += cant;
                     colTotalsSumaGestion['TOTAL'] += monto;
+                }
+
+                // Acumular Crecimiento
+                const estatusUpper = item.estatus ? item.estatus.toUpperCase().trim() : 'SIN ESTATUS';
+                const estatusOk = ['APROBADO', 'APROBADO SC', 'APROBADO NCP', 'RENOVADO', 'RECUPERADO', 'SIN ESTATUS', 'N/A', ''].includes(estatusUpper);
+                if (estatusOk) {
+                    let mes = item.mes_inicio || 'SIN MES';
+                    if (mes !== 'SIN MES') {
+                        let year = parseInt(mes.split('-')[0]);
+                        if (!isNaN(year)) {
+                            if (year <= 2024) mes = '2024 y anteriores';
+                            else if (year === 2025) mes = '2025';
+                            else mes = '2026'; // Todo lo mayor a 2025 se agrupa como 2026
+                        }
+                        mesesCrecimientoSet.add(mes);
+                        
+                        if (!crecimientoRegionalCuenta[regional]) {
+                            crecimientoRegionalCuenta[regional] = { TOTAL: 0 };
+                            crecimientoRegionalSuma[regional] = { TOTAL: 0 };
+                        }
+                        if (crecimientoRegionalCuenta[regional][mes] === undefined) {
+                            crecimientoRegionalCuenta[regional][mes] = 0;
+                            crecimientoRegionalSuma[regional][mes] = 0;
+                        }
+                        crecimientoRegionalCuenta[regional][mes] += cant;
+                        crecimientoRegionalSuma[regional][mes] += monto;
+                        crecimientoRegionalCuenta[regional]['TOTAL'] += cant;
+                        crecimientoRegionalSuma[regional]['TOTAL'] += monto;
+
+                        if (!crecimientoZonaCuenta[zona]) {
+                            crecimientoZonaCuenta[zona] = { TOTAL: 0 };
+                            crecimientoZonaSuma[zona] = { TOTAL: 0 };
+                        }
+                        if (crecimientoZonaCuenta[zona][mes] === undefined) {
+                            crecimientoZonaCuenta[zona][mes] = 0;
+                            crecimientoZonaSuma[zona][mes] = 0;
+                        }
+                        crecimientoZonaCuenta[zona][mes] += cant;
+                        crecimientoZonaSuma[zona][mes] += monto;
+                        crecimientoZonaCuenta[zona]['TOTAL'] += cant;
+                        crecimientoZonaSuma[zona]['TOTAL'] += monto;
+
+                        const tipo = item.tipo || 'SIN TIPO';
+                        if (!crecimientoTipoCuenta[tipo]) {
+                            crecimientoTipoCuenta[tipo] = { TOTAL: 0 };
+                            crecimientoTipoSuma[tipo] = { TOTAL: 0 };
+                        }
+                        if (crecimientoTipoCuenta[tipo][mes] === undefined) {
+                            crecimientoTipoCuenta[tipo][mes] = 0;
+                            crecimientoTipoSuma[tipo][mes] = 0;
+                        }
+                        crecimientoTipoCuenta[tipo][mes] += cant;
+                        crecimientoTipoSuma[tipo][mes] += monto;
+                        crecimientoTipoCuenta[tipo]['TOTAL'] += cant;
+                        crecimientoTipoSuma[tipo]['TOTAL'] += monto;
+                    }
                 }
             });
 
@@ -928,6 +1073,201 @@
             let tdTotalsSumaGestion = tramosMora.map(t => `<td class="text-right">${colTotalsSumaGestion[t] > 0 ? '$ ' + colTotalsSumaGestion[t].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
             htmlPivotSumaGestion += `<tr class="total-row"><td>TOTAL</td>${tdTotalsSumaGestion}<td class="text-right">$ ${colTotalsSumaGestion['TOTAL'].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right" style="color:#0f766e;">$0</td><td class="text-right" style="color:#0f766e;">$0</td><td class="text-right" style="color:#15803d;">$0</td><td class="text-right">0.0%</td></tr></tbody></table>`;
             document.getElementById('contenedor-gestion-suma-pivot').innerHTML = htmlPivotSumaGestion;
+
+            // ================== TABLAS Y GRAFICOS CRECIMIENTO ==================
+            const mesesCrecimiento = Array.from(mesesCrecimientoSet).sort();
+            
+            let thMesesCrec = mesesCrecimiento.map(m => `<th class="text-right">${m}</th>`).join('');
+            
+            const latestMes = '2026';
+            const targetEnero = '2025';
+
+            // 1. Regional Crecimiento
+            const listRegCrec = Object.keys(crecimientoRegionalCuenta).sort((a,b) => crecimientoRegionalCuenta[b].TOTAL - crecimientoRegionalCuenta[a].TOTAL);
+            
+            // Cuenta
+            let htmlRegCrecCuenta = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>REGIONAL</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let tCols_RC_C = {}; mesesCrecimiento.forEach(m => tCols_RC_C[m] = 0);
+            let tTot_RC_C = 0;
+            listRegCrec.forEach((r, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoRegionalCuenta[r][m] > 0 ? crecimientoRegionalCuenta[r][m].toLocaleString('es-MX') : '-'}</td>`).join('');
+                
+                mesesCrecimiento.forEach(m => tCols_RC_C[m] += crecimientoRegionalCuenta[r][m] || 0);
+                tTot_RC_C += crecimientoRegionalCuenta[r].TOTAL || 0;
+                
+                const valActual = crecimientoRegionalCuenta[r][latestMes] || 0;
+                const valEnero = crecimientoRegionalCuenta[r][targetEnero] || 0;
+                let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
+                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                
+                htmlRegCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('regional', '${r}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${r}</td>${tdCols}<td class="text-right text-bold">${crecimientoRegionalCuenta[r].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td></tr>`;
+            });
+            let pctTot_RC_C = (tCols_RC_C[targetEnero] > 0) ? ((tCols_RC_C[latestMes] - tCols_RC_C[targetEnero]) / tCols_RC_C[targetEnero] * 100) : 0;
+            htmlRegCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_RC_C[m] > 0 ? tCols_RC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right">${tTot_RC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_RC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_RC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_RC_C > 0 ? '+':''}${pctTot_RC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            htmlRegCrecCuenta += `</tbody></table>`;
+            document.getElementById('contenedor-crecimiento-regional-cuenta').innerHTML = htmlRegCrecCuenta;
+
+            // Suma
+            let htmlRegCrecSuma = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>REGIONAL</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let tCols_RC_S = {}; mesesCrecimiento.forEach(m => tCols_RC_S[m] = 0);
+            let tTot_RC_S = 0;
+            listRegCrec.forEach((r, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoRegionalSuma[r][m] > 0 ? '$ ' + crecimientoRegionalSuma[r][m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                
+                mesesCrecimiento.forEach(m => tCols_RC_S[m] += crecimientoRegionalSuma[r][m] || 0);
+                tTot_RC_S += crecimientoRegionalSuma[r].TOTAL || 0;
+
+                const valActual = crecimientoRegionalSuma[r][latestMes] || 0;
+                const valEnero = crecimientoRegionalSuma[r][targetEnero] || 0;
+                let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
+                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                
+                htmlRegCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('regional', '${r}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${r}</td>${tdCols}<td class="text-right text-bold">$ ${crecimientoRegionalSuma[r].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td></tr>`;
+            });
+            let pctTot_RC_S = (tCols_RC_S[targetEnero] > 0) ? ((tCols_RC_S[latestMes] - tCols_RC_S[targetEnero]) / tCols_RC_S[targetEnero] * 100) : 0;
+            htmlRegCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_RC_S[m] > 0 ? '$ ' + tCols_RC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right">$ ${tTot_RC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_RC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_RC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_RC_S > 0 ? '+':''}${pctTot_RC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            htmlRegCrecSuma += `</tbody></table>`;
+            document.getElementById('contenedor-crecimiento-regional-suma').innerHTML = htmlRegCrecSuma;
+
+            // 2. Zona Crecimiento
+            const listZonaCrec = Object.keys(crecimientoZonaCuenta).sort((a,b) => crecimientoZonaCuenta[b].TOTAL - crecimientoZonaCuenta[a].TOTAL);
+            
+            // Cuenta
+            let htmlZonaCrecCuenta = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>ZONA</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let tCols_ZC_C = {}; mesesCrecimiento.forEach(m => tCols_ZC_C[m] = 0);
+            let tTot_ZC_C = 0;
+            listZonaCrec.forEach((z, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoZonaCuenta[z][m] > 0 ? crecimientoZonaCuenta[z][m].toLocaleString('es-MX') : '-'}</td>`).join('');
+                
+                mesesCrecimiento.forEach(m => tCols_ZC_C[m] += crecimientoZonaCuenta[z][m] || 0);
+                tTot_ZC_C += crecimientoZonaCuenta[z].TOTAL || 0;
+
+                const valActual = crecimientoZonaCuenta[z][latestMes] || 0;
+                const valEnero = crecimientoZonaCuenta[z][targetEnero] || 0;
+                let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
+                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                
+                htmlZonaCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('ZONA', '${z}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold">${crecimientoZonaCuenta[z].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td></tr>`;
+            });
+            let pctTot_ZC_C = (tCols_ZC_C[targetEnero] > 0) ? ((tCols_ZC_C[latestMes] - tCols_ZC_C[targetEnero]) / tCols_ZC_C[targetEnero] * 100) : 0;
+            htmlZonaCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_ZC_C[m] > 0 ? tCols_ZC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right">${tTot_ZC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_ZC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_ZC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_ZC_C > 0 ? '+':''}${pctTot_ZC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            htmlZonaCrecCuenta += `</tbody></table>`;
+            document.getElementById('contenedor-crecimiento-zona-cuenta').innerHTML = htmlZonaCrecCuenta;
+
+            // Suma
+            let htmlZonaCrecSuma = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>ZONA</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let tCols_ZC_S = {}; mesesCrecimiento.forEach(m => tCols_ZC_S[m] = 0);
+            let tTot_ZC_S = 0;
+            listZonaCrec.forEach((z, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoZonaSuma[z][m] > 0 ? '$ ' + crecimientoZonaSuma[z][m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                
+                mesesCrecimiento.forEach(m => tCols_ZC_S[m] += crecimientoZonaSuma[z][m] || 0);
+                tTot_ZC_S += crecimientoZonaSuma[z].TOTAL || 0;
+
+                const valActual = crecimientoZonaSuma[z][latestMes] || 0;
+                const valEnero = crecimientoZonaSuma[z][targetEnero] || 0;
+                let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
+                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                
+                htmlZonaCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('ZONA', '${z}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold">$ ${crecimientoZonaSuma[z].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td></tr>`;
+            });
+            let pctTot_ZC_S = (tCols_ZC_S[targetEnero] > 0) ? ((tCols_ZC_S[latestMes] - tCols_ZC_S[targetEnero]) / tCols_ZC_S[targetEnero] * 100) : 0;
+            htmlZonaCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_ZC_S[m] > 0 ? '$ ' + tCols_ZC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right">$ ${tTot_ZC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_ZC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_ZC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_ZC_S > 0 ? '+':''}${pctTot_ZC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            htmlZonaCrecSuma += `</tbody></table>`;
+            document.getElementById('contenedor-crecimiento-zona-suma').innerHTML = htmlZonaCrecSuma;
+
+            // 3. Tipo Crecimiento
+            const listTipoCrec = Object.keys(crecimientoTipoCuenta).sort((a,b) => crecimientoTipoCuenta[b].TOTAL - crecimientoTipoCuenta[a].TOTAL);
+            
+            // Cuenta
+            let htmlTipoCrecCuenta = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>TIPO</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let tCols_TC_C = {}; mesesCrecimiento.forEach(m => tCols_TC_C[m] = 0);
+            let tTot_TC_C = 0;
+            listTipoCrec.forEach((t, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoTipoCuenta[t][m] > 0 ? crecimientoTipoCuenta[t][m].toLocaleString('es-MX') : '-'}</td>`).join('');
+                
+                mesesCrecimiento.forEach(m => tCols_TC_C[m] += crecimientoTipoCuenta[t][m] || 0);
+                tTot_TC_C += crecimientoTipoCuenta[t].TOTAL || 0;
+
+                const valActual = crecimientoTipoCuenta[t][latestMes] || 0;
+                const valEnero = crecimientoTipoCuenta[t][targetEnero] || 0;
+                let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
+                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                
+                htmlTipoCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('tipo', '${t}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${t}</td>${tdCols}<td class="text-right text-bold">${crecimientoTipoCuenta[t].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td></tr>`;
+            });
+            let pctTot_TC_C = (tCols_TC_C[targetEnero] > 0) ? ((tCols_TC_C[latestMes] - tCols_TC_C[targetEnero]) / tCols_TC_C[targetEnero] * 100) : 0;
+            htmlTipoCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_TC_C[m] > 0 ? tCols_TC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right">${tTot_TC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_TC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_TC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_TC_C > 0 ? '+':''}${pctTot_TC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            htmlTipoCrecCuenta += `</tbody></table>`;
+            document.getElementById('contenedor-crecimiento-tipo-cuenta').innerHTML = htmlTipoCrecCuenta;
+
+            // Suma
+            let htmlTipoCrecSuma = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>TIPO</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let tCols_TC_S = {}; mesesCrecimiento.forEach(m => tCols_TC_S[m] = 0);
+            let tTot_TC_S = 0;
+            listTipoCrec.forEach((t, i) => {
+                const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
+                let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoTipoSuma[t][m] > 0 ? '$ ' + crecimientoTipoSuma[t][m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
+                
+                mesesCrecimiento.forEach(m => tCols_TC_S[m] += crecimientoTipoSuma[t][m] || 0);
+                tTot_TC_S += crecimientoTipoSuma[t].TOTAL || 0;
+
+                const valActual = crecimientoTipoSuma[t][latestMes] || 0;
+                const valEnero = crecimientoTipoSuma[t][targetEnero] || 0;
+                let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
+                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                
+                htmlTipoCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('tipo', '${t}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${t}</td>${tdCols}<td class="text-right text-bold">$ ${crecimientoTipoSuma[t].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td></tr>`;
+            });
+            let pctTot_TC_S = (tCols_TC_S[targetEnero] > 0) ? ((tCols_TC_S[latestMes] - tCols_TC_S[targetEnero]) / tCols_TC_S[targetEnero] * 100) : 0;
+            htmlTipoCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_TC_S[m] > 0 ? '$ ' + tCols_TC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right">$ ${tTot_TC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_TC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_TC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_TC_S > 0 ? '+':''}${pctTot_TC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            htmlTipoCrecSuma += `</tbody></table>`;
+            document.getElementById('contenedor-crecimiento-tipo-suma').innerHTML = htmlTipoCrecSuma;
+
+            // Chart Crecimiento
+            let totalesMesesSuma = mesesCrecimiento.map(m => {
+                let sum = 0;
+                listRegCrec.forEach(r => sum += (crecimientoRegionalSuma[r][m] || 0));
+                return sum;
+            });
+
+            if (window.crecimientoChartInst) {
+                window.crecimientoChartInst.destroy();
+            }
+            const ctxCrec = document.getElementById('crecimientoChart');
+            if (ctxCrec) {
+                window.crecimientoChartInst = new Chart(ctxCrec, {
+                    type: 'bar',
+                    data: {
+                        labels: mesesCrecimiento,
+                        datasets: [{
+                            label: 'Crecimiento de Cartera ($)',
+                            data: totalesMesesSuma,
+                            backgroundColor: '#3b82f6',
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: { beginAtZero: true, ticks: { callback: function(value) { return '$' + (value/1000000).toFixed(1) + 'M'; } } }
+                        }
+                    }
+                });
+            }
 
             // 2. ALERTAS MULTIPLES TOP 5 (ETIQUETAS KPI POR CANAL)
             function getTop5RegionalesForTipo(tipoFilter, tramosFiltro) {
