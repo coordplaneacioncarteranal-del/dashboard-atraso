@@ -1092,13 +1092,16 @@
             const latestMes = '2026';
             const targetEnero = '2025';
 
+            const currentMonth = Math.max(1, new Date().getMonth() + 1);
+            const multiplier = 12 / currentMonth;
+
             // 1. Regional Crecimiento
             const listRegCrec = Object.keys(crecimientoRegionalCuenta).sort((a,b) => crecimientoRegionalCuenta[b].TOTAL - crecimientoRegionalCuenta[a].TOTAL);
             
             // Cuenta
-            let htmlRegCrecCuenta = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>REGIONAL</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let htmlRegCrecCuenta = `<table class="excel-table" style="min-width: 900px;"><thead><tr><th>REGIONAL</th>${thMesesCrec}<th class="text-right" style="color:#0f766e;">PROY. 2026</th><th class="text-right">TOTAL</th><th class="th-pct text-right">% ACTUAL<br/>(2026 vs 2025)</th><th class="th-pct text-right" style="background:#f0fdf4;">% PROY.<br/>(Proy vs 2025)</th></tr></thead><tbody>`;
             let tCols_RC_C = {}; mesesCrecimiento.forEach(m => tCols_RC_C[m] = 0);
-            let tTot_RC_C = 0;
+            let tTot_RC_C = 0, tProy_RC_C = 0;
             listRegCrec.forEach((r, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoRegionalCuenta[r][m] > 0 ? crecimientoRegionalCuenta[r][m].toLocaleString('es-MX') : '-'}</td>`).join('');
@@ -1108,21 +1111,26 @@
                 
                 const valActual = crecimientoRegionalCuenta[r][latestMes] || 0;
                 const valEnero = crecimientoRegionalCuenta[r][targetEnero] || 0;
+                const valProy = Math.round(valActual * multiplier);
+                tProy_RC_C += valProy;
+
                 let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
-                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
-                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${pct >= 0 ? '#15803d' : '#b91c1c'};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctProy = (valEnero > 0) ? ((valProy - valEnero) / valEnero * 100) : 0;
+                let pctProyStr = valEnero > 0 ? `<span class="text-bold" style="color:${pctProy >= 0 ? '#15803d' : '#b91c1c'};">${pctProy > 0 ? '+':''}${pctProy.toFixed(1)}%</span>` : '-';
                 
-                htmlRegCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('regional', '${r}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${r}</td>${tdCols}<td class="text-right text-bold">${crecimientoRegionalCuenta[r].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td></tr>`;
+                htmlRegCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('regional', '${r}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${r}</td>${tdCols}<td class="text-right text-bold" style="color:#0f766e;">${valProy.toLocaleString('es-MX')}</td><td class="text-right text-bold">${crecimientoRegionalCuenta[r].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td><td class="text-right" style="background:#f0fdf4;">${pctProyStr}</td></tr>`;
             });
             let pctTot_RC_C = (tCols_RC_C[targetEnero] > 0) ? ((tCols_RC_C[latestMes] - tCols_RC_C[targetEnero]) / tCols_RC_C[targetEnero] * 100) : 0;
-            htmlRegCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_RC_C[m] > 0 ? tCols_RC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right">${tTot_RC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_RC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_RC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_RC_C > 0 ? '+':''}${pctTot_RC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            let pctTotProy_RC_C = (tCols_RC_C[targetEnero] > 0) ? ((tProy_RC_C - tCols_RC_C[targetEnero]) / tCols_RC_C[targetEnero] * 100) : 0;
+            htmlRegCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_RC_C[m] > 0 ? tCols_RC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right" style="color:#0f766e;">${tProy_RC_C.toLocaleString('es-MX')}</td><td class="text-right">${tTot_RC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_RC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_RC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_RC_C > 0 ? '+':''}${pctTot_RC_C.toFixed(1)}%</span>` : '-'}</td><td class="text-right" style="background:#f0fdf4;">${tCols_RC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTotProy_RC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTotProy_RC_C > 0 ? '+':''}${pctTotProy_RC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
             htmlRegCrecCuenta += `</tbody></table>`;
             document.getElementById('contenedor-crecimiento-regional-cuenta').innerHTML = htmlRegCrecCuenta;
 
             // Suma
-            let htmlRegCrecSuma = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>REGIONAL</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let htmlRegCrecSuma = `<table class="excel-table" style="min-width: 900px;"><thead><tr><th>REGIONAL</th>${thMesesCrec}<th class="text-right" style="color:#0f766e;">PROY. 2026</th><th class="text-right">TOTAL</th><th class="th-pct text-right">% ACTUAL<br/>(2026 vs 2025)</th><th class="th-pct text-right" style="background:#f0fdf4;">% PROY.<br/>(Proy vs 2025)</th></tr></thead><tbody>`;
             let tCols_RC_S = {}; mesesCrecimiento.forEach(m => tCols_RC_S[m] = 0);
-            let tTot_RC_S = 0;
+            let tTot_RC_S = 0, tProy_RC_S = 0;
             listRegCrec.forEach((r, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoRegionalSuma[r][m] > 0 ? '$ ' + crecimientoRegionalSuma[r][m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
@@ -1132,14 +1140,19 @@
 
                 const valActual = crecimientoRegionalSuma[r][latestMes] || 0;
                 const valEnero = crecimientoRegionalSuma[r][targetEnero] || 0;
+                const valProy = Math.round(valActual * multiplier);
+                tProy_RC_S += valProy;
+
                 let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
-                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
-                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${pct >= 0 ? '#15803d' : '#b91c1c'};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctProy = (valEnero > 0) ? ((valProy - valEnero) / valEnero * 100) : 0;
+                let pctProyStr = valEnero > 0 ? `<span class="text-bold" style="color:${pctProy >= 0 ? '#15803d' : '#b91c1c'};">${pctProy > 0 ? '+':''}${pctProy.toFixed(1)}%</span>` : '-';
                 
-                htmlRegCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('regional', '${r}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${r}</td>${tdCols}<td class="text-right text-bold">$ ${crecimientoRegionalSuma[r].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td></tr>`;
+                htmlRegCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('regional', '${r}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${r}</td>${tdCols}<td class="text-right text-bold" style="color:#0f766e;">$ ${valProy.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right text-bold">$ ${crecimientoRegionalSuma[r].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td><td class="text-right" style="background:#f0fdf4;">${pctProyStr}</td></tr>`;
             });
             let pctTot_RC_S = (tCols_RC_S[targetEnero] > 0) ? ((tCols_RC_S[latestMes] - tCols_RC_S[targetEnero]) / tCols_RC_S[targetEnero] * 100) : 0;
-            htmlRegCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_RC_S[m] > 0 ? '$ ' + tCols_RC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right">$ ${tTot_RC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_RC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_RC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_RC_S > 0 ? '+':''}${pctTot_RC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            let pctTotProy_RC_S = (tCols_RC_S[targetEnero] > 0) ? ((tProy_RC_S - tCols_RC_S[targetEnero]) / tCols_RC_S[targetEnero] * 100) : 0;
+            htmlRegCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_RC_S[m] > 0 ? '$ ' + tCols_RC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right" style="color:#0f766e;">$ ${tProy_RC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">$ ${tTot_RC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_RC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_RC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_RC_S > 0 ? '+':''}${pctTot_RC_S.toFixed(1)}%</span>` : '-'}</td><td class="text-right" style="background:#f0fdf4;">${tCols_RC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTotProy_RC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTotProy_RC_S > 0 ? '+':''}${pctTotProy_RC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
             htmlRegCrecSuma += `</tbody></table>`;
             document.getElementById('contenedor-crecimiento-regional-suma').innerHTML = htmlRegCrecSuma;
 
@@ -1147,9 +1160,9 @@
             const listZonaCrec = Object.keys(crecimientoZonaCuenta).sort((a,b) => crecimientoZonaCuenta[b].TOTAL - crecimientoZonaCuenta[a].TOTAL);
             
             // Cuenta
-            let htmlZonaCrecCuenta = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>ZONA</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let htmlZonaCrecCuenta = `<table class="excel-table" style="min-width: 900px;"><thead><tr><th>ZONA</th>${thMesesCrec}<th class="text-right" style="color:#0f766e;">PROY. 2026</th><th class="text-right">TOTAL</th><th class="th-pct text-right">% ACTUAL<br/>(2026 vs 2025)</th><th class="th-pct text-right" style="background:#f0fdf4;">% PROY.<br/>(Proy vs 2025)</th></tr></thead><tbody>`;
             let tCols_ZC_C = {}; mesesCrecimiento.forEach(m => tCols_ZC_C[m] = 0);
-            let tTot_ZC_C = 0;
+            let tTot_ZC_C = 0, tProy_ZC_C = 0;
             listZonaCrec.forEach((z, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoZonaCuenta[z][m] > 0 ? crecimientoZonaCuenta[z][m].toLocaleString('es-MX') : '-'}</td>`).join('');
@@ -1159,21 +1172,26 @@
 
                 const valActual = crecimientoZonaCuenta[z][latestMes] || 0;
                 const valEnero = crecimientoZonaCuenta[z][targetEnero] || 0;
+                const valProy = Math.round(valActual * multiplier);
+                tProy_ZC_C += valProy;
+
                 let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
-                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
-                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${pct >= 0 ? '#15803d' : '#b91c1c'};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctProy = (valEnero > 0) ? ((valProy - valEnero) / valEnero * 100) : 0;
+                let pctProyStr = valEnero > 0 ? `<span class="text-bold" style="color:${pctProy >= 0 ? '#15803d' : '#b91c1c'};">${pctProy > 0 ? '+':''}${pctProy.toFixed(1)}%</span>` : '-';
                 
-                htmlZonaCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('ZONA', '${z}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold">${crecimientoZonaCuenta[z].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td></tr>`;
+                htmlZonaCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('ZONA', '${z}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold" style="color:#0f766e;">${valProy.toLocaleString('es-MX')}</td><td class="text-right text-bold">${crecimientoZonaCuenta[z].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td><td class="text-right" style="background:#f0fdf4;">${pctProyStr}</td></tr>`;
             });
             let pctTot_ZC_C = (tCols_ZC_C[targetEnero] > 0) ? ((tCols_ZC_C[latestMes] - tCols_ZC_C[targetEnero]) / tCols_ZC_C[targetEnero] * 100) : 0;
-            htmlZonaCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_ZC_C[m] > 0 ? tCols_ZC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right">${tTot_ZC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_ZC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_ZC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_ZC_C > 0 ? '+':''}${pctTot_ZC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            let pctTotProy_ZC_C = (tCols_ZC_C[targetEnero] > 0) ? ((tProy_ZC_C - tCols_ZC_C[targetEnero]) / tCols_ZC_C[targetEnero] * 100) : 0;
+            htmlZonaCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_ZC_C[m] > 0 ? tCols_ZC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right" style="color:#0f766e;">${tProy_ZC_C.toLocaleString('es-MX')}</td><td class="text-right">${tTot_ZC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_ZC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_ZC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_ZC_C > 0 ? '+':''}${pctTot_ZC_C.toFixed(1)}%</span>` : '-'}</td><td class="text-right" style="background:#f0fdf4;">${tCols_ZC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTotProy_ZC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTotProy_ZC_C > 0 ? '+':''}${pctTotProy_ZC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
             htmlZonaCrecCuenta += `</tbody></table>`;
             document.getElementById('contenedor-crecimiento-zona-cuenta').innerHTML = htmlZonaCrecCuenta;
 
             // Suma
-            let htmlZonaCrecSuma = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>ZONA</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let htmlZonaCrecSuma = `<table class="excel-table" style="min-width: 900px;"><thead><tr><th>ZONA</th>${thMesesCrec}<th class="text-right" style="color:#0f766e;">PROY. 2026</th><th class="text-right">TOTAL</th><th class="th-pct text-right">% ACTUAL<br/>(2026 vs 2025)</th><th class="th-pct text-right" style="background:#f0fdf4;">% PROY.<br/>(Proy vs 2025)</th></tr></thead><tbody>`;
             let tCols_ZC_S = {}; mesesCrecimiento.forEach(m => tCols_ZC_S[m] = 0);
-            let tTot_ZC_S = 0;
+            let tTot_ZC_S = 0, tProy_ZC_S = 0;
             listZonaCrec.forEach((z, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoZonaSuma[z][m] > 0 ? '$ ' + crecimientoZonaSuma[z][m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
@@ -1183,14 +1201,19 @@
 
                 const valActual = crecimientoZonaSuma[z][latestMes] || 0;
                 const valEnero = crecimientoZonaSuma[z][targetEnero] || 0;
+                const valProy = Math.round(valActual * multiplier);
+                tProy_ZC_S += valProy;
+
                 let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
-                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
-                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${pct >= 0 ? '#15803d' : '#b91c1c'};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctProy = (valEnero > 0) ? ((valProy - valEnero) / valEnero * 100) : 0;
+                let pctProyStr = valEnero > 0 ? `<span class="text-bold" style="color:${pctProy >= 0 ? '#15803d' : '#b91c1c'};">${pctProy > 0 ? '+':''}${pctProy.toFixed(1)}%</span>` : '-';
                 
-                htmlZonaCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('ZONA', '${z}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold">$ ${crecimientoZonaSuma[z].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td></tr>`;
+                htmlZonaCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('ZONA', '${z}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${z}</td>${tdCols}<td class="text-right text-bold" style="color:#0f766e;">$ ${valProy.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right text-bold">$ ${crecimientoZonaSuma[z].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td><td class="text-right" style="background:#f0fdf4;">${pctProyStr}</td></tr>`;
             });
             let pctTot_ZC_S = (tCols_ZC_S[targetEnero] > 0) ? ((tCols_ZC_S[latestMes] - tCols_ZC_S[targetEnero]) / tCols_ZC_S[targetEnero] * 100) : 0;
-            htmlZonaCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_ZC_S[m] > 0 ? '$ ' + tCols_ZC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right">$ ${tTot_ZC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_ZC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_ZC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_ZC_S > 0 ? '+':''}${pctTot_ZC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            let pctTotProy_ZC_S = (tCols_ZC_S[targetEnero] > 0) ? ((tProy_ZC_S - tCols_ZC_S[targetEnero]) / tCols_ZC_S[targetEnero] * 100) : 0;
+            htmlZonaCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_ZC_S[m] > 0 ? '$ ' + tCols_ZC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right" style="color:#0f766e;">$ ${tProy_ZC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">$ ${tTot_ZC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_ZC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_ZC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_ZC_S > 0 ? '+':''}${pctTot_ZC_S.toFixed(1)}%</span>` : '-'}</td><td class="text-right" style="background:#f0fdf4;">${tCols_ZC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTotProy_ZC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTotProy_ZC_S > 0 ? '+':''}${pctTotProy_ZC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
             htmlZonaCrecSuma += `</tbody></table>`;
             document.getElementById('contenedor-crecimiento-zona-suma').innerHTML = htmlZonaCrecSuma;
 
@@ -1198,9 +1221,9 @@
             const listTipoCrec = Object.keys(crecimientoTipoCuenta).sort((a,b) => crecimientoTipoCuenta[b].TOTAL - crecimientoTipoCuenta[a].TOTAL);
             
             // Cuenta
-            let htmlTipoCrecCuenta = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>TIPO</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let htmlTipoCrecCuenta = `<table class="excel-table" style="min-width: 900px;"><thead><tr><th>TIPO</th>${thMesesCrec}<th class="text-right" style="color:#0f766e;">PROY. 2026</th><th class="text-right">TOTAL</th><th class="th-pct text-right">% ACTUAL<br/>(2026 vs 2025)</th><th class="th-pct text-right" style="background:#f0fdf4;">% PROY.<br/>(Proy vs 2025)</th></tr></thead><tbody>`;
             let tCols_TC_C = {}; mesesCrecimiento.forEach(m => tCols_TC_C[m] = 0);
-            let tTot_TC_C = 0;
+            let tTot_TC_C = 0, tProy_TC_C = 0;
             listTipoCrec.forEach((t, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoTipoCuenta[t][m] > 0 ? crecimientoTipoCuenta[t][m].toLocaleString('es-MX') : '-'}</td>`).join('');
@@ -1210,21 +1233,26 @@
 
                 const valActual = crecimientoTipoCuenta[t][latestMes] || 0;
                 const valEnero = crecimientoTipoCuenta[t][targetEnero] || 0;
+                const valProy = Math.round(valActual * multiplier);
+                tProy_TC_C += valProy;
+
                 let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
-                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
-                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${pct >= 0 ? '#15803d' : '#b91c1c'};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctProy = (valEnero > 0) ? ((valProy - valEnero) / valEnero * 100) : 0;
+                let pctProyStr = valEnero > 0 ? `<span class="text-bold" style="color:${pctProy >= 0 ? '#15803d' : '#b91c1c'};">${pctProy > 0 ? '+':''}${pctProy.toFixed(1)}%</span>` : '-';
                 
-                htmlTipoCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('tipo', '${t}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${t}</td>${tdCols}<td class="text-right text-bold">${crecimientoTipoCuenta[t].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td></tr>`;
+                htmlTipoCrecCuenta += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('tipo', '${t}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${t}</td>${tdCols}<td class="text-right text-bold" style="color:#0f766e;">${valProy.toLocaleString('es-MX')}</td><td class="text-right text-bold">${crecimientoTipoCuenta[t].TOTAL.toLocaleString('es-MX')}</td><td class="text-right">${pctStr}</td><td class="text-right" style="background:#f0fdf4;">${pctProyStr}</td></tr>`;
             });
             let pctTot_TC_C = (tCols_TC_C[targetEnero] > 0) ? ((tCols_TC_C[latestMes] - tCols_TC_C[targetEnero]) / tCols_TC_C[targetEnero] * 100) : 0;
-            htmlTipoCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_TC_C[m] > 0 ? tCols_TC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right">${tTot_TC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_TC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_TC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_TC_C > 0 ? '+':''}${pctTot_TC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            let pctTotProy_TC_C = (tCols_TC_C[targetEnero] > 0) ? ((tProy_TC_C - tCols_TC_C[targetEnero]) / tCols_TC_C[targetEnero] * 100) : 0;
+            htmlTipoCrecCuenta += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_TC_C[m] > 0 ? tCols_TC_C[m].toLocaleString('es-MX') : '-'}</td>`).join('')}<td class="text-right" style="color:#0f766e;">${tProy_TC_C.toLocaleString('es-MX')}</td><td class="text-right">${tTot_TC_C.toLocaleString('es-MX')}</td><td class="text-right">${tCols_TC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_TC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_TC_C > 0 ? '+':''}${pctTot_TC_C.toFixed(1)}%</span>` : '-'}</td><td class="text-right" style="background:#f0fdf4;">${tCols_TC_C[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTotProy_TC_C >= 0 ? '#15803d' : '#b91c1c'};">${pctTotProy_TC_C > 0 ? '+':''}${pctTotProy_TC_C.toFixed(1)}%</span>` : '-'}</td></tr>`;
             htmlTipoCrecCuenta += `</tbody></table>`;
             document.getElementById('contenedor-crecimiento-tipo-cuenta').innerHTML = htmlTipoCrecCuenta;
 
             // Suma
-            let htmlTipoCrecSuma = `<table class="excel-table" style="min-width: 800px;"><thead><tr><th>TIPO</th>${thMesesCrec}<th class="text-right">TOTAL</th><th class="th-pct text-right">% CREC.<br/>(2026 vs 2025)</th></tr></thead><tbody>`;
+            let htmlTipoCrecSuma = `<table class="excel-table" style="min-width: 900px;"><thead><tr><th>TIPO</th>${thMesesCrec}<th class="text-right" style="color:#0f766e;">PROY. 2026</th><th class="text-right">TOTAL</th><th class="th-pct text-right">% ACTUAL<br/>(2026 vs 2025)</th><th class="th-pct text-right" style="background:#f0fdf4;">% PROY.<br/>(Proy vs 2025)</th></tr></thead><tbody>`;
             let tCols_TC_S = {}; mesesCrecimiento.forEach(m => tCols_TC_S[m] = 0);
-            let tTot_TC_S = 0;
+            let tTot_TC_S = 0, tProy_TC_S = 0;
             listTipoCrec.forEach((t, i) => {
                 const color = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'][i % 6];
                 let tdCols = mesesCrecimiento.map(m => `<td class="text-right">${crecimientoTipoSuma[t][m] > 0 ? '$ ' + crecimientoTipoSuma[t][m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('');
@@ -1234,14 +1262,19 @@
 
                 const valActual = crecimientoTipoSuma[t][latestMes] || 0;
                 const valEnero = crecimientoTipoSuma[t][targetEnero] || 0;
+                const valProy = Math.round(valActual * multiplier);
+                tProy_TC_S += valProy;
+
                 let pct = (valEnero > 0) ? ((valActual - valEnero) / valEnero * 100) : 0;
-                let colorPct = pct >= 0 ? '#15803d' : '#b91c1c';
-                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${colorPct};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctStr = valEnero > 0 ? `<span class="text-bold" style="color:${pct >= 0 ? '#15803d' : '#b91c1c'};">${pct > 0 ? '+':''}${pct.toFixed(1)}%</span>` : '-';
+                let pctProy = (valEnero > 0) ? ((valProy - valEnero) / valEnero * 100) : 0;
+                let pctProyStr = valEnero > 0 ? `<span class="text-bold" style="color:${pctProy >= 0 ? '#15803d' : '#b91c1c'};">${pctProy > 0 ? '+':''}${pctProy.toFixed(1)}%</span>` : '-';
                 
-                htmlTipoCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('tipo', '${t}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${t}</td>${tdCols}<td class="text-right text-bold">$ ${crecimientoTipoSuma[t].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td></tr>`;
+                htmlTipoCrecSuma += `<tr style="cursor:pointer; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background=''" onclick="filtrarDinamico('tipo', '${t}')" title="Clic para filtrar"><td class="text-bold" style="white-space:nowrap;"><div class="color-dot" style="background:${color};"></div>${t}</td>${tdCols}<td class="text-right text-bold" style="color:#0f766e;">$ ${valProy.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right text-bold">$ ${crecimientoTipoSuma[t].TOTAL.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${pctStr}</td><td class="text-right" style="background:#f0fdf4;">${pctProyStr}</td></tr>`;
             });
             let pctTot_TC_S = (tCols_TC_S[targetEnero] > 0) ? ((tCols_TC_S[latestMes] - tCols_TC_S[targetEnero]) / tCols_TC_S[targetEnero] * 100) : 0;
-            htmlTipoCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_TC_S[m] > 0 ? '$ ' + tCols_TC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right">$ ${tTot_TC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_TC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_TC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_TC_S > 0 ? '+':''}${pctTot_TC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
+            let pctTotProy_TC_S = (tCols_TC_S[targetEnero] > 0) ? ((tProy_TC_S - tCols_TC_S[targetEnero]) / tCols_TC_S[targetEnero] * 100) : 0;
+            htmlTipoCrecSuma += `<tr class="total-row"><td>TOTAL</td>${mesesCrecimiento.map(m => `<td class="text-right">${tCols_TC_S[m] > 0 ? '$ ' + tCols_TC_S[m].toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0}) : '-'}</td>`).join('')}<td class="text-right" style="color:#0f766e;">$ ${tProy_TC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">$ ${tTot_TC_S.toLocaleString('es-MX', {minimumFractionDigits:0, maximumFractionDigits:0})}</td><td class="text-right">${tCols_TC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTot_TC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTot_TC_S > 0 ? '+':''}${pctTot_TC_S.toFixed(1)}%</span>` : '-'}</td><td class="text-right" style="background:#f0fdf4;">${tCols_TC_S[targetEnero] > 0 ? `<span class="text-bold" style="color:${pctTotProy_TC_S >= 0 ? '#15803d' : '#b91c1c'};">${pctTotProy_TC_S > 0 ? '+':''}${pctTotProy_TC_S.toFixed(1)}%</span>` : '-'}</td></tr>`;
             htmlTipoCrecSuma += `</tbody></table>`;
             document.getElementById('contenedor-crecimiento-tipo-suma').innerHTML = htmlTipoCrecSuma;
 
