@@ -879,13 +879,15 @@
             if (typeof DATOS_RECAUDO !== 'undefined' && DATOS_RECAUDO.campanas) {
                 let masivoData = DATOS_RECAUDO.campanas.find(c => c.campana.toUpperCase() === 'MASIVO');
                 if (masivoData) {
-                    const formatNum = (val) => '$' + parseFloat(val).toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                    const getNum = (val) => typeof val === 'string' ? parseFloat(val.replace(/[$,]/g, '')) : parseFloat(val);
+                    const formatNum = (val) => '$' + getNum(val).toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                    
                     document.getElementById('kpi-presupuesto-masivo').innerText = formatNum(masivoData.presupuesto);
                     document.getElementById('kpi-recaudo-masivo').innerText = formatNum(masivoData.recaudo);
                     document.getElementById('kpi-cumplimiento-masivo').innerText = masivoData.cumplimiento;
                     document.getElementById('kpi-cierre-masivo').innerText = masivoData.cierre;
                     
-                    const faltante = masivoData.presupuesto - masivoData.recaudo;
+                    const faltante = getNum(masivoData.presupuesto) - getNum(masivoData.recaudo);
                     document.getElementById('kpi-faltante-masivo').innerText = formatNum(faltante);
                     document.getElementById('kpi-faltante-masivo').style.color = faltante > 0 ? '#b91c1c' : '#15803d';
                 }
