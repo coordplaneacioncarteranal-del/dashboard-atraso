@@ -3,9 +3,9 @@ const DATOS_RECAUDO = {
     "ANTIOQUIA": {
       "total": {
         "presupuesto": 483872348.0,
-        "recaudo": 446464537.0,
-        "cumplimiento": 92.26907444605618,
-        "cierre": 92.26907444605618
+        "recaudo": 448866837.0,
+        "cumplimiento": 92.76554836318111,
+        "cierre": 92.76554836318111
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -16,9 +16,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 241634698.0,
-          "recaudo": 202410517.0,
-          "cumplimiento": 83.76715706615943,
-          "cierre": 83.76715706615943
+          "recaudo": 204812817.0,
+          "cumplimiento": 84.76134375370212,
+          "cierre": 84.76134375370212
         },
         "OFICINA": {
           "presupuesto": 27731000.0,
@@ -37,9 +37,9 @@ const DATOS_RECAUDO = {
     "ATLANTICO": {
       "total": {
         "presupuesto": 117928517.0,
-        "recaudo": 94055882.0,
-        "cumplimiento": 79.75669023294849,
-        "cierre": 79.75669023294849
+        "recaudo": 95474842.0,
+        "cumplimiento": 80.95992761445478,
+        "cierre": 80.95992761445478
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -50,9 +50,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 52413921.0,
-          "recaudo": 29677522.0,
-          "cumplimiento": 56.62144986252794,
-          "cierre": 56.62144986252794
+          "recaudo": 31096482.0,
+          "cumplimiento": 59.328669572345106,
+          "cierre": 59.328669572345106
         },
         "OFICINA": {
           "presupuesto": 3436500.0,
@@ -65,9 +65,9 @@ const DATOS_RECAUDO = {
     "BOGOTA": {
       "total": {
         "presupuesto": 69520400.0,
-        "recaudo": 62671104.0,
-        "cumplimiento": 90.14778971352294,
-        "cierre": 90.14778971352294
+        "recaudo": 63895404.0,
+        "cumplimiento": 91.90885553017532,
+        "cierre": 91.90885553017532
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -78,9 +78,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 52354450.0,
-          "recaudo": 42885004.0,
-          "cumplimiento": 81.9128154340271,
-          "cierre": 81.9128154340271
+          "recaudo": 44109304.0,
+          "cumplimiento": 84.2512986002145,
+          "cierre": 84.2512986002145
         },
         "OFICINA": {
           "presupuesto": 2375100.0,
@@ -93,9 +93,9 @@ const DATOS_RECAUDO = {
     "CALDAS": {
       "total": {
         "presupuesto": 585431610.0,
-        "recaudo": 578734990.0,
-        "cumplimiento": 98.85612257937353,
-        "cierre": 98.85612257937353
+        "recaudo": 579511590.0,
+        "cumplimiento": 98.98877684448915,
+        "cierre": 98.98877684448915
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -106,9 +106,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 92032610.0,
-          "recaudo": 91260940.0,
-          "cumplimiento": 99.16152546363729,
-          "cierre": 99.16152546363729
+          "recaudo": 92037540.0,
+          "cumplimiento": 100.00535679690057,
+          "cierre": 100.00535679690057
         },
         "OFICINA": {
           "presupuesto": 325751150.0,
@@ -127,22 +127,22 @@ const DATOS_RECAUDO = {
     "CAUCA": {
       "total": {
         "presupuesto": 106698000.0,
-        "recaudo": 102427898.0,
-        "cumplimiento": 95.99795497572589,
-        "cierre": 95.99795497572589
+        "recaudo": 102854398.0,
+        "cumplimiento": 96.39768130611633,
+        "cierre": 96.39768130611633
       },
       "tipos": {
         "ASESOR COBRANZA": {
           "presupuesto": 42513965.0,
-          "recaudo": 40297805.0,
-          "cumplimiento": 94.78721874094784,
-          "cierre": 94.78721874094784
+          "recaudo": 40330805.0,
+          "cumplimiento": 94.86484029424214,
+          "cierre": 94.86484029424214
         },
         "MEDIOS": {
           "presupuesto": 43856360.0,
-          "recaudo": 37072268.0,
-          "cumplimiento": 84.53111019701589,
-          "cierre": 84.53111019701589
+          "recaudo": 37465768.0,
+          "cumplimiento": 85.4283574833844,
+          "cierre": 85.4283574833844
         },
         "OFICINA": {
           "presupuesto": 16852925.0,
@@ -161,9 +161,9 @@ const DATOS_RECAUDO = {
     "CUNDINAMARCA": {
       "total": {
         "presupuesto": 480801145.0,
-        "recaudo": 475376046.0,
-        "cumplimiento": 98.8716543093923,
-        "cierre": 98.8716543093923
+        "recaudo": 478499546.0,
+        "cumplimiento": 99.52129918492602,
+        "cierre": 99.52129918492602
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -174,9 +174,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 142942220.0,
-          "recaudo": 123159800.0,
-          "cumplimiento": 86.16054794727548,
-          "cierre": 86.16054794727548
+          "recaudo": 126283300.0,
+          "cumplimiento": 88.34569660384454,
+          "cierre": 88.34569660384454
         },
         "OFICINA": {
           "presupuesto": 161752425.0,
@@ -195,9 +195,9 @@ const DATOS_RECAUDO = {
     "HUILA": {
       "total": {
         "presupuesto": 421975376.0,
-        "recaudo": 390206111.0,
-        "cumplimiento": 92.47129884659431,
-        "cierre": 92.47129884659431
+        "recaudo": 392637719.0,
+        "cumplimiento": 93.0475428973846,
+        "cierre": 93.0475428973846
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -208,9 +208,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 236715423.0,
-          "recaudo": 199581413.0,
-          "cumplimiento": 84.3128050004583,
-          "cierre": 84.3128050004583
+          "recaudo": 202013021.0,
+          "cumplimiento": 85.34003337839124,
+          "cierre": 85.34003337839124
         },
         "OFICINA": {
           "presupuesto": 101292260.0,
@@ -229,9 +229,9 @@ const DATOS_RECAUDO = {
     "META": {
       "total": {
         "presupuesto": 31971650.0,
-        "recaudo": 26007800.0,
-        "cumplimiento": 81.34644286422503,
-        "cierre": 81.34644286422503
+        "recaudo": 26348250.0,
+        "cumplimiento": 82.41129250445316,
+        "cierre": 82.41129250445316
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -242,9 +242,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 9964900.0,
-          "recaudo": 5338900.0,
-          "cumplimiento": 53.57705546468103,
-          "cierre": 53.57705546468103
+          "recaudo": 5679350.0,
+          "cumplimiento": 56.99354735120272,
+          "cierre": 56.99354735120272
         },
         "OFICINA": {
           "presupuesto": 3720900.0,
@@ -279,9 +279,9 @@ const DATOS_RECAUDO = {
     "QUINDIO": {
       "total": {
         "presupuesto": 769346770.0,
-        "recaudo": 757324026.0,
-        "cumplimiento": 98.43727893989859,
-        "cierre": 98.43727893989859
+        "recaudo": 759116326.0,
+        "cumplimiento": 98.6702428087142,
+        "cierre": 98.6702428087142
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -292,9 +292,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 164234950.0,
-          "recaudo": 144615266.0,
-          "cumplimiento": 88.05389230489612,
-          "cierre": 88.05389230489612
+          "recaudo": 146407566.0,
+          "cumplimiento": 89.14519473473825,
+          "cierre": 89.14519473473825
         },
         "OFICINA": {
           "presupuesto": 209325080.0,
@@ -313,62 +313,62 @@ const DATOS_RECAUDO = {
     "RISARALDA": {
       "total": {
         "presupuesto": 603853735.0,
-        "recaudo": 589389245.0,
-        "cumplimiento": 97.60463682484303,
-        "cierre": 97.60463682484303
+        "recaudo": 592381045.0,
+        "cumplimiento": 98.10008792940562,
+        "cierre": 98.10008792940562
       },
       "tipos": {
         "ASESOR COBRANZA": {
           "presupuesto": 349816360.0,
-          "recaudo": 334094260.0,
-          "cumplimiento": 95.5056132880692,
-          "cierre": 95.5056132880692
+          "recaudo": 334950260.0,
+          "cumplimiento": 95.75031310713999,
+          "cierre": 95.75031310713999
         },
         "MEDIOS": {
           "presupuesto": 139622025.0,
-          "recaudo": 129988860.0,
-          "cumplimiento": 93.1005405486706,
-          "cierre": 93.1005405486706
+          "recaudo": 131429110.0,
+          "cumplimiento": 94.13207550886044,
+          "cierre": 94.13207550886044
         },
         "OFICINA": {
           "presupuesto": 112651850.0,
-          "recaudo": 124114725.0,
-          "cumplimiento": 110.17548757521513,
-          "cierre": 110.17548757521513
+          "recaudo": 124692775.0,
+          "cumplimiento": 110.68861718649094,
+          "cierre": 110.68861718649094
         },
         "PUNTO DE RECAUDO": {
           "presupuesto": 1763500.0,
-          "recaudo": 1191400.0,
-          "cumplimiento": 67.55883186844343,
-          "cierre": 67.55883186844343
+          "recaudo": 1308900.0,
+          "cumplimiento": 74.22171817408562,
+          "cierre": 74.22171817408562
         }
       }
     },
     "SANTANDER": {
       "total": {
         "presupuesto": 59352725.0,
-        "recaudo": 51216380.0,
-        "cumplimiento": 86.29153926799485,
-        "cierre": 86.29153926799485
+        "recaudo": 51823980.0,
+        "cumplimiento": 87.3152496368111,
+        "cierre": 87.3152496368111
       },
       "tipos": {
         "ASESOR COBRANZA": {
           "presupuesto": 20808125.0,
-          "recaudo": 17370000.0,
-          "cumplimiento": 83.47700717868621,
-          "cierre": 83.47700717868621
+          "recaudo": 17291600.0,
+          "cumplimiento": 83.10023127984861,
+          "cierre": 83.10023127984861
         },
         "MEDIOS": {
           "presupuesto": 18277600.0,
-          "recaudo": 15945300.0,
-          "cumplimiento": 87.23957193504617,
-          "cierre": 87.23957193504617
+          "recaudo": 16511300.0,
+          "cumplimiento": 90.33625858974919,
+          "cierre": 90.33625858974919
         },
         "OFICINA": {
           "presupuesto": 7623300.0,
-          "recaudo": 6143880.0,
-          "cumplimiento": 80.59344378418794,
-          "cierre": 80.59344378418794
+          "recaudo": 6263880.0,
+          "cumplimiento": 82.16756522765732,
+          "cierre": 82.16756522765732
         },
         "PUNTO DE RECAUDO": {
           "presupuesto": 12643700.0,
@@ -381,9 +381,9 @@ const DATOS_RECAUDO = {
     "TOLIMA": {
       "total": {
         "presupuesto": 405210380.0,
-        "recaudo": 397037805.0,
-        "cumplimiento": 97.98312792480785,
-        "cierre": 97.98312792480785
+        "recaudo": 399076155.0,
+        "cumplimiento": 98.48616291616221,
+        "cierre": 98.48616291616221
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -394,9 +394,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 121124480.0,
-          "recaudo": 112730962.0,
-          "cumplimiento": 93.07033722662834,
-          "cierre": 93.07033722662834
+          "recaudo": 114769312.0,
+          "cumplimiento": 94.75319274848486,
+          "cierre": 94.75319274848486
         },
         "OFICINA": {
           "presupuesto": 146597000.0,
@@ -415,9 +415,9 @@ const DATOS_RECAUDO = {
     "VALLE SUR CALI": {
       "total": {
         "presupuesto": 459272800.0,
-        "recaudo": 443881522.0,
-        "cumplimiento": 96.64877214587932,
-        "cierre": 96.64877214587932
+        "recaudo": 446542230.0,
+        "cumplimiento": 97.22810277464723,
+        "cierre": 97.22810277464723
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -428,9 +428,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 180875300.0,
-          "recaudo": 156953290.0,
-          "cumplimiento": 86.77430804537713,
-          "cierre": 86.77430804537713
+          "recaudo": 159613998.0,
+          "cumplimiento": 88.24532592344008,
+          "cierre": 88.24532592344008
         },
         "OFICINA": {
           "presupuesto": 27966650.0,
@@ -449,9 +449,9 @@ const DATOS_RECAUDO = {
     "VALLE CENTRO PALMIRA": {
       "total": {
         "presupuesto": 360328010.0,
-        "recaudo": 348258990.0,
-        "cumplimiento": 96.65054626200167,
-        "cierre": 96.65054626200167
+        "recaudo": 349732790.0,
+        "cumplimiento": 97.05956248030787,
+        "cierre": 97.05956248030787
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -462,15 +462,15 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 123714510.0,
-          "recaudo": 105859490.0,
-          "cumplimiento": 85.5675619618103,
-          "cierre": 85.5675619618103
+          "recaudo": 107380890.0,
+          "cumplimiento": 86.7973287854432,
+          "cierre": 86.7973287854432
         },
         "OFICINA": {
           "presupuesto": 81014200.0,
-          "recaudo": 82143410.0,
-          "cumplimiento": 101.39384206719315,
-          "cierre": 101.39384206719315
+          "recaudo": 82095810.0,
+          "cumplimiento": 101.33508693537676,
+          "cierre": 101.33508693537676
         },
         "PUNTO DE RECAUDO": {
           "presupuesto": 1606800.0,
@@ -483,9 +483,9 @@ const DATOS_RECAUDO = {
     "VALLE CENTRO": {
       "total": {
         "presupuesto": 486863427.0,
-        "recaudo": 502005705.0,
-        "cumplimiento": 103.11016953836625,
-        "cierre": 103.11016953836625
+        "recaudo": 502703455.0,
+        "cumplimiento": 103.25348488334902,
+        "cierre": 103.25348488334902
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -496,9 +496,9 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 61689000.0,
-          "recaudo": 64282285.0,
-          "cumplimiento": 104.20380456807534,
-          "cierre": 104.20380456807534
+          "recaudo": 64980035.0,
+          "cumplimiento": 105.33488142132308,
+          "cierre": 105.33488142132308
         },
         "OFICINA": {
           "presupuesto": 155798262.0,
@@ -517,9 +517,9 @@ const DATOS_RECAUDO = {
     "VALLE NORTE": {
       "total": {
         "presupuesto": 562475100.0,
-        "recaudo": 572522871.0,
-        "cumplimiento": 101.7863494757368,
-        "cierre": 101.7863494757368
+        "recaudo": 573021971.0,
+        "cumplimiento": 101.8750822925317,
+        "cierre": 101.8750822925317
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -530,15 +530,15 @@ const DATOS_RECAUDO = {
         },
         "MEDIOS": {
           "presupuesto": 61270600.0,
-          "recaudo": 59782350.0,
-          "cumplimiento": 97.57102101170871,
-          "cierre": 97.57102101170871
+          "recaudo": 60331450.0,
+          "cumplimiento": 98.46720939569713,
+          "cierre": 98.46720939569713
         },
         "OFICINA": {
           "presupuesto": 239959700.0,
-          "recaudo": 250800611.0,
-          "cumplimiento": 104.51780486473355,
-          "cierre": 104.51780486473355
+          "recaudo": 250750611.0,
+          "cumplimiento": 104.49696803254879,
+          "cierre": 104.49696803254879
         },
         "PUNTO DE RECAUDO": {
           "presupuesto": 975450.0,
@@ -552,10 +552,10 @@ const DATOS_RECAUDO = {
   "zonas": {
     "MEDELLIN": {
       "total": {
-        "presupuesto": 222918700.0,
-        "recaudo": 224087370.0,
-        "cumplimiento": 100.5242583955496,
-        "cierre": 100.5242583955496
+        "presupuesto": 456552898.0,
+        "recaudo": 424773132.0,
+        "cumplimiento": 93.03919301811112,
+        "cierre": 93.03919301811112
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -580,10 +580,10 @@ const DATOS_RECAUDO = {
     },
     "VALPARAISO": {
       "total": {
-        "presupuesto": 7623350.0,
-        "recaudo": 7688900.0,
-        "cumplimiento": 100.85985819882335,
-        "cierre": 100.85985819882335
+        "presupuesto": 8288450.0,
+        "recaudo": 8190800.0,
+        "cumplimiento": 98.82185450838215,
+        "cierre": 98.82185450838215
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -602,10 +602,10 @@ const DATOS_RECAUDO = {
     },
     "LA PINTADA": {
       "total": {
-        "presupuesto": 10113200.0,
-        "recaudo": 10131850.0,
-        "cumplimiento": 100.18441245105407,
-        "cierre": 100.18441245105407
+        "presupuesto": 13458400.0,
+        "recaudo": 12781150.0,
+        "cumplimiento": 94.96782678475896,
+        "cierre": 94.96782678475896
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -631,25 +631,25 @@ const DATOS_RECAUDO = {
     "ANTIOQUIA MEDIOS": {
       "total": {
         "presupuesto": 241634698.0,
-        "recaudo": 202410517.0,
-        "cumplimiento": 83.76715706615943,
-        "cierre": 83.76715706615943
+        "recaudo": 204812817.0,
+        "cumplimiento": 84.76134375370212,
+        "cierre": 84.76134375370212
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 241634698.0,
-          "recaudo": 202410517.0,
-          "cumplimiento": 83.76715706615943,
-          "cierre": 83.76715706615943
+          "recaudo": 204812817.0,
+          "cumplimiento": 84.76134375370212,
+          "cierre": 84.76134375370212
         }
       }
     },
     "ITAGUI": {
       "total": {
-        "presupuesto": 1582400.0,
-        "recaudo": 2145900.0,
-        "cumplimiento": 135.61046511627907,
-        "cierre": 135.61046511627907
+        "presupuesto": 4389250.0,
+        "recaudo": 3543299.0,
+        "cumplimiento": 80.72675286210628,
+        "cierre": 80.72675286210628
       },
       "tipos": {
         "OFICINA": {
@@ -662,10 +662,10 @@ const DATOS_RECAUDO = {
     },
     "BARRANQUILLA": {
       "total": {
-        "presupuesto": 53128896.0,
-        "recaudo": 52600960.0,
-        "cumplimiento": 99.00631099129183,
-        "cierre": 99.00631099129183
+        "presupuesto": 96956495.0,
+        "recaudo": 79775132.0,
+        "cumplimiento": 82.27930681693888,
+        "cierre": 82.27930681693888
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -684,10 +684,10 @@ const DATOS_RECAUDO = {
     },
     "SOLEDAD": {
       "total": {
-        "presupuesto": 12385700.0,
-        "recaudo": 11777400.0,
-        "cumplimiento": 95.08869099041637,
-        "cierre": 95.08869099041637
+        "presupuesto": 22107710.0,
+        "recaudo": 15641210.0,
+        "cumplimiento": 70.75002340812323,
+        "cierre": 70.75002340812323
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -707,25 +707,25 @@ const DATOS_RECAUDO = {
     "ATLANTICO MEDIOS": {
       "total": {
         "presupuesto": 52413921.0,
-        "recaudo": 29677522.0,
-        "cumplimiento": 56.62144986252794,
-        "cierre": 56.62144986252794
+        "recaudo": 31096482.0,
+        "cumplimiento": 59.328669572345106,
+        "cierre": 59.328669572345106
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 52413921.0,
-          "recaudo": 29677522.0,
-          "cumplimiento": 56.62144986252794,
-          "cierre": 56.62144986252794
+          "recaudo": 31096482.0,
+          "cumplimiento": 59.328669572345106,
+          "cierre": 59.328669572345106
         }
       }
     },
     "BOGOTA": {
       "total": {
-        "presupuesto": 17165950.0,
-        "recaudo": 19786100.0,
-        "cumplimiento": 115.26364692894946,
-        "cierre": 115.26364692894946
+        "presupuesto": 68988750.0,
+        "recaudo": 64168104.0,
+        "cumplimiento": 93.01241724194162,
+        "cierre": 93.01241724194162
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -745,25 +745,25 @@ const DATOS_RECAUDO = {
     "CUNDINAMARCA BOGOTA MEDIOS": {
       "total": {
         "presupuesto": 52354450.0,
-        "recaudo": 42885004.0,
-        "cumplimiento": 81.9128154340271,
-        "cierre": 81.9128154340271
+        "recaudo": 44109304.0,
+        "cumplimiento": 84.2512986002145,
+        "cierre": 84.2512986002145
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 52354450.0,
-          "recaudo": 42885004.0,
-          "cumplimiento": 81.9128154340271,
-          "cierre": 81.9128154340271
+          "recaudo": 44109304.0,
+          "cumplimiento": 84.2512986002145,
+          "cierre": 84.2512986002145
         }
       }
     },
     "MANIZALES": {
       "total": {
-        "presupuesto": 15524600.0,
-        "recaudo": 16703600.0,
-        "cumplimiento": 107.59439856743491,
-        "cierre": 107.59439856743491
+        "presupuesto": 42899800.0,
+        "recaudo": 42173550.0,
+        "cumplimiento": 98.30710166480962,
+        "cierre": 98.30710166480962
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -782,10 +782,10 @@ const DATOS_RECAUDO = {
     },
     "CHINCHINA": {
       "total": {
-        "presupuesto": 18998600.0,
-        "recaudo": 17278900.0,
-        "cumplimiento": 90.9482803996084,
-        "cierre": 90.9482803996084
+        "presupuesto": 24150450.0,
+        "recaudo": 23066490.0,
+        "cumplimiento": 95.51163642913487,
+        "cierre": 95.51163642913487
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -804,10 +804,10 @@ const DATOS_RECAUDO = {
     },
     "PALESTINA": {
       "total": {
-        "presupuesto": 6683150.0,
-        "recaudo": 6961850.0,
-        "cumplimiento": 104.17018920718523,
-        "cierre": 104.17018920718523
+        "presupuesto": 10428000.0,
+        "recaudo": 10695000.0,
+        "cumplimiento": 102.56041426927503,
+        "cierre": 102.56041426927503
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -826,10 +826,10 @@ const DATOS_RECAUDO = {
     },
     "ARAUCA": {
       "total": {
-        "presupuesto": 29759050.0,
-        "recaudo": 28952050.0,
-        "cumplimiento": 97.28821988605148,
-        "cierre": 97.28821988605148
+        "presupuesto": 35449700.0,
+        "recaudo": 34993150.0,
+        "cumplimiento": 98.71211886137259,
+        "cierre": 98.71211886137259
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -848,10 +848,10 @@ const DATOS_RECAUDO = {
     },
     "RISARALDA": {
       "total": {
-        "presupuesto": 33844750.0,
-        "recaudo": 33304550.0,
-        "cumplimiento": 98.40388834309604,
-        "cierre": 98.40388834309604
+        "presupuesto": 39153660.0,
+        "recaudo": 38539550.0,
+        "cumplimiento": 98.43153871183435,
+        "cierre": 98.43153871183435
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -870,10 +870,10 @@ const DATOS_RECAUDO = {
     },
     "PACORA": {
       "total": {
-        "presupuesto": 10949100.0,
-        "recaudo": 11852600.0,
-        "cumplimiento": 108.25181978427452,
-        "cierre": 108.25181978427452
+        "presupuesto": 11910400.0,
+        "recaudo": 12767950.0,
+        "cumplimiento": 107.20001007522836,
+        "cierre": 107.20001007522836
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -892,10 +892,10 @@ const DATOS_RECAUDO = {
     },
     "SALAMINA": {
       "total": {
-        "presupuesto": 5173700.0,
-        "recaudo": 5336450.0,
-        "cumplimiento": 103.14571776484914,
-        "cierre": 103.14571776484914
+        "presupuesto": 13108900.0,
+        "recaudo": 12701550.0,
+        "cumplimiento": 96.89256917056352,
+        "cierre": 96.89256917056352
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -914,10 +914,10 @@ const DATOS_RECAUDO = {
     },
     "SUPIA": {
       "total": {
-        "presupuesto": 42362300.0,
-        "recaudo": 42907200.0,
-        "cumplimiento": 101.28628521114294,
-        "cierre": 101.28628521114294
+        "presupuesto": 48783000.0,
+        "recaudo": 47949600.0,
+        "cumplimiento": 98.29161798167394,
+        "cierre": 98.29161798167394
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -936,10 +936,10 @@ const DATOS_RECAUDO = {
     },
     "MARMATO": {
       "total": {
-        "presupuesto": 13428250.0,
-        "recaudo": 13257600.0,
-        "cumplimiento": 98.72917170889728,
-        "cierre": 98.72917170889728
+        "presupuesto": 16264150.0,
+        "recaudo": 14956850.0,
+        "cumplimiento": 91.9620760998884,
+        "cierre": 91.9620760998884
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -964,10 +964,10 @@ const DATOS_RECAUDO = {
     },
     "RIOSUCIO": {
       "total": {
-        "presupuesto": 33003250.0,
-        "recaudo": 32513550.0,
-        "cumplimiento": 98.51620673721527,
-        "cierre": 98.51620673721527
+        "presupuesto": 38757450.0,
+        "recaudo": 38924200.0,
+        "cumplimiento": 100.43023986356172,
+        "cierre": 100.43023986356172
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -992,10 +992,10 @@ const DATOS_RECAUDO = {
     },
     "SAN LORENZO": {
       "total": {
-        "presupuesto": 7177900.0,
-        "recaudo": 7059100.0,
-        "cumplimiento": 98.34491982334667,
-        "cierre": 98.34491982334667
+        "presupuesto": 7853300.0,
+        "recaudo": 7808700.0,
+        "cumplimiento": 99.43208587472783,
+        "cierre": 99.43208587472783
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1014,10 +1014,10 @@ const DATOS_RECAUDO = {
     },
     "BELEN": {
       "total": {
-        "presupuesto": 48049950.0,
-        "recaudo": 46662700.0,
-        "cumplimiento": 97.11290022154029,
-        "cierre": 97.11290022154029
+        "presupuesto": 52058500.0,
+        "recaudo": 54384250.0,
+        "cumplimiento": 104.46757013744153,
+        "cierre": 104.46757013744153
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1036,10 +1036,10 @@ const DATOS_RECAUDO = {
     },
     "ANSERMA": {
       "total": {
-        "presupuesto": 100768850.0,
-        "recaudo": 96591900.0,
-        "cumplimiento": 95.85491945179487,
-        "cierre": 95.85491945179487
+        "presupuesto": 111662700.0,
+        "recaudo": 108453450.0,
+        "cumplimiento": 97.12594268274007,
+        "cierre": 97.12594268274007
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1058,10 +1058,10 @@ const DATOS_RECAUDO = {
     },
     "MISTRATO": {
       "total": {
-        "presupuesto": 10424150.0,
-        "recaudo": 10975050.0,
-        "cumplimiento": 105.28484336852406,
-        "cierre": 105.28484336852406
+        "presupuesto": 11065450.0,
+        "recaudo": 11783350.0,
+        "cumplimiento": 106.4877614557022,
+        "cierre": 106.4877614557022
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1080,10 +1080,10 @@ const DATOS_RECAUDO = {
     },
     "QUINCHIA": {
       "total": {
-        "presupuesto": 34041100.0,
-        "recaudo": 35477150.0,
-        "cumplimiento": 104.21857695550378,
-        "cierre": 104.21857695550378
+        "presupuesto": 39753950.0,
+        "recaudo": 41861000.0,
+        "cumplimiento": 105.30022802765511,
+        "cierre": 105.30022802765511
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1108,10 +1108,10 @@ const DATOS_RECAUDO = {
     },
     "VITERBO": {
       "total": {
-        "presupuesto": 41062400.0,
-        "recaudo": 41251550.0,
-        "cumplimiento": 100.46064039120948,
-        "cierre": 100.46064039120948
+        "presupuesto": 44842500.0,
+        "recaudo": 45990450.0,
+        "cumplimiento": 102.55995985950828,
+        "cierre": 102.55995985950828
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1130,10 +1130,10 @@ const DATOS_RECAUDO = {
     },
     "BELALCAZAR": {
       "total": {
-        "presupuesto": 10600350.0,
-        "recaudo": 9915250.0,
-        "cumplimiento": 93.5370058535803,
-        "cierre": 93.5370058535803
+        "presupuesto": 14580300.0,
+        "recaudo": 13489800.0,
+        "cumplimiento": 92.52073002613115,
+        "cierre": 92.52073002613115
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1152,10 +1152,10 @@ const DATOS_RECAUDO = {
     },
     "GUATICA": {
       "total": {
-        "presupuesto": 16100950.0,
-        "recaudo": 15461950.0,
-        "cumplimiento": 96.03129007915682,
-        "cierre": 96.03129007915682
+        "presupuesto": 18822350.0,
+        "recaudo": 18545650.0,
+        "cumplimiento": 98.52993914149934,
+        "cierre": 98.52993914149934
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1175,25 +1175,25 @@ const DATOS_RECAUDO = {
     "CALDAS MEDIOS": {
       "total": {
         "presupuesto": 92032610.0,
-        "recaudo": 91260940.0,
-        "cumplimiento": 99.16152546363729,
-        "cierre": 99.16152546363729
+        "recaudo": 92037540.0,
+        "cumplimiento": 100.00535679690057,
+        "cierre": 100.00535679690057
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 92032610.0,
-          "recaudo": 91260940.0,
-          "cumplimiento": 99.16152546363729,
-          "cierre": 99.16152546363729
+          "recaudo": 92037540.0,
+          "cumplimiento": 100.00535679690057,
+          "cierre": 100.00535679690057
         }
       }
     },
     "NEIRA": {
       "total": {
-        "presupuesto": 15446600.0,
-        "recaudo": 15011050.0,
-        "cumplimiento": 97.18028562919996,
-        "cierre": 97.18028562919996
+        "presupuesto": 21064850.0,
+        "recaudo": 20418550.0,
+        "cumplimiento": 96.93185567426305,
+        "cierre": 96.93185567426305
       },
       "tipos": {
         "OFICINA": {
@@ -1207,16 +1207,16 @@ const DATOS_RECAUDO = {
     "SANTANDER": {
       "total": {
         "presupuesto": 46801550.0,
-        "recaudo": 46221600.0,
-        "cumplimiento": 98.76083163912305,
-        "cierre": 98.76083163912305
+        "recaudo": 46254600.0,
+        "cumplimiento": 98.83134212435272,
+        "cierre": 98.83134212435272
       },
       "tipos": {
         "ASESOR COBRANZA": {
           "presupuesto": 33159000.0,
-          "recaudo": 31629700.0,
-          "cumplimiento": 95.38797913085438,
-          "cierre": 95.38797913085438
+          "recaudo": 31662700.0,
+          "cumplimiento": 95.48749962302844,
+          "cierre": 95.48749962302844
         },
         "OFICINA": {
           "presupuesto": 12219050.0,
@@ -1234,10 +1234,10 @@ const DATOS_RECAUDO = {
     },
     "POPAYAN": {
       "total": {
-        "presupuesto": 16040090.0,
-        "recaudo": 19134030.0,
-        "cumplimiento": 119.28879451424524,
-        "cierre": 119.28879451424524
+        "presupuesto": 31564050.0,
+        "recaudo": 31342580.0,
+        "cumplimiento": 99.29834732868564,
+        "cierre": 99.29834732868564
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1263,25 +1263,25 @@ const DATOS_RECAUDO = {
     "CAUCA MEDIOS": {
       "total": {
         "presupuesto": 43856360.0,
-        "recaudo": 37072268.0,
-        "cumplimiento": 84.53111019701589,
-        "cierre": 84.53111019701589
+        "recaudo": 37465768.0,
+        "cumplimiento": 85.4283574833844,
+        "cierre": 85.4283574833844
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 43856360.0,
-          "recaudo": 37072268.0,
-          "cumplimiento": 84.53111019701589,
-          "cierre": 84.53111019701589
+          "recaudo": 37465768.0,
+          "cumplimiento": 85.4283574833844,
+          "cierre": 85.4283574833844
         }
       }
     },
     "GIRARDOT": {
       "total": {
-        "presupuesto": 96451200.0,
-        "recaudo": 102351950.0,
-        "cumplimiento": 106.11786063833317,
-        "cierre": 106.11786063833317
+        "presupuesto": 127665400.0,
+        "recaudo": 128651150.0,
+        "cumplimiento": 100.7721355982122,
+        "cierre": 100.7721355982122
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1306,10 +1306,10 @@ const DATOS_RECAUDO = {
     },
     "MELGAR": {
       "total": {
-        "presupuesto": 39901600.0,
-        "recaudo": 41655606.0,
-        "cumplimiento": 104.39582873869719,
-        "cierre": 104.39582873869719
+        "presupuesto": 50849750.0,
+        "recaudo": 51543106.0,
+        "cumplimiento": 101.3635386604654,
+        "cierre": 101.3635386604654
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1328,10 +1328,10 @@ const DATOS_RECAUDO = {
     },
     "TOCAIMA": {
       "total": {
-        "presupuesto": 13676100.0,
-        "recaudo": 14494400.0,
-        "cumplimiento": 105.98343094888163,
-        "cierre": 105.98343094888163
+        "presupuesto": 15237300.0,
+        "recaudo": 15893150.0,
+        "cumplimiento": 104.30424025253816,
+        "cierre": 104.30424025253816
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1350,10 +1350,10 @@ const DATOS_RECAUDO = {
     },
     "ANAPOIMA": {
       "total": {
-        "presupuesto": 27941550.0,
-        "recaudo": 28994150.0,
-        "cumplimiento": 103.76714963915745,
-        "cierre": 103.76714963915745
+        "presupuesto": 34603300.0,
+        "recaudo": 34452000.0,
+        "cumplimiento": 99.56275846523309,
+        "cierre": 99.56275846523309
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1406,10 +1406,10 @@ const DATOS_RECAUDO = {
     },
     "ICONONZO": {
       "total": {
-        "presupuesto": 14729075.0,
-        "recaudo": 13235150.0,
-        "cumplimiento": 89.85730604264015,
-        "cierre": 89.85730604264015
+        "presupuesto": 18434175.0,
+        "recaudo": 16764000.0,
+        "cumplimiento": 90.93978981972343,
+        "cierre": 90.93978981972343
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1428,10 +1428,10 @@ const DATOS_RECAUDO = {
     },
     "FACATATIVA": {
       "total": {
-        "presupuesto": 15073550.0,
-        "recaudo": 15727800.0,
-        "cumplimiento": 104.34038431557265,
-        "cierre": 104.34038431557265
+        "presupuesto": 21897750.0,
+        "recaudo": 22183550.0,
+        "cumplimiento": 101.30515692251487,
+        "cierre": 101.30515692251487
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1456,10 +1456,10 @@ const DATOS_RECAUDO = {
     },
     "FUSAGASUGA": {
       "total": {
-        "presupuesto": 60905950.0,
-        "recaudo": 65943050.0,
-        "cumplimiento": 108.27029214715476,
-        "cierre": 108.27029214715476
+        "presupuesto": 107924000.0,
+        "recaudo": 113395830.0,
+        "cumplimiento": 105.07007709128646,
+        "cierre": 105.07007709128646
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1478,10 +1478,10 @@ const DATOS_RECAUDO = {
     },
     "ESPINAL": {
       "total": {
-        "presupuesto": 48785850.0,
-        "recaudo": 49441190.0,
-        "cumplimiento": 101.3432993378203,
-        "cierre": 101.3432993378203
+        "presupuesto": 108478220.0,
+        "recaudo": 102249190.0,
+        "cumplimiento": 94.25780585264029,
+        "cierre": 94.25780585264029
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1507,25 +1507,25 @@ const DATOS_RECAUDO = {
     "CUNDINAMARCA MEDIOS": {
       "total": {
         "presupuesto": 142942220.0,
-        "recaudo": 123159800.0,
-        "cumplimiento": 86.16054794727548,
-        "cierre": 86.16054794727548
+        "recaudo": 126283300.0,
+        "cumplimiento": 88.34569660384454,
+        "cierre": 88.34569660384454
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 142942220.0,
-          "recaudo": 123159800.0,
-          "cumplimiento": 86.16054794727548,
-          "cierre": 86.16054794727548
+          "recaudo": 126283300.0,
+          "cumplimiento": 88.34569660384454,
+          "cierre": 88.34569660384454
         }
       }
     },
     "CACHIPAY": {
       "total": {
-        "presupuesto": 4905100.0,
-        "recaudo": 5717400.0,
-        "cumplimiento": 116.56031477441846,
-        "cierre": 116.56031477441846
+        "presupuesto": 6466000.0,
+        "recaudo": 7945350.0,
+        "cumplimiento": 122.8789050417569,
+        "cierre": 122.8789050417569
       },
       "tipos": {
         "OFICINA": {
@@ -1544,10 +1544,10 @@ const DATOS_RECAUDO = {
     },
     "NEIVA": {
       "total": {
-        "presupuesto": 118195935.0,
-        "recaudo": 115463520.0,
-        "cumplimiento": 97.68823267906802,
-        "cierre": 97.68823267906802
+        "presupuesto": 314626255.0,
+        "recaudo": 285508601.0,
+        "cumplimiento": 90.74531971274934,
+        "cierre": 90.74531971274934
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1567,25 +1567,25 @@ const DATOS_RECAUDO = {
     "HUILA MEDIOS": {
       "total": {
         "presupuesto": 236715423.0,
-        "recaudo": 199581413.0,
-        "cumplimiento": 84.3128050004583,
-        "cierre": 84.3128050004583
+        "recaudo": 202013021.0,
+        "cumplimiento": 85.34003337839124,
+        "cierre": 85.34003337839124
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 236715423.0,
-          "recaudo": 199581413.0,
-          "cumplimiento": 84.3128050004583,
-          "cierre": 84.3128050004583
+          "recaudo": 202013021.0,
+          "cumplimiento": 85.34003337839124,
+          "cierre": 85.34003337839124
         }
       }
     },
     "AIPE": {
       "total": {
-        "presupuesto": 16500493.0,
-        "recaudo": 19108348.0,
-        "cumplimiento": 115.80470959261642,
-        "cierre": 115.80470959261642
+        "presupuesto": 20821276.0,
+        "recaudo": 22465998.0,
+        "cumplimiento": 107.89923729938549,
+        "cierre": 107.89923729938549
       },
       "tipos": {
         "OFICINA": {
@@ -1604,10 +1604,10 @@ const DATOS_RECAUDO = {
     },
     "GARZON": {
       "total": {
-        "presupuesto": 26172650.0,
-        "recaudo": 29101550.0,
-        "cumplimiento": 111.19068951749249,
-        "cierre": 111.19068951749249
+        "presupuesto": 43990050.0,
+        "recaudo": 44845700.0,
+        "cumplimiento": 101.94509894851222,
+        "cierre": 101.94509894851222
       },
       "tipos": {
         "OFICINA": {
@@ -1620,10 +1620,10 @@ const DATOS_RECAUDO = {
     },
     "PITALITO": {
       "total": {
-        "presupuesto": 14988275.0,
-        "recaudo": 15344110.0,
-        "cumplimiento": 102.37408907963056,
-        "cierre": 102.37408907963056
+        "presupuesto": 29787925.0,
+        "recaudo": 27300610.0,
+        "cumplimiento": 91.64992190627578,
+        "cierre": 91.64992190627578
       },
       "tipos": {
         "OFICINA": {
@@ -1636,10 +1636,10 @@ const DATOS_RECAUDO = {
     },
     "LA PLATA": {
       "total": {
-        "presupuesto": 9402600.0,
-        "recaudo": 11607170.0,
-        "cumplimiento": 123.44638716950631,
-        "cierre": 123.44638716950631
+        "presupuesto": 19546700.0,
+        "recaudo": 19688920.0,
+        "cumplimiento": 100.72759084653676,
+        "cierre": 100.72759084653676
       },
       "tipos": {
         "OFICINA": {
@@ -1652,10 +1652,10 @@ const DATOS_RECAUDO = {
     },
     "ACACIAS": {
       "total": {
-        "presupuesto": 16580600.0,
-        "recaudo": 14361100.0,
-        "cumplimiento": 86.61387404557132,
-        "cierre": 86.61387404557132
+        "presupuesto": 20704500.0,
+        "recaudo": 16542050.0,
+        "cumplimiento": 79.89591634668793,
+        "cierre": 79.89591634668793
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1674,10 +1674,10 @@ const DATOS_RECAUDO = {
     },
     "VILLAVICENCIO": {
       "total": {
-        "presupuesto": 5426150.0,
-        "recaudo": 6307800.0,
-        "cumplimiento": 116.24816859098992,
-        "cierre": 116.24816859098992
+        "presupuesto": 11271150.0,
+        "recaudo": 9774100.0,
+        "cumplimiento": 86.71785931337973,
+        "cierre": 86.71785931337973
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1697,16 +1697,16 @@ const DATOS_RECAUDO = {
     "META MEDIOS": {
       "total": {
         "presupuesto": 9964900.0,
-        "recaudo": 5338900.0,
-        "cumplimiento": 53.57705546468103,
-        "cierre": 53.57705546468103
+        "recaudo": 5679350.0,
+        "cumplimiento": 56.99354735120272,
+        "cierre": 56.99354735120272
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 9964900.0,
-          "recaudo": 5338900.0,
-          "cumplimiento": 53.57705546468103,
-          "cierre": 53.57705546468103
+          "recaudo": 5679350.0,
+          "cumplimiento": 56.99354735120272,
+          "cierre": 56.99354735120272
         }
       }
     },
@@ -1728,10 +1728,10 @@ const DATOS_RECAUDO = {
     },
     "MOCOA": {
       "total": {
-        "presupuesto": 5044850.0,
-        "recaudo": 4114100.0,
-        "cumplimiento": 81.55049208598868,
-        "cierre": 81.55049208598868
+        "presupuesto": 10599400.0,
+        "recaudo": 9408150.0,
+        "cumplimiento": 88.76115629186557,
+        "cierre": 88.76115629186557
       },
       "tipos": {
         "OFICINA": {
@@ -1744,10 +1744,10 @@ const DATOS_RECAUDO = {
     },
     "ARMENIA": {
       "total": {
-        "presupuesto": 278116940.0,
-        "recaudo": 290140160.0,
-        "cumplimiento": 104.32308078752772,
-        "cierre": 104.32308078752772
+        "presupuesto": 454630482.0,
+        "recaudo": 451103143.0,
+        "cumplimiento": 99.22413055444883,
+        "cierre": 99.22413055444883
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1794,10 +1794,10 @@ const DATOS_RECAUDO = {
     },
     "CALARCA": {
       "total": {
-        "presupuesto": 84915280.0,
-        "recaudo": 85942650.0,
-        "cumplimiento": 101.20987647923907,
-        "cierre": 101.20987647923907
+        "presupuesto": 98130330.0,
+        "recaudo": 97702870.0,
+        "cumplimiento": 99.56439563588546,
+        "cierre": 99.56439563588546
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1816,10 +1816,10 @@ const DATOS_RECAUDO = {
     },
     "MONTENEGRO": {
       "total": {
-        "presupuesto": 64625400.0,
-        "recaudo": 64490240.0,
-        "cumplimiento": 99.79085622680866,
-        "cierre": 99.79085622680866
+        "presupuesto": 72183700.0,
+        "recaudo": 71395840.0,
+        "cumplimiento": 98.90853475230557,
+        "cierre": 98.90853475230557
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1838,10 +1838,10 @@ const DATOS_RECAUDO = {
     },
     "CIRCASIA": {
       "total": {
-        "presupuesto": 26621100.0,
-        "recaudo": 24770410.0,
-        "cumplimiento": 93.04803332694742,
-        "cierre": 93.04803332694742
+        "presupuesto": 32337700.0,
+        "recaudo": 30411760.0,
+        "cumplimiento": 94.04428886408124,
+        "cierre": 94.04428886408124
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1860,10 +1860,10 @@ const DATOS_RECAUDO = {
     },
     "BARCELONA": {
       "total": {
-        "presupuesto": 25110400.0,
-        "recaudo": 24753300.0,
-        "cumplimiento": 98.57788008155983,
-        "cierre": 98.57788008155983
+        "presupuesto": 29365150.0,
+        "recaudo": 28780600.0,
+        "cumplimiento": 98.00937505853027,
+        "cierre": 98.00937505853027
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1882,10 +1882,10 @@ const DATOS_RECAUDO = {
     },
     "CORDOBA": {
       "total": {
-        "presupuesto": 12329750.0,
-        "recaudo": 12171900.0,
-        "cumplimiento": 98.71976317443581,
-        "cierre": 98.71976317443581
+        "presupuesto": 14279250.0,
+        "recaudo": 14121300.0,
+        "cumplimiento": 98.89384946688376,
+        "cierre": 98.89384946688376
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1904,10 +1904,10 @@ const DATOS_RECAUDO = {
     },
     "PIJAO": {
       "total": {
-        "presupuesto": 10344600.0,
-        "recaudo": 6916000.0,
-        "cumplimiento": 66.8561375016917,
-        "cierre": 66.8561375016917
+        "presupuesto": 13470800.0,
+        "recaudo": 9992450.0,
+        "cumplimiento": 74.17859369896368,
+        "cierre": 74.17859369896368
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1932,10 +1932,10 @@ const DATOS_RECAUDO = {
     },
     "QUIMBAYA": {
       "total": {
-        "presupuesto": 38379450.0,
-        "recaudo": 39470200.0,
-        "cumplimiento": 102.8420157141387,
-        "cierre": 102.8420157141387
+        "presupuesto": 48088600.0,
+        "recaudo": 47764100.0,
+        "cumplimiento": 99.32520389447811,
+        "cierre": 99.32520389447811
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1954,10 +1954,10 @@ const DATOS_RECAUDO = {
     },
     "GENOVA": {
       "total": {
-        "presupuesto": 17184900.0,
-        "recaudo": 17410000.0,
-        "cumplimiento": 101.30987087501238,
-        "cierre": 101.30987087501238
+        "presupuesto": 19589400.0,
+        "recaudo": 19803500.0,
+        "cumplimiento": 101.09293801749925,
+        "cierre": 101.09293801749925
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -1977,53 +1977,53 @@ const DATOS_RECAUDO = {
     "QUINDIO MEDIOS": {
       "total": {
         "presupuesto": 164234950.0,
-        "recaudo": 144615266.0,
-        "cumplimiento": 88.05389230489612,
-        "cierre": 88.05389230489612
+        "recaudo": 146407566.0,
+        "cumplimiento": 89.14519473473825,
+        "cierre": 89.14519473473825
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 164234950.0,
-          "recaudo": 144615266.0,
-          "cumplimiento": 88.05389230489612,
-          "cierre": 88.05389230489612
+          "recaudo": 146407566.0,
+          "cumplimiento": 89.14519473473825,
+          "cierre": 89.14519473473825
         }
       }
     },
     "PEREIRA": {
       "total": {
-        "presupuesto": 351959110.0,
-        "recaudo": 357450575.0,
-        "cumplimiento": 101.56025653093623,
-        "cierre": 101.56025653093623
+        "presupuesto": 551109584.0,
+        "recaudo": 549153029.0,
+        "cumplimiento": 99.64497895576426,
+        "cierre": 99.64497895576426
       },
       "tipos": {
         "ASESOR COBRANZA": {
           "presupuesto": 299207160.0,
-          "recaudo": 294948910.0,
-          "cumplimiento": 98.57682215893496,
-          "cierre": 98.57682215893496
+          "recaudo": 294956910.0,
+          "cumplimiento": 98.5794958917427,
+          "cierre": 98.5794958917427
         },
         "OFICINA": {
           "presupuesto": 51189450.0,
-          "recaudo": 61506265.0,
-          "cumplimiento": 120.15418216058191,
-          "cierre": 120.15418216058191
+          "recaudo": 62119315.0,
+          "cumplimiento": 121.35179221499743,
+          "cierre": 121.35179221499743
         },
         "PUNTO DE RECAUDO": {
           "presupuesto": 1562500.0,
-          "recaudo": 995400.0,
-          "cumplimiento": 63.7056,
-          "cierre": 63.7056
+          "recaudo": 1112900.0,
+          "cumplimiento": 71.2256,
+          "cierre": 71.2256
         }
       }
     },
     "LA VIRGINIA": {
       "total": {
-        "presupuesto": 57741000.0,
-        "recaudo": 49906850.0,
-        "cumplimiento": 86.43225784104882,
-        "cierre": 86.43225784104882
+        "presupuesto": 63957250.0,
+        "recaudo": 56019350.0,
+        "cumplimiento": 87.58874091678426,
+        "cierre": 87.58874091678426
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2034,18 +2034,18 @@ const DATOS_RECAUDO = {
         },
         "OFICINA": {
           "presupuesto": 18238900.0,
-          "recaudo": 21101200.0,
-          "cumplimiento": 115.69338063150738,
-          "cierre": 115.69338063150738
+          "recaudo": 21066200.0,
+          "cumplimiento": 115.50148309382693,
+          "cierre": 115.50148309382693
         }
       }
     },
     "SANTA ROSA": {
       "total": {
-        "presupuesto": 17999300.0,
-        "recaudo": 18616960.0,
-        "cumplimiento": 103.4315778946959,
-        "cierre": 103.4315778946959
+        "presupuesto": 23341000.0,
+        "recaudo": 22576060.0,
+        "cumplimiento": 96.722762520886,
+        "cierre": 96.722762520886
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2070,17 +2070,17 @@ const DATOS_RECAUDO = {
     },
     "MARSELLA": {
       "total": {
-        "presupuesto": 22803050.0,
-        "recaudo": 20800500.0,
-        "cumplimiento": 91.21806074187444,
-        "cierre": 91.21806074187444
+        "presupuesto": 27200200.0,
+        "recaudo": 25767600.0,
+        "cumplimiento": 94.73312696230175,
+        "cierre": 94.73312696230175
       },
       "tipos": {
         "ASESOR COBRANZA": {
           "presupuesto": 5544150.0,
-          "recaudo": 4869500.0,
-          "cumplimiento": 87.83131769522831,
-          "cierre": 87.83131769522831
+          "recaudo": 5717500.0,
+          "cumplimiento": 103.12671915442404,
+          "cierre": 103.12671915442404
         },
         "OFICINA": {
           "presupuesto": 17258900.0,
@@ -2093,25 +2093,25 @@ const DATOS_RECAUDO = {
     "RISARALDA MEDIOS": {
       "total": {
         "presupuesto": 139622025.0,
-        "recaudo": 129988860.0,
-        "cumplimiento": 93.1005405486706,
-        "cierre": 93.1005405486706
+        "recaudo": 131429110.0,
+        "cumplimiento": 94.13207550886044,
+        "cierre": 94.13207550886044
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 139622025.0,
-          "recaudo": 129988860.0,
-          "cumplimiento": 93.1005405486706,
-          "cierre": 93.1005405486706
+          "recaudo": 131429110.0,
+          "cumplimiento": 94.13207550886044,
+          "cierre": 94.13207550886044
         }
       }
     },
     "APIA": {
       "total": {
-        "presupuesto": 9132350.0,
-        "recaudo": 8755000.0,
-        "cumplimiento": 95.86798578679091,
-        "cierre": 95.86798578679091
+        "presupuesto": 10612900.0,
+        "recaudo": 10391500.0,
+        "cumplimiento": 97.91385954828557,
+        "cierre": 97.91385954828557
       },
       "tipos": {
         "OFICINA": {
@@ -2124,10 +2124,10 @@ const DATOS_RECAUDO = {
     },
     "SANTUARIO": {
       "total": {
-        "presupuesto": 4596900.0,
-        "recaudo": 3870500.0,
-        "cumplimiento": 84.1980465096043,
-        "cierre": 84.1980465096043
+        "presupuesto": 6185800.0,
+        "recaudo": 5095300.0,
+        "cumplimiento": 82.3709140289049,
+        "cierre": 82.3709140289049
       },
       "tipos": {
         "OFICINA": {
@@ -2140,23 +2140,23 @@ const DATOS_RECAUDO = {
     },
     "SAN GIL": {
       "total": {
-        "presupuesto": 34280050.0,
-        "recaudo": 30583650.0,
-        "cumplimiento": 89.21705190044939,
-        "cierre": 89.21705190044939
+        "presupuesto": 51004000.0,
+        "recaudo": 50602164.0,
+        "cumplimiento": 99.21214806681829,
+        "cierre": 99.21214806681829
       },
       "tipos": {
         "ASESOR COBRANZA": {
           "presupuesto": 15314400.0,
-          "recaudo": 14169250.0,
-          "cumplimiento": 92.52239722091626,
-          "cierre": 92.52239722091626
+          "recaudo": 14090850.0,
+          "cumplimiento": 92.01046074283028,
+          "cierre": 92.01046074283028
         },
         "OFICINA": {
           "presupuesto": 6321950.0,
-          "recaudo": 4657200.0,
-          "cumplimiento": 73.66714384011263,
-          "cierre": 73.66714384011263
+          "recaudo": 4777200.0,
+          "cumplimiento": 75.56529235441596,
+          "cierre": 75.56529235441596
         },
         "PUNTO DE RECAUDO": {
           "presupuesto": 12643700.0,
@@ -2168,10 +2168,10 @@ const DATOS_RECAUDO = {
     },
     "BUCARAMANGA": {
       "total": {
-        "presupuesto": 6795075.0,
-        "recaudo": 4687430.0,
-        "cumplimiento": 68.98275589305489,
-        "cierre": 68.98275589305489
+        "presupuesto": 17205725.0,
+        "recaudo": 13474380.0,
+        "cumplimiento": 78.3133520964679,
+        "cierre": 78.3133520964679
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2191,25 +2191,25 @@ const DATOS_RECAUDO = {
     "SANTANDER MEDIOS": {
       "total": {
         "presupuesto": 18277600.0,
-        "recaudo": 15945300.0,
-        "cumplimiento": 87.23957193504617,
-        "cierre": 87.23957193504617
+        "recaudo": 16511300.0,
+        "cumplimiento": 90.33625858974919,
+        "cierre": 90.33625858974919
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 18277600.0,
-          "recaudo": 15945300.0,
-          "cumplimiento": 87.23957193504617,
-          "cierre": 87.23957193504617
+          "recaudo": 16511300.0,
+          "cumplimiento": 90.33625858974919,
+          "cierre": 90.33625858974919
         }
       }
     },
     "IBAGUE": {
       "total": {
-        "presupuesto": 71814900.0,
-        "recaudo": 77697350.0,
-        "cumplimiento": 108.1911274679767,
-        "cierre": 108.1911274679767
+        "presupuesto": 153799550.0,
+        "recaudo": 155995792.0,
+        "cumplimiento": 101.42798987383253,
+        "cierre": 101.42798987383253
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2228,10 +2228,10 @@ const DATOS_RECAUDO = {
     },
     "LA DORADA": {
       "total": {
-        "presupuesto": 19856550.0,
-        "recaudo": 19078050.0,
-        "cumplimiento": 96.07937934837622,
-        "cierre": 96.07937934837622
+        "presupuesto": 25056180.0,
+        "recaudo": 23788430.0,
+        "cumplimiento": 94.9403700005348,
+        "cierre": 94.9403700005348
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2272,10 +2272,10 @@ const DATOS_RECAUDO = {
     },
     "LIBANO": {
       "total": {
-        "presupuesto": 25522050.0,
-        "recaudo": 25596000.0,
-        "cumplimiento": 100.28974945194449,
-        "cierre": 100.28974945194449
+        "presupuesto": 36806700.0,
+        "recaudo": 36230150.0,
+        "cumplimiento": 98.4335732353077,
+        "cierre": 98.4335732353077
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2294,10 +2294,10 @@ const DATOS_RECAUDO = {
     },
     "ARMERO": {
       "total": {
-        "presupuesto": 19418100.0,
-        "recaudo": 18042200.0,
-        "cumplimiento": 92.91434280387885,
-        "cierre": 92.91434280387885
+        "presupuesto": 21236400.0,
+        "recaudo": 20302550.0,
+        "cumplimiento": 95.6025974270592,
+        "cierre": 95.6025974270592
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2322,10 +2322,10 @@ const DATOS_RECAUDO = {
     },
     "LERIDA": {
       "total": {
-        "presupuesto": 33599900.0,
-        "recaudo": 36706800.0,
-        "cumplimiento": 109.24675371057653,
-        "cierre": 109.24675371057653
+        "presupuesto": 42532300.0,
+        "recaudo": 47085740.0,
+        "cumplimiento": 110.70584003216379,
+        "cierre": 110.70584003216379
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2344,10 +2344,10 @@ const DATOS_RECAUDO = {
     },
     "VENADILLO": {
       "total": {
-        "presupuesto": 14202450.0,
-        "recaudo": 14420400.0,
-        "cumplimiento": 101.53459438336343,
-        "cierre": 101.53459438336343
+        "presupuesto": 17749650.0,
+        "recaudo": 18575500.0,
+        "cumplimiento": 104.65276780105523,
+        "cierre": 104.65276780105523
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2366,10 +2366,10 @@ const DATOS_RECAUDO = {
     },
     "FRESNO": {
       "total": {
-        "presupuesto": 31713250.0,
-        "recaudo": 30215013.0,
-        "cumplimiento": 95.27567499389058,
-        "cierre": 95.27567499389058
+        "presupuesto": 40809950.0,
+        "recaudo": 38672313.0,
+        "cumplimiento": 94.76197103892555,
+        "cierre": 94.76197103892555
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2388,10 +2388,10 @@ const DATOS_RECAUDO = {
     },
     "MARIQUITA": {
       "total": {
-        "presupuesto": 7825650.0,
-        "recaudo": 8777150.0,
-        "cumplimiento": 112.15873441822724,
-        "cierre": 112.15873441822724
+        "presupuesto": 8847600.0,
+        "recaudo": 9646800.0,
+        "cumplimiento": 109.03295809032957,
+        "cierre": 109.03295809032957
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2410,10 +2410,10 @@ const DATOS_RECAUDO = {
     },
     "HONDA": {
       "total": {
-        "presupuesto": 14410500.0,
-        "recaudo": 14748200.0,
-        "cumplimiento": 102.34343013774678,
-        "cierre": 102.34343013774678
+        "presupuesto": 15027150.0,
+        "recaudo": 15652850.0,
+        "cumplimiento": 104.16379686101489,
+        "cierre": 104.16379686101489
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2433,16 +2433,16 @@ const DATOS_RECAUDO = {
     "TOLIMA MEDIOS": {
       "total": {
         "presupuesto": 121124480.0,
-        "recaudo": 112730962.0,
-        "cumplimiento": 93.07033722662834,
-        "cierre": 93.07033722662834
+        "recaudo": 114769312.0,
+        "cumplimiento": 94.75319274848486,
+        "cierre": 94.75319274848486
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 121124480.0,
-          "recaudo": 112730962.0,
-          "cumplimiento": 93.07033722662834,
-          "cierre": 93.07033722662834
+          "recaudo": 114769312.0,
+          "cumplimiento": 94.75319274848486,
+          "cierre": 94.75319274848486
         }
       }
     },
@@ -2464,10 +2464,10 @@ const DATOS_RECAUDO = {
     },
     "ANZOATEGUI": {
       "total": {
-        "presupuesto": 13231900.0,
-        "recaudo": 11409850.0,
-        "cumplimiento": 86.2298687263356,
-        "cierre": 86.2298687263356
+        "presupuesto": 15029050.0,
+        "recaudo": 12863650.0,
+        "cumplimiento": 85.59190367987331,
+        "cierre": 85.59190367987331
       },
       "tipos": {
         "OFICINA": {
@@ -2480,10 +2480,10 @@ const DATOS_RECAUDO = {
     },
     "SANTA ISABEL": {
       "total": {
-        "presupuesto": 6129350.0,
-        "recaudo": 1340990.0,
-        "cumplimiento": 21.87817631559627,
-        "cierre": 21.87817631559627
+        "presupuesto": 7745900.0,
+        "recaudo": 2508990.0,
+        "cumplimiento": 32.39120050607418,
+        "cierre": 32.39120050607418
       },
       "tipos": {
         "OFICINA": {
@@ -2496,10 +2496,10 @@ const DATOS_RECAUDO = {
     },
     "ROVIRA": {
       "total": {
-        "presupuesto": 4644900.0,
-        "recaudo": 5296650.0,
-        "cumplimiento": 114.03151843957889,
-        "cierre": 114.03151843957889
+        "presupuesto": 5242800.0,
+        "recaudo": 5633800.0,
+        "cumplimiento": 107.45784695201037,
+        "cierre": 107.45784695201037
       },
       "tipos": {
         "OFICINA": {
@@ -2512,10 +2512,10 @@ const DATOS_RECAUDO = {
     },
     "CALI": {
       "total": {
-        "presupuesto": 222059500.0,
-        "recaudo": 230412982.0,
-        "cumplimiento": 103.76182149378883,
-        "cierre": 103.76182149378883
+        "presupuesto": 437321064.0,
+        "recaudo": 424570830.0,
+        "cumplimiento": 97.08446835755434,
+        "cierre": 97.08446835755434
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2540,10 +2540,10 @@ const DATOS_RECAUDO = {
     },
     "YUMBO": {
       "total": {
-        "presupuesto": 56338000.0,
-        "recaudo": 56515250.0,
-        "cumplimiento": 100.31461890730947,
-        "cierre": 100.31461890730947
+        "presupuesto": 69314600.0,
+        "recaudo": 67791600.0,
+        "cumplimiento": 97.8027717104333,
+        "cierre": 97.8027717104333
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2563,25 +2563,25 @@ const DATOS_RECAUDO = {
     "VALLE SUR MEDIOS": {
       "total": {
         "presupuesto": 180875300.0,
-        "recaudo": 156953290.0,
-        "cumplimiento": 86.77430804537713,
-        "cierre": 86.77430804537713
+        "recaudo": 159613998.0,
+        "cumplimiento": 88.24532592344008,
+        "cierre": 88.24532592344008
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 180875300.0,
-          "recaudo": 156953290.0,
-          "cumplimiento": 86.77430804537713,
-          "cierre": 86.77430804537713
+          "recaudo": 159613998.0,
+          "cumplimiento": 88.24532592344008,
+          "cierre": 88.24532592344008
         }
       }
     },
     "PALMIRA": {
       "total": {
-        "presupuesto": 162691350.0,
-        "recaudo": 166893450.0,
-        "cumplimiento": 102.58286626793618,
-        "cierre": 102.58286626793618
+        "presupuesto": 262782260.0,
+        "recaudo": 255739260.0,
+        "cumplimiento": 97.31983429931685,
+        "cierre": 97.31983429931685
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2592,9 +2592,9 @@ const DATOS_RECAUDO = {
         },
         "OFICINA": {
           "presupuesto": 43048850.0,
-          "recaudo": 43136200.0,
-          "cumplimiento": 100.20290902079847,
-          "cierre": 100.20290902079847
+          "recaudo": 43088600.0,
+          "cumplimiento": 100.09233696138224,
+          "cierre": 100.09233696138224
         },
         "PUNTO DE RECAUDO": {
           "presupuesto": 1606800.0,
@@ -2606,10 +2606,10 @@ const DATOS_RECAUDO = {
     },
     "PRADERA": {
       "total": {
-        "presupuesto": 38779150.0,
-        "recaudo": 38525740.0,
-        "cumplimiento": 99.34653028753854,
-        "cierre": 99.34653028753854
+        "presupuesto": 46056900.0,
+        "recaudo": 43631790.0,
+        "cumplimiento": 94.73453489053757,
+        "cierre": 94.73453489053757
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2628,10 +2628,10 @@ const DATOS_RECAUDO = {
     },
     "FLORIDA": {
       "total": {
-        "presupuesto": 35143000.0,
-        "recaudo": 36980310.0,
-        "cumplimiento": 105.22809663375352,
-        "cierre": 105.22809663375352
+        "presupuesto": 50664650.0,
+        "recaudo": 50542590.0,
+        "cumplimiento": 99.75908251611331,
+        "cierre": 99.75908251611331
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2651,25 +2651,25 @@ const DATOS_RECAUDO = {
     "VALLE CENTRO PALMIRA MEDIOS": {
       "total": {
         "presupuesto": 123714510.0,
-        "recaudo": 105859490.0,
-        "cumplimiento": 85.5675619618103,
-        "cierre": 85.5675619618103
+        "recaudo": 107380890.0,
+        "cumplimiento": 86.7973287854432,
+        "cierre": 86.7973287854432
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 123714510.0,
-          "recaudo": 105859490.0,
-          "cumplimiento": 85.5675619618103,
-          "cierre": 85.5675619618103
+          "recaudo": 107380890.0,
+          "cumplimiento": 86.7973287854432,
+          "cierre": 86.7973287854432
         }
       }
     },
     "TULUA": {
       "total": {
-        "presupuesto": 166772350.0,
-        "recaudo": 166364950.0,
-        "cumplimiento": 99.75571490118116,
-        "cierre": 99.75571490118116
+        "presupuesto": 213002880.0,
+        "recaudo": 211545775.0,
+        "cumplimiento": 99.31592239503992,
+        "cierre": 99.31592239503992
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2694,10 +2694,10 @@ const DATOS_RECAUDO = {
     },
     "BUGALAGRANDE": {
       "total": {
-        "presupuesto": 10659600.0,
-        "recaudo": 11489750.0,
-        "cumplimiento": 107.7878156778866,
-        "cierre": 107.7878156778866
+        "presupuesto": 12227300.0,
+        "recaudo": 13346450.0,
+        "cumplimiento": 109.15287921290881,
+        "cierre": 109.15287921290881
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2716,10 +2716,10 @@ const DATOS_RECAUDO = {
     },
     "ANDALUCIA": {
       "total": {
-        "presupuesto": 25999550.0,
-        "recaudo": 26125200.0,
-        "cumplimiento": 100.48327759518915,
-        "cierre": 100.48327759518915
+        "presupuesto": 28166750.0,
+        "recaudo": 27946300.0,
+        "cumplimiento": 99.21733959366983,
+        "cierre": 99.21733959366983
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2738,10 +2738,10 @@ const DATOS_RECAUDO = {
     },
     "RIOFRIO": {
       "total": {
-        "presupuesto": 16054900.0,
-        "recaudo": 17427420.0,
-        "cumplimiento": 108.5489165301559,
-        "cierre": 108.5489165301559
+        "presupuesto": 19389750.0,
+        "recaudo": 20635970.0,
+        "cumplimiento": 106.42721025283977,
+        "cierre": 106.42721025283977
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2766,10 +2766,10 @@ const DATOS_RECAUDO = {
     },
     "GUACARI": {
       "total": {
-        "presupuesto": 27081050.0,
-        "recaudo": 28225200.0,
-        "cumplimiento": 104.22491003856939,
-        "cierre": 104.22491003856939
+        "presupuesto": 29703050.0,
+        "recaudo": 31261050.0,
+        "cumplimiento": 105.24525259190554,
+        "cierre": 105.24525259190554
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2788,10 +2788,10 @@ const DATOS_RECAUDO = {
     },
     "CAICEDONIA": {
       "total": {
-        "presupuesto": 53464900.0,
-        "recaudo": 53861850.0,
-        "cumplimiento": 100.74244971934858,
-        "cierre": 100.74244971934858
+        "presupuesto": 59193400.0,
+        "recaudo": 59305400.0,
+        "cumplimiento": 100.18921028357892,
+        "cierre": 100.18921028357892
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2810,10 +2810,10 @@ const DATOS_RECAUDO = {
     },
     "SEVILLA": {
       "total": {
-        "presupuesto": 35313750.0,
-        "recaudo": 36932800.0,
-        "cumplimiento": 104.58475806166155,
-        "cierre": 104.58475806166155
+        "presupuesto": 42924700.0,
+        "recaudo": 44017150.0,
+        "cumplimiento": 102.54503817149568,
+        "cierre": 102.54503817149568
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2832,10 +2832,10 @@ const DATOS_RECAUDO = {
     },
     "BOLIVAR": {
       "total": {
-        "presupuesto": 18370650.0,
-        "recaudo": 19404100.0,
-        "cumplimiento": 105.62554944980171,
-        "cierre": 105.62554944980171
+        "presupuesto": 21498500.0,
+        "recaudo": 22516450.0,
+        "cumplimiento": 104.73498151033793,
+        "cierre": 104.73498151033793
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2860,10 +2860,10 @@ const DATOS_RECAUDO = {
     },
     "BUGA": {
       "total": {
-        "presupuesto": 58044627.0,
-        "recaudo": 65034850.0,
-        "cumplimiento": 112.04284248393913,
-        "cierre": 112.04284248393913
+        "presupuesto": 62585127.0,
+        "recaudo": 71954850.0,
+        "cumplimiento": 114.97116559338451,
+        "cierre": 114.97116559338451
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2883,25 +2883,25 @@ const DATOS_RECAUDO = {
     "VALLE CENTRO MEDIOS": {
       "total": {
         "presupuesto": 61689000.0,
-        "recaudo": 64282285.0,
-        "cumplimiento": 104.20380456807534,
-        "cierre": 104.20380456807534
+        "recaudo": 64980035.0,
+        "cumplimiento": 105.33488142132308,
+        "cierre": 105.33488142132308
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 61689000.0,
-          "recaudo": 64282285.0,
-          "cumplimiento": 104.20380456807534,
-          "cierre": 104.20380456807534
+          "recaudo": 64980035.0,
+          "cumplimiento": 105.33488142132308,
+          "cierre": 105.33488142132308
         }
       }
     },
     "TRUJILLO": {
       "total": {
-        "presupuesto": 13413050.0,
-        "recaudo": 12857300.0,
-        "cumplimiento": 95.85664707132233,
-        "cierre": 95.85664707132233
+        "presupuesto": 16099950.0,
+        "recaudo": 15633900.0,
+        "cumplimiento": 97.10527051326247,
+        "cierre": 97.10527051326247
       },
       "tipos": {
         "OFICINA": {
@@ -2914,10 +2914,10 @@ const DATOS_RECAUDO = {
     },
     "CARTAGO": {
       "total": {
-        "presupuesto": 205443050.0,
-        "recaudo": 207436490.0,
-        "cumplimiento": 100.9703126973631,
-        "cierre": 100.9703126973631
+        "presupuesto": 281048805.0,
+        "recaudo": 285541359.0,
+        "cumplimiento": 101.59849603345583,
+        "cierre": 101.59849603345583
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2936,10 +2936,10 @@ const DATOS_RECAUDO = {
     },
     "OBANDO": {
       "total": {
-        "presupuesto": 24343600.0,
-        "recaudo": 24419060.0,
-        "cumplimiento": 100.30997880346375,
-        "cierre": 100.30997880346375
+        "presupuesto": 25474600.0,
+        "recaudo": 25636060.0,
+        "cumplimiento": 100.63380779286032,
+        "cierre": 100.63380779286032
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2958,10 +2958,10 @@ const DATOS_RECAUDO = {
     },
     "EL AGUILA": {
       "total": {
-        "presupuesto": 7762550.0,
-        "recaudo": 6192050.0,
-        "cumplimiento": 79.76824625928334,
-        "cierre": 79.76824625928334
+        "presupuesto": 8543750.0,
+        "recaudo": 7007750.0,
+        "cumplimiento": 82.02194586686174,
+        "cierre": 82.02194586686174
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -2980,10 +2980,10 @@ const DATOS_RECAUDO = {
     },
     "ARGELIA": {
       "total": {
-        "presupuesto": 11221700.0,
-        "recaudo": 12246950.0,
-        "cumplimiento": 109.13631624441929,
-        "cierre": 109.13631624441929
+        "presupuesto": 11871600.0,
+        "recaudo": 12707350.0,
+        "cumplimiento": 107.03991037433876,
+        "cierre": 107.03991037433876
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3002,10 +3002,10 @@ const DATOS_RECAUDO = {
     },
     "ANSERMA NUEVO": {
       "total": {
-        "presupuesto": 33092100.0,
-        "recaudo": 32571150.0,
-        "cumplimiento": 98.42575720489181,
-        "cierre": 98.42575720489181
+        "presupuesto": 36400650.0,
+        "recaudo": 35510300.0,
+        "cumplimiento": 97.55402719456933,
+        "cierre": 97.55402719456933
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3016,18 +3016,18 @@ const DATOS_RECAUDO = {
         },
         "OFICINA": {
           "presupuesto": 19556750.0,
-          "recaudo": 20740300.0,
-          "cumplimiento": 106.05187467242767,
-          "cierre": 106.05187467242767
+          "recaudo": 20690300.0,
+          "cumplimiento": 105.79620847022129,
+          "cierre": 105.79620847022129
         }
       }
     },
     "TORO": {
       "total": {
-        "presupuesto": 30008700.0,
-        "recaudo": 30228410.0,
-        "cumplimiento": 100.73215434190752,
-        "cierre": 100.73215434190752
+        "presupuesto": 31779900.0,
+        "recaudo": 32037710.0,
+        "cumplimiento": 100.81123603283837,
+        "cierre": 100.81123603283837
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3046,10 +3046,10 @@ const DATOS_RECAUDO = {
     },
     "LA UNION": {
       "total": {
-        "presupuesto": 31697300.0,
-        "recaudo": 32832400.0,
-        "cumplimiento": 103.58106210939101,
-        "cierre": 103.58106210939101
+        "presupuesto": 35056900.0,
+        "recaudo": 36235700.0,
+        "cumplimiento": 103.36253348128328,
+        "cierre": 103.36253348128328
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3068,10 +3068,10 @@ const DATOS_RECAUDO = {
     },
     "ROLDANILLO": {
       "total": {
-        "presupuesto": 11917700.0,
-        "recaudo": 13979950.0,
-        "cumplimiento": 117.30409391073782,
-        "cierre": 117.30409391073782
+        "presupuesto": 16936550.0,
+        "recaudo": 18879750.0,
+        "cumplimiento": 111.47341105478978,
+        "cierre": 111.47341105478978
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3090,10 +3090,10 @@ const DATOS_RECAUDO = {
     },
     "ZARZAL": {
       "total": {
-        "presupuesto": 34883800.0,
-        "recaudo": 38351300.0,
-        "cumplimiento": 109.94014413567331,
-        "cierre": 109.94014413567331
+        "presupuesto": 41243050.0,
+        "recaudo": 43972200.0,
+        "cumplimiento": 106.61723611614562,
+        "cierre": 106.61723611614562
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3112,10 +3112,10 @@ const DATOS_RECAUDO = {
     },
     "LA VICTORIA": {
       "total": {
-        "presupuesto": 30192200.0,
-        "recaudo": 31526190.0,
-        "cumplimiento": 104.41832658766172,
-        "cierre": 104.41832658766172
+        "presupuesto": 33563150.0,
+        "recaudo": 34680940.0,
+        "cumplimiento": 103.33040849860635,
+        "cierre": 103.33040849860635
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3134,10 +3134,10 @@ const DATOS_RECAUDO = {
     },
     "EL DOVIO": {
       "total": {
-        "presupuesto": 22393100.0,
-        "recaudo": 24753794.0,
-        "cumplimiento": 110.54205983093006,
-        "cierre": 110.54205983093006
+        "presupuesto": 24669600.0,
+        "recaudo": 27487194.0,
+        "cumplimiento": 111.42132016733146,
+        "cierre": 111.42132016733146
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3156,10 +3156,10 @@ const DATOS_RECAUDO = {
     },
     "SAN JOSE DEL PALMAR": {
       "total": {
-        "presupuesto": 8761350.0,
-        "recaudo": 9361750.0,
-        "cumplimiento": 106.85282519246464,
-        "cierre": 106.85282519246464
+        "presupuesto": 9206550.0,
+        "recaudo": 9727750.0,
+        "cumplimiento": 105.66118687238976,
+        "cierre": 105.66118687238976
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3184,10 +3184,10 @@ const DATOS_RECAUDO = {
     },
     "ALCALA": {
       "total": {
-        "presupuesto": 34561400.0,
-        "recaudo": 34747117.0,
-        "cumplimiento": 100.53735381089885,
-        "cierre": 100.53735381089885
+        "presupuesto": 40191550.0,
+        "recaudo": 39810017.0,
+        "cumplimiento": 99.05071339622383,
+        "cierre": 99.05071339622383
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3206,10 +3206,10 @@ const DATOS_RECAUDO = {
     },
     "ULLOA": {
       "total": {
-        "presupuesto": 8110150.0,
-        "recaudo": 7909560.0,
-        "cumplimiento": 97.52667953120473,
-        "cierre": 97.52667953120473
+        "presupuesto": 9577800.0,
+        "recaudo": 9973360.0,
+        "cumplimiento": 104.12996721585333,
+        "cierre": 104.12996721585333
       },
       "tipos": {
         "ASESOR COBRANZA": {
@@ -3229,25 +3229,25 @@ const DATOS_RECAUDO = {
     "VALLE NORTE MEDIOS": {
       "total": {
         "presupuesto": 61270600.0,
-        "recaudo": 59782350.0,
-        "cumplimiento": 97.57102101170871,
-        "cierre": 97.57102101170871
+        "recaudo": 60331450.0,
+        "cumplimiento": 98.46720939569713,
+        "cierre": 98.46720939569713
       },
       "tipos": {
         "MEDIOS": {
           "presupuesto": 61270600.0,
-          "recaudo": 59782350.0,
-          "cumplimiento": 97.57102101170871,
-          "cierre": 97.57102101170871
+          "recaudo": 60331450.0,
+          "cumplimiento": 98.46720939569713,
+          "cierre": 98.46720939569713
         }
       }
     },
     "VERSALLES": {
       "total": {
-        "presupuesto": 6815800.0,
-        "recaudo": 6184350.0,
-        "cumplimiento": 90.73549693359547,
-        "cierre": 90.73549693359547
+        "presupuesto": 7884100.0,
+        "recaudo": 7478700.0,
+        "cumplimiento": 94.85800535254499,
+        "cierre": 94.85800535254499
       },
       "tipos": {
         "OFICINA": {
@@ -3257,51 +3257,123 @@ const DATOS_RECAUDO = {
           "cierre": 90.73549693359547
         }
       }
+    },
+    "CARAMANTA": {
+      "total": {
+        "presupuesto": 3073700.0,
+        "recaudo": 2133400.0,
+        "cumplimiento": 69.40820509483684,
+        "cierre": 69.40820509483684
+      },
+      "tipos": {}
+    },
+    "VILLA RICA": {
+      "total": {
+        "presupuesto": 20193250.0,
+        "recaudo": 18748900.0,
+        "cumplimiento": 92.84736236118505,
+        "cierre": 92.84736236118505
+      },
+      "tipos": {}
+    },
+    "TEBAIDA": {
+      "total": {
+        "presupuesto": 58031100.0,
+        "recaudo": 57357500.0,
+        "cumplimiento": 98.83924309551257,
+        "cierre": 98.83924309551257
+      },
+      "tipos": {}
+    },
+    "VILLA HERMOSA": {
+      "total": {
+        "presupuesto": 4497100.0,
+        "recaudo": 3263100.0,
+        "cumplimiento": 72.56009428298236,
+        "cierre": 72.56009428298236
+      },
+      "tipos": {}
+    },
+    "PUERTO BOYACA": {
+      "total": {
+        "presupuesto": 26688850.0,
+        "recaudo": 25469390.0,
+        "cumplimiento": 95.43082598163653,
+        "cierre": 95.43082598163653
+      },
+      "tipos": {}
+    },
+    "STDER DE QUILICHAO": {
+      "total": {
+        "presupuesto": 73583650.0,
+        "recaudo": 70670568.0,
+        "cumplimiento": 96.04112870182439,
+        "cierre": 96.04112870182439
+      },
+      "tipos": {}
+    },
+    "CSC": {
+      "total": {
+        "presupuesto": 2525225.0,
+        "recaudo": 1356450.0,
+        "cumplimiento": 53.71600550445999,
+        "cierre": 53.71600550445999
+      },
+      "tipos": {}
+    },
+    "KENNEDY": {
+      "total": {
+        "presupuesto": 0.0,
+        "recaudo": 0.0,
+        "cumplimiento": 0,
+        "cierre": 0
+      },
+      "tipos": {}
     }
   },
   "campanas": [
     {
       "campana": "MASIVO",
       "presupuesto": "$6,017,125,543",
-      "recaudo": "$5,847,753,912",
-      "cumplimiento": "97.19%",
-      "cierre": "97.19%"
+      "recaudo": "$5,872,659,538",
+      "cumplimiento": "97.60%",
+      "cierre": "97.60%"
     },
     {
       "campana": "CORPORATIVO",
       "presupuesto": "$343,278,520",
-      "recaudo": "$339,954,913",
-      "cumplimiento": "99.03%",
-      "cierre": "99.03%"
+      "recaudo": "$348,516,373",
+      "cumplimiento": "101.53%",
+      "cierre": "101.53%"
     },
     {
       "campana": "nan",
       "presupuesto": "$6,360,404,063",
-      "recaudo": "$6,187,708,825",
-      "cumplimiento": "97.28%",
-      "cierre": "97.28%"
+      "recaudo": "$6,290,801,384",
+      "cumplimiento": "98.91%",
+      "cierre": "98.91%"
     }
   ],
   "tipos": {
     "ASESOR COBRANZA": {
       "presupuesto": 2565158871.0,
-      "recaudo": 2566099567.0,
-      "cumplimiento": 100.03667203659916
+      "recaudo": 2566910167.0,
+      "cumplimiento": 100.06827241851563
     },
     "MEDIOS": {
       "presupuesto": 1749901747.0,
-      "recaudo": 1527603067.0,
-      "cumplimiento": 87.29650505343487
+      "recaudo": 1550980143.0,
+      "cumplimiento": 88.63241297169812
     },
     "OFICINA": {
       "presupuesto": 1628893152.0,
-      "recaudo": 1680506440.0,
-      "cumplimiento": 103.16861102501585
+      "recaudo": 1681106890.0,
+      "cumplimiento": 103.20547347969942
     },
     "PUNTO DE RECAUDO": {
       "presupuesto": 73171773.0,
-      "recaudo": 73544838.0,
-      "cumplimiento": 100.50984824434963
+      "recaudo": 73662338.0,
+      "cumplimiento": 100.67042929245406
     }
   }
 };
